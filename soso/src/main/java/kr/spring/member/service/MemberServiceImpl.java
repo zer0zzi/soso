@@ -1,0 +1,50 @@
+package kr.spring.member.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import kr.spring.member.dao.MemberMapper;
+import kr.spring.member.vo.MemberVO;
+
+@Service
+@Transactional
+public class MemberServiceImpl implements MemberService{
+	
+	@Autowired
+	private MemberMapper memberMapper;
+
+	//회원관리-일반회원
+	@Override
+	public void insertMember(MemberVO member) {
+		member.setMem_num(memberMapper.selectMem_num());
+		memberMapper.insertMember(member);
+		memberMapper.insertMember_detail(member);
+	}
+
+	@Override
+	public MemberVO selectCheckMember(String mem_id) {
+		return memberMapper.selectCheckMember(mem_id);
+	}
+
+	
+	
+	
+	//자동로그인
+	@Override
+	public void updateAu_id(String mem_au_id, String mem_id) {
+		memberMapper.updateAu_id(mem_au_id, mem_id);
+	}
+
+	@Override
+	public MemberVO selectAu_id(String mem_au_id) {
+		return memberMapper.selectAu_id(mem_au_id);
+	}
+
+	@Override
+	public void deleteAu_id(int mem_num) {
+		memberMapper.deleteAu_id(mem_num);
+	}
+
+
+}
