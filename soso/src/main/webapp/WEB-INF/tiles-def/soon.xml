@@ -5,6 +5,14 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+	<definition name="admin" template="/WEB-INF/views/template/layout_admin.jsp">
+    	<put-attribute name="title" value="관리자페이지"/>
+    	<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
+    	<put-attribute name="nav" value="/WEB-INF/views/template/admin_nav.jsp"/>
+    	<put-attribute name="body" value="/WEB-INF/views/main/admin.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+    </definition>
+	
     <definition name="memberRegister" extends="main">
     	<put-attribute name="title" value="회원가입"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/memberRegister.jsp"/>
@@ -13,6 +21,8 @@
     	<put-attribute name="title" value="회원로그인"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/memberLogin.jsp"/>
     </definition>
+    
+    
 </tiles-definitions>
 
 

@@ -158,6 +158,7 @@ public class MemberController {
 	}
 	
 	//========회원로그아웃
+	@RequestMapping("/member/logout.do")
 	public String processLogout(HttpSession session, HttpServletResponse response) {
 		
 		session.invalidate();
