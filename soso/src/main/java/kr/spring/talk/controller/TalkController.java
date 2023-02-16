@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,6 +18,7 @@ import kr.spring.member.vo.MemberVO;
 import kr.spring.talk.service.TalkService;
 import kr.spring.talk.vo.TalkRoomVO;
 
+@Controller
 public class TalkController {
 	private static final Logger logger =LoggerFactory.getLogger(TalkController.class);
 	@Autowired

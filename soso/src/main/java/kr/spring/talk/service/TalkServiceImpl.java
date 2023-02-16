@@ -3,9 +3,14 @@ package kr.spring.talk.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import kr.spring.talk.vo.TalkRoomVO;
 import kr.spring.talk.vo.TalkVO;
 
+@Service
+@Transactional
 public class TalkServiceImpl implements TalkService{
 
 	@Override

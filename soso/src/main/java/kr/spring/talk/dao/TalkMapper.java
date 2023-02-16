@@ -3,11 +3,13 @@ package kr.spring.talk.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import kr.spring.talk.vo.TalkRoomVO;
 import kr.spring.talk.vo.TalkVO;
 
+@Mapper
 public interface TalkMapper {
 	//채팅방 목록
 	public List<TalkRoomVO> selectTalkRoomList(Map<String,Object> map);
