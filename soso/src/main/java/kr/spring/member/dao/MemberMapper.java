@@ -40,7 +40,7 @@ public interface MemberMapper {
 	public void updateByAdmin(MemberVO memberVO);
 	
 	//채팅 회원이름 검색
-	@Select("SELECT mem_num,id,nick_name FROM member WHERE auth >= 2 AND id LIKE '%' || #{id} || '%'")
+	@Select("SELECT mem_num,mem_id,mem_nick FROM member WHERE mem_auth >= 2 AND mem_id LIKE '%' || #{mem_id} || '%'")
 	public List<MemberVO> selectSearchMember(String id);
 
 }
