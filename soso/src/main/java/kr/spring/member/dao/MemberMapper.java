@@ -38,6 +38,11 @@ public interface MemberMapper {
 	public int selectRowCount(Map<String, Object> map);
 	@Update("UPDATE member SET mem_auth=#{mem_auth} WHERE mem_num=#{mem_num}")
 	public void updateByAdmin(MemberVO memberVO);
+	
+	//채팅 회원이름 검색
+	@Select("SELECT mem_num,id,nick_name FROM member WHERE auth >= 2 AND id LIKE '%' || #{id} || '%'")
+	public List<MemberVO> selectSearchMember(String id);
+
 }
 
 
