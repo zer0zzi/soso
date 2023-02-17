@@ -6,7 +6,7 @@
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/study.fav.js"></script>
 <div class="page-main">
-	<h2>${study.title}</h2>
+	<h2>${study.stc_title}</h2>
 	<ul class="detail-info">
 		<li>
 			<c:if test="${!empty study.mem_photo_name}">
@@ -20,10 +20,10 @@
 			<c:if test="${empty study.mem_nick}">${study.mem_id}</c:if>
 			<c:if test="${!empty study.mem_nick}">${study.mem_nick}</c:if>
 			<br>
-			<c:if test="${!empty study.stc_modify}">
-			최근 수정일 : ${study.stc_modify}
+			<c:if test="${!empty study.stc_modify_date}">
+			최근 수정일 : ${study.stc_modify_date}
 			</c:if>
-			<c:if test="${empty study.stc_modify}">
+			<c:if test="${empty study.stc_modify_date}">
 			작성일 : ${study.stc_date}
 			</c:if>
 			조회 : ${study.hit}
@@ -40,7 +40,7 @@
 			<c:if test="${!empty study.stc_period}">
 			마감기한 : ${study.stc_period}
 			</c:if>
-			연락처 : ${study.mem_email}
+			연락처 : ${member.mem_email}
 		</li>
 	</ul>
 	<hr size="1" width="100%">
@@ -67,7 +67,7 @@
 	</ul>
 	</c:if>
 	<hr size="1" width="100%">
-	<div>
+	<!-- <div>
 		<%-- 관심등록 --%>
 		<img id="output_fav" data-num="${study.stc_num}"
 		 src="${pageContext.request.contextPath}/images/fav01.gif" width="40">
@@ -75,15 +75,15 @@
 	</div>
 	
 	<div class="align-right">
-		<!--  신청하기 -->
-		<!-- Modal창 호출 버튼 -->
+		 신청하기
+		Modal창 호출 버튼
 		<button type="button" class="btn btn-primary"
 							data-bs-toggle="modal"
 							data-bs-target="#exampleModal">
 			Launch demo modal
 		</button>
 		
-		<!-- Modal -->
+		Modal
 		<div class="modal fade" id="exampleModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -104,7 +104,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="align-center">
 		<input type="button" value="메인페이지"
 		           onclick="location.href='main.do'">
