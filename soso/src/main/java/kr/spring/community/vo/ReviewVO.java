@@ -131,7 +131,18 @@ public class ReviewVO {
 	public void setStc_filter(String stc_filter) {
 		this.stc_filter = stc_filter;
 	}
-	
+	public byte[] getReview_uploadfile() {
+		return review_uploadfile;
+	}
+	public void setReview_uploadfile(byte[] review_uploadfile) {
+		this.review_uploadfile = review_uploadfile;
+	}
+	public byte[] getMem_photo() {
+		return mem_photo;
+	}
+	public void setMem_photo(byte[] mem_photo) {
+		this.mem_photo = mem_photo;
+	}
 	@Override
 	public String toString() {
 		return "ReviewVO [review_num=" + review_num + ", review_fixed=" + review_fixed + ", review_title="

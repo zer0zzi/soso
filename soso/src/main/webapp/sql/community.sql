@@ -1,7 +1,7 @@
 --커뮤니티
 --1. 자유 게시판
 --1-1) 자유 게시판
-create free_board(
+create table free_board(
  free_num number,
  free_fixed number(10) default 2 not null, --고정:1, 고정x:2
  free_title varchar2(100) not null,
@@ -19,15 +19,15 @@ create free_board(
 create sequence free_board_seq;
 
 --1-2) 자유 게시판 댓글
-create free_reply(
- fre_num number,
- fre_pnum number(10),
- fre_content varchar2(1500) not null,
+create table free_reply(
+ fre_num number, --댓글번호
+ fre_pnum number(10), --대댓글 구현 위한 번호
+ fre_content varchar2(1500) not null, --댓글 내용
  fre_regdate date default sysdate not null,
  fre_modifydate date,
  fre_ip varchar2(40) not null,
- free_num number not null,
- mem_num number not null,
+ free_num number not null, --게시물번호
+ mem_num number not null, --작성자
  constraint free_reply_pk primary key (fre_num),
  constraint free_reply_fk1 foreign key (free_num) references free_board (free_num),
  constraint free_reply_fk2 foreign key (mem_num) references member (mem_num)
@@ -47,7 +47,7 @@ create sequence free_fav_seq;
 
 --2. 홍보 라운지
 --2-1) 홍보 라운지
-create promo_board(
+create table promo_board(
  promo_num number,
  promo_fixed number(10) default 2 not null, --고정:1, 고정x:2
  promo_title varchar2(100) not null,
@@ -67,7 +67,7 @@ create promo_board(
 create sequence promo_board_seq;
 
 --2-2) 홍보 라운지 댓글
-create promo_reply(
+create table promo_reply(
  pre_num number,
  pre_pnum number(10),
  pre_content varchar2(1500) not null,
@@ -95,7 +95,7 @@ create sequence free_fav_seq;
 
 --3. 리뷰
 --3-1) 리뷰 게시판
-create review_board(
+create table review_board(
  review_num number,
  review_fixed number(10) default 2 not null, --고정:1, 고정x:2
  review_title varchar2(100) not null,
@@ -116,7 +116,7 @@ create review_board(
 create sequence review_board_seq;
 
 --3-2) 홍보 라운지 댓글
-create review_reply(
+create table review_reply(
  vre_num number,
  vre_pnum number(10),
  vre_content varchar2(1500) not null,

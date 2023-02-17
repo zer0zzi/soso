@@ -138,7 +138,18 @@ public class PromoVO {
 	public void setStc_state(String stc_state) {
 		this.stc_state = stc_state;
 	}
-	
+	public byte[] getPromo_uploadfile() {
+		return promo_uploadfile;
+	}
+	public void setPromo_uploadfile(byte[] promo_uploadfile) {
+		this.promo_uploadfile = promo_uploadfile;
+	}
+	public byte[] getMem_photo() {
+		return mem_photo;
+	}
+	public void setMem_photo(byte[] mem_photo) {
+		this.mem_photo = mem_photo;
+	}
 	@Override
 	public String toString() {
 		return "PromoVO [promo_num=" + promo_num + ", promo_fixed=" + promo_fixed + ", promo_title=" + promo_title

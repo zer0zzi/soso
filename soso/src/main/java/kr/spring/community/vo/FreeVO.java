@@ -1,6 +1,10 @@
 package kr.spring.community.vo;
 
+import java.io.IOException;
+
 import javax.validation.constraints.NotEmpty;
+
+import org.springframework.web.multipart.MultipartFile;
 
 // 테이블 free_board 시퀀스 free_board_seq
 public class FreeVO {
@@ -22,7 +26,19 @@ public class FreeVO {
 	private String mem_nick;
 	private byte[] mem_photo;
 	private String mem_photo_name; // 프로필 이미지
+	private int mem_auth;
 	
+	private int fre_count;
+	private int f_fav_count;
+
+	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
+	public void setFree_upload(MultipartFile free_upload) throws IOException{
+		// MultipartFile → byte[] 변환
+		setFree_uploadfile(free_upload.getBytes());
+		// 파일명 구하기
+		setFree_filename(free_upload.getOriginalFilename());
+	}
+
 	public int getFree_num() {
 		return free_num;
 	}
@@ -65,6 +81,12 @@ public class FreeVO {
 	public void setFree_modifydate(String free_modifydate) {
 		this.free_modifydate = free_modifydate;
 	}
+	public byte[] getFree_uploadfile() {
+		return free_uploadfile;
+	}
+	public void setFree_uploadfile(byte[] free_uploadfile) {
+		this.free_uploadfile = free_uploadfile;
+	}
 	public String getFree_filename() {
 		return free_filename;
 	}
@@ -95,19 +117,45 @@ public class FreeVO {
 	public void setMem_nick(String mem_nick) {
 		this.mem_nick = mem_nick;
 	}
+	public byte[] getMem_photo() {
+		return mem_photo;
+	}
+	public void setMem_photo(byte[] mem_photo) {
+		this.mem_photo = mem_photo;
+	}
 	public String getMem_photo_name() {
 		return mem_photo_name;
 	}
 	public void setMem_photo_name(String mem_photo_name) {
 		this.mem_photo_name = mem_photo_name;
 	}
-	
+	public int getMem_auth() {
+		return mem_auth;
+	}
+	public void setMem_auth(int mem_auth) {
+		this.mem_auth = mem_auth;
+	}
+	public int getFre_count() {
+		return fre_count;
+	}
+	public void setFre_count(int fre_count) {
+		this.fre_count = fre_count;
+	}
+	public int getF_fav_count() {
+		return f_fav_count;
+	}
+	public void setF_fav_count(int f_fav_count) {
+		this.f_fav_count = f_fav_count;
+	}
+
 	@Override
 	public String toString() {
-		return "FreeBoardVO [free_num=" + free_num + ", free_fixed=" + free_fixed + ", free_title=" + free_title
+		return "FreeVO [free_num=" + free_num + ", free_fixed=" + free_fixed + ", free_title=" + free_title
 				+ ", free_content=" + free_content + ", free_hit=" + free_hit + ", free_regdate=" + free_regdate
 				+ ", free_modifydate=" + free_modifydate + ", free_filename=" + free_filename + ", free_ip=" + free_ip
 				+ ", mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick + ", mem_photo_name="
-				+ mem_photo_name + "]";
+				+ mem_photo_name + ", mem_auth=" + mem_auth + ", fre_count=" + fre_count + ", f_fav_count="
+				+ f_fav_count + "]";
 	}
+
 }

@@ -3,6 +3,13 @@ package kr.spring.community.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+import kr.spring.community.vo.FreeFavVO;
+import kr.spring.community.vo.FreeReplyVO;
 import kr.spring.community.vo.FreeVO;
 
 public interface FreeService {
@@ -17,7 +24,16 @@ public interface FreeService {
 	public void deleteFreeFile(Integer free_num); // 자유 게시글 수정할 때 파일 삭제에 필요
 	
 	// 좋아요
-	
+	public FreeFavVO selectFreeFav(FreeFavVO fav);
+	public int selectFreeFavCount(Integer free_num);
+	public void insertFreeFav(FreeFavVO fav);
+	public void deleteFreeFav(Integer fav_num);
 	
 	// 댓글
+	public List<FreeReplyVO> selectFreeListReply(Map<String, Object> map);
+	public int selectFreeRowCountReply(Map<String, Object> map);
+	public FreeReplyVO selectFreeReply(Integer fre_num);
+	public void insertFreeReply(FreeReplyVO freeReply);
+	public void updateFreeReply(FreeReplyVO freeReply);
+	public void deleteFreeReply(Integer fre_num);
 }
