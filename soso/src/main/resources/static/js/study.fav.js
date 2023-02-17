@@ -1,6 +1,6 @@
 $(function(){
-	//좋아요 읽기
-	//좋아요 선택 여부와 선택한 총개수 표시
+	//관심등록 읽기
+	//관심등록 여부와 선택한 총개수 표시
 	function selectFav(stc_num){
 		$.ajax({
 			url:'getFav.do',
@@ -11,12 +11,12 @@ $(function(){
 				displayFav(param);
 			},
 			error:function(){
-				alert('네트워크 오류');
+				alert('관심등록 읽어오기에 네트워크 오류');
 			}
 		});
 	}
 	
-	//좋아요 등록
+	//관심 등록
 	$('#output_fav').click(function(){
 		$.ajax({
 			url:'writeFav.do',
@@ -33,12 +33,12 @@ $(function(){
 				}
 			},
 			error:function(){
-				alert('네트워크 오류 발생');
+				alert('관심등록에 네트워크 오류 발생');
 			}
 		});
 	});
 	
-	//좋아요 표시, 좋아요 개수 표시 공통 함수
+	//관심 표시, 관심 개수 표시 공통 함수
 	function displayFav(param){
 		let output;
 		if(param.status == 'yesFav'){

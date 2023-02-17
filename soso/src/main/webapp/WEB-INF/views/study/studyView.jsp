@@ -67,14 +67,14 @@
 	</ul>
 	</c:if>
 	<hr size="1" width="100%">
-	<!-- <div>
+	<div>
 		<%-- 관심등록 --%>
 		<img id="output_fav" data-num="${study.stc_num}"
 		 src="${pageContext.request.contextPath}/images/fav01.gif" width="40">
 		<span id="output_fcount"></span>
 	</div>
 	
-	<div class="align-right">
+	<!-- <div class="align-right">
 		 신청하기
 		Modal창 호출 버튼
 		<button type="button" class="btn btn-primary"
@@ -107,7 +107,7 @@
 	</div> -->
 	<div class="align-center">
 		<input type="button" value="메인페이지"
-		           onclick="location.href='main.do'">
+		           onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
