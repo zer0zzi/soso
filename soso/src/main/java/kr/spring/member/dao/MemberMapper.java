@@ -1,5 +1,8 @@
 package kr.spring.member.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -19,6 +22,8 @@ public interface MemberMapper {
 	public void insertMember_detail(MemberVO member);
 	@Select("SELECT m.mem_num,m.mem_id,m.mem_auth,m.mem_au_id,d.mem_pw,m.mem_nick,d.mem_email FROM member m LEFT OUTER JOIN member_detail d ON m.mem_num=d.mem_num WHERE m.mem_id=#{mem_id}")
 	public MemberVO selectCheckMember(String mem_id);
+	@Select("SELECT * FROM member m JOIN member_detail d ON m.mem_num=d.mem_num WHERE m.mem_num=#{mem_num}")
+	public MemberVO selectMember(Integer mem_num);
 	
 	//자동 로그인
 	@Update("UPDATE member SET mem_au_id=#{mem_au_id} WHERE mem_id=#{mem_id}")
@@ -27,6 +32,12 @@ public interface MemberMapper {
 	public MemberVO selectAu_id(String mem_au_id);
 	@Update("UPDATE member SET mem_au_id='' WHERE mem_num=#{mem_num}")
 	public void deleteAu_id(int mem_num);
+	
+	//회원관리 - 관리자
+	public List<MemberVO> selectList(Map<String, Object> map);
+	public int selectRowCount(Map<String, Object> map);
+	@Update("UPDATE member SET mem_auth=#{mem_auth} WHERE mem_num=#{mem_num}")
+	public void updateByAdmin(MemberVO memberVO);
 }
 
 
