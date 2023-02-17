@@ -24,5 +24,5 @@ public interface MemberService {
 	public void updateByAdmin(MemberVO memberVO);
 	
 	//채팅 회원이름 검색
-	public List<MemberVO> selectSearchMember(String id);
+	public List<MemberVO> selectSearchMember(String mem_id);
 }

@@ -34,7 +34,7 @@ public interface TalkMapper {
 	public List<TalkVO> selectTalkDetail(
 			Integer talkroom_num);
 	//채팅 멤버 읽기
-	@Select("SELECT mem_num, id FROM talk_member JOIN member USING(mem_num) WHERE talkroom_num=#{talkroom_num}")	
+	@Select("SELECT mem_num, mem_id FROM talk_member JOIN member USING(mem_num) WHERE talkroom_num=#{talkroom_num}")	
 	public List<TalkVO> selectTalkMember(Integer talkroom_num);
 	//읽지 않은 채팅 기록 저장
 	public void insertTalkRead(@Param(value="talkroom_num") int talkroom_num,@Param(value="talk_num") int talk_num,

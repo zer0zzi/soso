@@ -31,7 +31,7 @@
          chat_date,
          read_count,
          mem_num,
-         id
+         mem_id
       FROM talk t LEFT OUTER JOIN (SELECT talk_num, COUNT(*) read_count 
       FROM talk_read GROUP BY talk_num) r USING(talk_num)
       JOIN member m USING(mem_num)

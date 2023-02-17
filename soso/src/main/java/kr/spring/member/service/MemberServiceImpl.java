@@ -68,8 +68,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<MemberVO> selectSearchMember(String id) {
-		return memberMapper.selectSearchMember(id);
+	public List<MemberVO> selectSearchMember(String mem_id) {
+		return memberMapper.selectSearchMember(mem_id);
 	}
 
 

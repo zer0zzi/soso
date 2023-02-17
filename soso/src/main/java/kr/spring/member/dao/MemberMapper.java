@@ -41,7 +41,7 @@ public interface MemberMapper {
 	
 	//채팅 회원이름 검색
 	@Select("SELECT mem_num,mem_id,mem_nick FROM member WHERE mem_auth >= 2 AND mem_id LIKE '%' || #{mem_id} || '%'")
-	public List<MemberVO> selectSearchMember(String id);
+	public List<MemberVO> selectSearchMember(String mem_id);
 
 }
 

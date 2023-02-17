@@ -34,10 +34,10 @@ public class TalkController {
 
 	//=====채팅 목록========//
 	@RequestMapping("/talk/talkList.do")
-	public String chatList(/* String keyword, */HttpSession session,Model model) {
+	public String chatList( String keyword, HttpSession session,Model model) {
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		Map<String,Object> map = new HashMap<String, Object>();
-		//map.put("keyword", keyword);
+		map.put("keyword", keyword);
 		map.put("mem_num", user.getMem_num());
 
 		List<TalkRoomVO> list = talkService.selectTalkRoomList(map);
@@ -67,6 +67,7 @@ public class TalkController {
 	@RequestMapping("/talk/memberSearchAjax.do")
 	@ResponseBody
 	public Map<String,Object> SearchMember(@RequestParam String id,HttpSession session){
+		
 		Map<String,Object> mapAjax = new HashMap<String,Object>();
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("user");
