@@ -76,10 +76,34 @@
 	
 	<div class="align-right">
 		<!--  신청하기 -->
+		<!-- Modal창 호출 버튼 -->
+		<button type="button" class="btn btn-primary"
+							data-bs-toggle="modal"
+							data-bs-target="#exampleModal">
+			Launch demo modal
+		</button>
 		
-		
-		 
-		
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal=header">
+						<h5 class="modal-title">Modal-title</h5>
+						<button type="button" class="btn-close"
+								data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						모달창의 내용이 보여집니다.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary"
+								data-bs-dismiss="modal">Save change</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="align-center">
 		<input type="button" value="메인페이지"
