@@ -1,5 +1,8 @@
 package kr.spring.member.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +17,7 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private MemberMapper memberMapper;
 
-	//회원관리-일반회원
+	//회원관리 - 일반회원
 	@Override
 	public void insertMember(MemberVO member) {
 		member.setMem_num(memberMapper.selectMem_num());
@@ -26,9 +29,11 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO selectCheckMember(String mem_id) {
 		return memberMapper.selectCheckMember(mem_id);
 	}
-
 	
-	
+	@Override
+	public MemberVO selectMember(Integer mem_num) {
+		return memberMapper.selectMember(mem_num);
+	}
 	
 	//자동로그인
 	@Override
@@ -45,6 +50,24 @@ public class MemberServiceImpl implements MemberService{
 	public void deleteAu_id(int mem_num) {
 		memberMapper.deleteAu_id(mem_num);
 	}
+
+	//회원관리 - 관리자
+	@Override
+	public List<MemberVO> selectList(Map<String, Object> map) {
+		return memberMapper.selectList(map);
+	}
+
+	@Override
+	public int selectRowCount(Map<String, Object> map) {
+		return memberMapper.selectRowCount(map);
+	}
+
+	@Override
+	public void updateByAdmin(MemberVO memberVO) {
+		memberMapper.updateByAdmin(memberVO);
+	}
+
+
 
 
 }

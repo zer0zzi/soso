@@ -1,6 +1,7 @@
 package kr.spring.member.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -172,5 +173,17 @@ public class MemberController {
 		return "redirect:/main/main.do";
 	}
 	
+	//관리자 페이지
+	@RequestMapping("/main/admin.do")
+	public String adminMain(Model model) {
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("start", 1);
+		map.put("end", 5);
+		List<MemberVO> memberList = memberService.selectList(map);
+		
+		model.addAttribute("memberList", memberList);
+				
+		return "admin";
+	}
 	
 }
