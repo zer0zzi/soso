@@ -25,18 +25,12 @@
      
      <select id="selectTalkDetail" parameterType="integer" resultType="talkVO">
       SELECT 
-         <![CDATA[
-         REPLACE(REPLACE(message,'<','&lt;'),'>','&gt;') message,
-         ]]>     
-         chat_date,
-         read_count,
-         mem_num,
-         mem_id
-      FROM talk t LEFT OUTER JOIN (SELECT talk_num, COUNT(*) read_count 
-      FROM talk_read GROUP BY talk_num) r USING(talk_num)
-      JOIN member m USING(mem_num)
-      WHERE talkroom_num=#{talkroom_num}
-      ORDER BY chat_date ASC
+      <![CDATA[
+      REPLACE(REPLACE(message,'<','&lt;'),'>','&gt;') message,
+      ]]>     
+      chat_date,read_count,mem_num,mem_id
+      FROM talk t LEFT OUTER JOIN (SELECT talk_num, COUNT(*) read_count  FROM talk_read GROUP BY talk_num) r 
+      USING(talk_num) JOIN member m USING(mem_num) WHERE talkroom_num=#{talkroom_num} ORDER BY chat_date ASC
      </select>
     
 </mapper>

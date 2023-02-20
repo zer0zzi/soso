@@ -21,6 +21,7 @@ import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.talk.service.TalkService;
 import kr.spring.talk.vo.TalkRoomVO;
+import kr.spring.talk.vo.TalkVO;
 
 @Controller
 public class TalkController {
@@ -80,6 +81,75 @@ public class TalkController {
 		}
 		return mapAjax;
 	}	
+	//=========채팅 메시지 페이지 호출==========//
+	@RequestMapping("/talk/talkDetail.do")
+	public String chatDetail(@RequestParam int talkroom_num, Model model) {
+		
+		TalkRoomVO talkRoomVO = talkService.selectTalkRoom(talkroom_num);
+		List<TalkVO> list = talkService.selectTalkMember(talkroom_num);
+		
+		model.addAttribute("talkRoomVO",talkRoomVO);
+		model.addAttribute("list", list);
+		
+		return "talkDetail";
+	}
+	
+	//=========채팅 메시지 읽기==========//
+	@RequestMapping("/talk/talkDetailAjax.do")
+	@ResponseBody
+	public Map<String,Object> talkDetailAjax(@RequestParam int talkroom_num, HttpSession session){
+		Map<String,Object> mapAjax = new HashMap<String, Object>();
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapAjax.put("result", "logout");
+		}else {
+			Map<String,Integer> map = new HashMap<String, Integer>();
+			map.put("talkroom_num", talkroom_num);
+			map.put("mem_num", user.getMem_num());
+			
+			List<TalkVO> list = talkService.selectTalkDetail(map);
+			mapAjax.put("result", "success");
+			mapAjax.put("list", list);
+		}
+		return mapAjax;
+	}
+	
+	//============채팅 메시지 등록============//
+	@RequestMapping("/talk/writeTalk.do")
+	@ResponseBody
+	public Map<String,String> writeTalkAjax(TalkVO vo,HttpSession session){
+		
+		logger.debug("<<채팅메시지 저장>>: " +vo);
+		
+		Map<String,String> mapAjax = new HashMap<String, String>();
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapAjax.put("result", "logout");
+		}else {
+			talkService.insertTalk(vo);
+			mapAjax.put("result", "success");
+		}
+		return mapAjax;
+	}
+	
+	//============채팅방 나가기============//
+	@RequestMapping("/talk/deleteTalkRoomMember.do")
+	@ResponseBody
+	public Map<String,String> deleteTalkRoomMember(TalkVO talkVO,HttpSession session){
+		
+		Map<String,String> mapAjax = new HashMap<String, String>();
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		if(user==null) {
+			mapAjax.put("result", "logout");
+		}else {
+			talkVO.setMessage(user.getMem_id()+"님이 나갔습니다.@{exit}@");
+			talkService.deleteTalkRoomMember(talkVO);
+			mapAjax.put("result", "success");
+		}
+		return mapAjax;
+	}
+		
 }
 
 
