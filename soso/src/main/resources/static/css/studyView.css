@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#exampleModal{
+	margin-top:100px;	
+}
+#exampleModal .btn-close {
+	float: right;
+}
+.btn-primary{
+	float: right;
+}
+
+div#clear{
+	clear:both;
+}

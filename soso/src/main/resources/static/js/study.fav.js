@@ -43,13 +43,16 @@ $(function(){
 		let output;
 		if(param.status == 'yesFav'){
 			output = '../images/fav02.gif';
+			favText = "관심등록한 게시물입니다.";
 		}else{
 			output = '../images/fav01.gif';
+			favText = "이 게시물을 관심등록하시겠습니까?";
 		}
 		
 		//문서 객체에 추가
 		$('#output_fav').attr('src',output);
 		$('#output_fcount').text(param.count);
+		$('#output_text').text(favText);
 	}
 	
 	//초기 데이터 표시

@@ -18,21 +18,19 @@ public class StudyServiceImpl implements StudyService{
 	@Autowired
 	private StudyMapper studyMapper; 
 
+	
 	@Override
 	public List<StudyVO> selectList(Map<String, Object> map) {
 		return studyMapper.selectList(map);
 	}
-
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
 		return studyMapper.selectRowCount(map);
 	}
-
 	@Override
 	public void insertStudy(StudyVO study) {
 		studyMapper.insertStudy(study);
 	}
-
 	@Override
 	public StudyVO selectStudy(Integer stc_num) {
 		return studyMapper.selectStudy(stc_num);
@@ -40,49 +38,39 @@ public class StudyServiceImpl implements StudyService{
 
 	@Override
 	public void updateHit(Integer stc_num) {
-		// TODO Auto-generated method stub
-		
+		//studyMapper.updateHit(stc_num);
 	}
-
 	@Override
 	public void updateStudy(StudyVO study) {
-		// TODO Auto-generated method stub
-		
+		studyMapper.updateStudy(study);
 	}
-
 	@Override
 	public void deleteStudy(Integer stc_num) {
-		// TODO Auto-generated method stub
-		
+		//좋아요 삭제
+		studyMapper.deleteFavByStcNum(stc_num);
 	}
-
 	@Override
 	public void deleteFile(Integer stc_num) {
-		// TODO Auto-generated method stub
-		
+		studyMapper.deleteFile(stc_num);
 	}
 
+	
 	//좋아요
 	@Override
 	public StudyFavVO selectFav(StudyFavVO fav) {
 		return studyMapper.selectFav(fav);
 	}
-	
 	@Override
 	public int selectFavCount(Integer stc_num) {
-		// TODO Auto-generated method stub
-		return 0;
+		return studyMapper.selectFavCount(stc_num);
 	}
-	
 	@Override
 	public void insertFav(StudyFavVO fav) {
-		// TODO Auto-generated method stub
-		
+		studyMapper.insertFav(fav);
 	}
 	@Override
 	public void deleteFav(Integer fav_num) {
-		// TODO Auto-generated method stub
-		
+		studyMapper.deleteFav(fav_num);
 	}
 
 }

@@ -11,10 +11,10 @@ public class StudyFavVO {
 	public void setFav_num(int fav_num) {
 		this.fav_num = fav_num;
 	}
-	public int getBoard_num() {
+	public int getStc_num() {
 		return stc_num;
 	}
-	public void setBoard_num(int board_num) {
+	public void setStc_num(int stc_num) {
 		this.stc_num = stc_num;
 	}
 	public int getMem_num() {
