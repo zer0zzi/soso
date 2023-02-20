@@ -1,0 +1,63 @@
+/* 전체 메인페이지 크기 */
+*{
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden; /* 가로스크롤 없애기 */
+	overflow-y: hidden; /* 세로스크롤 없애기 */
+}
+body{
+	width: 100vw;
+	height: 100vh;
+}
+
+div#main{
+	width: 100vw;
+	margin:0 auto;
+}
+
+div#main_sidebar{
+	float:left;
+	width:20%;
+	height: 100vh;
+	background-color: pink;
+}
+/* 헤더+본문 */
+.header-body{
+	float: right;
+	width: 80%;
+}
+
+.header-body div#main_header{
+	margin-bottom:10px;
+	padding:0 20px 0 0;
+}
+.header-body div#main_content{
+	padding:5px 5px 0px 5px;
+	min-height: 100px;
+}
+
+/* 헤더부분 css */
+a:link{
+	text-decoration:none;
+	color:#000000;
+}
+a:visited {
+	text-decoration:none;
+	color:#000000;
+}
+a:hover {
+	text-decoration:underline;
+	color:#999999;
+}
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+div#main_menu ul{
+	list-style:none;
+}
+div#main_menu ul li{
+	margin-bottom:5px;
+}

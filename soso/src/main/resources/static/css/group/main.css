@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+
+/* 메인 페이지 전체 */
+.page-main{
+	margin:0 auto;
+}
+.page-main>p{ /* important, today, members 글씨체 */
+	size: 20px;
+	font-weight: bold;
+	color: grey;
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 70px;
+	margin-bottom: 10px;
+	text-decoration: underline;
+}
+.page-main>p:first-child{ /* 첫번째 공지사항만 margin-top줄이기. 나머지들은 70px임 */
+	margin-top: 20px;
+}
+/* 공지사항영역, 캘린더영역, 멤버조회 영역 크기 지정*/
+.notice-main, .calendar-main, .member-main{
+	width: 800px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	box-shadow:rgba(0, 0, 0, 0.25) 0px 20px 20px -20px;
+}
+
+/* ---------- 각각 테이블 영역 ---------- */
+.notice-main{
+	width: 800px;
+	margin: 0 auto;
+}
+.member-main {  /* 공지사항, 캘린더 크기는 80px, 멤버조회는 300px로 지정 */
+    height: 81px; 
+    overflow-y: auto; 
+    margin-bottom: 50px;
+}
+.member-main:last-child {
+    height: 300px; 
+}
+.member-main::-webkit-scrollbar {  /* 스크롤바 변경 시작 */
+    width: 8px;
+}
+.member-main::-webkit-scrollbar-track {
+    background-color:#e6e3e3;
+    border-radius: 100px;
+}
+.member-main::-webkit-scrollbar-thumb {
+    background-color:#969ce4;
+    border-radius: 100px;
+}
+
+.member-main::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+}                                   /* 스크롤바 변경 끝 */
+.member-table{
+    width: 100%;
+}
+.member-table .member-table-header{
+    color: white;
+    background-color: #969ce4;
+}
+.member-table .member-table-header .no4{
+	background-color: white;
+	border: none;
+}
+.member-table tr,.member-table td,.member-table th{ /* 메인페이지 내 모든 tr, td, th 크기 지정 */
+    height: 40px;
+    font-weight: lighter;
+    text-align: center;
+}
+.member-table, .member-table th, .member-table td {
+    border-collapse: collapse;
+    padding: 4px;
+}
+.member-table .no1{ /* 멤버 조회 테이블 각각의 열 넓이 */
+    width: 19%;
+}
+.member-table .no2{
+    width: 30%;
+}
+.member-table .no3{
+    width: 50%;
+}
+.member-table tr{
+	 border-bottom: 3px solid #ebe9e9;
+}
+.member-table .no4{
+    width: 1%;
+    border-bottom: 3px solid white !important;
+}
+.member-table tr:first-child{
+	border: none !important;
+}

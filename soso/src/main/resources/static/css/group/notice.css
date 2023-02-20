@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/*공지사항 전체 페이지*/
+.page-main{
+	width: 800px;
+	margin: 0 auto;
+}
+.page-main>p{
+	text-align: center;
+}

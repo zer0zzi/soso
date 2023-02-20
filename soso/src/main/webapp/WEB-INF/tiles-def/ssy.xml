@@ -5,13 +5,36 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="" extends="main">
-    	<put-attribute name="title" value="게시판목록"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/board/boardList.jsp"/>        
+	<definition name="groupMain"
+	template="/WEB-INF/views/template/layout_groupPage.jsp">
+		<put-attribute name="title" value="MYGroupPage" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/group/groupMain.jsp" />
+		<put-attribute name="sideBar"
+			value="/WEB-INF/views/group/groupSideBar.jsp" />        
+    </definition>
+    
+    <definition name="noticeMain"
+	template="/WEB-INF/views/template/layout_groupPage.jsp">
+		<put-attribute name="title" value="NoticePage" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/group/groupNoticeMain.jsp" />
+		<put-attribute name="sideBar"
+			value="/WEB-INF/views/group/groupSideBar.jsp" />        
+    </definition>
+    
+    <definition name="calendarMain"
+	template="/WEB-INF/views/template/layout_groupPage.jsp">
+		<put-attribute name="title" value="CalendarPage" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/group/groupCalendarMain.jsp" />
+		<put-attribute name="sideBar"
+			value="/WEB-INF/views/group/groupSideBar.jsp" />        
     </definition>
 </tiles-definitions>
-
-
-
-
