@@ -5,7 +5,7 @@
 <script type="text/javascript">
 	// 검색 유효셩 체크
 	$(function(){
-		$('#f_search_form').submit(function(){
+		$('#p_search_form').submit(function(){
 			if($('#keyword').val().trim()==''){
 				alert('검색어 입력 후 검색이 가능합니다.');
 				$('#keyword').val('').focus();
@@ -19,7 +19,7 @@
 		<h2>
 			<a href='#'>커뮤니티</a>
 			 / 
-			<a href='${pageContext.request.contextPath}/community/freeList.do'>자유게시판</a>
+			<a href='${pageContext.request.contextPath}/community/promoList.do'>홍보라운지</a>
 		</h2>
 	</div>
 	
@@ -32,28 +32,34 @@
 			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
-				<input type="button" value="글작성" onclick="location.href='freeWrite.do'">
+				<input type="button" value="글작성" onclick="location.href='promoWrite.do'">
 			</li>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth==9}">
 			<li>
-				<input type="button" value="공지작성" onclick="location.href='freeWrite.do'">
+				<input type="button" value="공지작성" onclick="location.href='promoWrite.do'">
 			</li>
 			</c:if>
 		</ul>
 	</div>
 	<!-- 서브 메뉴 끝 -->
 	
+	<!-- 모집중/모집 마감 시작 -->
+	<div class="promo-wanted">
+		<input type="button" value="모집중">
+	</div>
+	<!-- 모집중/모집 마감 끝 -->
+	
 	<!-- 정렬 영역 시작 -->
 	<!-- 참고 https://break-over.tistory.com/35 -->
-	<div class="free-sort">
-		<input type="button" id="free_fav" value="추천순">
+	<div class="promo-sort">
+		<input type="button" id="promo_fav" value="추천순">
 	</div>
 	<!-- 정렬 영역 끝 -->
 	
 	<!-- 검색 영역 시작 -->
-	<form action="freeList.do" id="f_search_form" method="get">
-		<ul class="f-search">
+	<form action="promoList.do" id="p_search_form" method="get">
+		<ul class="p-search">
 			<li>
 				<select name="keyfield" id="keyfield">
 					<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>전체</option>
@@ -67,11 +73,11 @@
 			</li>
 			<li>
 				<input type="submit" value="검색">
-				<input type="button" value="목록" onclick="location.href='freeList.do'">
+				<input type="button" value="목록" onclick="location.href='promoList.do'">
 			</li>
 			<li>
 				<c:if test="${mem_auth==9}">
-					<input type="hidden" name="free_fixed" id="free_fixed" value="${free_fixed==1}">
+					<input type="hidden" name="promo_fixed" id="promo_fixed" value="${promo_fixed==1}">
 				</c:if>
 			</li>
 		</ul>
@@ -80,11 +86,11 @@
 	
 	<!-- 목록 영역 시작 -->
 	<c:if test="${count==0}">
-	<div class="f-result-display">작성된 게시글이 없습니다.</div>
+	<div class="p-result-display">작성된 게시글이 없습니다.</div>
 	</c:if>
 	
 	<c:if test="${count>0}">
-	<div class="free-fixed-1">
+	<div class="promo-fixed-1">
 		<table>
 			<tr class="title">
 				<th>번호</th>
@@ -92,33 +98,33 @@
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<th>free_fixed==1</th>
+				<th>promo_fixed==1</th>
 				<th>댓글수</th>
 				<th>좋아요수</th>
 			</tr>
-			<c:forEach var="free" items="${freeList}">
-			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
-			<c:if test="${free.free_fixed==1}">
+			<c:forEach var="promo" items="${promoList}">
+			<input type="hidden" name="promo_fixed" id="promo_fixed" value="${promo.promo_fixed}">
+			<c:if test="${promo.promo_fixed==1}">
 			<tr class="item">
-				<td>${free.free_num}</td>
+				<td>${promo.promo_num}</td>
 				<td>
-					<a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>
+					<a href="promoDetail.do?promo_num=${promo.promo_num}">${promo.promo_title}</a>
 				</td>
 				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
+					<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
+					<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
 				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>${free.free_fixed}</td>
+				<td>${promo.promo_regdate}</td>
+				<td>${promo.promo_hit}</td>
+				<td>${promo.promo_fixed}</td>
 				<td>
-					<c:if test="${free.f_replyCnt>0}">
-						<span>(${free.f_replyCnt})</span>
+					<c:if test="${promo.p_replyCnt>0}">
+						<span>(${promo.p_replyCnt})</span>
 					</c:if>
 				</td>
 				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
+					<c:if test="${promo.p_favCnt>0}">
+						<span>(♥${promo.p_favCnt})</span>
 					</c:if>
 				</td>
 			</tr>
@@ -126,39 +132,44 @@
 			</c:forEach>
 		</table>
 	</div>
-	<div class="free-fixed-2">
+	<div class="promo-fixed-2">
 		<table>
 			<tr class="title">
 				<th>번호</th>
+				<th>모집여부</th>
 				<th width="400">제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<th>free_fixed==2</th>
+				<th>promo_fixed==2</th>
 				<th>댓글수</th>
 				<th>좋아요수</th>
 			</tr>
-			<c:forEach var="free" items="${freeList}">
-			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
-			<c:if test="${free.free_fixed==2}">
+			<c:forEach var="promo" items="${promoList}">
+			<input type="hidden" name="promo_fixed" id="promo_fixed" value="${promo.promo_fixed}">
+			<c:if test="${promo.promo_fixed==2}">
 			<tr class="item">
-				<td>${free.free_num}</td>
-				<td><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a></td>
+				<td>${promo.promo_num}</td>
 				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
+					<c:if test="${promo.promo_status==1}">모집중</c:if>
+					<c:if test="${promo.promo_status==2}">모집완료</c:if>
 				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>${free.free_fixed}</td>
+				<td><a href="promoDetail.do?promo_num=${promo.promo_num}">${promo.promo_title}</a></td>
 				<td>
-					<c:if test="${free.f_replyCnt>0}">
-						<span>(${free.f_replyCnt})</span>
+					<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
+					<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
+				</td>
+				<td>${promo.promo_regdate}</td>
+				<td>${promo.promo_hit}</td>
+				<td>${promo.promo_fixed}</td>
+				<td>
+					<c:if test="${promo.p_replyCnt>0}">
+						<span>(${promo.p_replyCnt})</span>
 					</c:if>
 				</td>
 				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
+					<c:if test="${promo.p_favCnt>0}">
+						<span>(♥${promo.p_favCnt})</span>
 					</c:if>
 				</td>
 			</tr>
@@ -169,6 +180,6 @@
 	</c:if>
 	
 	<!-- 페이징 영역 시작 -->
-	<div class="free-paging">${page}</div>
+	<div class="promo-paging">${page}</div>
 	<!-- 페이징 영역 끝 -->
 </div>

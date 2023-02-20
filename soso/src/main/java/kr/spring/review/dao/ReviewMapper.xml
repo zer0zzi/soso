@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.review.dao.ReviewMapper">
+  	<sql id="reviewSearch">
+  		<where> <!-- 1)전체 2)제목 3)내용 4)작성자 -->
+			<if test="keyword!=null and keyword!=''">
+				<if test="keyfield==1">
+					v.review_title LIKE '%' || #{keyword} || '%' OR
+					v.review_content LIKE '%' || #{keyword} || '%' OR
+					m.mem_id LIKE '%' || #{keyword} || '%' OR
+					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==2">
+					v.review_title LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==3">
+					v.review_content LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==4">
+					m.mem_id LIKE '%' || #{keyword} || '%' OR
+					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+			</if>
+		</where>
+  	</sql>
+  	
+  	<select id="selectReviewRowCount" parameterType="map" resultType="integer">
+  		SELECT
+  		 COUNT(*)
+  		FROM review_board v JOIN member m ON v.mem_num=m.mem_num
+  		<include refid="reviewSearch"></include>
+  	</select>
+  	
+  	<select id="selectReviewList" parameterType="map" resultType="reviewVO">
+  		SELECT
+  		 *
+  		FROM (SELECT 
+  			   a.*, 
+  			   rownum rnum 
+  			  FROM (SELECT 
+  			  		 v.review_num,
+  			  		 v.review_rating,
+  			  		 <![CDATA[
+  			  		 REPLACE(REPLACE(v.review_title,'<','&lt;'),'>','&gt;') review_title,
+  			  		 ]]>
+  			  		 v.review_hit,
+  			  		 v.review_filename,
+  			  		 v.review_regdate,
+  			  		 (SELECT COUNT(*) FROM review_reply r WHERE r.review_num=v.review_num) v_replyCnt,
+			  		 (SELECT COUNT(*) FROM review_fav a WHERE a.review_num=v.review_num) v_favCnt,
+  			  		 v.mem_num,
+  			  		 m.mem_id,
+  			  		 m.mem_nick
+  			  		FROM review_board v JOIN member m 
+  			  		ON v.mem_num=m.mem_num
+  			  		<include refid="reviewSearch"></include>
+  			  		ORDER BY v.review_num DESC)a)
+  		<![CDATA[
+  		WHERE rnum>=#{start} AND rnum<=#{end}
+  		]]>
+  	</select>
+  	
+  	<!-- <update id="updateBoard" parameterType="boardVO">
+  		UPDATE spboard SET
+  		 <if test="filename!=''">
+  		 uploadfile=#{uploadfile},
+  		 filename=#{filename},
+  		 </if>
+  		 title=#{title},
+  		 content=#{content},
+  		 ip=#{ip},
+  		 modify_date=SYSDATE
+  		WHERE board_num=#{board_num}
+  	</update> -->
+  	
+  	<!-- 댓글 목록 -->
+  	<!-- <select id="selectListReply" parameterType="map" resultType="boardReplyVO">
+  		SELECT
+  		 *
+  		FROM(SELECT
+  				a.*,
+  				rownum rnum
+  			 FROM(SELECT
+  			 		re_num,
+  			 		<![CDATA[
+  			 		REPLACE(REPLACE(re_content,'<','&lt;'),'>','&gt;') re_content,
+  			 		]]>
+  			 		re_date,
+  			 		re_mdate,
+  			 		board_num,
+  			 		mem_num,
+  			 		id,
+  			 		nick_name
+  			 	  FROM spboard_reply JOIN spmember
+  			 	  USING (mem_num)
+  			 	  WHERE board_num=#{board_num}
+  			 	  ORDER BY re_num DESC)a)
+  			 <![CDATA[
+  			 WHERE rnum>=#{start} AND rnum<=#{end}
+  			 ]]>
+  	</select> -->
+</mapper>

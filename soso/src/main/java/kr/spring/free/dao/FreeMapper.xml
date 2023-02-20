@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.free.dao.FreeMapper">
+	<!-- 
+		1. 검색을 사용하기 위해 동적 SQL 사용
+		2. SQL 태그와 include 태그를 이용해 SQL문을 재사용
+	-->
+	<!-- 자유 검색 시작 -->
+	<sql id="freeSearch">
+		<where> <!-- 1)전체 2)제목 3)내용 4)작성자 -->
+			<if test="keyword!=null and keyword!=''">
+				<if test="keyfield==1">
+					f.free_title LIKE '%' || #{keyword} || '%' OR
+					f.free_content LIKE '%' || #{keyword} || '%' OR
+					m.mem_id LIKE '%' || #{keyword} || '%' OR
+					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==2">
+					f.free_title LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==3">
+					f.free_content LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==4">
+					m.mem_id LIKE '%' || #{keyword} || '%' OR
+					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+			</if>
+		</where>
+	</sql>
+	<!-- 자유 검색 끝 -->
+	
+	<select id="selectFreeRowCount" parameterType="map" resultType="integer">
+		SELECT
+		 COUNT (*)
+		FROM free_board f JOIN member m ON f.mem_num=m.mem_num
+		<include refid="freeSearch"></include>
+	</select>
+	
+	<select id="selectFreeList" parameterType="map" resultType="freeVO">
+		SELECT
+		 *
+		FROM (SELECT
+				a.*,
+				rownum rnum
+			  FROM (SELECT
+			  		 f.free_num,
+			  		 <![CDATA[
+			  		 REPLACE(REPLACE(f.free_title,'<','&lt'),'>','&gt;') free_title,
+			  		 ]]>
+			  		 f.free_hit,
+			  		 f.free_fixed,
+			  		 f.free_filename,
+			  		 f.free_regdate,
+			  		 (SELECT COUNT(*) FROM free_reply r WHERE r.free_num=f.free_num) f_replyCnt,
+			  		 (SELECT COUNT(*) FROM free_fav a WHERE a.free_num=f.free_num) f_favCnt,
+			  		 m.mem_num,
+			  		 m.mem_nick
+			  		FROM free_board f JOIN member m
+			  		ON m.mem_num=f.mem_num
+			  		<include refid="freeSearch"></include>
+			  		ORDER BY f.free_num DESC)a)
+		<![CDATA[
+		WHERE rnum>=#{start} AND rnum<=#{end}
+		]]>
+	</select>
+	
+	<update id="updateFree" parameterType="freeVO">
+  		UPDATE free_board SET
+  		 <if test="free_filename!=''">
+  		 free_uploadfile=#{free_uploadfile},
+  		 free_filename=#{free_filename},
+  		 </if>
+  		 free_title=#{free_title},
+  		 free_content=#{free_content},
+  		 free_ip=#{free_ip},
+  		 free_modifydate=SYSDATE
+  		WHERE free_num=#{free_num}
+  	</update>
+  	
+  	<!-- 댓글 목록 -->
+  	<select id="selectFreeListReply" parameterType="map" resultType="FreeReplyVO">
+  		SELECT
+  		 *
+  		FROM(SELECT
+  				a.*,
+  				rownum rnum
+  			 FROM(SELECT
+  			 		fre_num,
+  			 		<![CDATA[
+  			 		REPLACE(REPLACE(fre_content,'<','&lt;'),'>','&gt;') fre_content,
+  			 		]]>
+  			 		fre_regdate,
+  			 		fre_modifydate,
+  			 		free_num,
+  			 		mem_num,
+  			 		mem_id,
+  			 		mem_nick
+  			 	  FROM free_reply JOIN member
+  			 	  USING (mem_num)
+  			 	  WHERE free_num=#{free_num}
+  			 	  ORDER BY fre_num DESC)a)
+  			 <![CDATA[
+  			 WHERE rnum>=#{start} AND rnum<=#{end}
+  			 ]]>
+  	</select>
+</mapper>

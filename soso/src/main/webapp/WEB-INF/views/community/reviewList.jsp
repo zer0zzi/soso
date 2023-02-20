@@ -5,7 +5,7 @@
 <script type="text/javascript">
 	// 검색 유효셩 체크
 	$(function(){
-		$('#f_search_form').submit(function(){
+		$('#v_search_form').submit(function(){
 			if($('#keyword').val().trim()==''){
 				alert('검색어 입력 후 검색이 가능합니다.');
 				$('#keyword').val('').focus();
@@ -14,12 +14,12 @@
 		});
 	}); // end of 검색 유효성 체크
 </script>
-<div class="f-page-main">
+<div class="v-page-main">
 	<div class="main-menu">
 		<h2>
 			<a href='#'>커뮤니티</a>
 			 / 
-			<a href='${pageContext.request.contextPath}/community/freeList.do'>자유게시판</a>
+			<a href='${pageContext.request.contextPath}/community/reviewList.do'>후기게시판</a>
 		</h2>
 	</div>
 	
@@ -32,12 +32,12 @@
 			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
-				<input type="button" value="글작성" onclick="location.href='freeWrite.do'">
+				<input type="button" value="글작성" onclick="location.href='reviewWrite.do'">
 			</li>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth==9}">
 			<li>
-				<input type="button" value="공지작성" onclick="location.href='freeWrite.do'">
+				<input type="button" value="공지작성" onclick="location.href='reviewWrite.do'">
 			</li>
 			</c:if>
 		</ul>
@@ -46,14 +46,14 @@
 	
 	<!-- 정렬 영역 시작 -->
 	<!-- 참고 https://break-over.tistory.com/35 -->
-	<div class="free-sort">
-		<input type="button" id="free_fav" value="추천순">
+	<div class="review-sort">
+		<input type="button" id="review_fav" value="추천순">
 	</div>
 	<!-- 정렬 영역 끝 -->
 	
 	<!-- 검색 영역 시작 -->
-	<form action="freeList.do" id="f_search_form" method="get">
-		<ul class="f-search">
+	<form action="reviewList.do" id="v_search_form" method="get">
+		<ul class="v-search">
 			<li>
 				<select name="keyfield" id="keyfield">
 					<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>전체</option>
@@ -67,11 +67,11 @@
 			</li>
 			<li>
 				<input type="submit" value="검색">
-				<input type="button" value="목록" onclick="location.href='freeList.do'">
+				<input type="button" value="목록" onclick="location.href='reviewList.do'">
 			</li>
 			<li>
 				<c:if test="${mem_auth==9}">
-					<input type="hidden" name="free_fixed" id="free_fixed" value="${free_fixed==1}">
+					<input type="hidden" name="review_fixed" id="review_fixed" value="${review_fixed==1}">
 				</c:if>
 			</li>
 		</ul>
@@ -80,11 +80,11 @@
 	
 	<!-- 목록 영역 시작 -->
 	<c:if test="${count==0}">
-	<div class="f-result-display">작성된 게시글이 없습니다.</div>
+	<div class="v-result-display">작성된 게시글이 없습니다.</div>
 	</c:if>
 	
 	<c:if test="${count>0}">
-	<div class="free-fixed-1">
+	<div class="review-fixed-1">
 		<table>
 			<tr class="title">
 				<th>번호</th>
@@ -92,33 +92,33 @@
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<th>free_fixed==1</th>
+				<th>review_fixed==1</th>
 				<th>댓글수</th>
 				<th>좋아요수</th>
 			</tr>
-			<c:forEach var="free" items="${freeList}">
-			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
-			<c:if test="${free.free_fixed==1}">
+			<c:forEach var="review" items="${reviewList}">
+			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
+			<c:if test="${review.review_fixed==1}">
 			<tr class="item">
-				<td>${free.free_num}</td>
+				<td>${review.review_num}</td>
 				<td>
-					<a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>
+					<a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a>
 				</td>
 				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
+					<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
+					<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>
 				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>${free.free_fixed}</td>
+				<td>${review.review_regdate}</td>
+				<td>${review.review_hit}</td>
+				<td>${review.review_fixed}</td>
 				<td>
-					<c:if test="${free.f_replyCnt>0}">
-						<span>(${free.f_replyCnt})</span>
+					<c:if test="${review.v_replyCnt>0}">
+						<span>(${review.v_replyCnt})</span>
 					</c:if>
 				</td>
 				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
+					<c:if test="${review.v_favCnt>0}">
+						<span>(♥${review.v_favCnt})</span>
 					</c:if>
 				</td>
 			</tr>
@@ -126,39 +126,42 @@
 			</c:forEach>
 		</table>
 	</div>
-	<div class="free-fixed-2">
+	<div class="review-fixed-2">
 		<table>
 			<tr class="title">
 				<th>번호</th>
+				<th>평점</th>
 				<th width="400">제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<th>free_fixed==2</th>
+				<th>review_fixed==2</th>
 				<th>댓글수</th>
 				<th>좋아요수</th>
 			</tr>
-			<c:forEach var="free" items="${freeList}">
-			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
-			<c:if test="${free.free_fixed==2}">
+			<c:forEach var="review" items="${reviewList}">
+			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
+			<c:if test="${review.review_fixed==2}">
 			<tr class="item">
-				<td>${free.free_num}</td>
-				<td><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a></td>
+				<td>${review.review_num}</td>
+				<td>${review.review_rating}</td>
+				<td><a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a></td>
+				<td>>${review.review_rating}</td>
 				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
+					<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
+					<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>
 				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>${free.free_fixed}</td>
+				<td>${review.review_regdate}</td>
+				<td>${review.review_hit}</td>
+				<td>${review.review_fixed}</td>
 				<td>
-					<c:if test="${free.f_replyCnt>0}">
-						<span>(${free.f_replyCnt})</span>
+					<c:if test="${review.v_replyCnt>0}">
+						<span>(${review.v_replyCnt})</span>
 					</c:if>
 				</td>
 				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
+					<c:if test="${review.v_favCnt>0}">
+						<span>(♥${review.v_favCnt})</span>
 					</c:if>
 				</td>
 			</tr>
@@ -169,6 +172,6 @@
 	</c:if>
 	
 	<!-- 페이징 영역 시작 -->
-	<div class="free-paging">${page}</div>
+	<div class="review-paging">${page}</div>
 	<!-- 페이징 영역 끝 -->
 </div>

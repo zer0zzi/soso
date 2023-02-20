@@ -20,26 +20,36 @@
 		<h2>
 			<a href='#'>커뮤니티</a>
 			 / 
-			<a href='freeList.do'>자유게시판</a>
+			<a href='promoList.do'>홍보라운지</a>
 		</h2>
 	</div>
 	
 	<div class="sub-header-update">
-		<a href='freeList.do'>자유게시판</a> 글수정
+		<a href='promoList.do'>홍보라운지</a> 글수정
 	</div>
 	
-	<form:form action="freeUpdate.do" id="freeUpdate_form" modelAttribute="freeVO" enctype="multipart/form-data">
-		<form:hidden path="free_num"/> <!-- 한 건의 데이터를 업데이트 하기 위해서 필요하다. -->
+	<form:form action="promoUpdate.do" id="promoUpdate_form" modelAttribute="promoVO" enctype="multipart/form-data">
+		<form:hidden path="promo_num"/>
 		<ul>
 			<li>
-				<label for="free_title">제목</label>
-				<form:input path="free_title"/>
-				<form:errors path="free_title" cssClass="error-color"/>
+				<label for="promo_title">제목</label>
+				<form:input path="promo_title"/>
+				<form:errors path="promo_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="free_content">내용</label>
-				<form:textarea path="free_content"/>
-				<form:errors path="free_content" cssClass="error-color"/>
+				<label>모집 여부</label>
+				<c:if test="${!empty user && user.mem_auth==9}">
+				<form:hidden path="promo_status" value="0"/>
+				</c:if>
+				<c:if test="${!empty user && user.mem_auth<9}">
+				<form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
+				<form:radiobutton path="promo_status" value="2" id="status2" onclick="return(false);"/>모집완료
+				</c:if>
+			</li>
+			<li>
+				<label for="promo_content">본문</label>
+				<form:textarea path="promo_content"/>
+				<form:errors path="promo_content" cssClass="error-color"/>
 				<script>
 				 function MyCustomUploadAdapterPlugin(editor) {
 					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
@@ -48,7 +58,7 @@
 					}
 				 
 				 ClassicEditor
-		            .create( document.querySelector( '#free_content' ),{
+		            .create( document.querySelector( '#promo_content' ),{
 		            	extraPlugins: [MyCustomUploadAdapterPlugin]
 		            })
 		            .then( editor => {
@@ -60,28 +70,28 @@
 			    </script>
 			</li>
 			<li>
-				<label for="free_upload">업로드</label>
-				<input type="file" name="free_upload" id="free_upload">
-				<c:if test="${!empty freeVO.free_filename}">
-				<div id="free_file_detail">
-					(${freeVO.free_filename})파일이 등록되어 있습니다.
-					<input type="button" value="파일삭제" id="free_file_del">
+				<label for="upload">업로드</label>
+				<input type="file" name="upload" id="upload">
+				<c:if test="${!empty promoVO.promo_filename}">
+				<div id="promo_file_detail">
+					(${promoVO.promo_filename})파일이 등록되어 있습니다.
+					<input type="button" value="파일삭제" id="promo_file_del">
 				</div>
 				<script type="text/javascript">
 					$(function(){
-						$('#free_file_del').click(function(){
+						$('#promo_file_del').click(function(){
 							let choice = confirm('삭제하시겠습니까?');
 							if(choice){
 								$.ajax({
-									url:'deleteFreeFile.do',
-									data:{free_num:${freeVO.free_num}},
+									url:'promoFile.do',
+									data:{promo_num:${promoVO.promo_num}},
 									type:'post',
 									dataType:'json',
 									success:function(param){
 										if(param.result=='logout'){
 											alert('로그인 후 사용하세요.');
 										}else if(param.result=='success'){
-											$('#free_file_detail').hide(); // 안 보여지게 가린다.
+											$('#promo_file_detail').hide(); // 안 보여지게 가린다.
 										}else{
 											alert('파일 삭제 오류 발생');
 										}
@@ -99,8 +109,8 @@
 		</ul>
 		<div class="align-center">
 			<form:button>수정</form:button>
-			<input type="button" value="상세" onclick="location.href='freeDetail.do?free_num=${freeVO.free_num}'">
-			<input type="button" value="목록" onclick="location.href='freeList.do'">
+			<input type="button" value="상세" onclick="location.href='promoDetail.do?promo_num=${promoVO.promo_num}'">
+			<input type="button" value="목록" onclick="location.href='promoList.do'">
 		</div>
 	</form:form>
 </div>

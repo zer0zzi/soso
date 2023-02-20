@@ -16,19 +16,19 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
 <script type="text/javascript">
 	$(function(){
-		$('#freeWrite_form').submit(function(){
-			if($('#free_title').val().trim()==''){
+		$('#promoWrite_form').submit(function(){
+			if($('#promo_title').val().trim()==''){
 				alert('제목을 입력하지 않았습니다.');
-				$('#free_title').val('').focus();
+				$('#promo_title').val('').focus();
 				return false;
 			}
-			if($('#free_content').val().trim()==''){
+			if($('#promo_content').val().trim()==''){
 				alert('내용을 입력하지 않았습니다.');
-				$('#free_content').val('').focus();
+				$('#promo_content').val('').focus();
 				return false;
 			}
 			/*
-			if($('#free_fixed1').val()=='1'){
+			if($('#promo_fixed1').val()=='1'){
 				alert('공지는 3개 이상으로 작성할 수 없습니다.');
 				return false;
 			}
@@ -37,33 +37,43 @@
 	});
 </script>
 <!-- 글작성 영역 시작 -->
-<div class="f-page-main">
+<div class="p-page-main">
 	<div class="main-menu">
 		<h2>
 			<a href='#'>커뮤니티</a>
 			 / 
-			<a href='freeList.do'>자유게시판</a>
+			<a href='promoList.do'>홍보라운지</a>
 		</h2>
 	</div>
 	
 	<div class="sub-header-write">
-		<a href='freeList.do'>자유게시판</a> 
+		<a href='promoList.do'>홍보라운지</a> 
 		<c:if test="${!empty user && user.mem_auth==9}">공지작성</c:if>
 		<c:if test="${!empty user && user.mem_auth<9}">글작성</c:if>
 	</div>
 	
 	<!-- 작성 폼 시작 -->
-	<form:form action="freeWrite.do" id="freeWrite_form" modelAttribute="freeVO" enctype="multipart/form-data">
+	<form:form action="promoWrite.do" id="promoWrite_form" modelAttribute="promoVO" enctype="multipart/form-data">
 		<ul>
 			<li>
-				<label for="free_title">제목</label>
-				<form:input path="free_title"/>
-				<form:errors path="free_title" cssClass="error-color"/>
+				<label for="promo_title">제목</label>
+				<form:input path="promo_title"/>
+				<form:errors path="promo_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="free_content">내용</label>
-				<form:textarea path="free_content"/>
-				<form:errors path="free_content" cssClass="error-color"/>
+				<label>모집 여부</label>
+				<c:if test="${!empty user && user.mem_auth==9}">
+				<form:hidden path="promo_status" value="0"/>
+				</c:if>
+				<c:if test="${!empty user && user.mem_auth<9}">
+				<form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
+				<form:radiobutton path="promo_status" value="2" id="status2" onclick="return(false);"/>모집완료
+				</c:if>
+			</li>
+			<li>
+				<label for="promo_content">본문</label>
+				<form:textarea path="promo_content"/>
+				<form:errors path="promo_content" cssClass="error-color"/>
 				<script>
 				 function MyCustomUploadAdapterPlugin(editor) {
 					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
@@ -72,7 +82,7 @@
 					}
 				 
 				 ClassicEditor
-		            .create( document.querySelector( '#free_content' ),{
+		            .create( document.querySelector( '#promo_content' ),{
 		            	extraPlugins: [MyCustomUploadAdapterPlugin]
 		            })
 		            .then( editor => {
@@ -83,27 +93,27 @@
 		            } );
 			    </script> 
 			</li>
-			<li style="display:none;">
-				<label for="free_upload">업로드</label>
-				<input type="file" name="free_upload" id="free_upload">
+			<li>
+				<label for="upload">업로드</label>
+				<input type="file" name="upload" id="upload">
 			</li>
 			
 			<c:if test="${!empty user && user.mem_auth==9}">
 			<li style="display:none;">
-					<label for="free_fixed">상단 고정</label>
-					<input type="number" name="free_fixed" id="free_fixed1" value="1" readonly/>
+					<label for="promo_fixed">상단 고정</label>
+					<input type="number" name="promo_fixed" id="promo_fixed1" value="1" readonly/>
 			</li>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li style="display:none;">
-					<label for="free_fixed">일반 게시글</label>
-					<input type="hidden" name="free_fixed" id="free_fixed2" value="2" readonly/>
+					<label for="promo_fixed">일반 게시글</label>
+					<input type="number" name="promo_fixed" id="promo_fixed2" value="2" readonly/>
 			</li>
 			</c:if>
 			
 		</ul>
 		<div class="align-center">
-			<input type="button" value="취소" onclick="location.href='freeList.do'">
+			<input type="button" value="취소" onclick="location.href='promoList.do'">
 			<input type="submit" value="등록">
 		</div>
 	</form:form>

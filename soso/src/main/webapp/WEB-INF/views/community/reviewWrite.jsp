@@ -13,18 +13,18 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <!-- ckeditor 설정 끝 -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css?after">
 <script type="text/javascript">
 	$(function(){
-		$('#freeWrite_form').submit(function(){
-			if($('#free_title').val().trim()==''){
+		$('#reviewWrite_form').submit(function(){
+			if($('#review_title').val().trim()==''){
 				alert('제목을 입력하지 않았습니다.');
-				$('#free_title').val('').focus();
+				$('#review_title').val('').focus();
 				return false;
 			}
-			if($('#free_content').val().trim()==''){
+			if($('#review_content').val().trim()==''){
 				alert('내용을 입력하지 않았습니다.');
-				$('#free_content').val('').focus();
+				$('#review_content').val('').focus();
 				return false;
 			}
 			/*
@@ -37,33 +37,51 @@
 	});
 </script>
 <!-- 글작성 영역 시작 -->
-<div class="f-page-main">
+<div class="v-page-main">
 	<div class="main-menu">
 		<h2>
 			<a href='#'>커뮤니티</a>
 			 / 
-			<a href='freeList.do'>자유게시판</a>
+			<a href='reviewList.do'>후기게시판</a>
 		</h2>
 	</div>
 	
 	<div class="sub-header-write">
-		<a href='freeList.do'>자유게시판</a> 
+		<a href='reviewList.do'>후기게시판</a> 
 		<c:if test="${!empty user && user.mem_auth==9}">공지작성</c:if>
 		<c:if test="${!empty user && user.mem_auth<9}">글작성</c:if>
 	</div>
 	
 	<!-- 작성 폼 시작 -->
-	<form:form action="freeWrite.do" id="freeWrite_form" modelAttribute="freeVO" enctype="multipart/form-data">
+	<form:form action="reviewWrite.do" name="reviewWrite_form" id="reviewWrite_form" modelAttribute="reviewVO" enctype="multipart/form-data">
+		<form:errors element="div" cssClass="error-color"/>
 		<ul>
 			<li>
-				<label for="free_title">제목</label>
-				<form:input path="free_title"/>
-				<form:errors path="free_title" cssClass="error-color"/>
+				<label for="review_title">제목</label>
+				<form:input path="review_title"/>
+				<form:errors path="review_title" cssClass="error-color"/>
+			</li>
+			<li class="rate">
+				<fieldset>
+					<legend>평점</legend> <!-- ⭐ -->
+					<input type="radio" name="review_rating" value="5" id="rate1">
+					<label for="rate1">⭐</label>
+     			    <input type="radio" name="review_rating" value="4" id="rate2">
+     			    <label for="rate2">⭐</label>
+       			 	<input type="radio" name="review_rating" value="3" id="rate3">
+       			 	<label for="rate3">⭐</label>
+       				<input type="radio" name="review_rating" value="2" id="rate4">
+       				<label for="rate4">⭐</label>
+        			<input type="radio" name="review_rating" value="1" id="rate5">
+        			<label for="rate5">⭐</label>
+				</fieldset>
 			</li>
 			<li>
-				<label for="free_content">내용</label>
-				<form:textarea path="free_content"/>
-				<form:errors path="free_content" cssClass="error-color"/>
+				<label for="review_content">본문</label>
+			<li>
+			<li>
+				<form:textarea path="review_content" id="review_content"/>
+				<form:errors path="review_content" cssClass="error-color"/>
 				<script>
 				 function MyCustomUploadAdapterPlugin(editor) {
 					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
@@ -72,7 +90,7 @@
 					}
 				 
 				 ClassicEditor
-		            .create( document.querySelector( '#free_content' ),{
+		            .create( document.querySelector( '#review_content' ),{
 		            	extraPlugins: [MyCustomUploadAdapterPlugin]
 		            })
 		            .then( editor => {
@@ -83,30 +101,15 @@
 		            } );
 			    </script> 
 			</li>
-			<li style="display:none;">
-				<label for="free_upload">업로드</label>
-				<input type="file" name="free_upload" id="free_upload">
+			<li>
+				<label for="upload">업로드</label>
+				<input type="file" name="upload" id="upload">
 			</li>
-			
-			<c:if test="${!empty user && user.mem_auth==9}">
-			<li style="display:none;">
-					<label for="free_fixed">상단 고정</label>
-					<input type="number" name="free_fixed" id="free_fixed1" value="1" readonly/>
-			</li>
-			</c:if>
-			<c:if test="${!empty user && user.mem_auth<9}">
-			<li style="display:none;">
-					<label for="free_fixed">일반 게시글</label>
-					<input type="hidden" name="free_fixed" id="free_fixed2" value="2" readonly/>
-			</li>
-			</c:if>
-			
 		</ul>
 		<div class="align-center">
-			<input type="button" value="취소" onclick="location.href='freeList.do'">
-			<input type="submit" value="등록">
+			<form:button>전송</form:button>
+			<input type="button" value="목록" onclick="location.href='reviewList.do'">
 		</div>
 	</form:form>
-	<!-- 작성 폼 끝 -->
 </div>
-<!-- 글작성 영역 끝 -->
+<!-- 중앙 컨텐츠 끝 -->
