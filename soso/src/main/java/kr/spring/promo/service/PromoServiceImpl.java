@@ -59,7 +59,7 @@ public class PromoServiceImpl implements PromoService{
 		// 좋아요 삭제
 		promoMapper.deletePromoFavByPromoNum(promo_num);
 		// 댓글 삭제
-		
+		promoMapper.deletePromoReplyByPromoNum(promo_num);
 		// 부모글 삭제
 		promoMapper.deletePromo(promo_num);
 	}
@@ -91,32 +91,27 @@ public class PromoServiceImpl implements PromoService{
 
 	@Override
 	public List<PromoReplyVO> selectPromoListReply(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return promoMapper.selectPromoListReply(map);
 	}
 
 	@Override
 	public int selectPromoRowCountReply(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return promoMapper.selectPromoRowCountReply(map);
 	}
 
 	@Override
 	public void updatePromoReply(PromoReplyVO promoReply) {
-		// TODO Auto-generated method stub
-		
+		promoMapper.updatePromoReply(promoReply);
 	}
 
 	@Override
 	public PromoReplyVO selectPromoReply(Integer pre_num) {
-		// TODO Auto-generated method stub
-		return null;
+		return promoMapper.selectPromoReply(pre_num);
 	}
 
 	@Override
 	public void deletePromoReply(Integer pre_num) {
-		// TODO Auto-generated method stub
-		
+		promoMapper.deletePromoReply(pre_num);
 	}
 
 }

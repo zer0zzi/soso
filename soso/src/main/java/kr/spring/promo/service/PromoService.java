@@ -25,10 +25,10 @@ public interface PromoService {
 	public int selectPromoFavCount(Integer promo_num);
 	
 	// 댓글
-	public void insertPromoReply(PromoReplyVO promoReply);
 	public List<PromoReplyVO> selectPromoListReply(Map<String, Object> map);
 	public int selectPromoRowCountReply(Map<String, Object> map);
-	public void updatePromoReply(PromoReplyVO promoReply);
 	public PromoReplyVO selectPromoReply(Integer pre_num);
+	public void insertPromoReply(PromoReplyVO promoReply);
+	public void updatePromoReply(PromoReplyVO promoReply);
 	public void deletePromoReply(Integer pre_num);
 }

@@ -55,7 +55,7 @@
 			  		 f.free_filename,
 			  		 f.free_regdate,
 			  		 (SELECT COUNT(*) FROM free_reply r WHERE r.free_num=f.free_num) f_replyCnt,
-			  		 (SELECT COUNT(*) FROM free_fav a WHERE a.free_num=f.free_num) f_favCnt,
+			  		 (SELECT COUNT(*) FROM free_fav w WHERE w.free_num=f.free_num) f_favCnt,
 			  		 m.mem_num,
 			  		 m.mem_nick
 			  		FROM free_board f JOIN member m

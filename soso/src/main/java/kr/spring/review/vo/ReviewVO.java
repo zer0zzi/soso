@@ -33,8 +33,8 @@ public class ReviewVO {
 	private String stc_title; // 스터디 모집 제목
 	private String stc_filter; // 스터디 모집 구분 위한 필터
 	
-	private int p_replyCnt;
-	private int p_favCnt;
+	private int v_replyCnt;
+	private int v_favCnt;
 
 	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
 	public void setUpload(MultipartFile upload) throws IOException{
@@ -195,21 +195,17 @@ public class ReviewVO {
 	public void setStc_filter(String stc_filter) {
 		this.stc_filter = stc_filter;
 	}
-
-	public int getP_replyCnt() {
-		return p_replyCnt;
+	public int getV_replyCnt() {
+		return v_replyCnt;
 	}
-
-	public void setP_replyCnt(int p_replyCnt) {
-		this.p_replyCnt = p_replyCnt;
+	public void setV_replyCnt(int v_replyCnt) {
+		this.v_replyCnt = v_replyCnt;
 	}
-
-	public int getP_favCnt() {
-		return p_favCnt;
+	public int getV_favCnt() {
+		return v_favCnt;
 	}
-
-	public void setP_favCnt(int p_favCnt) {
-		this.p_favCnt = p_favCnt;
+	public void setV_favCnt(int v_favCnt) {
+		this.v_favCnt = v_favCnt;
 	}
 
 	@Override
@@ -219,9 +215,8 @@ public class ReviewVO {
 				+ ", review_hit=" + review_hit + ", review_regdate=" + review_regdate + ", review_modifydate="
 				+ review_modifydate + ", review_filename=" + review_filename + ", review_ip=" + review_ip + ", mem_num="
 				+ mem_num + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name
-				+ ", stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_filter=" + stc_filter + ", p_replyCnt="
-				+ p_replyCnt + ", p_favCnt=" + p_favCnt + "]";
+				+ ", stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_filter=" + stc_filter + ", v_replyCnt="
+				+ v_replyCnt + ", v_favCnt=" + v_favCnt + "]";
 	}
-	
 	
 }

@@ -31,7 +31,7 @@ public interface PromoMapper {
 	public void updatePromo(PromoVO promo);
 	@Delete("DELETE FROM promo_board WHERE promo_num=#{promo_num}")
 	public void deletePromo(Integer promo_num);
-	
+
 	// 좋아요
 	@Select("SELECT * FROM promo_fav WHERE promo_num=#{promo_num} AND mem_num=#{mem_num}")
 	public PromoFavVO selectPromoFav(PromoFavVO fav);
@@ -43,29 +43,21 @@ public interface PromoMapper {
 	public int selectPromoFavCount(Integer promo_num);
 	@Delete("DELETE FROM promo_fav WHERE promo_num=#{promo_num}")
 	public void deletePromoFavByPromoNum(Integer promo_num);
-	
+
 	// 댓글
-	@Insert("INSERT INTO promo_reply (pre_num,pre_content,pre_ip,promo_num,mem_num) "
-			+ "VALUES (promo_reply_seq.nextval,#{pre_content},#{pre_ip},#{promo_num},#{mem_num})")
-	public void insertPromoReply(PromoReplyVO promoReply);
 	public List<PromoReplyVO> selectPromoListReply(Map<String, Object> map);
 	@Select("SELECT COUNT(*) FROM promo_reply JOIN member USING (mem_num) "
 			+ "WHERE promo_num=#{promo_num}")
 	public int selectPromoRowCountReply(Map<String, Object> map);
-	
-	/*
-	
-	
-	@Update("UPDATE promo_reply SET pre_content=#{pre_content},pre_ip=#{pre_ip},pre_modifydate=SYSDATE WHERE pre_num=#{pre_num}")
-	public void updatePromoReply(PromoReplyVO promoReply);
-	
 	@Select("SELECT * FROM promo_reply WHERE pre_num=#{pre_num}")
 	public PromoReplyVO selectPromoReply(Integer pre_num);
-	
+	@Insert("INSERT INTO promo_reply (pre_num,pre_content,pre_ip,promo_num,mem_num) "
+			+ "VALUES (promo_reply_seq.nextval,#{pre_content},#{pre_ip},#{promo_num},#{mem_num})")
+	public void insertPromoReply(PromoReplyVO promoReply);
+	@Update("UPDATE promo_reply SET pre_content=#{pre_content},pre_ip=#{pre_ip},pre_mdate=SYSDATE WHERE pre_num=#{pre_num}")
+	public void updatePromoReply(PromoReplyVO promoReply);
 	@Delete("DELETE FROM promo_reply WHERE pre_num=#{pre_num}")
 	public void deletePromoReply(Integer pre_num);
-	
 	@Delete("DELETE FROM promo_reply WHERE promo_num=#{promo_num}")
 	public void deletePromoReplyByPromoNum(Integer promo_num);
-	*/
 }

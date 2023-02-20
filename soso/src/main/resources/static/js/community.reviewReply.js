@@ -4,31 +4,31 @@ $(function(){
 	let rowCount;
 	
 	// 초기 데이터(목록) 설정
-	selectList(1);
+	selectReviewList(1);
 	// 다음 댓글 보기 버튼 클릭시 데이터 추가
 	$('.paging-button input').click(function(){
-		selectList(currentPage + 1);
+		selectReviewList(currentPage + 1);
 	});
 	// 댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
-		$('#fre_first .letter-count').text('500/500');
+		$('#vre_first .letter-count').text('500/500');
 	} // end of initForm
 	
 	// 댓글 등록
-	$('#fre_form').submit(function(event){
+	$('#vre_form').submit(function(event){
 		// 기본 이벤트 제거
 		event.preventDefault();
 		
-		if($('#fre_content').val().trim()==''){
+		if($('#vre_content').val().trim()==''){
 			alert('댓글을 작성하지 않았습니다.');
-			$('#fre_content').val('').focus();
+			$('#vre_content').val('').focus();
 			return false;
 		}
 		
 		let form_data = $(this).serialize();
 		$.ajax({
-			url:'writeFreeReply.do',
+			url:'writeReviewReply.do',
 			type:'post',
 			data:form_data,
 			dataType:'json',
@@ -39,7 +39,7 @@ $(function(){
 					// 폼 초기화
 					initForm();
 					// 등록된 데이터가 표시될 수 있도록 목록 갱신
-					selectList(1);
+					selectReviewList(1);
 				}
 			},
 			error:function(){
@@ -49,30 +49,30 @@ $(function(){
 	}); // end of 댓글 등록 submit
 	
 	// 댓글 목록
-	function selectList(pageNum){
+	function selectReviewList(pageNum){
 		currentPage = pageNum;
 		
 		// 로딩 이미지 노출
-		$('#loading').show();
+		$('#v_loading').show();
 		
 		$.ajax({
-			url:'listFreeReply.do',
+			url:'listReviewReply.do',
 			type:'post',
-			data:{pageNum:pageNum, free_num:$('#free_num').val()},
+			data:{pageNum:pageNum, review_num:$('#review_num').val()},
 			dataType:'json',
 			success:function(param){
 				// 로딩 이미지 감추기
-				$('#loading').hide();
+				$('#v_loading').hide();
 				count = param.count;
 				rowCount = param.rowCount;
 				
 				if(pageNum==1){
 					// 처음 호출시 해당 ID의 div의 내부 내용물 제거
-					$('#f_output').empty();
+					$('#v_output').empty();
 				}
 				
 				// 댓글 목록 작업
-				$(param.freeList).each(function(index, item){
+				$(param.reviewList).each(function(index, item){
 					let output = '<div class="item">';
 					output += '<ul class="detail-info">';
 					output += '<li>'; // 프로필 사진 처리
@@ -84,26 +84,26 @@ $(function(){
 					}else{
 						output += item.mem_id + '<br>';
 					}
-					if(item.fre_modifydate){
-						output += '<span class="modify-date">최근 수정일 : ' + item.fre_modifydate + '</span>';
+					if(item.vre_modifydate){
+						output += '<span class="modify-date">최근 수정일 : ' + item.vre_modifydate + '</span>';
 					}else{
-						output += '<span class="modify-date">등록일 : ' + item.fre_regdate + '</span>';
+						output += '<span class="modify-date">등록일 : ' + item.vre_regdate + '</span>';
 					}
 					output += '</li>';
 					output += '</ul>'; // end of .detail-info
 					output += '<div class="sub-item">';
-					output += '<p>' + item.fre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
-					output += ' <input type="button" data-num="' + item.fre_num + '" value="답댓글" class="re-btn">';
+					output += '<p>' + item.vre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
+					output += ' <input type="button" data-num="' + item.vre_num + '" value="댓글" class="re-btn">';
 					if(param.user_num==item.mem_num){
-						output += ' <input type="button" data-num="' + item.fre_num + '" value="수정" class="modify-btn">';
-						output += ' <input type="button" data-num="' + item.fre_num + '" value="삭제" class="delete-btn">';
+						output += ' <input type="button" data-num="' + item.vre_num + '" value="수정" class="modify-btn">';
+						output += ' <input type="button" data-num="' + item.vre_num + '" value="삭제" class="delete-btn">';
 					}
 					output += '<hr size="1" noshade>';
 					output += '</div>'; // sub의 div
 					output += '</div>'; // item의 div
 					
 					// 문서 객체에 추가
-					$('#f_output').append(output);
+					$('#v_output').append(output);
 				});
 				
 				// paging button 처리
@@ -117,7 +117,7 @@ $(function(){
 			},
 			error:function(){
 				// 로딩 이미지 감추기
-				$('#loading').hide();
+				$('#v_loading').hide();
 				alert('네트워크 오류 발생');
 			}
 		});
@@ -134,12 +134,12 @@ $(function(){
 			// 남은 글자수 구하기
 			let remain = 500 - inputLength;
 			remain += '/500';
-			if($(this).attr('id')=='fre_content'){
+			if($(this).attr('id')=='vre_content'){
 				// 등록 폼 글자수
-				$('#fre_first .letter-count').text(remain);
+				$('#vre_first .letter-count').text(remain);
 			}else{
 				// 수정 폼 글자수
-				$('#fmre_first .letter-count').text(remain);
+				$('#vmre_first .letter-count').text(remain);
 			}
 		}
 	}); // end of 글자수 체크
@@ -151,21 +151,21 @@ $(function(){
 	//댓글 수정 폼 초기화
 	function initModifyForm(){
 		$('.sub-item').show();
-		$('#fmre_form').remove();
+		$('#vmre_form').remove();
 	} // end of initModifyForm 수정폼 초기화
 	// 댓글 수정 버튼 클릭시 수정폼 노출
 	$(document).on('click','.modify-btn',function(){
 		// 댓글 글번호
-		let fre_num = $(this).attr('data-num');
+		let vre_num = $(this).attr('data-num');
 		// 댓글 내용
-		let fre_content = $(this).parent().find('p').html().replace(/<br>/g,'\r\n'); // br을 \r\n으로 대치
+		let vre_content = $(this).parent().find('p').html().replace(/<br>/g,'\r\n'); // br을 \r\n으로 대치
 		
 		// 댓글수정폼 UI
-		let modifyUI = '<form id="fmre_form">';
-		modifyUI += '<input type="hidden" name="fre_num" id="mre_num" value="' + fre_num + '">';
-		modifyUI += '<textarea rows="3" cols="50" name="fre_content" id="mre_content" class="rep-content">' + fre_content + '</textarea>';
-		modifyUI += '<div id="fmre_first"><span class="letter-count">500/500</span></div>';
-		modifyUI += '<div id="fmre_second" class="align-right">';
+		let modifyUI = '<form id="vmre_form">';
+		modifyUI += '<input type="hidden" name="vre_num" id="vmre_num" value="' + vre_num + '">';
+		modifyUI += '<textarea rows="3" cols="50" name="vre_content" id="vmre_content" class="rep-content">' + vre_content + '</textarea>';
+		modifyUI += '<div id="vmre_first"><span class="letter-count">500/500</span></div>';
+		modifyUI += '<div id="vmre_second" class="align-right">';
 		modifyUI += ' <input type="submit" value="수정">';
 		modifyUI += ' <input type="button" value="취소" class="re-reset">';
 		modifyUI += '</div>';
@@ -181,23 +181,23 @@ $(function(){
 		$(this).parents('.item').append(modifyUI); // 복수(모든 부모)
 		
 		// 입력한 글자수 셋팅
-		let inputLength = $('#mre_content').val().length;
+		let inputLength = $('#vmre_content').val().length;
 		let remain = 500 - inputLength;
 		remain += '/500';
 		
 		// 문서 객체에 반영
-		$('#fmre_first .letter-count').text(remain); // 후손선택자이기에 공백 필수
+		$('#vmre_first .letter-count').text(remain); // 후손선택자이기에 공백 필수
 	}); // end of 수정폼 노출
 	
 	
 	// 댓글 수정 처리
-	$(document).on('submit','#fmre_form',function(event){
+	$(document).on('submit','#vmre_form',function(event){
 		// 기본 이벤트 제거
 		event.preventDefault();
 		
-		if($('#mre_content').val().trim()==''){
+		if($('#vmre_content').val().trim()==''){
 			alert('내용을 입력하세요!');
-			$('#mre_content').val('').focus();
+			$('#vmre_content').val('').focus();
 			return false;
 		}
 		
@@ -206,7 +206,7 @@ $(function(){
 		
 		// 서버와 통신
 		$.ajax({
-			url:'updateFreeReply.do',
+			url:'updateReviewReply.do',
 			type:'post',
 			data:form_data,
 			dataType:'json',
@@ -215,13 +215,13 @@ $(function(){
 					alert('로그인해야 수정할 수 있습니다.');
 				}else if(param.result=='success'){
 					// 수정 데이터 p 태그에 표시
-					$('#fmre_form').parent().find('p').html($('#mre_content').val().replace(/</g,'&lt;')
-																				  .replace(/>/g,'&gt;')
-																				  .replace(/\r\n/g,'<br>')
-																				  .replace(/\r/g,'<br>')
-																				  .replace(/\n/g,'<br>'));
+					$('#vmre_form').parent().find('p').html($('#vmre_content').val().replace(/</g,'&lt;')
+																				    .replace(/>/g,'&gt;')
+																				    .replace(/\r\n/g,'<br>')
+																				    .replace(/\r/g,'<br>')
+																				    .replace(/\n/g,'<br>'));
 					// 최근 수정일 표시
-					$('#fmre_form').parent().find('.modify-date').text('최근 수정일 : 5초 미만');
+					$('#vmre_form').parent().find('.modify-date').text('최근 수정일 : 5초 미만');
 					
 					// 수정폼 초기화
 					initModifyForm();
@@ -240,20 +240,20 @@ $(function(){
 	// 댓글 삭제
 	$(document).on('click','.delete-btn',function(){
 		// 댓글 번호
-		let fre_num = $(this).attr('data-num');
+		let vre_num = $(this).attr('data-num');
 		
 		// 서버와 통신
 		$.ajax({
-			url:'deleteFreeReply.do',
+			url:'deleteReviewReply.do',
 			type:'post',
-			data:{fre_num:fre_num},
+			data:{vre_num:vre_num},
 			dataType:'json',
 			success:function(param){
 				if(param.result=='logout'){
 					alert('로그인해야 삭제할 수 있습니다.');
 				}else if(param.result=='success'){
 					alert('삭제 완료!');
-					selectList(1);
+					selectReviewList(1);
 				}else if(param.result=='wrongAccess'){
 					alert('타인의 댓글을 삭제할 수 없습니다.');
 				}else{

@@ -13,35 +13,8 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <!-- ckeditor 설정 끝 -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css?after">
-<script type="text/javascript">
-	$(function(){
-		$('#reviewWrite_form').submit(function(){
-			if($('#review_title').val().trim()==''){
-				alert('제목을 입력하지 않았습니다.');
-				$('#review_title').val('').focus();
-				return false;
-			}
-			if($('#review_content').val().trim()==''){
-				alert('내용을 입력하지 않았습니다.');
-				$('#review_content').val('').focus();
-				return false;
-			}
-			/*
-			if($('#free_fixed1').val()=='1'){
-				alert('공지는 3개 이상으로 작성할 수 없습니다.');
-				return false;
-			}
-			*/
-		});
-	});
-</script>
-<style> /* 밑으로 드랍다운 했을 때, option 텍스트가 안 보이게 설정 */
-	select option[value=""][disabled]{
-	display:none;
-	}
-</style>
-<!-- 글작성 영역 시작 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
+<!-- 후기 글수정 시작 -->
 <div class="v-page-main">
 	<div class="main-menu">
 		<h2>
@@ -51,25 +24,13 @@
 		</h2>
 	</div>
 	
-	<div class="sub-header-write">
-		<a href='reviewList.do'>후기게시판</a> 
-		<c:if test="${!empty user && user.mem_auth==9}">공지작성</c:if>
-		<c:if test="${!empty user && user.mem_auth<9}">글작성</c:if>
+	<div class="sub-header-update">
+		<a href='reviewList.do'>후기게시판</a> 글수정
 	</div>
 	
-	<!-- 작성 폼 시작 -->
-	<form:form action="reviewWrite.do" name="reviewWrite_form" id="reviewWrite_form" modelAttribute="reviewVO" enctype="multipart/form-data">
-		<form:errors element="div" cssClass="error-color"/>
+	<form:form action="reviewUpdate.do" id="reviewUpdate_form" modelAttribute="reviewVO" enctype="multipart/form-data">
+		<form:hidden path="review_num"/>
 		<ul>
-			<%-- <li>
-				<label>스터디명</label>
-				<select id="studyName" class="studyName">
-					<option value="" disabled selected>참여 스터디</option>
-					<c:forEach var="study" items="${getStudyList}">
-						<option><c:out value="${study.stc_title}"></c:out></option>
-					</c:forEach>
-				</select>
-			</li> --%>
 			<li>
 				<label for="review_title">제목</label>
 				<form:input path="review_title"/>
@@ -78,7 +39,7 @@
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li class="rate">
 				<fieldset>
-					<legend>평점</legend> <!-- ⭐ -->
+					<legend>평점<small>*다시 선택해주세요.</small></legend> <!-- ⭐ -->
 					<input type="radio" name="review_rating" value="5" id="rate1">
 					<label for="rate1">⭐</label>
      			    <input type="radio" name="review_rating" value="4" id="rate2">
@@ -96,7 +57,7 @@
 				<label for="review_content">본문</label>
 			</li>
 			<li>
-				<form:textarea path="review_content" id="review_content"/>
+				<form:textarea path="review_content"/>
 				<form:errors path="review_content" cssClass="error-color"/>
 				<script>
 				 function MyCustomUploadAdapterPlugin(editor) {
@@ -115,31 +76,51 @@
 		            .catch( error => {
 		                console.error( error );
 		            } );
-			    </script> 
+			    </script>
 			</li>
 			<li>
 				<label for="upload">업로드</label>
 				<input type="file" name="upload" id="upload">
+				<c:if test="${!empty reviewVO.review_filename}">
+				<div id="review_file_detail">
+					(${reviewVO.review_filename})파일이 등록되어 있습니다.
+					<input type="button" value="파일삭제" id="review_file_del">
+				</div>
+				<script type="text/javascript">
+					$(function(){
+						$('#review_file_del').click(function(){
+							let choice = confirm('삭제하시겠습니까?');
+							if(choice){
+								$.ajax({
+									url:'reviewFile.do',
+									data:{review_num:${reviewVO.review_num}},
+									type:'post',
+									dataType:'json',
+									success:function(param){
+										if(param.result=='logout'){
+											alert('로그인 후 사용하세요.');
+										}else if(param.result=='success'){
+											$('#review_file_detail').hide(); // 안 보여지게 가린다.
+										}else{
+											alert('파일 삭제 오류 발생');
+										}
+									},
+									error:function(){
+										alert('네트워크 오류 발생');
+									}
+								});
+							}
+						});
+					});
+				</script>
+				</c:if>
 			</li>
-			
-			<c:if test="${!empty user && user.mem_auth==9}">
-			<li style="display:none;">
-					<label for="review_fixed">상단 고정</label>
-					<input type="number" name="review_fixed" id="review_fixed1" value="1" readonly/>
-			</li>
-			</c:if>
-			<c:if test="${!empty user && user.mem_auth<9}">
-			<li style="display:none;">
-					<label for="review_fixed">일반 게시글</label>
-					<input type="number" name="review_fixed" id="review_fixed2" value="2" readonly/>
-			</li>
-			</c:if>
-			
 		</ul>
 		<div class="align-center">
-			<input type="button" value="취소" onclick="location.href='reviewList.do'">
-			<input type="submit" value="등록">
+			<form:button>수정</form:button>
+			<input type="button" value="상세" onclick="location.href='reviewDetail.do?review_num=${reviewVO.review_num}'">
+			<input type="button" value="목록" onclick="location.href='reviewList.do'">
 		</div>
 	</form:form>
 </div>
-<!-- 중앙 컨텐츠 끝 -->
+<!-- 자유 글수정 끝 -->

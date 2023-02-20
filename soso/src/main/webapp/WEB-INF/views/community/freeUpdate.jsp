@@ -37,7 +37,9 @@
 				<form:errors path="free_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="free_content">내용</label>
+				<label for="review_content">본문</label>
+			</li>
+			<li>
 				<form:textarea path="free_content"/>
 				<form:errors path="free_content" cssClass="error-color"/>
 				<script>

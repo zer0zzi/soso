@@ -86,7 +86,7 @@
 	<c:if test="${count>0}">
 	<div class="review-fixed-1">
 		<table>
-			<tr class="title">
+			<tr class="review-table-title">
 				<th>번호</th>
 				<th width="400">제목(댓글수)</th>
 				<th>작성자</th>
@@ -99,7 +99,7 @@
 			<c:forEach var="review" items="${reviewList}">
 			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
 			<c:if test="${review.review_fixed==1}">
-			<tr class="item">
+			<tr class="review-table-item">
 				<td>${review.review_num}</td>
 				<td>
 					<a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a>
@@ -128,7 +128,7 @@
 	</div>
 	<div class="review-fixed-2">
 		<table>
-			<tr class="title">
+			<tr class="review-table-title">
 				<th>번호</th>
 				<th>평점</th>
 				<th width="400">제목</th>
@@ -142,11 +142,10 @@
 			<c:forEach var="review" items="${reviewList}">
 			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
 			<c:if test="${review.review_fixed==2}">
-			<tr class="item">
+			<tr class="review-table-item">
 				<td>${review.review_num}</td>
 				<td>${review.review_rating}</td>
 				<td><a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a></td>
-				<td>>${review.review_rating}</td>
 				<td>
 					<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
 					<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>

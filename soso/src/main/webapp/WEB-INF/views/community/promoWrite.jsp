@@ -71,7 +71,9 @@
 				</c:if>
 			</li>
 			<li>
-				<label for="promo_content">본문</label>
+				<label for="review_content">본문</label>
+			</li>
+			<li>
 				<form:textarea path="promo_content"/>
 				<form:errors path="promo_content" cssClass="error-color"/>
 				<script>

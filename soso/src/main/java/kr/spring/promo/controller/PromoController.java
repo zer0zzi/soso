@@ -130,7 +130,6 @@ public class PromoController {
 	@RequestMapping("/community/imageView.do")
 	public ModelAndView viewImage(@RequestParam int promo_num, @RequestParam int promo_type) {
 		PromoVO promo = promoService.selectPromo(promo_num);
-
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView"); // 뷰 출력
 
@@ -331,7 +330,7 @@ public class PromoController {
 		int count = promoService.selectPromoRowCountReply(map);
 
 		// 페이지 처리
-		PagingUtil page = new PagingUtil(currentPage, count, 5, 1, null);
+		PagingUtil page = new PagingUtil(currentPage, count, 5, 1, null); // 뒤에 두개(1,null)은 내부적 연산으로 해서 명시적으로 초기값 표기만 했다.
 		map.put("start", page.getStartRow());
 		map.put("end", page.getEndRow());
 
@@ -352,6 +351,58 @@ public class PromoController {
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		if(user!=null) {
 			mapJson.put("user_num", user.getMem_num());
+		}
+		return mapJson;
+	}
+
+	// ========== 댓글 수정 ==========
+	@RequestMapping("/community/updatePromoReply.do")
+	@ResponseBody
+	public Map<String,String> modifyPromoReply(PromoReplyVO promoReplyVO, HttpSession session, HttpServletRequest request){
+
+		logger.debug("<<댓글수정>> : " + promoReplyVO);
+		Map<String,String> mapJson = new HashMap<String,String>();
+
+		// 세션에서 정보 읽어오기
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		// 한건의 데이터 읽어오기
+		PromoReplyVO db_reply = promoService.selectPromoReply(promoReplyVO.getPre_num());
+
+		if(user==null) {
+			// 로그인이 안 되어 있는 경우
+			mapJson.put("result", "logout");
+		}else if(user!=null && user.getMem_num()==db_reply.getMem_num()) {
+			// 로그인 회원번호와 작성자 회원번호 일치
+			// ip등록
+			promoReplyVO.setPre_ip(request.getRemoteAddr());
+			mapJson.put("result", "success");
+		}else {
+			// 로그인 회원번호와 작성자 회원번호 불일치
+			mapJson.put("result", "wrongAccess");
+		}
+		return mapJson;
+	}
+
+	// ========== 댓글 삭제 ==========
+	@RequestMapping("/community/deletePromoReply.do")
+	@ResponseBody
+	public Map<String, String> deletePromoReply(@RequestParam int pre_num, HttpSession session){
+		logger.debug("<<댓글 삭제>> : " + pre_num);
+
+		Map<String, String> mapJson = new HashMap<String, String>();
+
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		PromoReplyVO db_reply = promoService.selectPromoReply(pre_num);
+		if(user==null) {
+			// 로그인이 되어 있지 않은 경우
+			mapJson.put("resutl", "logout");
+		}else if(user!=null && user.getMem_num()==db_reply.getMem_num()) {
+			// 로그인한 회원번호와 작성자 회원번호가 일치하는 경우
+			promoService.deletePromoReply(pre_num);
+			mapJson.put("result", "success");
+		}else {
+			// 로그인한 회원번호와 작성자 회원번호가 불일치하는 경우
+			mapJson.put("result", "wrongAccess");
 		}
 		return mapJson;
 	}

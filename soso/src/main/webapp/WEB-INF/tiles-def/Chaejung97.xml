@@ -47,4 +47,12 @@
     	<put-attribute name="title" value="후기게시판글쓰기"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/reviewWrite.jsp"/> 
     </definition>
+    <definition name="reviewDetail" extends="main">
+    	<put-attribute name="title" value="후기게시판글상세"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/reviewDetail.jsp"/>
+    </definition>
+    <definition name="reviewUpdate" extends="main">
+    	<put-attribute name="title" value="후기게시판글수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/reviewUpdate.jsp"/> 
+    </definition>
 </tiles-definitions>

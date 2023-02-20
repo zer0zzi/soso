@@ -14,8 +14,8 @@
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <!-- ckeditor 설정 끝 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
-<!-- 자유 글수정 시작 -->
-<div class="f-page-main">
+<!-- 후기 글수정 시작 -->
+<div class="v-page-main">
 	<div class="main-menu">
 		<h2>
 			<a href='#'>커뮤니티</a>
@@ -43,11 +43,13 @@
 				</c:if>
 				<c:if test="${!empty user && user.mem_auth<9}">
 				<form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
-				<form:radiobutton path="promo_status" value="2" id="status2" onclick="return(false);"/>모집완료
+				<form:radiobutton path="promo_status" value="2" id="status2"/>모집완료
 				</c:if>
 			</li>
 			<li>
 				<label for="promo_content">본문</label>
+			</li>
+			<li>
 				<form:textarea path="promo_content"/>
 				<form:errors path="promo_content" cssClass="error-color"/>
 				<script>

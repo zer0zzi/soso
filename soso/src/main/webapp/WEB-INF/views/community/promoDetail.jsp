@@ -105,7 +105,7 @@
 	
 	<!-- 댓글 UI 시작 -->
 	<div id="p_reply_div">
-		<span class="re-title">댓글 작성</span>
+		<span class="pre-title">댓글 작성</span>
 		<form id="pre_form" action="listPromoReply.do">
 			<input type="hidden" name="promo_num" value="${promo.promo_num}" id="promo_num">
 			<textarea rows="3" cols="50" name="pre_content" id="pre_content" class="rep-content"
@@ -127,7 +127,7 @@
 	<div class="paging-button" style="display:none;">
 		<input type="button" value="댓글 더보기">
 	</div>
-	<div id="p_loading" style="display:none;">
+	<div id="p_loading" style="display:none;"> <!-- 목록 출력 대기 시간동안 로딩이미지 보여주기 -->
 		<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
 	<!-- 댓글 목록 끝 -->

@@ -42,6 +42,7 @@
   			  FROM (SELECT 
   			  		 v.review_num,
   			  		 v.review_rating,
+  			  		 v.review_fixed,
   			  		 <![CDATA[
   			  		 REPLACE(REPLACE(v.review_title,'<','&lt;'),'>','&gt;') review_title,
   			  		 ]]>
@@ -49,7 +50,7 @@
   			  		 v.review_filename,
   			  		 v.review_regdate,
   			  		 (SELECT COUNT(*) FROM review_reply r WHERE r.review_num=v.review_num) v_replyCnt,
-			  		 (SELECT COUNT(*) FROM review_fav a WHERE a.review_num=v.review_num) v_favCnt,
+			  		 (SELECT COUNT(*) FROM review_fav w WHERE w.review_num=v.review_num) v_favCnt,
   			  		 v.mem_num,
   			  		 m.mem_id,
   			  		 m.mem_nick
@@ -62,43 +63,43 @@
   		]]>
   	</select>
   	
-  	<!-- <update id="updateBoard" parameterType="boardVO">
-  		UPDATE spboard SET
-  		 <if test="filename!=''">
-  		 uploadfile=#{uploadfile},
-  		 filename=#{filename},
+  	<update id="updateReview" parameterType="reviewVO">
+  		UPDATE review_board SET
+  		 <if test="review_filename!=''">
+  		 review_uploadfile=#{review_uploadfile},
+  		 review_filename=#{review_filename},
   		 </if>
-  		 title=#{title},
-  		 content=#{content},
-  		 ip=#{ip},
-  		 modify_date=SYSDATE
-  		WHERE board_num=#{board_num}
-  	</update> -->
+  		 review_title=#{review_title},
+  		 review_content=#{review_content},
+  		 review_ip=#{review_ip},
+  		 review_modifydate=SYSDATE
+  		WHERE review_num=#{review_num}
+  	</update>
   	
   	<!-- 댓글 목록 -->
-  	<!-- <select id="selectListReply" parameterType="map" resultType="boardReplyVO">
+  	<select id="selectReviewListReply" parameterType="map" resultType="ReviewReplyVO">
   		SELECT
   		 *
   		FROM(SELECT
   				a.*,
   				rownum rnum
   			 FROM(SELECT
-  			 		re_num,
+  			 		vre_num,
   			 		<![CDATA[
-  			 		REPLACE(REPLACE(re_content,'<','&lt;'),'>','&gt;') re_content,
+  			 		REPLACE(REPLACE(vre_content,'<','&lt;'),'>','&gt;') vre_content,
   			 		]]>
-  			 		re_date,
-  			 		re_mdate,
-  			 		board_num,
+  			 		vre_regdate,
+  			 		vre_modifydate,
+  			 		review_num,
   			 		mem_num,
-  			 		id,
-  			 		nick_name
-  			 	  FROM spboard_reply JOIN spmember
+  			 		mem_id,
+  			 		mem_nick
+  			 	  FROM review_reply JOIN member
   			 	  USING (mem_num)
-  			 	  WHERE board_num=#{board_num}
-  			 	  ORDER BY re_num DESC)a)
+  			 	  WHERE review_num=#{review_num}
+  			 	  ORDER BY vre_num DESC)a)
   			 <![CDATA[
   			 WHERE rnum>=#{start} AND rnum<=#{end}
   			 ]]>
-  	</select> -->
+  	</select>
 </mapper>

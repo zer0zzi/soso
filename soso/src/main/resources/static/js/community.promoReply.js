@@ -4,16 +4,17 @@ $(function(){
 	let rowCount;
 	
 	// 초기 데이터(목록) 설정
-	selectList(1);
+	selectPromoList(1);
 	// 다음 댓글 보기 버튼 클릭시 데이터 추가
 	$('.paging-button input').click(function(){
-		selectList(currentPage + 1);
+		selectPromoList(currentPage + 1);
 	});
 	// 댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
 		$('#pre_first .letter-count').text('500/500');
 	} // end of initForm
+	
 	// 댓글 등록
 	$('#pre_form').submit(function(event){
 		// 기본 이벤트 제거
@@ -38,7 +39,7 @@ $(function(){
 					// 폼 초기화
 					initForm();
 					// 등록된 데이터가 표시될 수 있도록 목록 갱신
-					selectList(1);
+					selectPromoList(1);
 				}
 			},
 			error:function(){
@@ -48,7 +49,7 @@ $(function(){
 	}); // end of 댓글 등록 submit
 	
 	// 댓글 목록
-	function selectList(pageNum){
+	function selectPromoList(pageNum){
 		currentPage = pageNum;
 		
 		// 로딩 이미지 노출
@@ -66,42 +67,43 @@ $(function(){
 				rowCount = param.rowCount;
 				
 				if(pageNum==1){
+					// 처음 호출시 해당 ID의 div의 내부 내용물 제거
 					$('#p_output').empty();
 				}
-				console.log("댓글 작업 시작 전");
+				
 				// 댓글 목록 작업
 				$(param.promoList).each(function(index, item){
-					console.log("댓글 작업 시작");
-					let p_output = '<div class="item">';
-					p_output += '<ul class="detail-info">';
-					p_output += '<li>'; // 프로필 사진 처리
-					p_output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="40" height="40" class="my-photo">';
-					p_output += '</li>';
-					p_output += '<li>';
+					let output = '<div class="item">';
+					output += '<ul class="detail-info">';
+					output += '<li>'; // 프로필 사진 처리
+					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="40" height="40" class="my-photo">';
+					output += '</li>';
+					output += '<li>';
 					if(item.mem_nick){ // 존재하면 true
-						p_output += item.mem_nick + '<br>';
+						output += item.mem_nick + '<br>';
 					}else{
-						p_output += item.mem_id + '<br>';
+						output += item.mem_id + '<br>';
 					}
 					if(item.pre_modifydate){
-						p_output += '<span class="modify-date">최근 수정일 : ' + item.pre_modifydate + '</span>';
+						output += '<span class="modify-date">최근 수정일 : ' + item.pre_modifydate + '</span>';
 					}else{
-						p_output += '<span class="modify-date">등록일 : ' + item.pre_regdate + '</span>';
+						output += '<span class="modify-date">등록일 : ' + item.pre_regdate + '</span>';
 					}
-					p_output += '</li>';
-					p_output += '</ul>'; // end of .detail-info
-					p_output += '<div class="sub-item">';
-					p_output += '<p>' + item.pre_content.replace(/\r\n/g,'<br>') + '</p>';
-					p_output += ' <input type="button" data-num="' + item.pre_num + '" value="답댓글" class="re-btn">';
+					output += '</li>';
+					output += '</ul>'; // end of .detail-info
+					output += '<div class="sub-item">';
+					output += '<p>' + item.pre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
+					output += ' <input type="button" data-num="' + item.pre_num + '" value="댓글" class="re-btn">';
 					if(param.user_num==item.mem_num){
-						p_output += ' <input type="button" data-num="' + item.pre_num + '" value="수정" class="modify-btn">';
-						p_output += ' <input type="button" data-num="' + item.pre_num + '" value="삭제" class="delete-btn">';
+						output += ' <input type="button" data-num="' + item.pre_num + '" value="수정" class="modify-btn">';
+						output += ' <input type="button" data-num="' + item.pre_num + '" value="삭제" class="delete-btn">';
 					}
-					p_output += '<hr size="1" noshade>';
-					p_output += '</div>';
-					p_output += '</div>';
-
-					$('#p_output').append(p_output);
+					output += '<hr size="1" noshade>';
+					output += '</div>'; // sub의 div
+					output += '</div>'; // item의 div
+					
+					// 문서 객체에 추가
+					$('#v_output').append(output);
 				});
 				
 				// paging button 처리
@@ -137,11 +139,11 @@ $(function(){
 				$('#pre_first .letter-count').text(remain);
 			}else{
 				// 수정 폼 글자수
-				$('#mpre_first .letter-count').text(remain);
+				$('#pmre_first .letter-count').text(remain);
 			}
 		}
 	}); // end of 글자수 체크
-	/*
+	
 	// 수정폼에서 취소 버튼 클릭시 수정폼 초기화
 	$(document).on('click','.re-reset',function(){
 		initModifyForm();
@@ -149,21 +151,21 @@ $(function(){
 	//댓글 수정 폼 초기화
 	function initModifyForm(){
 		$('.sub-item').show();
-		$('#mre_form').remove();
+		$('#pmre_form').remove();
 	} // end of initModifyForm 수정폼 초기화
 	// 댓글 수정 버튼 클릭시 수정폼 노출
 	$(document).on('click','.modify-btn',function(){
 		// 댓글 글번호
-		let fre_num = $(this).attr('data-num');
+		let pre_num = $(this).attr('data-num');
 		// 댓글 내용
-		let fre_content = $(this).parent().find('p').html().replace(/<br>/g,'\r\n'); // br을 \r\n으로 대치
+		let pre_content = $(this).parent().find('p').html().replace(/<br>/g,'\r\n'); // br을 \r\n으로 대치
 		
 		// 댓글수정폼 UI
-		let modifyUI = '<form id="mre_form">';
-		modifyUI += '<input type="hidden" name="fre_num" id="mre_num" value="' + fre_num + '">';
-		modifyUI += '<textarea rows="3" cols="50" name="fre_content" id="mre_content" class="rep-content">' + fre_content + '</textarea>';
-		modifyUI += '<div id="mre_first"><span class="letter-count">500/500</span></div>';
-		modifyUI += '<div id="mre_second" class="align-right">';
+		let modifyUI = '<form id="pmre_form">';
+		modifyUI += '<input type="hidden" name="pre_num" id="pmre_num" value="' + pre_num + '">';
+		modifyUI += '<textarea rows="3" cols="50" name="pre_content" id="pmre_content" class="rep-content">' + pre_content + '</textarea>';
+		modifyUI += '<div id="pmre_first"><span class="letter-count">500/500</span></div>';
+		modifyUI += '<div id="pmre_second" class="align-right">';
 		modifyUI += ' <input type="submit" value="수정">';
 		modifyUI += ' <input type="button" value="취소" class="re-reset">';
 		modifyUI += '</div>';
@@ -179,23 +181,23 @@ $(function(){
 		$(this).parents('.item').append(modifyUI); // 복수(모든 부모)
 		
 		// 입력한 글자수 셋팅
-		let inputLength = $('#mre_content').val().length;
+		let inputLength = $('#pmre_content').val().length;
 		let remain = 500 - inputLength;
 		remain += '/500';
 		
 		// 문서 객체에 반영
-		$('#mre_first .letter-count').text(remain); // 후손선택자이기에 공백 필수
+		$('#pmre_first .letter-count').text(remain); // 후손선택자이기에 공백 필수
 	}); // end of 수정폼 노출
 	
 	
 	// 댓글 수정 처리
-	$(document).on('submit','#mre_form',function(event){
+	$(document).on('submit','#pmre_form',function(event){
 		// 기본 이벤트 제거
 		event.preventDefault();
 		
-		if($('#mre_content').val().trim()==''){
+		if($('#pmre_content').val().trim()==''){
 			alert('내용을 입력하세요!');
-			$('#mre_content').val('').focus();
+			$('#pmre_content').val('').focus();
 			return false;
 		}
 		
@@ -204,7 +206,7 @@ $(function(){
 		
 		// 서버와 통신
 		$.ajax({
-			url:'updateFreeReply.do',
+			url:'updatePromoReply.do',
 			type:'post',
 			data:form_data,
 			dataType:'json',
@@ -213,13 +215,13 @@ $(function(){
 					alert('로그인해야 수정할 수 있습니다.');
 				}else if(param.result=='success'){
 					// 수정 데이터 p 태그에 표시
-					$('#mre_form').parent().find('p').html($('#mre_content').val().replace(/</g,'&lt;')
-																				  .replace(/>/g,'&gt;')
-																				  .replace(/\r\n/g,'<br>')
-																				  .replace(/\r/g,'<br>')
-																				  .replace(/\n/g,'<br>'));
+					$('#pmre_form').parent().find('p').html($('#pmre_content').val().replace(/</g,'&lt;')
+																				    .replace(/>/g,'&gt;')
+																				    .replace(/\r\n/g,'<br>')
+																				    .replace(/\r/g,'<br>')
+																				    .replace(/\n/g,'<br>'));
 					// 최근 수정일 표시
-					$('#mre_form').parent().find('.modify-date').text('최근 수정일 : 5초 미만');
+					$('#pmre_form').parent().find('.modify-date').text('최근 수정일 : 5초 미만');
 					
 					// 수정폼 초기화
 					initModifyForm();
@@ -238,20 +240,20 @@ $(function(){
 	// 댓글 삭제
 	$(document).on('click','.delete-btn',function(){
 		// 댓글 번호
-		let fre_num = $(this).attr('data-num');
+		let pre_num = $(this).attr('data-num');
 		
 		// 서버와 통신
 		$.ajax({
-			url:'deleteFreeReply.do',
+			url:'deletePromoReply.do',
 			type:'post',
-			data:{fre_num:fre_num},
+			data:{pre_num:pre_num},
 			dataType:'json',
 			success:function(param){
 				if(param.result=='logout'){
 					alert('로그인해야 삭제할 수 있습니다.');
 				}else if(param.result=='success'){
 					alert('삭제 완료!');
-					selectList(1);
+					selectPromoList(1);
 				}else if(param.result=='wrongAccess'){
 					alert('타인의 댓글을 삭제할 수 없습니다.');
 				}else{
@@ -263,5 +265,5 @@ $(function(){
 			}
 		});
 	}); // end of 댓글 삭제
-	*/
+	
 }); // end of all function

@@ -52,7 +52,7 @@
 			  		 p.promo_filename,
 			  		 p.promo_regdate,
 			  		 (SELECT COUNT(*) FROM promo_reply r WHERE r.promo_num=p.promo_num) p_replyCnt,
-			  		 (SELECT COUNT(*) FROM promo_fav a WHERE a.promo_num=p.promo_num) p_favCnt,
+			  		 (SELECT COUNT(*) FROM promo_fav w WHERE w.promo_num=p.promo_num) p_favCnt,
 			  		 m.mem_num,
 			  		 m.mem_nick
 			  		FROM promo_board p JOIN member m
