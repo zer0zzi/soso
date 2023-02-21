@@ -20,8 +20,8 @@ import kr.spring.member.vo.MemberVO;
 @Controller
 public class CommonController {
 	private static final Logger logger = 
-			         LoggerFactory.getLogger(
-					       CommonController.class);
+	         LoggerFactory.getLogger(
+			       CommonController.class);
 	
 	@RequestMapping("/common/imageUploader.do")
 	@ResponseBody

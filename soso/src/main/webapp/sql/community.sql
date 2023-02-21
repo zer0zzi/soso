@@ -76,9 +76,9 @@ create table promo_reply(
  pre_ip varchar2(40) not null,
  promo_num number not null,
  mem_num number not null,
- constraint free_reply_pk primary key (pre_num),
- constraint free_reply_fk1 foreign key (promo_num) references promo_board (promo_num),
- constraint free_reply_fk2 foreign key (mem_num) references member (mem_num)
+ constraint promo_reply_pk primary key (pre_num),
+ constraint promo_reply_fk1 foreign key (promo_num) references promo_board (promo_num),
+ constraint promo_reply_fk2 foreign key (mem_num) references member (mem_num)
 );
 create sequence promo_reply_seq;
 
@@ -91,7 +91,7 @@ create table promo_fav(
  constraint promo_fav_fk1 foreign key (promo_num) references promo_board (promo_num),
  constraint promo_fav_fk2 foreign key (mem_num) references member (mem_num)
 );
-create sequence free_fav_seq;
+create sequence promo_fav_seq;
 
 --3. 리뷰
 --3-1) 리뷰 게시판

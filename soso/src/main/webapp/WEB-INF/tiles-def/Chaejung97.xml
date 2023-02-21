@@ -5,6 +5,11 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+	<definition name="fullList" extends="main">
+    	<put-attribute name="title" value="전체게시판목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/fullList.jsp"/>        
+    </definition>
+
     <definition name="freeList" extends="main">
     	<put-attribute name="title" value="자유게시판목록"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/freeList.jsp"/>        
@@ -20,5 +25,39 @@
     <definition name="freeUpdate" extends="main">
     	<put-attribute name="title" value="자유게시판글수정"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/freeUpdate.jsp"/> 
+    </definition>
+    
+    <definition name="promoList" extends="main">
+    	<put-attribute name="title" value="홍보게시판목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/promoList.jsp"/>        
+    </definition>
+    <definition name="promoWrite" extends="main">
+    	<put-attribute name="title" value="홍보게시판글쓰기"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/promoWrite.jsp"/> 
+    </definition>
+    <definition name="promoDetail" extends="main">
+    	<put-attribute name="title" value="홍보게시판글상세"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/promoDetail.jsp"/> 
+    </definition>
+    <definition name="promoUpdate" extends="main">
+    	<put-attribute name="title" value="홍보게시판글수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/promoUpdate.jsp"/> 
+    </definition>
+    
+    <definition name="reviewList" extends="main">
+    	<put-attribute name="title" value="후기게시판목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/reviewList.jsp"/>        
+    </definition>
+    <definition name="reviewWrite" extends="main">
+    	<put-attribute name="title" value="후기게시판글쓰기"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/reviewWrite.jsp"/> 
+    </definition>
+    <definition name="reviewDetail" extends="main">
+    	<put-attribute name="title" value="후기게시판글상세"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/reviewDetail.jsp"/>
+    </definition>
+    <definition name="reviewUpdate" extends="main">
+    	<put-attribute name="title" value="후기게시판글수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/reviewUpdate.jsp"/> 
     </definition>
 </tiles-definitions>

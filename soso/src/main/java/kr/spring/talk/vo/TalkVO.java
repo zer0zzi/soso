@@ -8,7 +8,7 @@ public class TalkVO {
 	private String chat_date;
 	
 	private int read_count;
-	private String id;
+	private String mem_id;
 	
 	public int getTalk_num() {
 		return talk_num;
@@ -46,17 +46,13 @@ public class TalkVO {
 	public void setRead_count(int read_count) {
 		this.read_count = read_count;
 	}
-	public String getId() {
-		return id;
+	public String getMem_id() {
+		return mem_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
 	}
-	@Override
-	public String toString() {
-		return "TalkVO [talk_num=" + talk_num + ", talkroom_num=" + talkroom_num + ", mem_num=" + mem_num + ", message="
-				+ message + ", chat_date=" + chat_date + ", read_count=" + read_count + ", id=" + id + "]";
-	}
+
 	
 	
 }

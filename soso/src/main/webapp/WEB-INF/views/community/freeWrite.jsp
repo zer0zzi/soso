@@ -2,6 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- ckeditor 설정 시작 -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.ck-editor__editable_inline{ /* _ 2개임 */
+	min-height:250px;
+}
+</style>
+<script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
+<!-- ckeditor 설정 끝 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
 <script type="text/javascript">
 	$(function(){
@@ -16,10 +27,12 @@
 				$('#free_content').val('').focus();
 				return false;
 			}
+			/*
 			if($('#free_fixed1').val()=='1'){
 				alert('공지는 3개 이상으로 작성할 수 없습니다.');
 				return false;
 			}
+			*/
 		});
 	});
 </script>
@@ -48,11 +61,31 @@
 				<form:errors path="free_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="free_content">내용</label>
-				<form:textarea path="free_content"/>
-				<form:errors path="free_content" cssClass="error-color"/>
+				<label for="review_content">본문</label>
 			</li>
 			<li>
+				<form:textarea path="free_content"/>
+				<form:errors path="free_content" cssClass="error-color"/>
+				<script>
+				 function MyCustomUploadAdapterPlugin(editor) {
+					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+					        return new UploadAdapter(loader);
+					    }
+					}
+				 
+				 ClassicEditor
+		            .create( document.querySelector( '#free_content' ),{
+		            	extraPlugins: [MyCustomUploadAdapterPlugin]
+		            })
+		            .then( editor => {
+						window.editor = editor;
+					} )
+		            .catch( error => {
+		                console.error( error );
+		            } );
+			    </script> 
+			</li>
+			<li style="display:none;">
 				<label for="free_upload">업로드</label>
 				<input type="file" name="free_upload" id="free_upload">
 			</li>
@@ -74,7 +107,6 @@
 		<div class="align-center">
 			<input type="button" value="취소" onclick="location.href='freeList.do'">
 			<input type="submit" value="등록">
-			<form:button>등록</form:button>
 		</div>
 	</form:form>
 	<!-- 작성 폼 끝 -->

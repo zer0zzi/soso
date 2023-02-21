@@ -3,6 +3,7 @@ package kr.spring.talk.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,6 +17,7 @@ public interface TalkMapper {
 	//채팅방 목록
 	public List<TalkRoomVO> selectTalkRoomList(Map<String,Object> map);
 	//채팅방 상세
+	@Select("SELECT * FROM talkroom WHERE talkroom_num=#{talkroom_num}")
 	public TalkRoomVO selectTalkRoom(Integer talkroom_num);
 	//채팅방 번호 생성
 	@Select("SELECT talkroom_seq.nextval FROM dual")	
@@ -27,8 +29,10 @@ public interface TalkMapper {
 	@Insert("INSERT INTO talk_member (talkroom_num,mem_num) VALUES (#{talkroom_num},#{mem_num})")	
 	public void insertTalkRoomMember(@Param(value="talkroom_num") Integer talkroom_num, @Param(value="mem_num") Integer mem_num);
 	//채팅 메시지 번호 생성
+	@Select("SELECT talk_seq.nextval FROM dual")
 	public Integer selectTalkNum();
 	//채팅 메시지 등록
+	@Insert("INSERT INTO talk (talk_num,talkroom_num,mem_num,message) VALUES (#{talk_num},#{talkroom_num},#{mem_num},#{message})")
 	public void insertTalk(TalkVO talkVO);
 	//채팅 메시지 읽기
 	public List<TalkVO> selectTalkDetail(
@@ -37,16 +41,21 @@ public interface TalkMapper {
 	@Select("SELECT mem_num, mem_id FROM talk_member JOIN member USING(mem_num) WHERE talkroom_num=#{talkroom_num}")	
 	public List<TalkVO> selectTalkMember(Integer talkroom_num);
 	//읽지 않은 채팅 기록 저장
+	@Insert("INSERT INTO talk_read (talkroom_num,talk_num,mem_num) VALUES (#{talkroom_num},#{talk_num},#{mem_num})")
 	public void insertTalkRead(@Param(value="talkroom_num") int talkroom_num,@Param(value="talk_num") int talk_num,
 			                   @Param(value="mem_num") int mem_num);
 	//읽은 채팅 기록 삭제
+	@Delete("DELETE FROM talk_read WHERE talkroom_num=#{talkroom_num} AND mem_num=#{mem_num}")
 	public void deleteTalkRead(
 			Map<String,Integer> map);
 	//채팅방 나가기
+	@Delete("DELETE FROM talk_member WHERE talkroom_num=#{talkroom_num} AND mem_num=#{mem_num}")
 	public void deleteTalkRoomMember(TalkVO talkVO);
 	//채팅 메시지 삭제
+	@Delete("DELETE FROM talk WHERE talkroom_num=#{talkroom_num}")
 	public void deleteTalk(Integer talkroom_num);
 	//채팅방 삭제
+	@Delete("DELETE FROM talkroom WHERE talkroom_num=#{talkroom_num}")	
 	public void deleteTalkRoom(Integer talkroom_num);
 
 }

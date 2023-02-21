@@ -12,10 +12,11 @@ $(function(){
 	// 댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
-		$('#re_first .letter-count').text('500/500');
+		$('#fre_first .letter-count').text('500/500');
 	} // end of initForm
+	
 	// 댓글 등록
-	$('#re_form').submit(function(event){
+	$('#fre_form').submit(function(event){
 		// 기본 이벤트 제거
 		event.preventDefault();
 		
@@ -67,7 +68,7 @@ $(function(){
 				
 				if(pageNum==1){
 					// 처음 호출시 해당 ID의 div의 내부 내용물 제거
-					$('#output').empty();
+					$('#f_output').empty();
 				}
 				
 				// 댓글 목록 작업
@@ -102,7 +103,7 @@ $(function(){
 					output += '</div>'; // item의 div
 					
 					// 문서 객체에 추가
-					$('#output').append(output);
+					$('#f_output').append(output);
 				});
 				
 				// paging button 처리
@@ -135,10 +136,10 @@ $(function(){
 			remain += '/500';
 			if($(this).attr('id')=='fre_content'){
 				// 등록 폼 글자수
-				$('#re_first .letter-count').text(remain);
+				$('#fre_first .letter-count').text(remain);
 			}else{
 				// 수정 폼 글자수
-				$('#mre_first .letter-count').text(remain);
+				$('#fmre_first .letter-count').text(remain);
 			}
 		}
 	}); // end of 글자수 체크
@@ -150,7 +151,7 @@ $(function(){
 	//댓글 수정 폼 초기화
 	function initModifyForm(){
 		$('.sub-item').show();
-		$('#mre_form').remove();
+		$('#fmre_form').remove();
 	} // end of initModifyForm 수정폼 초기화
 	// 댓글 수정 버튼 클릭시 수정폼 노출
 	$(document).on('click','.modify-btn',function(){
@@ -160,11 +161,11 @@ $(function(){
 		let fre_content = $(this).parent().find('p').html().replace(/<br>/g,'\r\n'); // br을 \r\n으로 대치
 		
 		// 댓글수정폼 UI
-		let modifyUI = '<form id="mre_form">';
+		let modifyUI = '<form id="fmre_form">';
 		modifyUI += '<input type="hidden" name="fre_num" id="mre_num" value="' + fre_num + '">';
 		modifyUI += '<textarea rows="3" cols="50" name="fre_content" id="mre_content" class="rep-content">' + fre_content + '</textarea>';
-		modifyUI += '<div id="mre_first"><span class="letter-count">500/500</span></div>';
-		modifyUI += '<div id="mre_second" class="align-right">';
+		modifyUI += '<div id="fmre_first"><span class="letter-count">500/500</span></div>';
+		modifyUI += '<div id="fmre_second" class="align-right">';
 		modifyUI += ' <input type="submit" value="수정">';
 		modifyUI += ' <input type="button" value="취소" class="re-reset">';
 		modifyUI += '</div>';
@@ -185,12 +186,12 @@ $(function(){
 		remain += '/500';
 		
 		// 문서 객체에 반영
-		$('#mre_first .letter-count').text(remain); // 후손선택자이기에 공백 필수
+		$('#fmre_first .letter-count').text(remain); // 후손선택자이기에 공백 필수
 	}); // end of 수정폼 노출
 	
 	
 	// 댓글 수정 처리
-	$(document).on('submit','#mre_form',function(event){
+	$(document).on('submit','#fmre_form',function(event){
 		// 기본 이벤트 제거
 		event.preventDefault();
 		
@@ -214,13 +215,13 @@ $(function(){
 					alert('로그인해야 수정할 수 있습니다.');
 				}else if(param.result=='success'){
 					// 수정 데이터 p 태그에 표시
-					$('#mre_form').parent().find('p').html($('#mre_content').val().replace(/</g,'&lt;')
+					$('#fmre_form').parent().find('p').html($('#mre_content').val().replace(/</g,'&lt;')
 																				  .replace(/>/g,'&gt;')
 																				  .replace(/\r\n/g,'<br>')
 																				  .replace(/\r/g,'<br>')
 																				  .replace(/\n/g,'<br>'));
 					// 최근 수정일 표시
-					$('#mre_form').parent().find('.modify-date').text('최근 수정일 : 5초 미만');
+					$('#fmre_form').parent().find('.modify-date').text('최근 수정일 : 5초 미만');
 					
 					// 수정폼 초기화
 					initModifyForm();

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
+<script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.freeFav.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.freeReply.js"></script>
 <!-- 자유 글상세 시작 -->
@@ -21,8 +22,8 @@
 		<ul>
 			<li><a href='#'>전체게시판</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/freeList.do'>자유</a></li>
-			<li><a href='#'>홍보</a></li>
-			<li><a href='#'>후기</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/promoList.do'>홍보</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
 		</ul>
 	</div>
 	<!-- 서브 메뉴 끝 -->
@@ -48,15 +49,15 @@
 			조회 : ${free.free_hit}
 		</li>
 	</ul>
-	<c:if test="${!empty free.free_filename}">
+	<%-- <c:if test="${!empty free.free_filename}">
 	<ul>
 		<li>
 			첨부파일 : <a href="freeFile.do?free_num=${free.free_num}">${free.free_filename}</a>
 		</li>
 	</ul>
-	</c:if>
+	</c:if> --%>
 	<hr size="1" width="100%">
-
+	
 	<!-- filename의 끝부분에 .jpg가 있으면 true를 반환해서 이미지를 시각적으로 보여준다. -->
 	<c:if test="${fn:endsWith(free.free_filename,'.jpg') || fn:endsWith(free.free_filename,'.JPG') ||
 				  fn:endsWith(free.free_filename,'.jpeg') || fn:endsWith(free.free_filename,'.JPEG') ||
@@ -101,26 +102,26 @@
 	</div>
 	
 	<!-- 댓글 UI 시작 -->
-	<div id="reply_div">
-		<span class="re-title">댓글 작성</span>
-		<form id="re_form" action="listFreeReply.do">
+	<div id="f_reply_div">
+		<span class="fre-title">댓글 작성</span>
+		<form id="fre_form" action="listFreeReply.do">
 			<input type="hidden" name="free_num" value="${free.free_num}" id="free_num">
 			<textarea rows="3" cols="50" name="fre_content" id="fre_content" class="rep-content"
 			<c:if test="${empty user}">disabled="disabled"</c:if>
 			><c:if test="${empty user}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			
 			<c:if test="${!empty user}">
-			<div id="re_first">
+			<div id="fre_first">
 				<span class="letter-count">500/500</span>
 			</div>
-			<div id="re_second">
+			<div id="fre_second">
 				<input type="submit" value="전송">
 			</div>
 			</c:if>
 		</form>
 	</div>
 	<!-- 댓글 목록 출력 -->
-	<div id="output"></div>
+	<div id="f_output"></div>
 	<div class="paging-button" style="display:none;">
 		<input type="button" value="댓글 더보기">
 	</div>

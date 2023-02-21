@@ -26,10 +26,10 @@
 	<!-- 서브 메뉴 시작 -->
 	<div class="sub-menu">
 		<ul>
-			<li><a href='#'>전체게시판</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/fullList.do'>전체게시판</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/freeList.do'>자유</a></li>
-			<li><a href='#'>홍보</a></li>
-			<li><a href='#'>후기</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/promoList.do'>홍보</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<input type="button" value="글작성" onclick="location.href='freeWrite.do'">
@@ -44,21 +44,10 @@
 	</div>
 	<!-- 서브 메뉴 끝 -->
 	
-	<!-- 홍보게시판으로 옮기기 -->
-	<!-- 모집중/모집 마감 시작 -->
-	<div class="free-wanted">
-		<input type="button" value="모집중">
-	</div>
-	<!-- 모집중/모집 마감 끝 -->
-	
 	<!-- 정렬 영역 시작 -->
+	<!-- 참고 https://break-over.tistory.com/35 -->
 	<div class="free-sort">
-		<select id="sort_post" name="sort_post" class="sort-post" onchange="sortPost()">
-			<option value="1">최신순</option>
-			<option value="2">조회순</option>
-			<option value="3">좋아요순</option>
-			<option value="4">댓글순</option>
-		</select>
+		<input type="button" id="free_fav" value="추천순">
 	</div>
 	<!-- 정렬 영역 끝 -->
 	
@@ -97,22 +86,24 @@
 	<c:if test="${count>0}">
 	<div class="free-fixed-1">
 		<table>
-			<tr>
+			<tr class="title">
 				<th>번호</th>
-				<th width="400">제목</th>
+				<th width="400">제목(댓글수)</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<th>좋아요수</th>
-				<th>댓글수</th>
 				<th>free_fixed==1</th>
+				<th>댓글수</th>
+				<th>좋아요수</th>
 			</tr>
 			<c:forEach var="free" items="${freeList}">
 			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
 			<c:if test="${free.free_fixed==1}">
-			<tr>
+			<tr class="item">
 				<td>${free.free_num}</td>
-				<td><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a></td>
+				<td>
+					<a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>
+				</td>
 				<td>
 					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
 					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
@@ -120,6 +111,16 @@
 				<td>${free.free_regdate}</td>
 				<td>${free.free_hit}</td>
 				<td>${free.free_fixed}</td>
+				<td>
+					<c:if test="${free.f_replyCnt>0}">
+						<span>(${free.f_replyCnt})</span>
+					</c:if>
+				</td>
+				<td>
+					<c:if test="${free.f_favCnt>0}">
+						<span>(♥${free.f_favCnt})</span>
+					</c:if>
+				</td>
 			</tr>
 			</c:if>
 			</c:forEach>
@@ -127,20 +128,20 @@
 	</div>
 	<div class="free-fixed-2">
 		<table>
-			<tr>
+			<tr class="title">
 				<th>번호</th>
 				<th width="400">제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
-				<th>좋아요수</th>
-				<th>댓글수</th>
 				<th>free_fixed==2</th>
+				<th>댓글수</th>
+				<th>좋아요수</th>
 			</tr>
 			<c:forEach var="free" items="${freeList}">
 			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
 			<c:if test="${free.free_fixed==2}">
-			<tr>
+			<tr class="item">
 				<td>${free.free_num}</td>
 				<td><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a></td>
 				<td>
@@ -150,6 +151,16 @@
 				<td>${free.free_regdate}</td>
 				<td>${free.free_hit}</td>
 				<td>${free.free_fixed}</td>
+				<td>
+					<c:if test="${free.f_replyCnt>0}">
+						<span>(${free.f_replyCnt})</span>
+					</c:if>
+				</td>
+				<td>
+					<c:if test="${free.f_favCnt>0}">
+						<span>(♥${free.f_favCnt})</span>
+					</c:if>
+				</td>
 			</tr>
 			</c:if>
 			</c:forEach>

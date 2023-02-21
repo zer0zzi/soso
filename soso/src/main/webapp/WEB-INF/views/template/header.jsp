@@ -30,7 +30,6 @@
 	<a href="${pageContext.request.contextPath}/community/freeList.do">커뮤니티</a>
 	<a href="${pageContext.request.contextPath}/study/studyView.do?stc_num=1">스터디상세-비가입자</a>
 	<a href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=1">스터디상세-가입자</a>
-	<a href="${pageContext.request.contextPath}/talk/talkList.do">톡방</a>
 	<a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
 	<a href="${pageContext.request.contextPath}/member/login.do">로그인</a>
 	</c:if>

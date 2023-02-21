@@ -7,7 +7,7 @@
 	<form action="talkRoomWrite.do" method="post"
 	      id="talk_form">
 		<input type="hidden" name="members" id="user"
-		 data-id="${user.id}" value="${user.mem_num}">
+		 data-id="${user.mem_id}" value="${user.mem_num}">
 		<ul>
 			<li>
 				<label>채팅방 이름</label>

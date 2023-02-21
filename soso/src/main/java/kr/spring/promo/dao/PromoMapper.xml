@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.promo.dao.PromoMapper">
+	<!-- 홍보 검색 시작 -->
+	<sql id="promoSearch">
+		<where> <!-- 1)전체 2)제목 3)내용 4)작성자 -->
+			<if test="keyword!=null and keyword!=''">
+				<if test="keyfield==1">
+					p.promo_title LIKE '%' || #{keyword} || '%' OR
+					p.promo_content LIKE '%' || #{keyword} || '%' OR
+					m.mem_id LIKE '%' || #{keyword} || '%' OR
+					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==2">
+					p.promo_title LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==3">
+					p.promo_content LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==4">
+					m.mem_id LIKE '%' || #{keyword} || '%' OR
+					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+			</if>
+		</where>
+	</sql>
+	<!-- 자유 검색 끝 -->
+	
+	<select id="selectPromoRowCount" parameterType="map" resultType="integer">
+		SELECT
+		 COUNT (*)
+		FROM promo_board p JOIN member m ON p.mem_num=m.mem_num
+		<include refid="promoSearch"></include>
+	</select>
+	
+	<select id="selectPromoList" parameterType="map" resultType="promoVO">
+		SELECT
+		 *
+		FROM (SELECT
+				a.*,
+				rownum rnum
+			  FROM (SELECT
+			  		 p.promo_num,
+			  		 p.promo_status,
+			  		 <![CDATA[
+			  		 REPLACE(REPLACE(p.promo_title,'<','&lt'),'>','&gt;') promo_title,
+			  		 ]]>
+			  		 p.promo_hit,
+			  		 p.promo_fixed,
+			  		 p.promo_filename,
+			  		 p.promo_regdate,
+			  		 (SELECT COUNT(*) FROM promo_reply r WHERE r.promo_num=p.promo_num) p_replyCnt,
+			  		 (SELECT COUNT(*) FROM promo_fav w WHERE w.promo_num=p.promo_num) p_favCnt,
+			  		 m.mem_num,
+			  		 m.mem_nick
+			  		FROM promo_board p JOIN member m
+			  		ON m.mem_num=p.mem_num
+			  		<include refid="promoSearch"></include>
+			  		ORDER BY p.promo_num DESC)a)
+		<![CDATA[
+		WHERE rnum>=#{start} AND rnum<=#{end}
+		]]>
+	</select>
+	
+	<update id="updatePromo" parameterType="promoVO">
+  		UPDATE promo_board SET
+  		 <if test="promo_filename!=''">
+  		 promo_uploadfile=#{promo_uploadfile},
+  		 promo_filename=#{promo_filename},
+  		 </if>
+  		 promo_title=#{promo_title},
+  		 promo_status=#{promo_status},
+  		 promo_content=#{promo_content},
+  		 promo_ip=#{promo_ip},
+  		 promo_modifydate=SYSDATE
+  		WHERE promo_num=#{promo_num}
+  	</update>
+  	
+  	<!-- 댓글 목록 -->
+  	<select id="selectPromoListReply" parameterType="map" resultType="PromoReplyVO">
+  		SELECT
+  		 *
+  		FROM(SELECT
+  				a.*,
+  				rownum rnum
+  			 FROM(SELECT
+  			 		pre_num,
+  			 		<![CDATA[
+  			 		REPLACE(REPLACE(pre_content,'<','&lt;'),'>','&gt;') pre_content,
+  			 		]]>
+  			 		pre_regdate,
+  			 		pre_modifydate,
+  			 		promo_num,
+  			 		mem_num,
+  			 		mem_id,
+  			 		mem_nick
+  			 	  FROM promo_reply JOIN member
+  			 	  USING (mem_num)
+  			 	  WHERE promo_num=#{promo_num}
+  			 	  ORDER BY pre_num DESC)a)
+  			 <![CDATA[
+  			 WHERE rnum>=#{start} AND rnum<=#{end}
+  			 ]]>
+  	</select>
+</mapper>

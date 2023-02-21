@@ -17,7 +17,7 @@ public class TalkServiceImpl implements TalkService{
 
 	@Autowired
 	private TalkMapper talkMapper;
-	
+
 	@Override
 	public List<TalkRoomVO> selectTalkRoomList(Map<String, Object> map) {
 		return talkMapper.selectTalkRoomList(map);
@@ -25,8 +25,7 @@ public class TalkServiceImpl implements TalkService{
 
 	@Override
 	public TalkRoomVO selectTalkRoom(Integer talkroom_num) {
-		// TODO Auto-generated method stub
-		return null;
+		return talkMapper.selectTalkRoom(talkroom_num);
 	}
 
 	@Override
@@ -43,14 +42,19 @@ public class TalkServiceImpl implements TalkService{
 
 	@Override
 	public void insertTalk(TalkVO talkVO) {
-		// TODO Auto-generated method stub
-
+		talkVO.setTalk_num(talkMapper.selectTalkNum());
+		//채팅 메시지 등록
+		talkMapper.insertTalk(talkVO);
+		//채팅방 멤버가 읽지 않은 채팅 정보 저장
+		for(TalkVO vo : talkMapper.selectTalkMember(talkVO.getTalkroom_num())) {
+			talkMapper.insertTalkRead(talkVO.getTalkroom_num(), talkVO.getTalk_num(), vo.getMem_num());
+		}
 	}
 
 	@Override
 	public List<TalkVO> selectTalkDetail(Map<String, Integer> map) {
-		// TODO Auto-generated method stub
-		return null;
+		talkMapper.deleteTalkRead(map);
+		return talkMapper.selectTalkDetail(map.get("talkroom_num"));
 	}
 
 	@Override
@@ -60,8 +64,19 @@ public class TalkServiceImpl implements TalkService{
 
 	@Override
 	public void deleteTalkRoomMember(TalkVO talkVO) {
-		// TODO Auto-generated method stub
-
+		//채팅방 멤버
+		List<TalkVO> list = talkMapper.selectTalkMember(talkVO.getTalkroom_num());
+		//멤버 삭제
+		talkMapper.deleteTalkRoomMember(talkVO);
+		if(list.size()>0) {
+			talkVO.setTalk_num(talkMapper.selectTalkNum());
+			talkMapper.insertTalk(talkVO);
+		}else {
+			//채팅멤버가 1명인데 마지막 채팅멤버가 방을 나갈 경우
+			//남아있는 채팅 내용을 모두 지우고, 채팅방도 삭제
+			talkMapper.deleteTalk(talkVO.getTalkroom_num());
+			talkMapper.deleteTalkRoom(talkVO.getTalkroom_num());
+		}
 	}
 
 }
