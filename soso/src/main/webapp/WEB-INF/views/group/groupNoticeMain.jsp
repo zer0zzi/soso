@@ -27,6 +27,8 @@
             </tr>
         </table>
     </div>
-    <button onclick="location.href='${pageContext.request.contextPath}/group/groupNoticeWrite.do?stc_num=1'">write</button>
+    <div class="writebutton">
+    	<button class="button" id="add-button" onclick="location.href='${pageContext.request.contextPath}/group/groupNoticeWrite.do?stc_num=1'">write</button>
+	</div>
 </div>
 <!-- 메인 끝 -->

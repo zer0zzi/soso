@@ -66,6 +66,42 @@
 	border: none !important;
 }
 
+/* 글쓰기 버튼 디자인 */
+.writebutton{
+	width: 800px;
+}
+.button {   
+  margin-left: 700px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 25px;
+  padding: 0.65rem 1.9rem;
+  -webkit-transition: .2s ease all;
+  -o-transition: .2s ease all;
+  transition: .2s ease all;
+  color: white;
+  border: none;
+  background: #969ce4; 
+}
+.button:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none; 
+}
+#add-button:hover{
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03); 
+}
+#add-button:active{
+  -webkit-transform: translateY(3px) scale(0.97);
+  -ms-transform: translateY(3px) scale(0.97);
+  transform: translateY(3px) scale(0.97); 
+}
 /*---------- 글쓰기 ----------*/
 
 /*---------- 수정하기 ----------*/
