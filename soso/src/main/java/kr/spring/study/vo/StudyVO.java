@@ -1,8 +1,11 @@
 package kr.spring.study.vo;
 
+import java.io.IOException;
 import java.sql.Date;
 
 import javax.validation.constraints.NotEmpty;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class StudyVO {
 	private int stc_num;
@@ -26,6 +29,14 @@ public class StudyVO {
 	private String mem_nick;
 	private byte[] mem_photo;
 	private String mem_photo_name;
+	
+	//파일 업로드 처리
+	public void setUpload(MultipartFile upload) throws IOException{
+		//MultipartFile -> byte[] 변환
+		setStc_uploadfile(upload.getBytes());
+		//파일명 구하기
+		setStc_filename(upload.getOriginalFilename());
+	}
 	
 	public int getStc_num() {
 		return stc_num;
