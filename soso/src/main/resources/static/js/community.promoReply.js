@@ -103,7 +103,7 @@ $(function(){
 					output += '</div>'; // item의 div
 					
 					// 문서 객체에 추가
-					$('#v_output').append(output);
+					$('#p_output').append(output);
 				});
 				
 				// paging button 처리

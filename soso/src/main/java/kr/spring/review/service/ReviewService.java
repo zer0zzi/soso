@@ -1,12 +1,11 @@
 package kr.spring.review.service;
 
-import java.util.List;
-import java.util.Map;
+import java.util.List;import java.util.Map;
 
+import kr.spring.member.vo.MemberVO;
 import kr.spring.review.vo.ReviewFavVO;
 import kr.spring.review.vo.ReviewReplyVO;
 import kr.spring.review.vo.ReviewVO;
-import kr.spring.study.vo.StudyVO;
 
 public interface ReviewService {
 	// 부모글
@@ -19,6 +18,8 @@ public interface ReviewService {
 	public void deleteReview(Integer review_num);
 	public void deleteReviewFile(Integer review_num);
 
+	public List<MemberVO> selectReviewMemberStudyList(int mem_num);
+	
 	// 좋아요
 	public ReviewFavVO selectReviewFav(ReviewFavVO fav);
 	public int selectReviewFavCount(Integer review_num);

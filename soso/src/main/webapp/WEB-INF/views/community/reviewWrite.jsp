@@ -61,15 +61,15 @@
 	<form:form action="reviewWrite.do" name="reviewWrite_form" id="reviewWrite_form" modelAttribute="reviewVO" enctype="multipart/form-data">
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
-			<%-- <li>
+			<li>
 				<label>스터디명</label>
 				<select id="studyName" class="studyName">
 					<option value="" disabled selected>참여 스터디</option>
-					<c:forEach var="study" items="${getStudyList}">
-						<option><c:out value="${study.stc_title}"></c:out></option>
+					<c:forEach var="study" items="${studyList}">
+						<option>${study.stc_title}</option>
 					</c:forEach>
 				</select>
-			</li> --%>
+			</li>
 			<li>
 				<label for="review_title">제목</label>
 				<form:input path="review_title"/>
@@ -79,16 +79,11 @@
 			<li class="rate">
 				<fieldset>
 					<legend>평점</legend> <!-- ⭐ -->
-					<input type="radio" name="review_rating" value="5" id="rate1">
-					<label for="rate1">⭐</label>
-     			    <input type="radio" name="review_rating" value="4" id="rate2">
-     			    <label for="rate2">⭐</label>
-       			 	<input type="radio" name="review_rating" value="3" id="rate3">
-       			 	<label for="rate3">⭐</label>
-       				<input type="radio" name="review_rating" value="2" id="rate4">
-       				<label for="rate4">⭐</label>
-        			<input type="radio" name="review_rating" value="1" id="rate5">
-        			<label for="rate5">⭐</label>
+					<input type="radio" name="review_rating" value="5" id="rate1"><label for="rate1">★</label>
+     			    <input type="radio" name="review_rating" value="4" id="rate2"><label for="rate2">★</label>
+       			 	<input type="radio" name="review_rating" value="3" id="rate3"><label for="rate3">★</label>
+       				<input type="radio" name="review_rating" value="2" id="rate4"><label for="rate4">★</label>
+        			<input type="radio" name="review_rating" value="1" id="rate5"><label for="rate5">★</label>
 				</fieldset>
 			</li>
 			</c:if>

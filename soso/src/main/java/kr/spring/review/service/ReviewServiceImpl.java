@@ -1,12 +1,12 @@
 package kr.spring.review.service;
 
-import java.util.List;
-import java.util.Map;
+import java.util.List;import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.spring.member.vo.MemberVO;
 import kr.spring.review.dao.ReviewMapper;
 import kr.spring.review.vo.ReviewFavVO;
 import kr.spring.review.vo.ReviewReplyVO;
@@ -112,6 +112,11 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public void deleteReviewReply(Integer vre_num) {
 		reviewMapper.deleteReviewReply(vre_num);
+	}
+
+	@Override
+	public List<MemberVO> selectReviewMemberStudyList(int mem_num) {
+		return reviewMapper.selectReviewMemberStudyList(mem_num);
 	}
 
 }

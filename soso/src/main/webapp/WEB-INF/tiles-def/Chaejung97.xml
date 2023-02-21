@@ -5,6 +5,11 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+	<definition name="fullList" extends="main">
+    	<put-attribute name="title" value="전체게시판목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/community/fullList.jsp"/>        
+    </definition>
+
     <definition name="freeList" extends="main">
     	<put-attribute name="title" value="자유게시판목록"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/freeList.jsp"/>        

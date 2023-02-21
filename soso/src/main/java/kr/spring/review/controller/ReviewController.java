@@ -79,6 +79,51 @@ public class ReviewController {
 	// ========== 후기 글 작성 ==========
 	// 등록 폼 호출
 	@GetMapping("/community/reviewWrite.do")
+	public String reviewWriteForm(HttpSession session, Model model) {
+		// 로그인 한 회원정보 셋팅
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user!=null) {
+			// 회원번호 셋팅
+			user.getMem_num();
+			// 스터디명 정보 출력
+			List<MemberVO> studyList = null;
+			studyList = reviewService.selectReviewMemberStudyList(user.getMem_num());
+
+			model.addAttribute("studyList", studyList);
+		}
+
+		return "reviewWrite"; // 타일스 설정값
+	}
+	// 등록 폼에서 전송된 데이터 처리
+	@PostMapping("/community/reviewWrite.do")
+	public String reviewSubmit(@Valid ReviewVO reviewVO, BindingResult result, HttpServletRequest request, 
+			RedirectAttributes redirect, HttpSession session) {
+		logger.debug("<<게시판 글쓰기>> : " + reviewVO);
+		logger.debug("<<업로드 파일 용량>> : " + reviewVO.getReview_uploadfile().length);
+
+		// 업로드 파일 용량 체크
+		if(reviewVO.getReview_uploadfile().length>=52428800) { // 5MB
+			result.reject("limitUploadSize");
+		}
+
+		// 유효성 체크 결과 오류가 있으면 폼을 호출
+		if(result.hasErrors()) {
+			return "redirect:/community/reviewWrite.do";
+		}
+		// 에러가 없으면 회원번호 셋팅
+		reviewVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
+		// ip셋팅
+		reviewVO.setReview_ip(request.getRemoteAddr());
+		// 글쓰기
+		reviewService.insertReview(reviewVO);
+
+		redirect.addFlashAttribute("result", "success");
+
+		return "redirect:/community/reviewList.do";
+	}
+	/* 원래
+	// 등록 폼 호출
+	@GetMapping("/community/reviewWrite.do")
 	public String reviewWriteForm() {
 		return "reviewWrite"; // 타일스 설정값
 	}
@@ -109,7 +154,53 @@ public class ReviewController {
 
 		return "redirect:/community/reviewList.do";
 	}
+	 */
+	/* 수정
+	// 등록 폼 호출
+	@GetMapping("/community/reviewWrite.do")
+	public ModelAndView reviewWriteForm(@RequestParam int review_num) {
+		// 스터디명 정보 출력
+		List<ReviewVO> studyList = null;
+		studyList = reviewService.selectReviewMemberStudyList(review_num);
 
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("reviewWrite");
+		mav.addObject("studyList", studyList);
+
+		logger.debug("<<studyList 정보>> : " + studyList);
+
+		return mav; // 타일스 설정값
+	}
+	// 등록 폼에서 전송된 데이터 처리
+	@PostMapping("/community/reviewWrite.do")
+	public String reviewSubmit(@Valid ReviewVO reviewVO, BindingResult result, HttpServletRequest request, 
+			RedirectAttributes redirect, HttpSession session, ModelAndView mav) {
+		logger.debug("<<게시판 글쓰기>> : " + reviewVO);
+		logger.debug("<<업로드 파일 용량>> : " + reviewVO.getReview_uploadfile().length);
+
+		// 업로드 파일 용량 체크
+		if(reviewVO.getReview_uploadfile().length>=52428800) { // 5MB
+			result.reject("limitUploadSize");
+		}
+
+
+		// 유효성 체크 결과 오류가 있으면 폼을 호출
+		if(result.hasErrors()) {
+			return "redirect:/community/reviewWrite.do";
+			//return reviewWriteForm(); // 리다이렉트로 변경
+		}
+		// 에러가 없으면 회원번호 셋팅
+		reviewVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
+		// ip셋팅
+		reviewVO.setReview_ip(request.getRemoteAddr());
+		// 글쓰기
+		reviewService.insertReview(reviewVO);
+
+		redirect.addFlashAttribute("result", "success");
+
+		return "redirect:/community/reviewList.do";
+	}
+	 */
 	// ========== 후기 글상세 ==========
 	@RequestMapping("/community/reviewDetail.do")
 	public ModelAndView process(@RequestParam int review_num) {

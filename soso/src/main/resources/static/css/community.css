@@ -63,8 +63,8 @@ div.review-paging{
 /* ============================================= */
 #reviewWrite_form li.rate fieldset, #reviewUpdate_form li.rate fieldset{
 	display:inline-block; /* 하위 별점 이미지들이 있는 영역만 자리 차지 */ 
-	border:0; /* 필드셋 테두리 제거 */
 	direction:rtl;  /* 별점 이미지 순서(방향) 반전 right to left */
+	border:0; /* 필드셋 테두리 제거 */
 }
 #reviewWrite_form li.rate input[type=radio], #reviewUpdate_form li.rate input[type=radio]{
 	display:none; /* radiobox 감춤 */

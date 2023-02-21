@@ -38,7 +38,7 @@ $(function(){
 		$.ajax({
 			url:'writePromoFav.do',
 			type:'post',
-			data:{free_num:$('#p_output_fav').attr('data-num')},
+			data:{promo_num:$('#p_output_fav').attr('data-num')},
 			dataType:'json',
 			success:function(param){
 				if(param.result=='logout'){

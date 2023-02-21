@@ -33,6 +33,7 @@
   		<include refid="reviewSearch"></include>
   	</select>
   	
+  	
   	<select id="selectReviewList" parameterType="map" resultType="reviewVO">
   		SELECT
   		 *

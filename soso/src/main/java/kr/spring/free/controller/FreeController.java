@@ -43,7 +43,21 @@ public class FreeController {
 	public FreeVO initCommand() {
 		return new FreeVO();
 	}
-
+	
+	/*
+	// ========== 전체 글 목록 ===========
+	@RequestMapping("/community/fullList.do")
+	public ModelAndView fullList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("keyfield", keyfield);
+		map.put("keyword", keyword);
+		
+		int count = freeService.
+		
+		return "mav";
+	}
+	*/
+	
 	// ========== 자유 글 목록 ==========
 	@RequestMapping("/community/freeList.do")
 	public ModelAndView freeList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
