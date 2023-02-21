@@ -7,7 +7,16 @@
 	width: 800px;
 	margin: 0 auto;
 }
-
+.page-main>p{ /* group notice 상단 글씨체 */
+	font-size: 15px;
+	font-weight: bold;
+	color: grey;
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-decoration: underline;
+}
 
 
 
@@ -8177,15 +8186,6 @@ h1, h2, h3, h4, h5,
 
 .bg-primary {
   background: #7e0cf5 !important; }
-
-.ftco-section {
-  padding: 7em 0; }
-
-.ftco-no-pt {
-  padding-top: 0; }
-
-.ftco-no-pb {
-  padding-bottom: 0; }
 
 .heading-section {
   font-size: 28px;

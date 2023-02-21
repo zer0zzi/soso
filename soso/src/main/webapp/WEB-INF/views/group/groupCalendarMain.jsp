@@ -13,7 +13,8 @@
  <body>
 <!-- 메인 시작 -->
 <div class="page-main">
-	<section class="ftco-section">
+<p>GROUP CALENDAR</p>
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
