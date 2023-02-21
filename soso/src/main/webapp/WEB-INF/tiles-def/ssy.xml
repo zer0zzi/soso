@@ -16,25 +16,21 @@
 			value="/WEB-INF/views/group/groupSideBar.jsp" />        
     </definition>
     
-    <definition name="noticeMain"
-	template="/WEB-INF/views/template/layout_groupPage.jsp">
+    <definition name="noticeMain" extends="groupMain">
 		<put-attribute name="title" value="NoticePage" />
-		<put-attribute name="header"
-			value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/group/groupNoticeMain.jsp" />
-		<put-attribute name="sideBar"
-			value="/WEB-INF/views/group/groupSideBar.jsp" />        
+			value="/WEB-INF/views/group/groupNoticeMain.jsp" />       
+    </definition>
+    <definition name="noticeWrite" extends="groupMain">
+    	<put-attribute name="title" value="공지사항 글쓰기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/group/groupNoticeWrite.jsp"/>        
     </definition>
     
-    <definition name="calendarMain"
-	template="/WEB-INF/views/template/layout_groupPage.jsp">
+    <definition name="calendarMain" extends="groupMain">
 		<put-attribute name="title" value="CalendarPage" />
-		<put-attribute name="header"
-			value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/group/groupCalendarMain.jsp" />
-		<put-attribute name="sideBar"
-			value="/WEB-INF/views/group/groupSideBar.jsp" />        
+			value="/WEB-INF/views/group/groupCalendarMain.jsp" />       
     </definition>
+    
 </tiles-definitions>

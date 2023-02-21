@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,11 +25,10 @@ public class GroupController {
 	@Autowired private GroupService groupService;
 	
 	
-	
+	//================== 메인페이지 =================//
 	//========= 그룹 멤버 출력 ========//
 	/*처음 스터디그룹 메인 페이지 호출 시*/
 	@RequestMapping("/group/groupMain.do")
-
 	public ModelAndView groupMain(@RequestParam int stc_num) {
 		// 규칙 사항 출력
 		GroupNoticeVO rule = null;
@@ -60,13 +60,8 @@ public class GroupController {
 		return mav;
 	}
 	
-	
-	//========= 공지사항 ========//
-	/* 공지사항 리스트 호출시 */
-	@RequestMapping("/group/notice_list.do")
-	public String noticeMain() {
-		return "noticeMain";
-	}
+
+
 	
 	
 	//========= 캘린더 ========//
@@ -76,4 +71,25 @@ public class GroupController {
 		return "calendarMain";
 	}
 
+	
+	
+	//================== 공지사항 페이지 =================//
+	
+	//========= 공지사항 리스트 출력 ========//
+	@RequestMapping("/group/notice_list.do")
+	public String noticeMain(@RequestParam int stc_num) {
+		
+		return "noticeMain";
+	}
+	
+	//========= 공지사항 글쓰기 ========//
+	@GetMapping("/group/groupNoticeWrite.do")
+	public String form() {
+		return "noticeWrite";
+	}
+	
+	
+	
+	
+	//================== 캘린더 페이지 =================//
 }
