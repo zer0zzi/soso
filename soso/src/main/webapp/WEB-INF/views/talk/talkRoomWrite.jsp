@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 채팅방 생성 시작 -->    
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/message.js"></script>
-<div class="page-main">
-	<h2>채팅방 생성</h2>
-	<form action="talkRoomWrite.do" method="post"
-	      id="talk_form">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/talk/talk.css">
+<!-- 채팅방 생성 시작 -->
+<div class="page-main-talk">    
+<div class="talk">
+   <div class="text-align-center"><span class="talk-title">SoSoTalk</span></div> 
+   <div class="talk-make-body">
+	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"
 		 data-id="${user.mem_id}" value="${user.mem_num}">
 		<ul>
@@ -24,13 +26,14 @@
 				<div id="talk_member"></div>   
 			</li>
 		</ul>
-		<div class="align-center">
-			<input type="submit" value="전송">
-			<input type="button" value="목록" 
-			      onclick="location.href='talkList.do'">
+		<div class="talk-make-btn">
+			<input type="submit" value="만들기">
+			<input type="button" value="목록" onclick="location.href='talkList.do'">
 		</div>       
 	</form>
+	</div>
 </div>
+</div><!-- end of page-main-talk -->
 <!-- 채팅방 생성 끝 --> 
 
 
