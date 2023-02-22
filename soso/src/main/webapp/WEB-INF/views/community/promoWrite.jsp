@@ -40,7 +40,7 @@
 <div class="p-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='promoList.do'>홍보라운지</a>
 		</h2>
@@ -48,12 +48,20 @@
 	
 	<div class="sub-header-write">
 		<a href='promoList.do'>홍보라운지</a> 
+		
+		<select title="" onchange="if(this.value) location.href=(this.value);">
+			<option value="freeWrite.do">자유</option>
+			<option value="promoWrite.do" selected>홍보</option>
+			<option value="reviewWrite.do">후기</option>
+		</select>
+		
 		<c:if test="${!empty user && user.mem_auth==9}">공지작성</c:if>
 		<c:if test="${!empty user && user.mem_auth<9}">글작성</c:if>
 	</div>
 	
 	<!-- 작성 폼 시작 -->
 	<form:form action="promoWrite.do" id="promoWrite_form" modelAttribute="promoVO" enctype="multipart/form-data">
+		<input type="hidden" name="promo_name" value="홍보">
 		<ul>
 			<li>
 				<label for="promo_title">제목</label>
@@ -61,11 +69,11 @@
 				<form:errors path="promo_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label>모집 여부</label>
 				<c:if test="${!empty user && user.mem_auth==9}">
 				<form:hidden path="promo_status" value="0"/>
 				</c:if>
 				<c:if test="${!empty user && user.mem_auth<9}">
+				<label>모집 여부</label>
 				<form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
 				<form:radiobutton path="promo_status" value="2" id="status2" onclick="return(false);"/>모집완료
 				</c:if>

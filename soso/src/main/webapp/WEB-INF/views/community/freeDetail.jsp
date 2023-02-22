@@ -11,7 +11,7 @@
 
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='${pageContext.request.contextPath}/community/freeList.do'>자유게시판</a>
 		</h2>
@@ -20,7 +20,7 @@
 	<!-- 서브 메뉴 시작 -->
 	<div class="sub-menu">
 		<ul>
-			<li><a href='#'>전체게시판</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/fullList.do'>전체게시판</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/freeList.do'>자유</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/promoList.do'>홍보</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>

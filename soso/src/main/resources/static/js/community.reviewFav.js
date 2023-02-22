@@ -14,6 +14,7 @@ $(function(){
 			}
 		});
 	}
+	
 	// 초기 데이터 표시
 	selectReviewFav($('#v_output_fav').attr('data-num'));
 	
@@ -36,7 +37,7 @@ $(function(){
 		$.ajax({
 			url:'writeReviewFav.do',
 			type:'post',
-			data:{board_num:$('#v_output_fav').attr('data-num')},
+			data:{review_num:$('#v_output_fav').attr('data-num')},
 			dataType:'json',
 			success:function(param){
 				if(param.result=='logout'){

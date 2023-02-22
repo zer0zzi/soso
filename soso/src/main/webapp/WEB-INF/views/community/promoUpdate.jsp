@@ -18,7 +18,7 @@
 <div class="v-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='promoList.do'>홍보라운지</a>
 		</h2>
@@ -30,6 +30,7 @@
 	
 	<form:form action="promoUpdate.do" id="promoUpdate_form" modelAttribute="promoVO" enctype="multipart/form-data">
 		<form:hidden path="promo_num"/>
+		<input type="hidden" name="promo_name" value="홍보">
 		<ul>
 			<li>
 				<label for="promo_title">제목</label>

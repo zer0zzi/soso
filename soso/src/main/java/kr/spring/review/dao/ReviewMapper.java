@@ -8,35 +8,30 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import kr.spring.member.vo.MemberVO;
 import kr.spring.review.vo.ReviewFavVO;
 import kr.spring.review.vo.ReviewReplyVO;
 import kr.spring.review.vo.ReviewVO;
+import kr.spring.study.vo.StudyVO;
 
 @Mapper
 public interface ReviewMapper {
 	// 부모글
 	public List<ReviewVO> selectReviewList(Map<String, Object> map);
 	public int selectReviewRowCount(Map<String, Object> map);
-	
-	@Insert("INSERT INTO review_board (review_num,review_title,review_rating,review_fixed,review_content,review_uploadfile,review_filename,review_ip,mem_num) "
-			+ "VALUES (review_board_seq.nextval,#{review_title},#{review_rating},#{review_fixed},#{review_content},#{review_uploadfile},#{review_filename},#{review_ip},#{mem_num})")
+	@Insert("INSERT INTO review_board (review_num,review_stc_name,review_name,review_title,review_rating,review_fixed,review_content,review_uploadfile,review_filename,review_ip,mem_num) "
+			+ "VALUES (review_board_seq.nextval,#{review_stc_name},#{review_name},#{review_title},#{review_rating},#{review_fixed},#{review_content},#{review_uploadfile},#{review_filename},#{review_ip},#{mem_num})")
 	public void insertReview(ReviewVO review);
-	
-	@Select("SELECT c.stc_title "
-			+ "FROM (SELECT s.mem_num,s.stc_num FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a "
-			+ "JOIN study_create c ON a.mem_num=c.mem_num")
-	public List<MemberVO> selectReviewMemberStudyList(int mem_num);
+	@Select("SELECT c.stc_title,a.* "
+			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a "
+			+ "JOIN study_create c ON a.stc_num=c.stc_num "
+			+ "WHERE a.mem_num=#{a.mem_num}")
+	public List<StudyVO> selectReviewMemberStudyList(int mem_num);
 	
 	/*
 	 	SELECT c.stc_title,a.*
-FROM (SELECT s.mem_num,s.stc_num FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a
-JOIN study_create c ON a.mem_num=c.mem_num;
-	  
-	  
-		SELECT c.stc_title,a.*
-FROM (SELECT s.mem_num,s.stc_num FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a
-JOIN study_create c ON a.mem_num=c.mem_num;
+FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a
+JOIN study_create c ON a.stc_num=c.stc_num
+WHERE a.mem_num=3;
 	 */
 	
 	@Select("SELECT * FROM review_board v JOIN member m USING(mem_num) JOIN member_detail d USING(mem_num) "

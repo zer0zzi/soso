@@ -29,6 +29,7 @@ import kr.spring.review.service.ReviewService;
 import kr.spring.review.vo.ReviewFavVO;
 import kr.spring.review.vo.ReviewReplyVO;
 import kr.spring.review.vo.ReviewVO;
+import kr.spring.study.vo.StudyVO;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
 
@@ -86,7 +87,7 @@ public class ReviewController {
 			// 회원번호 셋팅
 			user.getMem_num();
 			// 스터디명 정보 출력
-			List<MemberVO> studyList = null;
+			List<StudyVO> studyList = null;
 			studyList = reviewService.selectReviewMemberStudyList(user.getMem_num());
 
 			model.addAttribute("studyList", studyList);
@@ -254,10 +255,22 @@ public class ReviewController {
 	// ========== 리뷰 글수정 ==========
 	// 수정 폼 호출
 	@GetMapping("/community/reviewUpdate.do")
-	public String reviewFormUpdate(@RequestParam int review_num, Model model) {
+	public String reviewFormUpdate(@RequestParam int review_num, Model model, HttpSession session) {
 		ReviewVO reviewVO = reviewService.selectReview(review_num);
 
 		model.addAttribute("reviewVO", reviewVO);
+
+		// 로그인 한 회원정보 셋팅
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user!=null) {
+			// 회원번호 셋팅
+			user.getMem_num();
+			// 스터디명 정보 출력
+			List<StudyVO> studyList = null;
+			studyList = reviewService.selectReviewMemberStudyList(user.getMem_num());
+
+			model.addAttribute("studyList", studyList);
+		}
 
 		return "reviewUpdate";
 	}
@@ -279,7 +292,7 @@ public class ReviewController {
 	}
 	// 수정 폼에서 전송된 데이터 처리
 	@PostMapping("/community/reviewUpdate.do")
-	public String promoUpdate(@Valid ReviewVO reviewVO, BindingResult result, HttpServletRequest request, Model model) {
+	public String reviewUpdate(@Valid ReviewVO reviewVO, BindingResult result, HttpServletRequest request, Model model) {
 		logger.debug("<<글수정>> : " + reviewVO);
 		logger.debug("<<업로드 파일 용량>> : " + reviewVO.getReview_uploadfile().length);
 
@@ -322,16 +335,20 @@ public class ReviewController {
 	// 좋아요 읽기
 	@RequestMapping("/community/getReviewFav.do")
 	@ResponseBody
-	public Map<String, Object> getFav(ReviewFavVO fav, HttpSession session){
+	public Map<String, Object> getReviewFav(ReviewFavVO fav, HttpSession session){
 		logger.debug("<<게시판 좋아요>> : " + fav);
 
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 
 		MemberVO user = (MemberVO)session.getAttribute("user");
 
+		logger.debug("<<로그인 되어있는지 체크 준비 완료 - 읽기>>");
+
 		if(user==null) {
+			logger.debug("<<로그아웃 상태>>");
 			mapJson.put("status", "noFav");
 		}else {
+			logger.debug("<<로그인 상태>>");
 			// 로그인된 아이디 셋팅
 			fav.setMem_num(user.getMem_num());
 
@@ -356,6 +373,9 @@ public class ReviewController {
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 
 		MemberVO user = (MemberVO)session.getAttribute("user");
+
+		logger.debug("<<로그인 되어있는지 체크 준비 완료 - 등록>>");
+
 		if(user==null) { // 로그아웃 상태
 			mapJson.put("result", "logout");
 		}else {
@@ -365,11 +385,11 @@ public class ReviewController {
 			logger.debug("<<부모글 좋아요 등록>> : " + fav);
 
 			ReviewFavVO reviewFav = reviewService.selectReviewFav(fav);
-			if(reviewFav!=null) {
+			if(reviewFav!=null) { // 좋아요가 이미 등록되어 있으면 삭제
 				reviewService.deleteReviewFav(reviewFav.getV_fav_num());
 				mapJson.put("result", "success");
 				mapJson.put("status", "noFav");
-			}else {
+			}else { // 좋아요 미등록이면 등록
 				reviewService.insertReviewFav(fav);
 
 				mapJson.put("result", "success");

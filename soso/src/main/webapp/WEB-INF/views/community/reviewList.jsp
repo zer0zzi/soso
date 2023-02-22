@@ -17,7 +17,7 @@
 <div class="v-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='${pageContext.request.contextPath}/community/reviewList.do'>후기게시판</a>
 		</h2>
@@ -26,7 +26,7 @@
 	<!-- 서브 메뉴 시작 -->
 	<div class="sub-menu">
 		<ul>
-			<li><a href='#'>전체게시판</a></li>
+			<li><a href='${pageContext.request.contextPath}/community/fullList.do'>전체게시판</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/freeList.do'>자유</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/promoList.do'>홍보</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
@@ -129,6 +129,7 @@
 	<div class="review-fixed-2">
 		<table>
 			<tr class="review-table-title">
+				<th>스터디명</th>
 				<th>번호</th>
 				<th>평점</th>
 				<th width="400">제목</th>
@@ -140,9 +141,11 @@
 				<th>좋아요수</th>
 			</tr>
 			<c:forEach var="review" items="${reviewList}">
-			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
+			<input type="hidden" name="review_fixed" id="review_fixed" value="${review_fixed}">
 			<c:if test="${review.review_fixed==2}">
 			<tr class="review-table-item">
+				
+				<td>${review.review_stc_name}</td>
 				<td>${review.review_num}</td>
 				<td>${review.review_rating}</td>
 				<td><a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a></td>
@@ -163,6 +166,7 @@
 						<span>(♥${review.v_favCnt})</span>
 					</c:if>
 				</td>
+				
 			</tr>
 			</c:if>
 			</c:forEach>

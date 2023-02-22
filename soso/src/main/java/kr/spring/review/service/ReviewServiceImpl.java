@@ -11,6 +11,7 @@ import kr.spring.review.dao.ReviewMapper;
 import kr.spring.review.vo.ReviewFavVO;
 import kr.spring.review.vo.ReviewReplyVO;
 import kr.spring.review.vo.ReviewVO;
+import kr.spring.study.vo.StudyVO;
 
 @Service
 @Transactional
@@ -115,7 +116,7 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public List<MemberVO> selectReviewMemberStudyList(int mem_num) {
+	public List<StudyVO> selectReviewMemberStudyList(int mem_num) {
 		return reviewMapper.selectReviewMemberStudyList(mem_num);
 	}
 

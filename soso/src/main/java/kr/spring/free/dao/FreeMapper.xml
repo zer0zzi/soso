@@ -3,6 +3,28 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.spring.free.dao.FreeMapper">
+	<!-- 전체 목록 시작 -->
+	<select id="selectFullList" parameterType="map" resultType="freeVO">
+		SELECT a.* FROM
+			(SELECT f.free_num,f.free_title,f.free_regdate,f.free_hit,f.free_name,(SELECT COUNT(*) FROM free_reply r WHERE r.free_num=f.free_num) f_replyCnt,(SELECT COUNT(*) FROM free_fav w WHERE w.free_num=f.free_num) f_favCnt,m.mem_id FROM free_board f JOIN member m USING(mem_num) WHERE f.free_fixed=2
+			UNION ALL
+			SELECT p.promo_num,p.promo_title,p.promo_regdate,p.promo_hit,p.promo_name,(SELECT COUNT(*) FROM promo_reply r WHERE r.promo_num=p.promo_num) p_replyCnt,(SELECT COUNT(*) FROM promo_fav w WHERE w.promo_num=p.promo_num) p_favCnt,m.mem_id FROM promo_board p JOIN member m USING(mem_num) WHERE p.promo_fixed=2
+			UNION ALL
+			SELECT v.review_num,v.review_title,v.review_regdate,v.review_hit,v.review_name,(SELECT COUNT(*) FROM review_reply r WHERE r.review_num=v.review_num) v_replyCnt,(SELECT COUNT(*) FROM review_fav w WHERE w.review_num=v.review_num) v_favCnt,m.mem_id FROM review_board v JOIN member m USING(mem_num) WHERE v.review_fixed=2)a
+			ORDER BY a.free_regdate DESC
+	</select>
+	<!-- 전체 목록 끝 -->
+	<!-- 전체 목록 개수 시작 -->
+	<select id="selectFullRowCount" parameterType="map" resultType="integer">
+		SELECT COUNT(*)FROM
+			(SELECT free_num,free_title FROM free_board WHERE free_fixed=2
+			UNION ALL
+			SELECT promo_num,promo_title FROM promo_board WHERE promo_fixed=2
+			UNION ALL
+			SELECT review_num,review_title FROM review_board WHERE review_fixed=2)
+	</select>
+	<!-- 전체 목록 개수 끝 -->
+
 	<!-- 
 		1. 검색을 사용하기 위해 동적 SQL 사용
 		2. SQL 태그와 include 태그를 이용해 SQL문을 재사용
@@ -73,6 +95,7 @@
   		 free_uploadfile=#{free_uploadfile},
   		 free_filename=#{free_filename},
   		 </if>
+  		 free_name=#{free_name},
   		 free_title=#{free_title},
   		 free_content=#{free_content},
   		 free_ip=#{free_ip},

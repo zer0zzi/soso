@@ -114,4 +114,14 @@ public class FreeServiceImpl implements FreeService{
 		freeMapper.deleteFreeReply(fre_num);
 	}
 
+	@Override
+	public List<FreeVO> selectFullList(Map<String, Object> map) {
+		return freeMapper.selectFullList(map);
+	}
+
+	@Override
+	public int selectFullRowCount(Map<String, Object> map) {
+		return freeMapper.selectFullRowCount(map);
+	}
+
 }

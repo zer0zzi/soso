@@ -10,6 +10,11 @@
 	min-height:250px;
 }
 </style>
+<style> /* 밑으로 드랍다운 했을 때, option 텍스트가 안 보이게 설정 */
+	select option[value=""][disabled]{
+	display:none;
+	}
+</style>
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <!-- ckeditor 설정 끝 -->
@@ -18,7 +23,7 @@
 <div class="v-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='reviewList.do'>후기게시판</a>
 		</h2>
@@ -30,7 +35,31 @@
 	
 	<form:form action="reviewUpdate.do" id="reviewUpdate_form" modelAttribute="reviewVO" enctype="multipart/form-data">
 		<form:hidden path="review_num"/>
+		<input type="hidden" name="review_name" value="후기">
+		<c:if test="${!empty user && user.mem_auth==9}">
+		<input type="hidden" name="review_stc_name" id="changeInput" value="관리자">
+		</c:if>
 		<ul>
+			<c:if test="${!empty user && user.mem_auth<9}">
+			<li>
+				<label>스터디명</label>
+				<select onchange="selectBoxChange(this.value)" id="studyName" class="studyName" name="studyName">
+					<option value="" disabled selected>참여 스터디</option>
+					<c:forEach var="study" items="${studyList}">
+						<option>${study.stc_title}</option>
+					</c:forEach>
+				</select>
+				<%-- <input type="text" name="review_stc_name" value="${review_stc_name}" id="1changeInput" required> --%>
+				<form:input path="review_stc_name" id="changeInput"/>
+				<script type="text/javascript">
+					var selectBoxChange = function(value){
+						console.log("값변경테스트 : " + value);
+						$('#changeInput').val(value);
+					}
+				</script>
+			</li>
+			</c:if>
+			
 			<li>
 				<label for="review_title">제목</label>
 				<form:input path="review_title"/>

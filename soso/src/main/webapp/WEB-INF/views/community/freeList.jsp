@@ -17,7 +17,7 @@
 <div class="f-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='${pageContext.request.contextPath}/community/freeList.do'>자유게시판</a>
 		</h2>

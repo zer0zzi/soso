@@ -18,7 +18,7 @@
 <div class="f-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='freeList.do'>자유게시판</a>
 		</h2>
@@ -29,6 +29,7 @@
 	</div>
 	
 	<form:form action="freeUpdate.do" id="freeUpdate_form" modelAttribute="freeVO" enctype="multipart/form-data">
+		<input type="hidden" name="free_name" value="자유">
 		<form:hidden path="free_num"/> <!-- 한 건의 데이터를 업데이트 하기 위해서 필요하다. -->
 		<ul>
 			<li>

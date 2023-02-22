@@ -27,12 +27,11 @@
 				$('#review_content').val('').focus();
 				return false;
 			}
-			/*
-			if($('#free_fixed1').val()=='1'){
-				alert('공지는 3개 이상으로 작성할 수 없습니다.');
+			if($('#changeInput').val().trim()==''){
+				alert('참여한 스터디명을 선택하세요.');
+				$('#changeInput').val('').focus();
 				return false;
 			}
-			*/
 		});
 	});
 </script>
@@ -45,7 +44,7 @@
 <div class="v-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='reviewList.do'>후기게시판</a>
 		</h2>
@@ -53,6 +52,13 @@
 	
 	<div class="sub-header-write">
 		<a href='reviewList.do'>후기게시판</a> 
+		
+		<select title="" onchange="if(this.value) location.href=(this.value);">
+			<option value="freeWrite.do">자유</option>
+			<option value="promoWrite.do">홍보</option>
+			<option value="reviewWrite.do" selected>후기</option>
+		</select>		
+		
 		<c:if test="${!empty user && user.mem_auth==9}">공지작성</c:if>
 		<c:if test="${!empty user && user.mem_auth<9}">글작성</c:if>
 	</div>
@@ -60,16 +66,31 @@
 	<!-- 작성 폼 시작 -->
 	<form:form action="reviewWrite.do" name="reviewWrite_form" id="reviewWrite_form" modelAttribute="reviewVO" enctype="multipart/form-data">
 		<form:errors element="div" cssClass="error-color"/>
+		<input type="hidden" name="review_name" value="후기">
+		<c:if test="${!empty user && user.mem_auth==9}">
+		<input type="hidden" name="review_stc_name" id="changeInput" value="관리자">
+		</c:if>
 		<ul>
+			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>
-				<select id="studyName" class="studyName">
+				<select onchange="selectBoxChange(this.value)" id="studyName" class="studyName" name="studyName">
 					<option value="" disabled selected>참여 스터디</option>
 					<c:forEach var="study" items="${studyList}">
 						<option>${study.stc_title}</option>
 					</c:forEach>
 				</select>
+				<!-- <input type="text" name="review_stc_name" id="1changeInput" placeholder="참여한 스터디를 선택해주세요." required> -->
+				<form:input path="review_stc_name" id="changeInput" />
+				<script type="text/javascript">
+					var selectBoxChange = function(value){
+						console.log("값변경테스트 : " + value);
+						$('#changeInput').val(value);
+					}
+				</script>
 			</li>
+			</c:if>
+			
 			<li>
 				<label for="review_title">제목</label>
 				<form:input path="review_title"/>

@@ -42,6 +42,7 @@
   			   rownum rnum 
   			  FROM (SELECT 
   			  		 v.review_num,
+  			  		 v.review_stc_name,
   			  		 v.review_rating,
   			  		 v.review_fixed,
   			  		 <![CDATA[
@@ -55,8 +56,7 @@
   			  		 v.mem_num,
   			  		 m.mem_id,
   			  		 m.mem_nick
-  			  		FROM review_board v JOIN member m 
-  			  		ON v.mem_num=m.mem_num
+  			  		FROM review_board v JOIN member m ON v.mem_num=m.mem_num
   			  		<include refid="reviewSearch"></include>
   			  		ORDER BY v.review_num DESC)a)
   		<![CDATA[
@@ -70,6 +70,8 @@
   		 review_uploadfile=#{review_uploadfile},
   		 review_filename=#{review_filename},
   		 </if>
+  		 review_stc_name=#{review_stc_name},
+  		 review_name=#{review_name},
   		 review_title=#{review_title},
   		 review_content=#{review_content},
   		 review_ip=#{review_ip},

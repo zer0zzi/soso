@@ -8,6 +8,10 @@ import kr.spring.free.vo.FreeReplyVO;
 import kr.spring.free.vo.FreeVO;
 
 public interface FreeService {
+	// 전체글 목록 조회
+	public List<FreeVO> selectFullList(Map<String, Object> map);
+	public int selectFullRowCount(Map<String, Object> map);
+
 	// 부모글
 	public List<FreeVO> selectFreeList(Map<String, Object> map); // 자유 게시글 목록
 	public int selectFreeRowCount(Map<String, Object> map); // 자유 게시글 한 건의 레코드 가져오기

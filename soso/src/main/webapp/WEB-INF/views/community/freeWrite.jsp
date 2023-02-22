@@ -40,20 +40,28 @@
 <div class="f-page-main">
 	<div class="main-menu">
 		<h2>
-			<a href='#'>커뮤니티</a>
+			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
 			 / 
 			<a href='freeList.do'>자유게시판</a>
 		</h2>
 	</div>
 	
 	<div class="sub-header-write">
-		<a href='freeList.do'>자유게시판</a> 
+		<a href='freeList.do'>자유게시판</a>
+		
+		<select title="" onchange="if(this.value) location.href=(this.value);">
+			<option value="freeWrite.do" selected>자유</option>
+			<option value="promoWrite.do">홍보</option>
+			<option value="reviewWrite.do">후기</option>
+		</select>
+		
 		<c:if test="${!empty user && user.mem_auth==9}">공지작성</c:if>
 		<c:if test="${!empty user && user.mem_auth<9}">글작성</c:if>
 	</div>
 	
 	<!-- 작성 폼 시작 -->
 	<form:form action="freeWrite.do" id="freeWrite_form" modelAttribute="freeVO" enctype="multipart/form-data">
+		<input type="hidden" name="free_name" value="자유">
 		<ul>
 			<li>
 				<label for="free_title">제목</label>
