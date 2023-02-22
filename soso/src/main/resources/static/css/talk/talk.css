@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/*----------------------------
+공통
+----------------------------  */
+.text-align-center{
+	text-align: center;
+}
+.bothclear{
+	clear: both;
+}
+
+
+/*----------------------------
+talkList
+----------------------------  */
+.page-main-talk{
+	width: 1024px;
+	margin: 0 auto;
+}
+.talk{
+	border:1px solid black;
+	width: 500px;
+	height: 600px;
+	margin: 0 auto;
+	background-color: white;
+}
+.talk-title{
+	font-size: 30px;
+}
+.talklist-list a:link {
+    text-decoration: none;
+    color:black;
+}
+.talklist-list a:visited {
+    text-decoration: none;
+    color:black;
+}
+form{
+	padding: 0px;
+}
+form#search_form {
+    border: none;
+}
+#search_form ul.search {
+    width: 400px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+#search_form ul.search li input[type="search"] {
+    width: 200px;
+}
+.talklist-list{
+	border:1px solid black;/* 임시 */
+	height: 450px;
+	overflow: auto;
+}
+.talklist-box{
+	border:1px solid black;/* 임시 */
+	height: 50px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.talklist-box:hover{
+	background-color: lightgreen;
+}
+.box-left{
+	width: 340px;
+	overflow: hidden;
+	float: left;
+	margin-left: 10px;
+}
+.box-right{
+	width: 110px;
+	float: right;
+	text-align: right;
+	margin-right: 10px;
+}
+.make-talk{
+	width:150px;
+	margin: 0 auto;
+}
+.make-talk input[type="button"] {
+	width:200px;
+	height:50px;
+	
+    appearance: auto;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    color: buttontext;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+
+
+
+
+
+
+
+
+
+
+
