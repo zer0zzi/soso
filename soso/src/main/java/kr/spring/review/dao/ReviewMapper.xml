@@ -4,13 +4,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="kr.spring.review.dao.ReviewMapper">
   	<sql id="reviewSearch">
-  		<where> <!-- 1)전체 2)제목 3)내용 4)작성자 -->
+  		<where> <!-- 1)전체 2)제목 3)내용 4)작성자 5)스터디명 -->
 			<if test="keyword!=null and keyword!=''">
 				<if test="keyfield==1">
 					v.review_title LIKE '%' || #{keyword} || '%' OR
 					v.review_content LIKE '%' || #{keyword} || '%' OR
 					m.mem_id LIKE '%' || #{keyword} || '%' OR
-					m.mem_nick LIKE '%' || #{keyword} || '%'
+					m.mem_nick LIKE '%' || #{keyword} || '%' OR
+					v.review_stc_name LIKE '%' || #{keyword} || '%'
 				</if>
 				<if test="keyfield==2">
 					v.review_title LIKE '%' || #{keyword} || '%'
@@ -21,6 +22,9 @@
 				<if test="keyfield==4">
 					m.mem_id LIKE '%' || #{keyword} || '%' OR
 					m.mem_nick LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield==5">
+					v.review_stc_name LIKE '%' || #{keyword} || '%'
 				</if>
 			</if>
 		</where>

@@ -6,7 +6,7 @@
 <div class="align-right">
 	<c:if test="${!empty user && user.mem_auth == 2}">
 	<a href="${pageContext.request.contextPath}/member/myPage.do">MY페이지</a>
-	<a href="${pageContext.request.contextPath}/community/freeList.do">커뮤니티</a>
+	<a href="${pageContext.request.contextPath}/community/fullList.do">커뮤니티</a>
 	<a href="${pageContext.request.contextPath}/study/studyView.do?stc_num=1">스터디상세-비가입자</a>
 	<a href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=1">스터디상세-가입자</a>
 	<a href="${pageContext.request.contextPath}/talk/talkList.do">톡방</a>

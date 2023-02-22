@@ -51,6 +51,9 @@
 			평점 : ${review.review_rating}
 			</c:if>
 		</li>
+		<li>
+			스터디명 : ${review.review_stc_name}
+		</li>
 	</ul>
 	<c:if test="${!empty review.review_filename}">
 	<ul>
