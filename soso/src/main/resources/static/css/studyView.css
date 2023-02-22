@@ -13,3 +13,10 @@
 div#clear{
 	clear:both;
 }
+
+form.modal-body{
+	border:none;
+	padding: 0 auto;
+	margin: 0 auto;
+	width: 450px;
+}

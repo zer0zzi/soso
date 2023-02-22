@@ -6,9 +6,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/study.fav.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/studyView.css">
-<script type="text/javascript">
-			
+<script type="text/javascript">			
 			// Modal을 가져온다
 			var modals = document.getElementsByClassName("modal");
 			// Modal을 띄우는 클래스 이름을 가져온다.
@@ -77,13 +78,13 @@
 		<li>
 			주제 : ${study.stc_filter}<br>
 			<c:if test="${!empty study.stc_way}">
-			지역 : ${study.stc_way}<br>
+			장소 : ${study.stc_way}<br>
 			</c:if>
 			모집인원 : ${study.stc_per}<br>
 			<c:if test="${!empty study.stc_period}">
 			마감기한 : ${study.stc_period}<br>
 			</c:if>
-			연락처 : ${member.mem_email}<br>
+			연락처 : ${study.mem_email}<br>
 		</li>
 	</ul>
 	<hr size="1" width="100%">
@@ -136,13 +137,26 @@
 						</h5>
 					</div>
 					<div class="modal-body">
-						<ul>
-							<li>${user.mem_id}</li>
-							<li>연락처:</li>
-							<li><input type="text"></li>
-							<li>신청사유</li>
-							<li><input type="text"></li>
-						</ul>
+						<form action="signup.do" class="modal-body">
+							<ul>
+							<li>
+							<b>신청스터디 :</b> ${study.stc_title}<br>
+							<b>주제 :</b> ${study.stc_filter}<br>
+							<b>마감기한 :</b> ${study.stc_period}<br>
+							</li>
+							</ul>
+							<ul>
+								<li>
+									<label for="mem_id">신청자</label><br>
+									<input type="text" value="${user.mem_id}" class="form-control" id="mem_id" name="mem_id" required>
+								</li>
+								<li><br></li>
+								<li>
+									<label for="signup_detail">신청사유 </label><br>
+									<textarea class="form-control col-sm-5" rows="5" id="signup_detail" placeholder="Enter detail" name="signup_detail" required></textarea>
+								</li>
+							</ul>
+						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
@@ -155,8 +169,8 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	
 	<div class="align-center" id="clear">
-		<input type="button" value="메인페이지"
-		           onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+		<a href="${pageContext.request.contextPath}/main/main.do">
+		<i class="bi bi-house-door-fill"></i>메인페이지로</a>
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
