@@ -187,7 +187,7 @@ $(function(){
                      }
                      output += '<div class="item">';
                      output += '<sapn>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
-                     //시간 표시
+                     //안 읽은 사람 수 & 시간 표시
                      output += '<div class="chatdate-right">'+'<span class="chatread-count">('+item.read_count+')</span>' + item.chat_date.split(' ')[1] + '</div>';
                      output += '</div>';
                      output += '</div><div class="space-clear"></div>';

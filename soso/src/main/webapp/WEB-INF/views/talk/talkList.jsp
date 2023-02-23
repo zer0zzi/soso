@@ -10,12 +10,12 @@
    <form action="talkList.do" id="search_form"
                                    method="get">
       <div class="search">
-            <input type="search" name="keyword" id="keyword" value="${param.keyword}">
-            <input type="submit" value="찾기" class="search-btn">
+            <input type="search" name="keyword" id="keyword" value="${param.keyword}" class="search-bar">
+            <input type="submit" value="검색" class="search-btn">
       </div>                                
    </form>
    <c:if test="${empty list}">
-   <div class="talklist-list text-align-center"><br>표시할 채팅방이 없습니다.</div>
+   <div class="talklist-list text-align-center"><br><b>표시할 채팅방이 없습니다.</b></div>
    </c:if>
    <c:if test="${!empty list}">
    <div class="talklist-list">
@@ -24,12 +24,12 @@
          <div class="box-left">
                <span>
                <b>
-               ${fn:substring(talk.talkroom_name,0,15)}
+               ${fn:substring(talk.talkroom_name,0,20)}
                <c:if test="${talk.room_cnt!=0}"><span style="color: red;">${talk.room_cnt}</span></c:if>               
                </b>
                </span>
                <br>                            
-               <span>${fn:substring(talk.talkVO.message,0,15)}</span>
+               <span>${fn:substring(talk.talkVO.message,0,20)}</span>
          </div>
          <div class="box-right">
             <span class="box-right-date">
@@ -42,7 +42,7 @@
       </c:forEach>
    </div>
    </c:if>
-   <hr size="1" width="100%">
+   <hr size="5" width="100%" color="#7a81d6">
    <div class="talklist-mypage-btn">
    	<input type="button" value="NewTalk" class="bottom-btn" onclick="location.href='talkRoomWrite.do'">
    	<input type="button" value="MyPage" class="bottom-btn" onclick="location.href='talkList.do'">   	

@@ -4,6 +4,8 @@
 ----------------------------  */
 .text-align-center{
 	text-align: center;
+	margin-top: 10px;
+    margin-bottom: 10px;
 }
 .bothclear{
 	clear: both;
@@ -32,7 +34,7 @@ talkList
 .talk-title{
 	font-size: 30px;
 	font-weight:800;
-	color: #969ce4;
+	color: #7a81d6;
 	cursor:pointer;
 }
 .cursor-pointer{
@@ -44,19 +46,19 @@ form{
 form#search_form {
     border: none;
 }
-#search_form ul.search {
-    width: 400px;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+.search-bar{
+	width: 385px;
 }
-#search_form ul.search li input[type="search"] {
-    width: 200px;
+.search{
+	text-align: center;
+	margin-bottom: 5px;
 }
 .talklist-list{
 	/* border:1px solid black; *//* 임시 */
-	height: 450px;
+	height: 420px;
+    margin-top: 15px;
 	overflow: auto;
+	padding-right: 5px;
 }
 .talklist-box{
 	/* border:1px solid black; *//* 임시 */
@@ -65,19 +67,19 @@ form#search_form {
 	cursor: pointer;
 }
 .talklist-box:hover{
-	background-color: lightgreen;
+	background-color: #c2c6ed;
 }
 .box-left{
 	width: 340px;
 	overflow: hidden;
 	float: left;
-	margin-left: 10px;
+	margin-left: 19px;
 }
 .box-right{
-	width: 110px;
+	width: 90px;
 	float: right;
 	text-align: right;
-	margin-right: 10px;
+	margin-right: 19px;
 }
 .box-right-date{
 	color: gray;
@@ -110,8 +112,8 @@ form#search_form {
 }
 .search-btn{
 	width: 50px;
-	height: 20px;
-	background-color: #666666;
+	height: 24px;
+	background-color: #7a81d6;
 	border: none;
 	border-radius:7px;
 	color:white;
@@ -127,6 +129,7 @@ form#search_form {
 	color:white;
 	margin: 0 12px 0 12px;
 	cursor: pointer;
+	font-size: 20px;
 }
 
 /*----------------------------
@@ -212,20 +215,28 @@ talkDetail
 }
 
 #chatting_message::-webkit-scrollbar-thumb {
-    background-color: #666;
+    background-color: #c4c4c4;
 }
-
+/*----------  */
 .chatting_message_bottom::-webkit-scrollbar {
     width: 10px;
 }
 
 .chatting_message_bottom::-webkit-scrollbar-thumb {
-    background-color: #666;
+    background-color: #c4c4c4;
+}
+/* ----------- */
+.talklist-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.talklist-list::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
 }
 /*////////////////////////////////////////////////////*/
 #chatting_message{
 	border-bottom: 3px solid lightgray;
-	height:350px;
+	height:330px;
 	margin:0 auto;
 	padding:10px;
 	overflow:auto;
