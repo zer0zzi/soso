@@ -58,7 +58,19 @@
 			  		FROM promo_board p JOIN member m
 			  		ON m.mem_num=p.mem_num
 			  		<include refid="promoSearch"></include>
-			  		ORDER BY p.promo_num DESC)a)
+			  		<if test="sort=='last'">
+			  			ORDER BY p.promo_regdate DESC
+			  		</if>
+			  		<if test="sort=='hit'">
+			  			ORDER BY p.promo_hit DESC
+			  		</if>
+			  		<if test="sort=='fav'">
+			  			ORDER BY p_favCnt DESC, p.promo_hit DESC
+			  		</if>
+			  		<if test="sort=='reply'">
+			  			ORDER BY p_replyCnt DESC, p.promo_hit DESC
+			  		</if> 
+			  		)a)
 		<![CDATA[
 		WHERE rnum>=#{start} AND rnum<=#{end}
 		]]>

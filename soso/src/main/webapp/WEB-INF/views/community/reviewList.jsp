@@ -44,12 +44,21 @@
 	</div>
 	<!-- 서브 메뉴 끝 -->
 	
+	<br>
+	<p>
+	
 	<!-- 정렬 영역 시작 -->
-	<!-- 참고 https://break-over.tistory.com/35 -->
 	<div class="review-sort">
-		<input type="button" id="review_fav" value="추천순">
+		<select onchange="if(this.value) location.href=(this.value)">
+			<option value="reviewList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
+			<option value="reviewList.do?sort=hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
+			<option value="reviewList.do?sort=reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
+			<option value="reviewList.do?sort=fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
+		</select>
 	</div>
 	<!-- 정렬 영역 끝 -->
+	
+	<p>
 	
 	<!-- 검색 영역 시작 -->
 	<form action="reviewList.do" id="v_search_form" method="get">

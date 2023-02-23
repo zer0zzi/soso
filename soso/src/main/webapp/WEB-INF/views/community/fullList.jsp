@@ -33,6 +33,19 @@
 	<br>
 	<p>
 	
+	<!-- 정렬 영역 시작 -->
+	<div class="full-sort">
+		<select onchange="if(this.value) location.href=(this.value)">
+			<option value="fullList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
+			<option value="fullList.do?sort=hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
+			<option value="fullList.do?sort=reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
+			<option value="fullList.do?sort=fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
+		</select>
+	</div>
+	<!-- 정렬 영역 끝 -->
+	
+	<p>
+	
 	<!-- 목록 영역 시작 -->
 	<c:if test="${count==0}">
 	<div class="full-result-display">작성된 게시글이 없습니다.</div>

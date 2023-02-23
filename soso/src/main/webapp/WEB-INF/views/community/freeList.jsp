@@ -13,7 +13,6 @@
 			}
 		});
 	}); // end of 검색 유효성 체크
-	
 </script>
 <div class="f-page-main">
 	<div class="main-menu">
@@ -50,10 +49,12 @@
 	
 	<!-- 정렬 영역 시작 -->
 	<div class="free-sort">
-		<span><a href="freeList.do?sort=last">최신순</a></span>
-		<span><a href="freeList.do?sort=hit">조회순</a></span>
-		<span><a href="freeList.do?sort=reply">댓글순</a></span>
-		<span><a href="freeList.do?sort=fav">추천순</a></span>
+		<select onchange="if(this.value) location.href=(this.value)">
+			<option value="freeList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
+			<option value="freeList.do?sort=hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
+			<option value="freeList.do?sort=reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
+			<option value="freeList.do?sort=fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
+		</select>
 	</div>
 	<!-- 정렬 영역 끝 -->
 	

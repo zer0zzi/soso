@@ -47,17 +47,18 @@ public class ReviewController {
 
 	// ========== 후기 글 목록 ==========
 	@RequestMapping("/community/reviewList.do")
-	public ModelAndView reviewList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
+	public ModelAndView reviewList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("sort", sort);
 
 		// 글의 총개수 또는 검색된 글의 개수 반환
 		int count = reviewService.selectReviewRowCount(map);
 		// 로그
 		logger.debug("<<count>> : " + count);
 		// 페이지 처리
-		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "reviewList.do");
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "reviewList.do", sort);
 
 		List<ReviewVO> reviewList = null;
 		if(count>0) {

@@ -30,6 +30,9 @@
 			<li><a href='${pageContext.request.contextPath}/community/freeList.do'>자유</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/promoList.do'>홍보</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
+			<li class="promo-wanted">
+				<input type="button" value="모집중">
+			</li>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<input type="button" value="글작성" onclick="location.href='promoWrite.do'">
@@ -44,18 +47,21 @@
 	</div>
 	<!-- 서브 메뉴 끝 -->
 	
-	<!-- 모집중/모집 마감 시작 -->
-	<div class="promo-wanted">
-		<input type="button" value="모집중">
-	</div>
-	<!-- 모집중/모집 마감 끝 -->
+	<br>
+	<p>
 	
 	<!-- 정렬 영역 시작 -->
-	<!-- 참고 https://break-over.tistory.com/35 -->
 	<div class="promo-sort">
-		<input type="button" id="promo_fav" value="추천순">
+		<select onchange="if(this.value) location.href=(this.value)">
+			<option value="promoList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
+			<option value="promoList.do?sort=hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
+			<option value="promoList.do?sort=reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
+			<option value="promoList.do?sort=fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
+		</select>
 	</div>
 	<!-- 정렬 영역 끝 -->
+	
+	<p>
 	
 	<!-- 검색 영역 시작 -->
 	<form action="promoList.do" id="p_search_form" method="get">

@@ -62,7 +62,19 @@
   			  		 m.mem_nick
   			  		FROM review_board v JOIN member m ON v.mem_num=m.mem_num
   			  		<include refid="reviewSearch"></include>
-  			  		ORDER BY v.review_num DESC)a)
+  			  		<if test="sort=='last'">
+			  			ORDER BY v.review_regdate DESC
+			  		</if>
+			  		<if test="sort=='hit'">
+			  			ORDER BY v.review_hit DESC
+			  		</if>
+			  		<if test="sort=='fav'">
+			  			ORDER BY v_favCnt DESC, v.review_hit DESC
+			  		</if>
+			  		<if test="sort=='reply'">
+			  			ORDER BY v_replyCnt DESC, v.review_hit DESC
+			  		</if> 
+			  		)a)
   		<![CDATA[
   		WHERE rnum>=#{start} AND rnum<=#{end}
   		]]>

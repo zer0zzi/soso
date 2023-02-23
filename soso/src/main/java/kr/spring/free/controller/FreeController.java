@@ -46,10 +46,11 @@ public class FreeController {
 
 	// ========== 전체 글 목록 ===========
 	@RequestMapping("/community/fullList.do")
-	public ModelAndView fullList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
+	public ModelAndView fullList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("sort", sort);
 
 		// 글의 총 개수 또는 검색된 글의 개수 반환
 		int count = freeService.selectFullRowCount(map);
@@ -58,7 +59,7 @@ public class FreeController {
 		logger.debug("<<count>> : " + count);
 
 		// 페이지 처리
-		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "fullList.do");
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "fullList.do", sort);
 		List<FreeVO> fullList = null;
 		if(count>0){
 			map.put("start", page.getStartRow());
