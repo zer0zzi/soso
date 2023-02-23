@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmPw.js"></script>
 <div class="page-main">
 	<h2>회원가입</h2>
 	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">
@@ -29,8 +30,13 @@
 				<form:errors path="mem_pw" cssClass="error-color"/>
 			</li>
 			<li>
+				<label for="confirm_passwd">비밀번호 확인</label>
+				<input type="password" id="confirm_passwd" placeholder="비밀번호와 동일"/>
+				<span id="message_pw"></span>
+			</li>
+			<li>
 				<label for="mem_phone">전화번호</label>
-				<form:input path="mem_phone"/>
+				<form:input path="mem_phone" class="phoneNumber"/>
 				<form:errors path="mem_phone" cssClass="error-color"/>
 			</li>
 			<li>
@@ -68,6 +74,13 @@
 </div>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<!-- 전화번호 하이푼 자동부여 -->
+<script type="text/javascript">
+$(document).on("keyup", ".phoneNumber", function() { 
+	$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") );
+});
+</script>
+
 <script>
     // 우편번호 찾기 화면을 넣을 element
     var element_layer = document.getElementById('layer');
