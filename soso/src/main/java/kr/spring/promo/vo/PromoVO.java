@@ -22,7 +22,6 @@ public class PromoVO {
 	private String promo_filename; // 홍보하는 데 필요한 첨부파일명
 	private String promo_ip;
 	private int mem_num;
-	private String promo_name;
 
 	private String mem_id;
 	private String mem_nick;
@@ -187,20 +186,13 @@ public class PromoVO {
 		this.promo_status = promo_status;
 	}
 
-	public String getPromo_name() {
-		return promo_name;
-	}
-
-	public void setPromo_name(String promo_name) {
-		this.promo_name = promo_name;
-	}
 
 	@Override
 	public String toString() {
 		return "PromoVO [promo_num=" + promo_num + ", promo_fixed=" + promo_fixed + ", promo_title=" + promo_title
 				+ ", promo_content=" + promo_content + ", promo_hit=" + promo_hit + ", promo_regdate=" + promo_regdate
 				+ ", promo_modifydate=" + promo_modifydate + ", promo_filename=" + promo_filename + ", promo_ip="
-				+ promo_ip + ", mem_num=" + mem_num + ", promo_name=" + promo_name + ", mem_id=" + mem_id
+				+ promo_ip + ", mem_num=" + mem_num + ", mem_id=" + mem_id
 				+ ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num
 				+ ", stc_title=" + stc_title + ", stc_filter=" + stc_filter + ", stc_way=" + stc_way + ", stc_state="
 				+ stc_state + ", promo_status=" + promo_status + ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt

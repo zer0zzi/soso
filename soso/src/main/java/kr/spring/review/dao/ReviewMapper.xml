@@ -75,7 +75,6 @@
   		 review_filename=#{review_filename},
   		 </if>
   		 review_stc_name=#{review_stc_name},
-  		 review_name=#{review_name},
   		 review_title=#{review_title},
   		 review_content=#{review_content},
   		 review_ip=#{review_ip},

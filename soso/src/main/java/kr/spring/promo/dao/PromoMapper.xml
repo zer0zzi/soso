@@ -70,7 +70,6 @@
   		 promo_uploadfile=#{promo_uploadfile},
   		 promo_filename=#{promo_filename},
   		 </if>
-  		 promo_name=#{promo_name},
   		 promo_title=#{promo_title},
   		 promo_status=#{promo_status},
   		 promo_content=#{promo_content},

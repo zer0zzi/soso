@@ -51,9 +51,27 @@
 			</tr>
 			<c:forEach var="free" items="${fullList}">
 			<tr class="item">
-				<td>${free.free_name}</td>
 				<td>
-					${free.free_title}
+					<c:if test="${free.tblName=='자유'}">
+					<a href="freeList.do">${free.tblName}</a>
+					</c:if>
+					<c:if test="${free.tblName=='홍보'}">
+					<a href="promoList.do">${free.tblName}</a>
+					</c:if>
+					<c:if test="${free.tblName=='후기'}">
+					<a href="reviewList.do">${free.tblName}</a>
+					</c:if>
+				</td>
+				<td>
+					<c:if test="${free.tblName=='자유'}">
+					<a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>
+					</c:if>
+					<c:if test="${free.tblName=='홍보'}">
+					<a href="promoDetail.do?promo_num=${free.free_num}">${free.free_title}</a>
+					</c:if>
+					<c:if test="${free.tblName=='후기'}">
+					<a href="reviewDetail.do?review_num=${free.free_num}">${free.free_title}</a>
+					</c:if>
 				</td>
 				<td>
 					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
@@ -77,4 +95,8 @@
 	</div>
 	</c:if>
 	<!-- 목록 영역 끝 -->
+	
+	<!-- 페이징 영역 시작 -->
+	<div class="full-paging">${page}</div>
+	<!-- 페이징 영역 끝 -->
 </div>

@@ -22,8 +22,8 @@ public interface FreeMapper {
 	// 부모글
 	public List<FreeVO> selectFreeList(Map<String, Object> map); // 자유 게시글 목록 → 동적 SQL을 사용해야 하기 때문에 .xml에 명시
 	public int selectFreeRowCount(Map<String, Object> map); // 자유 게시글 한 건의 레코드 가져오기
-	@Insert("INSERT INTO free_board (free_num,free_name,free_fixed,free_title,free_content,free_uploadfile,free_filename,free_ip,mem_num) "
-			+ "VALUES (free_board_seq.nextval,#{free_name},#{free_fixed},#{free_title},#{free_content},#{free_uploadfile},#{free_filename},#{free_ip},#{mem_num})")
+	@Insert("INSERT INTO free_board (free_num,free_fixed,free_title,free_content,free_uploadfile,free_filename,free_ip,mem_num) "
+			+ "VALUES (free_board_seq.nextval,#{free_fixed},#{free_title},#{free_content},#{free_uploadfile},#{free_filename},#{free_ip},#{mem_num})")
 	public void insertFree(FreeVO free); // 자유 게시글 작성
 	@Select("SELECT * FROM free_board f JOIN member m USING(mem_num) JOIN member_detail d USING(mem_num) "
 			+ "WHERE f.free_num=#{f.free_num}")

@@ -13,6 +13,7 @@
 			}
 		});
 	}); // end of 검색 유효성 체크
+	
 </script>
 <div class="f-page-main">
 	<div class="main-menu">
@@ -44,12 +45,7 @@
 	</div>
 	<!-- 서브 메뉴 끝 -->
 	
-	<!-- 정렬 영역 시작 -->
-	<!-- 참고 https://break-over.tistory.com/35 -->
-	<div class="free-sort">
-		<input type="button" id="free_fav" value="추천순">
-	</div>
-	<!-- 정렬 영역 끝 -->
+	<br>
 	
 	<!-- 검색 영역 시작 -->
 	<form action="freeList.do" id="f_search_form" method="get">
@@ -129,6 +125,7 @@
 	<div class="free-fixed-2">
 		<table>
 			<tr class="title">
+				<th style="display:none;">게시판타입</th>
 				<th>번호</th>
 				<th width="400">제목</th>
 				<th>작성자</th>
@@ -142,6 +139,7 @@
 			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
 			<c:if test="${free.free_fixed==2}">
 			<tr class="item">
+				<td style="display:none;">${free.tblName}</td>
 				<td>${free.free_num}</td>
 				<td><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a></td>
 				<td>

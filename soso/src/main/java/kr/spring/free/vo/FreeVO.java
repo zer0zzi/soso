@@ -21,7 +21,8 @@ public class FreeVO {
 	private String free_filename; // 자유게시글을 작성하는 데 필요한 첨부파일명
 	private String free_ip;
 	private int mem_num;
-	private String free_name;
+	
+	private String tblName;
 
 	private String mem_id;
 	private String mem_nick;
@@ -149,12 +150,12 @@ public class FreeVO {
 		this.f_favCnt = f_favCnt;
 	}
 
-	public String getFree_name() {
-		return free_name;
+	public String getTblName() {
+		return tblName;
 	}
 
-	public void setFree_name(String free_name) {
-		this.free_name = free_name;
+	public void setTblName(String tblName) {
+		this.tblName = tblName;
 	}
 
 	@Override
@@ -162,11 +163,9 @@ public class FreeVO {
 		return "FreeVO [free_num=" + free_num + ", free_fixed=" + free_fixed + ", free_title=" + free_title
 				+ ", free_content=" + free_content + ", free_hit=" + free_hit + ", free_regdate=" + free_regdate
 				+ ", free_modifydate=" + free_modifydate + ", free_filename=" + free_filename + ", free_ip=" + free_ip
-				+ ", mem_num=" + mem_num + ", free_name=" + free_name + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick
-				+ ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth + ", f_replyCnt=" + f_replyCnt
-				+ ", f_favCnt=" + f_favCnt + "]";
+				+ ", mem_num=" + mem_num + ", tblName=" + tblName + ", mem_id=" + mem_id
+				+ ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth
+				+ ", f_replyCnt=" + f_replyCnt + ", f_favCnt=" + f_favCnt + "]";
 	}
-
-
 
 }
