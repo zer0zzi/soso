@@ -28,17 +28,6 @@ public class PagingUtil {
 	public PagingUtil(String keyfield, String keyword, int currentPage, int count, int rowCount,
 			int pageCount,String pageUrl,String addKey) {
 	
-	/*
-	public PagingUtil(String sortfield, String sortword, int currentPage, int count, int rowCount,
-			int pageCount,String pageUrl) {
-		this(sortfield,sortword,currentPage,count,rowCount,pageCount,pageUrl,null); 
-	}
-	
-		String sort_url = "";
-		if(sortword != null) sort_url = "&sortfield="+sortfield+"&sortword="+sortword;
-		if(addKey != null) sort_url += addKey;
-	*/
-		
 		String sub_url = "";
 		if(keyword != null) sub_url = "&keyfield="+keyfield+"&keyword="+keyword;
 		if(addKey != null) sub_url += addKey;

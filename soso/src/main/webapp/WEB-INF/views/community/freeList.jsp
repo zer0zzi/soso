@@ -46,6 +46,18 @@
 	<!-- 서브 메뉴 끝 -->
 	
 	<br>
+	<p>
+	
+	<!-- 정렬 영역 시작 -->
+	<div class="free-sort">
+		<span><a href="freeList.do?sort=last">최신순</a></span>
+		<span><a href="freeList.do?sort=hit">조회순</a></span>
+		<span><a href="freeList.do?sort=reply">댓글순</a></span>
+		<span><a href="freeList.do?sort=fav">추천순</a></span>
+	</div>
+	<!-- 정렬 영역 끝 -->
+	
+	<p>
 	
 	<!-- 검색 영역 시작 -->
 	<form action="freeList.do" id="f_search_form" method="get">
