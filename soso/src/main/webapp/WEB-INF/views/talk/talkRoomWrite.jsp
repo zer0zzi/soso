@@ -5,7 +5,7 @@
 <!-- 채팅방 생성 시작 -->
 <div class="page-main-talk">    
 <div class="talk">
-   <div class="text-align-center"><span class="talk-title">SoSoTalk</span></div> 
+   <div class="text-align-center"><span class="talk-title" onclick="location.href='talkList.do'">SoSoTalk</span></div> 	
    <div class="talk-make-body">
 	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"

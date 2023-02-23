@@ -6,17 +6,16 @@
 <!-- 채팅목록 시작 -->
 <div class="page-main-talk">
 <div class="talk">
-   <div class="text-align-center"><span class="talk-title">SoSoTalk</span></div> 
+   <div class="text-align-center"><span class="talk-title" onclick="location.href='talkList.do'">SoSoTalk</span></div> 	
    <form action="talkList.do" id="search_form"
                                    method="get">
       <div class="search">
             <input type="search" name="keyword" id="keyword" value="${param.keyword}">
             <input type="submit" value="찾기" class="search-btn">
-            <img src="${pageContext.request.contextPath}/image_bundle/talk/add.png" width="25" height="25" class="cursor-pointer" onclick="location.href='talkRoomWrite.do'">
       </div>                                
    </form>
    <c:if test="${empty list}">
-   <div class="talklist-list text-align-center">표시할 채팅방이 없습니다.</div>
+   <div class="talklist-list text-align-center"><br>표시할 채팅방이 없습니다.</div>
    </c:if>
    <c:if test="${!empty list}">
    <div class="talklist-list">
@@ -45,7 +44,7 @@
    </c:if>
    <hr size="1" width="100%">
    <div class="talklist-mypage-btn">
-   	<input type="button" value="TalkList" class="bottom-btn" onclick="location.href='talkList.do'">
+   	<input type="button" value="NewTalk" class="bottom-btn" onclick="location.href='talkRoomWrite.do'">
    	<input type="button" value="MyPage" class="bottom-btn" onclick="location.href='talkList.do'">   	
    </div>
 </div><!-- end of talk-->   
