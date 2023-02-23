@@ -39,7 +39,9 @@
 						<textarea rows="5"cols="40" name="message" id="message" class="chatting_message_bottom"></textarea> 
 					</li>
 					<li>
+					<div class="chat-submit-btn-box">
 						<input type="submit" value="전송" class="chat-submit-btn">
+					</div>	
 					</li>
 				</ul>
 			</form>

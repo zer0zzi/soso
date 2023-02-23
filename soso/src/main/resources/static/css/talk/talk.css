@@ -131,7 +131,9 @@ form#search_form {
 	cursor: pointer;
 	font-size: 20px;
 }
-
+.bottom-btn:hover{
+	transform:scale(1.1);
+}
 /*----------------------------
 talkDetail
 ----------------------------  */
@@ -173,10 +175,17 @@ talkDetail
 	/* border: 1px solid black; */ /* 임시 */
 	float: right;
 	width: 21%;
-	text-align: right;
+	text-align: center;
 	padding-right: 8px;
 	margin-bottom: 9px;
 	color: #6b6b6b;
+	font-size: 10px;
+	cursor: pointer;
+}
+.chat-exit:hover{
+	color:red;
+	font-weight: bolder;
+	transform:scale(1.1);
 }
 .chatdate-right{
 	text-align: right;
@@ -198,18 +207,36 @@ talkDetail
 .chatform-bottom{
 	padding:0px;
 	margin: 0px;	
+	height: 90px;
 }
 .chatform-bottom li{
 	display: inline-block;
 }
 .chat-submit-btn{
-	
+	width: 50px;
+    height: 24px;
+    background-color: #7a81d6;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
 }
 .chatread-count{
 	color:red;
 	font-weight: bolder;
 }
+.chat-submit-btn-box{
+	height: 80px;
+}
 /*스크롤바*/
+.chat-name-right::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-name-right::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/*----------  */
 #chatting_message::-webkit-scrollbar {
     width: 10px;
 }
@@ -298,7 +325,7 @@ talkDetail
 }
 
 form#detail_form{
-	width:640px;
+	width:500px;
 }
 
 

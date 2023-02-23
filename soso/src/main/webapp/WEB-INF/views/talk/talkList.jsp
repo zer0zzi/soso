@@ -44,8 +44,8 @@
    </c:if>
    <hr size="5" width="100%" color="#7a81d6">
    <div class="talklist-mypage-btn">
-   	<input type="button" value="NewTalk" class="bottom-btn" onclick="location.href='talkRoomWrite.do'">
-   	<input type="button" value="MyPage" class="bottom-btn" onclick="location.href='talkList.do'">   	
+   	<input type="button" value="New Talk" class="bottom-btn" onclick="location.href='talkRoomWrite.do'">
+   	<input type="button" value="My Page" class="bottom-btn" onclick="location.href='talkList.do'">   	
    </div>
 </div><!-- end of talk-->   
 </div><!-- end of page-main-talk -->
