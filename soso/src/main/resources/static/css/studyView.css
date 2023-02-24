@@ -13,7 +13,9 @@
 div#clear{
 	clear:both;
 }
-
+#register_signupDetail{
+	border: none;
+}
 form.modal-body{
 	border:none;
 	padding: 0 auto;

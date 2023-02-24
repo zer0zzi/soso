@@ -3,18 +3,22 @@ package kr.spring.study.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.member.vo.MemberVO;
 import kr.spring.study.controller.StudyController;
@@ -126,6 +130,36 @@ public class StudyController {
 		return mapJson;
 	}
 	
+	//신청하기 로그인 및 재신청 체크
+	@RequestMapping("/study/signLogin.do")
+	@ResponseBody
+	public Map<String,Object> signLogin(StudySignupVO signupVO,
+										HttpSession session){
+		logger.debug("<<신청하기>> : " + signupVO);
+
+		Map<String,Object> mapJson = new HashMap<String,Object>();
+
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else {
+			//로그인된 회원번호 셋팅
+			signupVO.setMem_num(user.getMem_num());
+
+			logger.debug("<<신청하기0>> : " + signupVO);
+
+			StudySignupVO studySignup = studyService.selectSignup(signupVO);
+			if(studySignup!=null) {
+				//이미 신청했으면 거부
+				mapJson.put("result", "aleadySigned");
+			}else {
+				//미등록이면 등록
+				mapJson.put("result", "first");
+			}
+		}
+		return mapJson;
+	}
+	
 	//신청하기
 	@RequestMapping("/study/signup.do")
 	@ResponseBody
@@ -141,23 +175,14 @@ public class StudyController {
 		}else {
 			//로그인된 회원번호 셋팅
 			signupVO.setMem_num(user.getMem_num());
-			//스터디 번호 받아오기
-			
-			//신청번호 생성하기
-			
-			//detail 받아오기
 			
 			logger.debug("<<신청하기1>> : " + signupVO);
 
 			StudySignupVO studySignup = studyService.selectSignup(signupVO);
-			if(studySignup!=null) {
-				//이미 신청했으면 거부
-				mapJson.put("result", "aleadySigned");
-			}else {
-				//미등록이면 등록
-				studyService.insertSignup(signupVO);
-				mapJson.put("result", "success");
-			}
+			
+			studyService.insertSignup(signupVO);
+			mapJson.put("result", "success");
+			
 		}
 		return mapJson;
 	}

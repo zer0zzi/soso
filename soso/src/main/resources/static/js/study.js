@@ -42,7 +42,7 @@ $(function(){
 	
 	$('.btn-primary').click(function(){
 		$.ajax({
-			url:'signup.do',
+			url:'signLogin.do',
 			type:'post',
 			data:{stc_num:$('.btn-primary').attr('data-num')},
 			dataType:'json',
@@ -50,10 +50,27 @@ $(function(){
 				if(param.result == 'logout'){
 					alert('로그인 후 신청하세요!');
 					location.href='../member/login.do';
-				}else if(param.result == 'success'){
-					alert('신청 성공');
 				}else if(param.result == 'aleadySigned'){
 					alert('이미 신청한 스터디입니다.');
+					location.href='../member/myPage.do';
+				}
+			},
+			error:function(){
+				alert('신청에 네트워크 오류 발생');
+			}
+		});
+	});
+	
+	$('.btn-success').click(function(){
+		$.ajax({
+			url:'signup.do',
+			type:'post',
+			data:{stc_num:$('.btn-primary').attr('data-num'),
+				  signup_detail:$('#signup_detail').val()},
+			dataType:'json',
+			success:function(param){
+				if(param.result == 'success'){
+					alert('신청 성공');
 				}else{
 					alert('신청에 오류 발생');
 				}
@@ -63,8 +80,6 @@ $(function(){
 			}
 		});
 	});
-	
-	
 });
 
 
