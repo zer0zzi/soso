@@ -14,13 +14,16 @@
 	<div id="main_header">
 		<tiles:insertAttribute name="header"/>
 	</div>
-	<div class="side-height">
+<%-- 	<div class="side-height">
 		<div id="page_nav">
 			<tiles:insertAttribute name="nav"/>
 		</div>
 		<div id="page_body">
 			<tiles:insertAttribute name="body"/>
 		</div>
+	</div> --%>
+	<div id="main_body">
+		<tiles:insertAttribute name="body"/>
 	</div>
 	<div id="main_footer" class="page_clear">
 		<tiles:insertAttribute name="footer"/>

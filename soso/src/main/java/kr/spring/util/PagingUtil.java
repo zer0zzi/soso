@@ -27,7 +27,7 @@ public class PagingUtil {
 	}
 	public PagingUtil(String keyfield, String keyword, int currentPage, int count, int rowCount,
 			int pageCount,String pageUrl,String addKey) {
-		
+	
 		String sub_url = "";
 		if(keyword != null) sub_url = "&keyfield="+keyfield+"&keyword="+keyword;
 		if(addKey != null) sub_url += addKey;

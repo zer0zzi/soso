@@ -19,8 +19,8 @@ public interface PromoMapper {
 	public List<PromoVO> selectPromoList(Map<String, Object> map);
 	public int selectPromoRowCount(Map<String, Object> map);
 	
-	@Insert("INSERT INTO promo_board (promo_num,promo_name,promo_fixed,promo_title,promo_status,promo_content,promo_uploadfile,promo_filename,promo_ip,mem_num) "
-			+ "VALUES (promo_board_seq.nextval,#{promo_name},#{promo_fixed},#{promo_title},#{promo_status},#{promo_content},#{promo_uploadfile},#{promo_filename},#{promo_ip},#{mem_num})")
+	@Insert("INSERT INTO promo_board (promo_num,promo_fixed,promo_title,promo_status,promo_content,promo_uploadfile,promo_filename,promo_ip,mem_num) "
+			+ "VALUES (promo_board_seq.nextval,#{promo_fixed},#{promo_title},#{promo_status},#{promo_content},#{promo_uploadfile},#{promo_filename},#{promo_ip},#{mem_num})")
 	public void insertPromo(PromoVO promo);
 	
 	@Update("UPDATE promo_board SET promo_hit=promo_hit+1 WHERE promo_num=#{promo_num}")

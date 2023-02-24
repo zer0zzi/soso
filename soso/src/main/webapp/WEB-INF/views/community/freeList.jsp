@@ -44,12 +44,21 @@
 	</div>
 	<!-- 서브 메뉴 끝 -->
 	
+	<br>
+	<p>
+	
 	<!-- 정렬 영역 시작 -->
-	<!-- 참고 https://break-over.tistory.com/35 -->
 	<div class="free-sort">
-		<input type="button" id="free_fav" value="추천순">
+		<select onchange="if(this.value) location.href=(this.value)">
+			<option value="freeList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
+			<option value="freeList.do?sort=hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
+			<option value="freeList.do?sort=reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
+			<option value="freeList.do?sort=fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
+		</select>
 	</div>
 	<!-- 정렬 영역 끝 -->
+	
+	<p>
 	
 	<!-- 검색 영역 시작 -->
 	<form action="freeList.do" id="f_search_form" method="get">
@@ -129,6 +138,7 @@
 	<div class="free-fixed-2">
 		<table>
 			<tr class="title">
+				<th style="display:none;">게시판타입</th>
 				<th>번호</th>
 				<th width="400">제목</th>
 				<th>작성자</th>
@@ -142,6 +152,7 @@
 			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
 			<c:if test="${free.free_fixed==2}">
 			<tr class="item">
+				<td style="display:none;">${free.tblName}</td>
 				<td>${free.free_num}</td>
 				<td><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a></td>
 				<td>

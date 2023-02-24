@@ -24,7 +24,6 @@ public class ReviewVO {
 	private String review_ip;
 	private int mem_num;
 	private String review_stc_name;
-	private String review_name;
 
 	private String mem_id;
 	private String mem_nick;
@@ -218,26 +217,16 @@ public class ReviewVO {
 		this.review_stc_name = review_stc_name;
 	}
 
-	public String getReview_name() {
-		return review_name;
-	}
-
-	public void setReview_name(String review_name) {
-		this.review_name = review_name;
-	}
-
 	@Override
 	public String toString() {
 		return "ReviewVO [review_num=" + review_num + ", review_fixed=" + review_fixed + ", review_title="
 				+ review_title + ", review_rating=" + review_rating + ", review_content=" + review_content
 				+ ", review_hit=" + review_hit + ", review_regdate=" + review_regdate + ", review_modifydate="
 				+ review_modifydate + ", review_filename=" + review_filename + ", review_ip=" + review_ip + ", mem_num="
-				+ mem_num + ", review_stc_name=" + review_stc_name + ", review_name=" + review_name + ", mem_id="
+				+ mem_num + ", review_stc_name=" + review_stc_name + ", mem_id="
 				+ mem_id + ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num
 				+ ", stc_title=" + stc_title + ", stc_filter=" + stc_filter + ", v_replyCnt=" + v_replyCnt
 				+ ", v_favCnt=" + v_favCnt + "]";
 	}
-
-	
 	
 }

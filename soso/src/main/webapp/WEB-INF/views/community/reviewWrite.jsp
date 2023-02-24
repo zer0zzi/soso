@@ -81,7 +81,7 @@
 					</c:forEach>
 				</select>
 				<!-- <input type="text" name="review_stc_name" id="1changeInput" placeholder="참여한 스터디를 선택해주세요." required> -->
-				<form:input path="review_stc_name" id="changeInput" />
+				<form:input path="review_stc_name" id="changeInput" readonly="true"/>
 				<script type="text/javascript">
 					var selectBoxChange = function(value){
 						console.log("값변경테스트 : " + value);

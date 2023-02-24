@@ -4,11 +4,16 @@
 ----------------------------  */
 .text-align-center{
 	text-align: center;
+	margin-top: 10px;
+    margin-bottom: 10px;
 }
 .bothclear{
 	clear: both;
 }
 
+ul li{
+	list-style: none;
+}
 
 /*----------------------------
 talkList
@@ -18,22 +23,22 @@ talkList
 	margin: 0 auto;
 }
 .talk{
-	border:1px solid black;
+	border:3px solid lightgray;
 	width: 500px;
 	height: 600px;
 	margin: 0 auto;
 	background-color: white;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px 3px gray;
 }
 .talk-title{
 	font-size: 30px;
+	font-weight:800;
+	color: #7a81d6;
+	cursor:pointer;
 }
-.talklist-list a:link {
-    text-decoration: none;
-    color:black;
-}
-.talklist-list a:visited {
-    text-decoration: none;
-    color:black;
+.cursor-pointer{
+	cursor: pointer;
 }
 form{
 	padding: 0px;
@@ -41,40 +46,43 @@ form{
 form#search_form {
     border: none;
 }
-#search_form ul.search {
-    width: 400px;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+.search-bar{
+	width: 385px;
 }
-#search_form ul.search li input[type="search"] {
-    width: 200px;
+.search{
+	text-align: center;
+	margin-bottom: 5px;
 }
 .talklist-list{
-	border:1px solid black;/* 임시 */
-	height: 450px;
+	/* border:1px solid black; *//* 임시 */
+	height: 420px;
+    margin-top: 15px;
 	overflow: auto;
+	padding-right: 5px;
 }
 .talklist-box{
-	border:1px solid black;/* 임시 */
+	/* border:1px solid black; *//* 임시 */
 	height: 50px;
 	overflow: hidden;
 	cursor: pointer;
 }
 .talklist-box:hover{
-	background-color: lightgreen;
+	background-color: #c2c6ed;
 }
 .box-left{
 	width: 340px;
 	overflow: hidden;
 	float: left;
-	margin-left: 10px;
+	margin-left: 19px;
 }
 .box-right{
-	width: 110px;
+	width: 90px;
 	float: right;
 	text-align: right;
-	margin-right: 10px;
+	margin-right: 19px;
+}
+.box-right-date{
+	color: gray;
 }
 .make-talk{
 	width:150px;
@@ -99,6 +107,273 @@ form#search_form {
     border-color: buttonborder;
     border-image: initial;
 }
+.talklist-mypage-btn{
+	text-align: center;
+}
+.search-btn{
+	width: 50px;
+	height: 24px;
+	background-color: #7a81d6;
+	border: none;
+	border-radius:7px;
+	color:white;
+	margin: 0 12px 0 12px;
+	cursor: pointer;
+}
+.search-btn:hover{
+	transform:scale(1.1);
+}
+.bottom-btn{
+	width: 200px;
+	height: 50px;
+	background-color: #969ce4;
+	border: none;
+	border-radius:7px;
+	color:white;
+	margin: 0 12px 0 12px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.bottom-btn:hover{
+	transform:scale(1.1);
+}
+/*----------------------------
+talkDetail
+----------------------------  */
+.chat-name{
+	/* border: 1px solid black; */ /* 임시 */
+	height: 35px;
+/* 	overflow: auto; */
+}
+.chat-name-left{
+	/* border: 1px solid black; */ /* 임시 */
+	float:left;
+	width: 13%;
+	margin-left:10px; 
+	font-weight: bolder;
+	color: gray;
+}
+.chat-name-right{
+	/* border: 1px solid black; */ /* 임시 */
+	/* float:left; */
+	margin:0 auto;
+	width: 80%;
+	height: 28px;
+	font-size: 23px;
+	overflow: hidden;
+	word-wrap:break-word;
+	text-align: center;
+}
+
+.chat-members-left{
+	/* border: 1px solid black; */ /* 임시 */
+	float: left;
+	width: 23%;
+	text-align: center;
+	font-weight: bolder;
+	color: gray;
+	margin-left: 48px;
+}
+.chat-members{
+	margin-left: 10px;
+	/* border: 1px solid black; */ /* 임시 */
+	float: left;
+	width: 43%;
+	height: 22px;
+	overflow: auto;
+	font-weight: bolder;
+    color: dimgray;
+}
+.chat-exit{
+	/* border: 1px solid black; */ /* 임시 */
+	float: right;
+	width: 20%;
+	text-align: center;
+	padding-right: 8px;
+	margin-bottom: 9px;
+	color: #7981e8;
+	font-size: 10px;
+	font-weight: bolder;
+	cursor: pointer;
+}
+.chat-exit:hover{
+	color:#7981e8;
+	font-weight: bolder;
+	transform:scale(1.1);
+}
+.chatdate-right{
+	text-align: right;
+	font-size: 12px;	
+	color:white;
+}
+.chatting_message_bottom{
+	height: 70px;
+	width: 430px;
+	resize: none;
+	margin-top: 3px;
+    margin-left: 3px;
+    border: none;
+    border-right: 3px solid lightgray;
+}
+.chatting_message_bottom:focus{
+	outline: none;
+}
+.chatform-bottom{
+	padding:0px;
+	margin: 0px;	
+	height: 90px;
+}
+.chatform-bottom li{
+	display: inline-block;
+}
+.chat-submit-btn{
+	width: 50px;
+    height: 24px;
+    background-color: #7a81d6;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+.chat-submit-btn:hover{
+	transform:scale(1.1);
+}
+.chatread-count{
+	color:#f56767;
+	font-weight: bolder;
+}
+.chat-submit-btn-box{
+	height: 80px;
+}
+/*----------------------------
+스크롤바
+----------------------------  */
+.chat-name-right::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-name-right::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/*----------  */
+#chatting_message::-webkit-scrollbar {
+    width: 10px;
+}
+
+#chatting_message::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/*----------  */
+.chatting_message_bottom::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chatting_message_bottom::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/* ----------- */
+.talklist-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.talklist-list::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/* ----------- */
+.chat-members::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-members::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/*////////////////////////////////////////////////////*/
+#chatting_message{
+	border-bottom: 3px solid lightgray;
+	height:360px;
+	margin:0 auto;
+	padding:10px;
+	overflow:auto;
+}
+.date-position{
+	text-align:center;
+}
+.date-position span{
+	display:inline-block;
+	width:300px;
+	height:20px;
+	border-radius:10px;
+	background-color:#f2efef;
+}
+.from-position{
+	width:260px;
+	margin:10px 0 10px 200px;
+}
+.from-position .item{
+	background-color:#6bffd0;
+	padding:10px;
+	min-height:50px;
+	border-radius:20px;
+	border-top-right-radius:0;
+	word-wrap: break-word;
+}
+.to-position{
+	width:320px;
+	margin:10px 0 10px 0;
+}
+.to-position .item{
+	background-color:#969ce4;
+	padding:10px;
+	min-height:50px;
+	border-radius:20px;
+	border-top-left-radius:0;
+	word-wrap: break-word;
+}
+.to-position div.space-photo{
+	float:left;
+	width:15%;
+}
+.to-position div.space-message{
+	float:left;
+	width:85%;
+}
+.to-position div.space-clear{
+	clear:both;
+}
+.exit-message{
+	width:230px;
+	height:30px;
+	border-radius:10px;
+	background-color:#eee;
+	margin:10px auto;
+	text-align:center;
+	padding-top:8px;
+	clear:both;
+}
+
+form#detail_form{
+	width:500px;
+}
+
+
+
+
+
+/*----------------------------
+talkRoomWrite
+----------------------------  */
+.talk-make-body{
+	border: 1px solid black;/* 임시 */
+	
+	width: 460px;
+	height: 400px;
+	margin: 0 auto;
+}
+.talk-make-btn{
+	border: 1px solid black;/* 임시 */
+	text-align: center;
+}
+
 
 
 

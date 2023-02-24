@@ -175,7 +175,7 @@ $(function(){
                      //일반 메시지 처리
                      if(item.mem_num == $('#mem_num').val()){
                         //본인 메세지
-                        output += '<div class="from-position">'+item.mem_id;
+                        output += '<div class="from-position">';
                         output += '<div>';   
                      }else{
                         //타인 메세지
@@ -186,9 +186,9 @@ $(function(){
                         output += item.mem_id;
                      }
                      output += '<div class="item">';
-                     output += item.read_count + '<sapn>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
-                     //시간 표시
-                     output += '<div class="align-right">' + item.chat_date.split(' ')[1] + '</div>';
+                     output += '<sapn>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
+                     //안 읽은 사람 수 & 시간 표시
+                     output += '<div class="chatdate-right">'+'<span class="chatread-count">('+item.read_count+')</span>' + item.chat_date.split(' ')[1] + '</div>';
                      output += '</div>';
                      output += '</div><div class="space-clear"></div>';
                      output += '</div>';

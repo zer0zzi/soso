@@ -43,22 +43,23 @@ public class FreeController {
 	public FreeVO initCommand() {
 		return new FreeVO();
 	}
-	
+
 	// ========== 전체 글 목록 ===========
 	@RequestMapping("/community/fullList.do")
-	public ModelAndView fullList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
+	public ModelAndView fullList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("sort", sort);
 
 		// 글의 총 개수 또는 검색된 글의 개수 반환
 		int count = freeService.selectFullRowCount(map);
 
 		// 로그 - 콘솔창
 		logger.debug("<<count>> : " + count);
-		
+
 		// 페이지 처리
-		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "fullList.do");
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "fullList.do", sort);
 		List<FreeVO> fullList = null;
 		if(count>0){
 			map.put("start", page.getStartRow());
@@ -75,22 +76,24 @@ public class FreeController {
 
 		return mav;
 	}
-	
+
+
 	// ========== 자유 글 목록 ==========
 	@RequestMapping("/community/freeList.do")
-	public ModelAndView freeList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
+	public ModelAndView freeList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("sort", sort);
 
 		// 글의 총 개수 또는 검색된 글의 개수 반환
 		int count = freeService.selectFreeRowCount(map);
 
 		// 로그 - 콘솔창
 		logger.debug("<<count>> : " + count);
-		
+
 		// 페이지 처리
-		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "freeList.do");
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "freeList.do", sort);
 		List<FreeVO> freeList = null;
 		if(count>0){
 			map.put("start", page.getStartRow());
@@ -125,7 +128,7 @@ public class FreeController {
 		if(freeVO.getFree_uploadfile().length>=52428800) { // 5MB
 			result.reject("limitUploadSize");
 		}
-		
+
 		// 유효성 체크 결과 오류가 있으면 폼을 호출
 		if(result.hasErrors()) {
 			logger.debug("<<글 등록 유효성 체크>> : " + result.getAllErrors());
@@ -139,7 +142,7 @@ public class FreeController {
 		freeService.insertFree(freeVO);
 
 		redirect.addFlashAttribute("result", "success");
-		
+
 		return "redirect:/community/freeList.do";
 	}
 
@@ -395,7 +398,7 @@ public class FreeController {
 		return mapJson;
 	}
 
-	
+
 	// ========== 댓글 수정 ==========
 	@RequestMapping("/community/updateFreeReply.do")
 	@ResponseBody
@@ -423,7 +426,7 @@ public class FreeController {
 		}
 		return mapJson;
 	}
-	
+
 	// ========== 댓글 삭제 ==========
 	@RequestMapping("/community/deleteFreeReply.do")
 	@ResponseBody
@@ -448,5 +451,5 @@ public class FreeController {
 
 		return mapJson;
 	}
-	
+
 }

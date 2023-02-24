@@ -4,6 +4,9 @@
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
 	<h2>회원목록</h2>
+	<div>
+		<input type="button" value="회원관리" onclick="location.href='${pageContext.request.contextPath}/member/admin_list.do'">
+	</div>
 	<table class="striped-table">
 		<tr>
 			<th>아이디</th>
@@ -36,6 +39,7 @@
 		</tr>
 		</c:forEach>
 	</table>
+	
 </div>
 <!-- 중앙 컨텐츠 끝 -->
 

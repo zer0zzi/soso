@@ -18,8 +18,8 @@ public interface ReviewMapper {
 	// 부모글
 	public List<ReviewVO> selectReviewList(Map<String, Object> map);
 	public int selectReviewRowCount(Map<String, Object> map);
-	@Insert("INSERT INTO review_board (review_num,review_stc_name,review_name,review_title,review_rating,review_fixed,review_content,review_uploadfile,review_filename,review_ip,mem_num) "
-			+ "VALUES (review_board_seq.nextval,#{review_stc_name},#{review_name},#{review_title},#{review_rating},#{review_fixed},#{review_content},#{review_uploadfile},#{review_filename},#{review_ip},#{mem_num})")
+	@Insert("INSERT INTO review_board (review_num,review_stc_name,review_title,review_rating,review_fixed,review_content,review_uploadfile,review_filename,review_ip,mem_num) "
+			+ "VALUES (review_board_seq.nextval,#{review_stc_name},#{review_title},#{review_rating},#{review_fixed},#{review_content},#{review_uploadfile},#{review_filename},#{review_ip},#{mem_num})")
 	public void insertReview(ReviewVO review);
 	@Select("SELECT c.stc_title,a.* "
 			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a "
