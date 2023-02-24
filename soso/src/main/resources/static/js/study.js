@@ -36,10 +36,8 @@ $(function(){
 			event.target.style.display = "none";	
 		}
 	};
-	
-	
-	//모달창 버튼 클릭 이벤트
-	
+		
+	//모달창 외부 버튼 클릭 이벤트
 	$('.btn-primary').click(function(){
 		$.ajax({
 			url:'signLogin.do',
@@ -53,6 +51,12 @@ $(function(){
 				}else if(param.result == 'aleadySigned'){
 					alert('이미 신청한 스터디입니다.');
 					location.href='../member/myPage.do';
+				}else{
+					//폼 초기화
+					initForm();
+					//등록된 데이터가 표시될 수 있도록 
+					//목록 갱신
+					selectList(1);
 				}
 			},
 			error:function(){
@@ -61,6 +65,33 @@ $(function(){
 		});
 	});
 	
+	//댓글 작성 폼 초기화
+	function initForm(){
+		$('textarea').val('');
+		$('#detail_count .letter-count').text('300/300');
+	}
+	
+	//textarea에 내용 입력시 글자수 체크
+	$(document).on('keyup','textarea',function(){
+		//입력한 글자수 구하기
+		let inputLength = $(this).val().length;
+		
+		if(inputLength>300){//300자를 넘어선 경우
+			$(this).val($(this).val().substring(0,300));
+		}else{//300자 이하인 경우
+			//남은 글자수 구하기
+			let remain = 300 - inputLength;
+			remain += '/300';
+			if($(this).attr('id') == 'signup_detail'){
+				//등록 폼 글자수
+				$('#detail_count .letter-count').text(remain);
+			}
+		}
+		
+	});
+	
+	
+	//모달창 내부 버튼 클릭 이벤트
 	$('.btn-success').click(function(){
 		$.ajax({
 			url:'signup.do',
@@ -80,6 +111,7 @@ $(function(){
 			}
 		});
 	});
+	
 });
 
 

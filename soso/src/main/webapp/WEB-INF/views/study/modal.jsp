@@ -31,9 +31,12 @@
 								<li><br></li>
 								<li>
 									<label for="signup_detail">신청사유 </label><br>
-									<textarea class="form-control col-sm-5" rows="5" id="signup_detail" placeholder="Enter detail" name="signup_detail" required></textarea>
+									<textarea class="form-control col-sm-5" rows="5" id="signup_detail" placeholder="300자 이내로 신청사유를 적어주세요!" name="signup_detail" required></textarea>
 								</li>
 							</ul>
+							<div id="detail_count">
+								<span class="letter-count">300/300</span>
+							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
