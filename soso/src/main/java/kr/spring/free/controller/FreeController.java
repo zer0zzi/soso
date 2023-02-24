@@ -29,6 +29,7 @@ import kr.spring.free.vo.FreeFavVO;
 import kr.spring.free.vo.FreeReplyVO;
 import kr.spring.free.vo.FreeVO;
 import kr.spring.member.vo.MemberVO;
+import kr.spring.util.DurationFromNow;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
 
@@ -91,17 +92,18 @@ public class FreeController {
 
 		// 로그 - 콘솔창
 		logger.debug("<<count>> : " + count);
-
+		
 		// 페이지 처리
 		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, 10, "freeList.do", sort);
 		List<FreeVO> freeList = null;
 		if(count>0){
 			map.put("start", page.getStartRow());
 			map.put("end", page.getEndRow());
-
+			
 			freeList = freeService.selectFreeList(map);
 		}
-
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("freeList");
 		mav.addObject("count", count);
@@ -160,6 +162,8 @@ public class FreeController {
 		free.setFree_title(StringUtil.useNoHtml(free.getFree_title()));
 		// 내용에 태그를 허용하지 않음 : ckeditor 사용 시 주석처리
 		//free.setFree_content(StringUtil.useBrNoHtml(free.getFree_content()));
+		// 날짜 상세
+		//free.setFree_regdate(DurationFromNow.getTimeDiffLabel(free.getFree_regdate()));
 
 		return new ModelAndView("freeDetail", "free", free); // (뷰이름, 속성명, 속성값) // community폴더에 뷰 존재
 	}

@@ -62,7 +62,7 @@
   			  		 m.mem_nick
   			  		FROM review_board v JOIN member m ON v.mem_num=m.mem_num
   			  		<include refid="reviewSearch"></include>
-  			  		<if test="sort=='last'">
+  			  		<if test="sort=='last' || sort==null">
 			  			ORDER BY v.review_regdate DESC
 			  		</if>
 			  		<if test="sort=='hit'">

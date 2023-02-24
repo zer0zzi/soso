@@ -1,6 +1,7 @@
 package kr.spring.review.vo;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -17,8 +18,8 @@ public class ReviewVO {
 	@NotEmpty
 	private String review_content;
 	private int review_hit;
-	private String review_regdate;
-	private String review_modifydate;
+	private Date review_regdate;
+	private Date review_modifydate;
 	private byte[] review_uploadfile; // 리뷰를 작성하는 데 필요한 첨부파일
 	private String review_filename; // 리뷰를 작성하는 데 필요한 첨부파일명
 	private String review_ip;
@@ -93,19 +94,19 @@ public class ReviewVO {
 		this.review_hit = review_hit;
 	}
 
-	public String getReview_regdate() {
+	public Date getReview_regdate() {
 		return review_regdate;
 	}
 
-	public void setReview_regdate(String review_regdate) {
+	public void setReview_regdate(Date review_regdate) {
 		this.review_regdate = review_regdate;
 	}
 
-	public String getReview_modifydate() {
+	public Date getReview_modifydate() {
 		return review_modifydate;
 	}
 
-	public void setReview_modifydate(String review_modifydate) {
+	public void setReview_modifydate(Date review_modifydate) {
 		this.review_modifydate = review_modifydate;
 	}
 

@@ -13,7 +13,7 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <!-- ckeditor 설정 끝 -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/community/community.css">
 <!-- 후기 글수정 시작 -->
 <div class="v-page-main">
 	<div class="main-menu">

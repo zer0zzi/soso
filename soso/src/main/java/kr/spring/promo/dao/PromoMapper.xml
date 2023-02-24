@@ -58,7 +58,7 @@
 			  		FROM promo_board p JOIN member m
 			  		ON m.mem_num=p.mem_num
 			  		<include refid="promoSearch"></include>
-			  		<if test="sort=='last'">
+			  		<if test="sort=='last' || sort==null">
 			  			ORDER BY p.promo_regdate DESC
 			  		</if>
 			  		<if test="sort=='hit'">

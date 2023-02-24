@@ -1,6 +1,7 @@
 package kr.spring.promo.vo;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -16,8 +17,8 @@ public class PromoVO {
 	@NotEmpty
 	private String promo_content;
 	private int promo_hit;
-	private String promo_regdate;
-	private String promo_modifydate;
+	private Date promo_regdate;
+	private Date promo_modifydate;
 	private byte[] promo_uploadfile; // 홍보하는 데 필요한 첨부파일
 	private String promo_filename; // 홍보하는 데 필요한 첨부파일명
 	private String promo_ip;
@@ -27,18 +28,12 @@ public class PromoVO {
 	private String mem_nick;
 	private byte[] mem_photo;
 	private String mem_photo_name; // 프로필 이미지
-
 	private int stc_num; // 스터디그룹 식별 번호
-	private String stc_title; // 스터디 모집 제목
-	private String stc_filter; // 스터디 모집 구분 위한 필터
-	private String stc_way; // 스터디 진행방식(온라인/오프라인)
-	private String stc_state; // 모집상태(모집중, 모집완료)
-
 	private String promo_status;
 
 	private int p_replyCnt;
 	private int p_favCnt;
-
+	
 	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
 	public void setUpload(MultipartFile upload) throws IOException{
 		// MultipartFile → byte[] 변환
@@ -77,16 +72,16 @@ public class PromoVO {
 	public void setPromo_hit(int promo_hit) {
 		this.promo_hit = promo_hit;
 	}
-	public String getPromo_regdate() {
+	public Date getPromo_regdate() {
 		return promo_regdate;
 	}
-	public void setPromo_regdate(String promo_regdate) {
+	public void setPromo_regdate(Date promo_regdate) {
 		this.promo_regdate = promo_regdate;
 	}
-	public String getPromo_modifydate() {
+	public Date getPromo_modifydate() {
 		return promo_modifydate;
 	}
-	public void setPromo_modifydate(String promo_modifydate) {
+	public void setPromo_modifydate(Date promo_modifydate) {
 		this.promo_modifydate = promo_modifydate;
 	}
 	public String getPromo_filename() {
@@ -125,36 +120,6 @@ public class PromoVO {
 	public void setMem_photo_name(String mem_photo_name) {
 		this.mem_photo_name = mem_photo_name;
 	}
-	public int getStc_num() {
-		return stc_num;
-	}
-	public void setStc_num(int stc_num) {
-		this.stc_num = stc_num;
-	}
-	public String getStc_title() {
-		return stc_title;
-	}
-	public void setStc_title(String stc_title) {
-		this.stc_title = stc_title;
-	}
-	public String getStc_filter() {
-		return stc_filter;
-	}
-	public void setStc_filter(String stc_filter) {
-		this.stc_filter = stc_filter;
-	}
-	public String getStc_way() {
-		return stc_way;
-	}
-	public void setStc_way(String stc_way) {
-		this.stc_way = stc_way;
-	}
-	public String getStc_state() {
-		return stc_state;
-	}
-	public void setStc_state(String stc_state) {
-		this.stc_state = stc_state;
-	}
 	public byte[] getPromo_uploadfile() {
 		return promo_uploadfile;
 	}
@@ -186,18 +151,14 @@ public class PromoVO {
 		this.promo_status = promo_status;
 	}
 
-
 	@Override
 	public String toString() {
 		return "PromoVO [promo_num=" + promo_num + ", promo_fixed=" + promo_fixed + ", promo_title=" + promo_title
 				+ ", promo_content=" + promo_content + ", promo_hit=" + promo_hit + ", promo_regdate=" + promo_regdate
 				+ ", promo_modifydate=" + promo_modifydate + ", promo_filename=" + promo_filename + ", promo_ip="
-				+ promo_ip + ", mem_num=" + mem_num + ", mem_id=" + mem_id
-				+ ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num
-				+ ", stc_title=" + stc_title + ", stc_filter=" + stc_filter + ", stc_way=" + stc_way + ", stc_state="
-				+ stc_state + ", promo_status=" + promo_status + ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt
-				+ "]";
+				+ promo_ip + ", mem_num=" + mem_num + ", stc_num=" + stc_num
+				+ ", mem_id=" + mem_id + ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name
+				+ ", promo_status=" + promo_status + ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt + "]";
 	}
-
 
 }

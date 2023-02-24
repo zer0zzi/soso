@@ -1,10 +1,12 @@
 package kr.spring.free.vo;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.web.multipart.MultipartFile;
+
 
 // 테이블 free_board 시퀀스 free_board_seq
 public class FreeVO {
@@ -15,8 +17,8 @@ public class FreeVO {
 	@NotEmpty
 	private String free_content;
 	private int free_hit;
-	private String free_regdate;
-	private String free_modifydate;
+	private Date free_regdate;
+	private Date free_modifydate;
 	private byte[] free_uploadfile; // 자유게시글을 작성하는 데 필요한 첨부파일
 	private String free_filename; // 자유게시글을 작성하는 데 필요한 첨부파일명
 	private String free_ip;
@@ -71,16 +73,16 @@ public class FreeVO {
 	public void setFree_hit(int free_hit) {
 		this.free_hit = free_hit;
 	}
-	public String getFree_regdate() {
+	public Date getFree_regdate() {
 		return free_regdate;
 	}
-	public void setFree_regdate(String free_regdate) {
+	public void setFree_regdate(Date free_regdate) {
 		this.free_regdate = free_regdate;
 	}
-	public String getFree_modifydate() {
+	public Date getFree_modifydate() {
 		return free_modifydate;
 	}
-	public void setFree_modifydate(String free_modifydate) {
+	public void setFree_modifydate(Date free_modifydate) {
 		this.free_modifydate = free_modifydate;
 	}
 	public byte[] getFree_uploadfile() {
