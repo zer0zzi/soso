@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.spring.stc.dao.StcMapper;
 import kr.spring.study.dao.StudyMapper;
 import kr.spring.study.vo.StudyFavVO;
+import kr.spring.study.vo.StudySignupVO;
 import kr.spring.study.vo.StudyVO;
 
 @Service
@@ -17,11 +19,12 @@ public class StudyServiceImpl implements StudyService{
 
 	@Autowired
 	private StudyMapper studyMapper; 
-
+	@Autowired
+	private StcMapper stcMapper; 
 	
 	@Override
 	public List<StudyVO> selectList(Map<String, Object> map) {
-		return studyMapper.selectList(map);
+		return stcMapper.studyList(map);
 	}
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
@@ -38,7 +41,7 @@ public class StudyServiceImpl implements StudyService{
 
 	@Override
 	public void updateHit(Integer stc_num) {
-		//studyMapper.updateHit(stc_num);
+		studyMapper.updateHit(stc_num);
 	}
 	@Override
 	public void updateStudy(StudyVO study) {
@@ -46,8 +49,10 @@ public class StudyServiceImpl implements StudyService{
 	}
 	@Override
 	public void deleteStudy(Integer stc_num) {
-		//좋아요 삭제
+		//관심등록 삭제
 		studyMapper.deleteFavByStcNum(stc_num);
+		//부모글 삭제
+		studyMapper.deleteStudy(stc_num);
 	}
 	@Override
 	public void deleteFile(Integer stc_num) {
@@ -55,7 +60,7 @@ public class StudyServiceImpl implements StudyService{
 	}
 
 	
-	//좋아요
+	//관심등록
 	@Override
 	public StudyFavVO selectFav(StudyFavVO fav) {
 		return studyMapper.selectFav(fav);
@@ -72,7 +77,16 @@ public class StudyServiceImpl implements StudyService{
 	public void deleteFav(Integer fav_num) {
 		studyMapper.deleteFav(fav_num);
 	}
-
+	
+	//신청
+	@Override
+	public StudySignupVO selectSignup(StudySignupVO signup) {
+		return studyMapper.selectSignup(signup);
+	}
+	@Override
+	public void insertSignup(StudySignupVO signup) {
+		studyMapper.insertSignup(signup);
+	}
 }
 
 

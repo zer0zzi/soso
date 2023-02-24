@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.study.dao.StudyMapper">  
+  	<!-- sql 태그와 include 태그를 이용해 SQL문을 재사용 -->
+  	<sql id="studySearch">
+  		<where>
+  			<if test="keyword != null and keyword != ''">
+  				<if test="keyfield == 1">
+  					b.stc_title LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 2">
+  					m.mem_id LIKE '%' || #{keyword} || '%' OR
+  					m.mem_nick LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 3">
+  					b.stc_content LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 4">
+  					b.stc_title LIKE '%' || #{keyword} || '%' OR
+  					b.stc_content LIKE '%' || #{keyword} || '%'
+  				</if>
+  			</if>
+  		</where>
+  	</sql>
+  	
+  	<select id="selectRowCount" parameterType="map" resultType="integer">
+  		SELECT
+  		  COUNT(*)
+  		FROM study_create b JOIN member m
+  		ON b.mem_num = m.mem_num
+  		<include refid="studySearch"></include> 
+  	</select>
+  	
+  	<select id="selectList" parameterType="map" resultType="studyVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		        a.*,
+  		        rownum rnum
+  		      FROM (SELECT
+  		              b.stc_num,
+  		              <![CDATA[
+  		              REPLACE(REPLACE(b.stc_title,'<','&lt;'),'>','&gt;') stc_title,
+  		              ]]>
+  		              b.hit,
+  		              b.stc_filename,
+  		              b.stc_date,
+  		              b.mem_num,
+  		              m.mem_id,
+  		              m.mem_nick
+  		            FROM study_create b JOIN member m 
+  		            ON b.mem_num = m.mem_num
+  		            <include refid="studySearch"></include>
+  		            ORDER BY b.stc_num DESC)a)                         
+  		<![CDATA[
+  		WHERE rnum >= #{start} AND rnum <= #{end}
+  		]]>
+  	</select>
+  	
+  	<update id="updateStudy" parameterType="studyVO">
+  		UPDATE study_create SET
+  		  <if test="filename != ''">
+  		  stc_uploadfile=#{stc_uploadfile},
+  		  stc_filename=#{stc_filename},
+  		  </if>
+  		  stc_title=#{stc_title},
+  		  stc_content=#{stc_content},
+  		  stc_modify_date=SYSDATE
+  		WHERE stc_num=#{stc_num}  
+  	</update>
+</mapper>
+
+
+
+
+
+
+

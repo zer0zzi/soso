@@ -20,6 +20,7 @@ import kr.spring.member.vo.MemberVO;
 import kr.spring.study.controller.StudyController;
 import kr.spring.study.service.StudyService;
 import kr.spring.study.vo.StudyFavVO;
+import kr.spring.study.vo.StudySignupVO;
 import kr.spring.study.vo.StudyVO;
 import kr.spring.util.StringUtil;
 
@@ -90,9 +91,8 @@ public class StudyController {
 	//관심 등록
 	@RequestMapping("/study/writeFav.do")
 	@ResponseBody
-	public Map<String,Object> writeFav(
-										StudyFavVO fav,
-										HttpSession session){
+	public Map<String,Object> writeFav(StudyFavVO fav,
+									   HttpSession session){
 		logger.debug("<<부모글 좋아요 등록>> : " + fav);
 
 		Map<String,Object> mapJson = new HashMap<String,Object>();
@@ -122,6 +122,42 @@ public class StudyController {
 			}
 
 			mapJson.put("count", studyService.selectFavCount(fav.getStc_num()));
+		}
+		return mapJson;
+	}
+	
+	//신청하기
+	@RequestMapping("/study/signup.do")
+	@ResponseBody
+	public Map<String,Object> signup(StudySignupVO signupVO,
+									 HttpSession session){
+		logger.debug("<<신청하기>> : " + signupVO);
+
+		Map<String,Object> mapJson = new HashMap<String,Object>();
+
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else {
+			//로그인된 회원번호 셋팅
+			signupVO.setMem_num(user.getMem_num());
+			//스터디 번호 받아오기
+			
+			//신청번호 생성하기
+			
+			//detail 받아오기
+			
+			logger.debug("<<신청하기1>> : " + signupVO);
+
+			StudySignupVO studySignup = studyService.selectSignup(signupVO);
+			if(studySignup!=null) {
+				//이미 신청했으면 거부
+				mapJson.put("result", "aleadySigned");
+			}else {
+				//미등록이면 등록
+				studyService.insertSignup(signupVO);
+				mapJson.put("result", "success");
+			}
 		}
 		return mapJson;
 	}
