@@ -120,6 +120,9 @@ form#search_form {
 	margin: 0 12px 0 12px;
 	cursor: pointer;
 }
+.search-btn:hover{
+	transform:scale(1.1);
+}
 .bottom-btn{
 	width: 200px;
 	height: 50px;
@@ -139,7 +142,7 @@ talkDetail
 ----------------------------  */
 .chat-name{
 	/* border: 1px solid black; */ /* 임시 */
-	height: 50px;
+	height: 35px;
 /* 	overflow: auto; */
 }
 .chat-name-left{
@@ -147,43 +150,54 @@ talkDetail
 	float:left;
 	width: 13%;
 	margin-left:10px; 
+	font-weight: bolder;
+	color: gray;
 }
 .chat-name-right{
 	/* border: 1px solid black; */ /* 임시 */
-	float:left;
+	/* float:left; */
+	margin:0 auto;
 	width: 80%;
-	height: 44px;
-	overflow: auto;
+	height: 28px;
+	font-size: 23px;
+	overflow: hidden;
 	word-wrap:break-word;
+	text-align: center;
 }
 
 .chat-members-left{
 	/* border: 1px solid black; */ /* 임시 */
 	float: left;
-	width: 15%;
+	width: 23%;
 	text-align: center;
+	font-weight: bolder;
+	color: gray;
+	margin-left: 48px;
 }
 .chat-members{
 	margin-left: 10px;
 	/* border: 1px solid black; */ /* 임시 */
 	float: left;
-	width: 59%;
-	height: 45px;
+	width: 43%;
+	height: 22px;
 	overflow: auto;
+	font-weight: bolder;
+    color: dimgray;
 }
 .chat-exit{
 	/* border: 1px solid black; */ /* 임시 */
 	float: right;
-	width: 21%;
+	width: 20%;
 	text-align: center;
 	padding-right: 8px;
 	margin-bottom: 9px;
-	color: #6b6b6b;
+	color: #7981e8;
 	font-size: 10px;
+	font-weight: bolder;
 	cursor: pointer;
 }
 .chat-exit:hover{
-	color:red;
+	color:#7981e8;
 	font-weight: bolder;
 	transform:scale(1.1);
 }
@@ -221,14 +235,19 @@ talkDetail
     color: white;
     cursor: pointer;
 }
+.chat-submit-btn:hover{
+	transform:scale(1.1);
+}
 .chatread-count{
-	color:red;
+	color:#f56767;
 	font-weight: bolder;
 }
 .chat-submit-btn-box{
 	height: 80px;
 }
-/*스크롤바*/
+/*----------------------------
+스크롤바
+----------------------------  */
 .chat-name-right::-webkit-scrollbar {
     width: 10px;
 }
@@ -260,10 +279,18 @@ talkDetail
 .talklist-list::-webkit-scrollbar-thumb {
     background-color: #c4c4c4;
 }
+/* ----------- */
+.chat-members::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-members::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
 /*////////////////////////////////////////////////////*/
 #chatting_message{
 	border-bottom: 3px solid lightgray;
-	height:330px;
+	height:360px;
 	margin:0 auto;
 	padding:10px;
 	overflow:auto;

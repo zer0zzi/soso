@@ -59,13 +59,14 @@ public class AppConfig implements WebMvcConfigurer{
 				.addPathPatterns("/member/myPage.do")
 				.addPathPatterns("/member/update.do")
 				.addPathPatterns("/member/changePassword.do")
-				.addPathPatterns("/member/delete.do");
+				.addPathPatterns("/member/delete.do")
+				.addPathPatterns("/talk/talkRoomWrite.do")
+				.addPathPatterns("/talk/talkList.do")
+				.addPathPatterns("/talk/talkDetail.do");
 				//.addPathPatterns("/board/write.do")
 				//.addPathPatterns("/board/update.do")
 				//.addPathPatterns("/board/delete.do")
-				//.addPathPatterns("/talk/talkRoomWrite.do")
-				//.addPathPatterns("/talk/talkList.do")
-				//.addPathPatterns("/talk/talkDetail.do")
+				
 				//.addPathPatterns("/cart/list.do")
 		//AdminCheckInterceptor 설정
 		registry.addInterceptor(adminCheck)

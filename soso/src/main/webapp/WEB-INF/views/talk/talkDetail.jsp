@@ -9,14 +9,11 @@
 <div id="talkDetail" class="talk">
    <div class="text-align-center"><span class="talk-title" onclick="location.href='talkList.do'">SoSoTalk</span></div> 	
 			<div class="chat-name">
-				<div class="chat-name-left">채팅방:</div>
-				<div class="chat-name-right"><b>${talkRoomVO.talkroom_name}</b></div>
-				<div class="bothclear"></div>
+				<div class="chat-name-right"><b>${talkRoomVO.talkroom_name}</b></div>				
 			</div>
 			<div class="chat-members-left">
-				채팅 멤버:
-				<c:forEach var="talkVO" items="${list}" varStatus="status">										
-					<c:if test="${status.last}">(${status.count}명)</c:if>
+				채팅 멤버<c:forEach var="talkVO" items="${list}" varStatus="status">										
+					<c:if test="${status.last}">(${status.count})</c:if>
 				</c:forEach>
 			</div>
 			<div class="chat-members">
