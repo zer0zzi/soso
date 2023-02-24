@@ -248,6 +248,14 @@ talkDetail
 /*----------------------------
 스크롤바
 ----------------------------  */
+#talk_member::-webkit-scrollbar {
+    width: 10px;
+}
+
+#talk_member::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/*----------  */
 #search_area::-webkit-scrollbar {
     width: 10px;
 }
@@ -382,9 +390,10 @@ talkRoomWrite
 	/* border: 1px solid black; *//* 임시 */
 }
 .inputform{
-	width: 330px;
+	width: 325px;
 	height: 40px;
 	padding-left: 10px;
+	padding-right: 10px;
     border: 3px solid #969ce4;
     border-radius: 10px;
 }
@@ -418,9 +427,11 @@ talkRoomWrite
 	border-radius:10px;
     height: 90px;
     overflow: auto;
-    width: 345px;
+    width: 335px;
     margin-left: 84px;
     margin-top: 3px;
+    padding-left: 8px;
+    word-wrap: break-word;
 }
 .memlist{
 	border-bottom: 1px solid black;
@@ -448,4 +459,10 @@ talkRoomWrite
 	margin-left: 90px;
 	font-weight: bolder;
 	margin-top: 14px;
+}
+.member-span{
+	cursor: pointer;
+}
+.cursorpointer1{
+	cursor: pointer;
 }

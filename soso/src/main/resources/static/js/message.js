@@ -74,7 +74,7 @@ $(function(){
       //선택한 id를 화면에 표시
       let choice_id = '<span class="member-span" data-id="'+mem_id+'">';
       choice_id += '<input type="hidden" name="members" value="'+mem_num+'">';
-      choice_id += mem_id + '<sup>&times;</sup></span>';
+      choice_id += mem_id + '<sup>&times;&nbsp;</sup></span>';
       $('#talk_member').append(choice_id);
       //초기화
       $('#member_search').val('');
