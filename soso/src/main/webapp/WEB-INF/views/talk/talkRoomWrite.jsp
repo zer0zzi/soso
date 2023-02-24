@@ -5,31 +5,31 @@
 <!-- 채팅방 생성 시작 -->
 <div class="page-main-talk">    
 <div class="talk">
-   <div class="text-align-center"><span class="talk-title" onclick="location.href='talkList.do'">SoSoTalk</span></div> 	
+   <div class="text-align-center"><span class="talk-title" onclick="location.href='talkList.do'">SoSoTalk</span></div> 	 
+   
    <div class="talk-make-body">
 	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"
 		 data-id="${user.mem_id}" value="${user.mem_num}">
-		<ul>
-			<li>
-				<label>채팅방 이름</label>
-				<input type="hidden" 
-				  name="talkroom_name" id="talkroom_name">
-				<span id="name_span"></span>
-				<input type="checkbox" checked 
-				 id="name_checked">(자동생성)  
-			</li>
-			<li>
-				<label>채팅회원검색</label>
-				<input type="text" id="member_search" autocomplete="off">
-				<ul id="search_area"></ul>
-				<div id="talk_member"></div>   
-			</li>
-		</ul>
-		<div class="talk-make-btn">
-			<input type="submit" value="만들기">
-			<input type="button" value="목록" onclick="location.href='talkList.do'">
-		</div>       
+		<div class="make-nameNmem">
+			<div class="inputform-a">
+				<input type="text" name="talkroom_name" id="talkroom_name" class="inputform" autocomplete="off" placeholder="Room Name">
+			</div>
+			<div>	
+				<input type="checkbox" id="name_checked" class="chatauto"><span class="auto-word">자동생성</span>	
+			</div>	
+			<div class="inputform-b">
+				<input type="text" id="member_search" class="inputform" autocomplete="off" placeholder="Member search">			   
+			</div>
+			<div id="search_area"></div>
+			<div class="member-word">Member</div>
+			<div>
+				<div id="talk_member"></div>
+			</div>	
+		</div>
+		<div class="make-btn-box">
+			<input type="submit" value="Create!" class="bottom-btn-2">
+ 		</div>       
 	</form>
 	</div>
 </div>

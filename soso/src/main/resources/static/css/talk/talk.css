@@ -248,6 +248,14 @@ talkDetail
 /*----------------------------
 스크롤바
 ----------------------------  */
+#search_area::-webkit-scrollbar {
+    width: 10px;
+}
+
+#search_area::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+/*----------  */
 .chat-name-right::-webkit-scrollbar {
     width: 10px;
 }
@@ -363,26 +371,81 @@ form#detail_form{
 talkRoomWrite
 ----------------------------  */
 .talk-make-body{
-	border: 1px solid black;/* 임시 */
-	
-	width: 460px;
-	height: 400px;
+	/* border: 1px solid black; *//* 임시 */
+	width: 500px;
 	margin: 0 auto;
 }
-.talk-make-btn{
-	border: 1px solid black;/* 임시 */
-	text-align: center;
+.make-nameNmem{
+	height: 400px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+.make-btn-box{
+	/* border: 1px solid black; *//* 임시 */
+}
+.inputform{
+	width: 330px;
+	height: 40px;
+	padding-left: 10px;
+    border: 3px solid #969ce4;
+    border-radius: 10px;
+}
+.inputform-a{
+	width: 330px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 60px;
+	margin-bottom: 10px;
+}
+.inputform-b{
+	width: 330px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 18px;
+	margin-bottom: 10px;
+}
+.chatauto{
+	margin-left: 90px;
+}
+#search_area{
+	border: 3px solid #969ce4;
+	border-radius:10px;
+	height: 100px;
+	width: 345px;
+	margin-left: 84px;
+	overflow: auto;
+}
+#talk_member {
+    border: 3px solid #ff9cc5;
+	border-radius:10px;
+    height: 90px;
+    overflow: auto;
+    width: 345px;
+    margin-left: 84px;
+    margin-top: 3px;
+}
+.memlist{
+	border-bottom: 1px solid black;
+	padding-left: 8px;
+}
+.bottom-btn-2{
+	width: 354px;
+	height: 50px;
+	background-color: #969ce4;
+	border: none;
+	border-radius:7px;
+	color:white;
+	cursor: pointer;
+	font-size: 20px;
+	margin-left: 81px;
+}
+.bottom-btn-2:hover{
+	transform:scale(1.1);
+}
+.auto-word{
+	font-weight: 700;
+	color: dimgray;
+}
+.member-word{
+	margin-left: 90px;
+	font-weight: bolder;
+	margin-top: 14px;
+}
