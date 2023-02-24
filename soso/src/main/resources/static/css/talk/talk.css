@@ -401,7 +401,7 @@ talkRoomWrite
 	width: 330px;
 	height: 40px;
 	margin: 0 auto;
-	margin-top: 60px;
+	margin-top: 15px;
 	margin-bottom: 10px;
 }
 .inputform-b{
@@ -465,4 +465,17 @@ talkRoomWrite
 }
 .cursorpointer1{
 	cursor: pointer;
+}
+.talk-title2{
+	font-size: 30px;
+	font-weight:800;
+	color: lightgray;
+	cursor:pointer;
+}
+.makeroom-word{
+	font-size: 40px;
+	font-weight: bolder;
+	color: #7a81d6;
+	text-align: center;
+	margin-top: -20px;
 }
