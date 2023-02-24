@@ -2,39 +2,49 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- ckeditor 설정 시작 -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-.ck-editor__editable_inline{ /* _ 2개임 */
-	min-height:250px;
-}
-</style>
-<script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
-<script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
-<!-- ckeditor 설정 끝 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community/community.css">
-<!-- 후기 글수정 시작 -->
-<div class="v-page-main">
-	<div class="main-menu">
-		<h2>
-			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
-			 / 
-			<a href='promoList.do'>홍보라운지</a>
-		</h2>
-	</div>
+<script type="text/javascript">
+	$(function(){
+		$('#promoWrite_form').submit(function(){
+			if($('#promo_title').val().trim()==''){
+				alert('제목을 입력하지 않았습니다.');
+				$('#promo_title').val('').focus();
+				return false;
+			}
+			if($('#promo_content').val().trim()==''){
+				alert('내용을 입력하지 않았습니다.');
+				$('#promo_content').val('').focus();
+				return false;
+			}
+		});
+	});
+</script>
+<!-- 홍보 글수정 시작 -->
+<div class="community-page-main">
+
+	<span class="full-insert-title">
+	<a href='promoList.do' style="color:white"><b>
+		홍보게시판
+		<%-- <c:if test="${!empty user && user.mem_auth==9}">&nbsp;공지작성</c:if>
+		<c:if test="${!empty user && user.mem_auth<9}">&nbsp;글작성</c:if> --%>
+	</b></a>
+	</span>
 	
-	<div class="sub-header-update">
-		<a href='promoList.do'>홍보라운지</a> 글수정
-	</div>
-	
+	<!-- 작성 폼 시작 -->
+	<div class="full-insert">
 	<form:form action="promoUpdate.do" id="promoUpdate_form" modelAttribute="promoVO" enctype="multipart/form-data">
 		<form:hidden path="promo_num"/>
 		<input type="hidden" name="promo_name" value="홍보">
 		<ul>
 			<li>
+				<label>닉네임 (아이디)</label>
+				<c:if test="${!empty user.mem_nick}">
+				</c:if>
+				<input type="text" value="${user.mem_nick} ( ${user.mem_id} )" class="insert-id" readonly/>
+			</li>
+			<li>
 				<label for="promo_title">제목</label>
-				<form:input path="promo_title"/>
+				<form:input path="promo_title" class="insert-title"/>
 				<form:errors path="promo_title" cssClass="error-color"/>
 			</li>
 			<li>
@@ -49,9 +59,7 @@
 			</li>
 			<li>
 				<label for="promo_content">본문</label>
-			</li>
-			<li>
-				<form:textarea path="promo_content"/>
+				<form:textarea path="promo_content" class="insert-content"/>
 				<form:errors path="promo_content" cssClass="error-color"/>
 				<script>
 				 function MyCustomUploadAdapterPlugin(editor) {
@@ -110,11 +118,12 @@
 				</c:if>
 			</li>
 		</ul>
-		<div class="align-center">
-			<form:button>수정</form:button>
-			<input type="button" value="상세" onclick="location.href='promoDetail.do?promo_num=${promoVO.promo_num}'">
-			<input type="button" value="목록" onclick="location.href='promoList.do'">
+		<div class="align-left">
+			<form:button class="insert-btn">수정</form:button>
+			<input type="button" value="상세" onclick="location.href='promoDetail.do?promo_num=${promoVO.promo_num}'" class="detail-btn">
+			<input type="button" value="목록" onclick="location.href='promoList.do'" class="list-btn">
 		</div>
 	</form:form>
+	</div>
 </div>
-<!-- 자유 글수정 끝 -->
+<!-- 홍보 글수정 끝 -->

@@ -128,11 +128,12 @@ public class PromoController {
 	}
 
 	// ========== 이미지 출력 ==========
-	@RequestMapping("/community/imageView.do")
+	@RequestMapping("/community/imageFreeView.do")
 	public ModelAndView viewImage(@RequestParam int promo_num, @RequestParam int promo_type) {
 		PromoVO promo = promoService.selectPromo(promo_num);
+		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("imageView"); // 뷰 출력
+		mav.setViewName("imageFreeView"); // 뷰 출력
 
 		if(promo_type==1) { // 프로필 사진
 			mav.addObject("imageFile", promo.getMem_photo());

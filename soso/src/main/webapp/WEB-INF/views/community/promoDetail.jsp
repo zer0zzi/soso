@@ -47,7 +47,7 @@
 				  fn:endsWith(promo.promo_filename,'.jfif') || fn:endsWith(promo.promo_filename,'.JFIF') ||
 				  fn:endsWith(promo.promo_filename,'.png') || fn:endsWith(promo.promo_filename,'.PNG')}"> 
 	<div class="align-center">
-		<img src="imageView.do?promo_num=${promo.promo_num}&promo_type=2" class="detail-img">
+		<img src="imageFreeView.do?promo_num=${promo.promo_num}&promo_type=2" class="detail-img">
 	</div>
 	</c:if>
 	

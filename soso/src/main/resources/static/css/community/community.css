@@ -199,12 +199,16 @@ div.sub-menu-right input[type=search]:focus{
 /* ============================================= */
 /* ==================== 전체 ==================== */
 /* ============================================= */
-/* 자유 작성폼 */
+/* 자유 목록 */
 .full-list{
+	font-size:14px;
 	margin-top:50px;
 	position:relative;
-	font-size:14px;
 }
+.full-list form{
+	border:none;	
+}
+
 .full-list table{
 	border-spacing:3px;
 }
@@ -213,6 +217,97 @@ div.sub-menu-right input[type=search]:focus{
 	text-align:center;
 	font-weight:normal;
 }
+
+/* 자유 작성폼 */
+.full-insert-title{
+	font-size:14px; font-weight:700;
+	display:inline-block;
+	position:absolute;
+	z-index:99;
+	
+	margin-top:82px; margin-left:60px;
+	/*border:1px solid black;*/
+}
+.full-insert{
+	font-size:13px;
+	position:absolute;
+	margin:50px;
+	margin-top:100px;
+	padding-right:50px;
+	width:800px;
+ 	height:780px;
+ 	background:#969CE4;
+  	border-radius:3px;
+}
+.full-insert:after{ /* transparent */
+	position:absolute;
+	border-top:13px solid #969CE4;
+ 	border-left:120px solid #969CE4;
+ 	border-bottom:10px solid #969CE4;
+ 	border-radius:3px;
+ 	
+ 	content:"";
+ 	top:-19px;
+ 	right:730px;
+}
+
+.full-insert form{
+	border:none;
+	position:absolute;
+	margin:4px;
+	background-color:#FFF;
+	width:802px; height:750px;
+	border-radius:3px;
+}
+.full-insert form .insert-id{
+	height:15px; width:500px;
+}
+.full-insert form .insert-title{
+	height:15px; width:500px;
+}
+.full-insert form .insert-content{
+	margin-top:15px;
+	height:200px; width:500px;
+}
+.full-insert form .insert-studyName{
+	height:15px; width:371px;
+}
+.full-insert form ul li{
+	width:690px;
+	line-height:50px;
+	border-bottom:1px solid #D3D3D3;
+	padding-left:35px;
+}
+.full-insert form ul li label{
+	font-weight:700;
+}
+.full-insert form .insert-btn{
+	margin-left:60px;
+}
+.full-insert form .insert-btn, .full-insert form .delete-btn, 
+.full-insert form .detail-btn, .full-insert form .list-btn{
+	display: inline-block;
+  	height:30px; width:75px;
+  	padding-bottom:3px;
+  	border-radius:3px;;
+	color:black;
+  	margin-top:2rem; 
+  	font-weight:bold;
+  	font-size:12px;
+  	letter-spacing: 2px;
+  	
+	background-color:rgba(0,0,0,0.7);
+	color:white;
+	border:none;
+}
+.full-insert form .insert-btn:hover, .full-insert form .delete-btn:hover,
+.full-insert form .detail-btn:hover, .full-insert form .list-btn:hover{
+	background-color:#969CE4;
+	color:black;
+}
+
+
+/* 전체 페이지 / 페이징 */
 div.community-page-main{
 	width:1024px;
 	margin:0 auto;
@@ -221,8 +316,6 @@ div.community-paging{
 	text-align:center;
 	margin-top:10px;
 }
-
-
 /* ============================================= */
 /* ==================== 자유 ==================== */
 /* ============================================= */
@@ -244,25 +337,32 @@ div.community-paging{
 /* ============================================= */
 /* ==================== 평점 ==================== */
 /* ============================================= */
-#reviewWrite_form li.rate fieldset, #reviewUpdate_form li.rate fieldset{
-	display:inline-block; /* 하위 별점 이미지들이 있는 영역만 자리 차지 */ 
-	direction:rtl;  /* 별점 이미지 순서(방향) 반전 right to left */
-	border:0; /* 필드셋 테두리 제거 */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
 }
-#reviewWrite_form li.rate input[type=radio], #reviewUpdate_form li.rate input[type=radio]{
-	display:none; /* radiobox 감춤 */
+.star-rating input {
+  display: none;
 }
-#reviewWrite_form li.rate label, #reviewUpdate_form li.rate label{
-	font-size:2em; /* 별점 이미지 크기 */
-	color:transparent; /* 기존 별점 이미지 색상 제거 */
-	text-shadow:0 0 0 #C8C8C8; /* 별점 이미지에 새로운 색상 부여 */
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
 }
-#reviewWrite_form li.rate label:hover, #reviewUpdate_form li.rate label:hover{
-	text-shadow:0 0 0 #C8C8C8; /* 마우스 호버 */
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
 }
-#reviewWrite_form li.rate label:hover ~ label, #reviewUpdate_form li.rate label:hover ~ label{
-	text-shadow:0 0 0 #FFD400; /* 마우스 호버 시 뒤에 오는 별점 이미지들 */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
 }
-#reviewWrite_form li.rate input[type=radio]:checked ~ label, #reviewUpdate_form li.rate input[type=radio]:checked ~ label{
-	text-shadow:0 0 0 #FFD400; /* 마우스 클릭 체크 */
+.insert-rating{
+	width:30px; height:30px;
 }

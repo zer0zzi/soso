@@ -27,13 +27,13 @@
 			조회 : ${free.free_hit}
 		</li>
 	</ul>
-	<%-- <c:if test="${!empty free.free_filename}">
+	<c:if test="${!empty free.free_filename}">
 	<ul>
 		<li>
 			첨부파일 : <a href="freeFile.do?free_num=${free.free_num}">${free.free_filename}</a>
 		</li>
 	</ul>
-	</c:if> --%>
+	</c:if>
 	<hr size="1" width="100%">
 	
 	<!-- filename의 끝부분에 .jpg가 있으면 true를 반환해서 이미지를 시각적으로 보여준다. -->
@@ -43,7 +43,7 @@
 				  fn:endsWith(free.free_filename,'.jfif') || fn:endsWith(free.free_filename,'.JFIF') ||
 				  fn:endsWith(free.free_filename,'.png') || fn:endsWith(free.free_filename,'.PNG')}"> 
 	<div class="align-center">
-		<img src="imageFreeView.do?free_num=${free.free_num}&free_type=2" class="detail-img">
+		<img src="imageView.do?free_num=${free.free_num}&free_type=2" class="detail-img">
 	</div>
 	</c:if>
 	

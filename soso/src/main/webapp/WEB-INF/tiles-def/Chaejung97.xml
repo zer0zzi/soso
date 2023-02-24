@@ -66,35 +66,24 @@
     	<put-attribute name="body" value="/WEB-INF/views/community/freeWrite.jsp"/>
     	<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/> 
     </definition>
-    
-    
-    
-    <!-- <definition name="freeWrite" extends="main">
-    	<put-attribute name="title" value="자유게시판글쓰기"/>
-    	<put-attribute name="body" value="/WEB-INF/views/community/freeWrite.jsp"/> 
-    </definition> -->
-    <definition name="freeUpdate" extends="main">
-    	<put-attribute name="title" value="자유게시판글수정"/>
+    <definition name="freeUpdate" extends="freeWrite">
+    	<put-attribute name="title" value="자유게시판수정"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/freeUpdate.jsp"/> 
     </definition>
-    
-    
-    <definition name="promoWrite" extends="main">
-    	<put-attribute name="title" value="홍보게시판글쓰기"/>
+    <definition name="promoWrite" extends="freeWrite">
+    	<put-attribute name="title" value="홍보게시판작성"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/promoWrite.jsp"/> 
     </definition>
-    <definition name="promoUpdate" extends="main">
-    	<put-attribute name="title" value="홍보게시판글수정"/>
+    <definition name="promoUpdate" extends="freeWrite">
+    	<put-attribute name="title" value="홍보게시판수정"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/promoUpdate.jsp"/> 
     </definition>
-    
-    
-    <definition name="reviewWrite" extends="main">
-    	<put-attribute name="title" value="후기게시판글쓰기"/>
+    <definition name="reviewWrite" extends="freeWrite">
+    	<put-attribute name="title" value="후기게시판작성"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/reviewWrite.jsp"/> 
     </definition>
-    <definition name="reviewUpdate" extends="main">
-    	<put-attribute name="title" value="후기게시판글수정"/>
+    <definition name="reviewUpdate" extends="freeWrite">
+    	<put-attribute name="title" value="후기게시판수정"/>
     	<put-attribute name="body" value="/WEB-INF/views/community/reviewUpdate.jsp"/> 
     </definition>
 </tiles-definitions>

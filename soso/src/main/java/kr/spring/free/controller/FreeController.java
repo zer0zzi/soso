@@ -161,7 +161,7 @@ public class FreeController {
 		// 제목에 태그를 허용하지 않음
 		free.setFree_title(StringUtil.useNoHtml(free.getFree_title()));
 		// 내용에 태그를 허용하지 않음 : ckeditor 사용 시 주석처리
-		//free.setFree_content(StringUtil.useBrNoHtml(free.getFree_content()));
+		free.setFree_content(StringUtil.useBrNoHtml(free.getFree_content()));
 		// 날짜 상세
 		//free.setFree_regdate(DurationFromNow.getTimeDiffLabel(free.getFree_regdate()));
 
@@ -169,20 +169,21 @@ public class FreeController {
 	}
 
 	// ========== 이미지 출력 ==========
-	@RequestMapping("/community/imageFreeView.do")
-	public ModelAndView viewFreeImage(@RequestParam int free_num, @RequestParam int free_type) {
+	@RequestMapping("/community/imageView.do")
+	public ModelAndView viewImage(@RequestParam int free_num, @RequestParam int free_type) {
 		FreeVO free = freeService.selectFree(free_num);
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("imageFreeView"); // 뷰 출력
+		mav.setViewName("imageView"); // 뷰 출력
 
 		if(free_type==1) { // 프로필 사진
-			mav.addObject("imageFreeFile", free.getMem_photo());
-			mav.addObject("free_filename", free.getMem_photo_name());
+			mav.addObject("imageFile", free.getMem_photo());
+			mav.addObject("filename", free.getMem_photo_name());
 		}else if(free_type==2) { // 업로드된 이미지
-			mav.addObject("imageFreeFile", free.getFree_uploadfile());
-			mav.addObject("free_filename", free.getFree_filename());
+			mav.addObject("imageFile", free.getFree_uploadfile());
+			mav.addObject("filename", free.getFree_filename());
 		}
+		
 		return mav;
 	}
 
@@ -192,9 +193,9 @@ public class FreeController {
 		FreeVO free = freeService.selectFree(free_num);
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("freeDownloadView");
-		mav.addObject("freeDownloadFile", free.getFree_uploadfile());
-		mav.addObject("free_filename", free.getFree_filename());
+		mav.setViewName("downloadView");
+		mav.addObject("downloadFile", free.getFree_uploadfile());
+		mav.addObject("filename", free.getFree_filename());
 
 		return mav;
 	}
@@ -213,12 +214,14 @@ public class FreeController {
 	@PostMapping("/community/freeUpdate.do")
 	public String submitUpdate(@Valid FreeVO freeVO, BindingResult result, HttpServletRequest request, Model model) {
 		logger.debug("<<글수정>> : " + freeVO);
+		
 		logger.debug("<<업로드 파일 용량>> : " + freeVO.getFree_uploadfile().length);
-
-		// 업로드 파일 용량 체크
+		 
+		// 업로드 파일 용량 체크 
 		if(freeVO.getFree_uploadfile().length>=52428800) { // 5MB
 			result.reject("limitUploadSize");
 		}
+		
 
 		// 유효성 체크 결과 오류가 있으면 폼을 호출
 		if(result.hasErrors()) {

@@ -2,37 +2,41 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- ckeditor 설정 시작 -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style>
-.ck-editor__editable_inline{ /* _ 2개임 */
-	min-height:250px;
-}
-</style>
-<style> /* 밑으로 드랍다운 했을 때, option 텍스트가 안 보이게 설정 */
-	select option[value=""][disabled]{
-	display:none;
-	}
-</style>
-<script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
-<script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
-<!-- ckeditor 설정 끝 -->
+<script type="text/javascript">
+	$(function(){
+		$('#reviewWrite_form').submit(function(){
+			if($('#review_title').val().trim()==''){
+				alert('제목을 입력하지 않았습니다.');
+				$('#review_title').val('').focus();
+				return false;
+			}
+			if($('#review_content').val().trim()==''){
+				alert('내용을 입력하지 않았습니다.');
+				$('#review_content').val('').focus();
+				return false;
+			}
+			if($('#changeInput').val().trim()==''){
+				alert('참여한 스터디명을 선택하세요.');
+				$('#changeInput').val('').focus();
+				return false;
+			}
+		});
+	});
+</script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community/community.css">
 <!-- 후기 글수정 시작 -->
-<div class="v-page-main">
-	<div class="main-menu">
-		<h2>
-			<a href='${pageContext.request.contextPath}/community/fullList.do'>커뮤니티</a>
-			 / 
-			<a href='reviewList.do'>후기게시판</a>
-		</h2>
-	</div>
+<div class="community-page-main">
+
+	<span class="full-insert-title">
+	<a href='reviewList.do' style="color:white"><b>
+		후기게시판
+		<%-- <c:if test="${!empty user && user.mem_auth==9}">&nbsp;공지작성</c:if>
+		<c:if test="${!empty user && user.mem_auth<9}">&nbsp;글작성</c:if> --%>
+	</b></a>
+	</span>
 	
-	<div class="sub-header-update">
-		<a href='reviewList.do'>후기게시판</a> 글수정
-	</div>
-	
+	<!-- 작성 폼 시작 -->
+	<div class="full-insert">
 	<form:form action="reviewUpdate.do" id="reviewUpdate_form" modelAttribute="reviewVO" enctype="multipart/form-data">
 		<form:hidden path="review_num"/>
 		<input type="hidden" name="review_name" value="후기">
@@ -40,6 +44,12 @@
 		<input type="hidden" name="review_stc_name" id="changeInput" value="관리자">
 		</c:if>
 		<ul>
+			<li>
+				<label>닉네임 (아이디)</label>
+				<c:if test="${!empty user.mem_nick}">
+				</c:if>
+				<input type="text" value="${user.mem_nick} ( ${user.mem_id} )" class="insert-id" readonly/>
+			</li>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>
@@ -50,7 +60,7 @@
 					</c:forEach>
 				</select>
 				<%-- <input type="text" name="review_stc_name" value="${review_stc_name}" id="1changeInput" required> --%>
-				<form:input path="review_stc_name" id="changeInput"/>
+				<form:input path="review_stc_name" id="changeInput" class="insert-studyName"/>
 				<script type="text/javascript">
 					var selectBoxChange = function(value){
 						console.log("값변경테스트 : " + value);
@@ -58,54 +68,33 @@
 					}
 				</script>
 			</li>
-			</c:if>
-			
 			<li>
 				<label for="review_title">제목</label>
-				<form:input path="review_title"/>
+				<form:input path="review_title" class="insert-title"/>
 				<form:errors path="review_title" cssClass="error-color"/>
 			</li>
+			</c:if>
 			<c:if test="${!empty user && user.mem_auth<9}">
-			<li class="rate">
-				<fieldset>
-					<legend>평점<small>*다시 선택해주세요.</small></legend> <!-- ⭐ -->
-					<input type="radio" name="review_rating" value="5" id="rate1">
-					<label for="rate1">⭐</label>
-     			    <input type="radio" name="review_rating" value="4" id="rate2">
-     			    <label for="rate2">⭐</label>
-       			 	<input type="radio" name="review_rating" value="3" id="rate3">
-       			 	<label for="rate3">⭐</label>
-       				<input type="radio" name="review_rating" value="2" id="rate4">
-       				<label for="rate4">⭐</label>
-        			<input type="radio" name="review_rating" value="1" id="rate5">
-        			<label for="rate5">⭐</label>
-				</fieldset>
+			<li>
+				<label>평점</label>
+				<div class="star-rating space-x-4 mx-auto">
+					<input type="radio" id="5-stars" name="review_rating" value="5" <c:if test="${reviewVO.review_rating==5}">checked="checked"</c:if>/>
+					<label for="5-stars" class="star pr-4">★</label>
+					<input type="radio" id="4-stars" name="review_rating" value="4" <c:if test="${reviewVO.review_rating==4}">checked="checked"</c:if>/>
+					<label for="4-stars" class="star">★</label>
+					<input type="radio" id="3-stars" name="review_rating" value="3" <c:if test="${reviewVO.review_rating==3}">checked="checked"</c:if>/>
+					<label for="3-stars" class="star">★</label>
+					<input type="radio" id="2-stars" name="review_rating" value="2" <c:if test="${reviewVO.review_rating==2}">checked="checked"</c:if>/>
+					<label for="2-stars" class="star">★</label>
+					<input type="radio" id="1-star" name="review_rating" value="1" <c:if test="${reviewVO.review_rating==1}">checked="checked"</c:if>/>
+					<label for="1-star" class="star">★</label>
+				</div>
 			</li>
 			</c:if>
 			<li>
 				<label for="review_content">본문</label>
-			</li>
-			<li>
-				<form:textarea path="review_content"/>
+				<form:textarea path="review_content" class="insert-content"/>
 				<form:errors path="review_content" cssClass="error-color"/>
-				<script>
-				 function MyCustomUploadAdapterPlugin(editor) {
-					    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-					        return new UploadAdapter(loader);
-					    }
-					}
-				 
-				 ClassicEditor
-		            .create( document.querySelector( '#review_content' ),{
-		            	extraPlugins: [MyCustomUploadAdapterPlugin]
-		            })
-		            .then( editor => {
-						window.editor = editor;
-					} )
-		            .catch( error => {
-		                console.error( error );
-		            } );
-			    </script>
 			</li>
 			<li>
 				<label for="upload">업로드</label>
@@ -145,11 +134,12 @@
 				</c:if>
 			</li>
 		</ul>
-		<div class="align-center">
-			<form:button>수정</form:button>
-			<input type="button" value="상세" onclick="location.href='reviewDetail.do?review_num=${reviewVO.review_num}'">
-			<input type="button" value="목록" onclick="location.href='reviewList.do'">
+		<div class="align-left">
+			<form:button class="insert-btn">수정</form:button>
+			<input type="button" value="상세" onclick="location.href='reviewDetail.do?review_num=${reviewVO.review_num}'" class="detail-btn">
+			<input type="button" value="목록" onclick="location.href='reviewList.do'" class="list-btn">
 		</div>
 	</form:form>
+	</div>
 </div>
-<!-- 자유 글수정 끝 -->
+<!-- 후기 글수정 끝 -->

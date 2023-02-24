@@ -36,11 +36,11 @@ public class FreeVO {
 	private int f_favCnt;
 
 	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
-	public void setFree_upload(MultipartFile free_upload) throws IOException{
+	public void setUpload(MultipartFile upload) throws IOException{
 		// MultipartFile → byte[] 변환
-		setFree_uploadfile(free_upload.getBytes());
+		setFree_uploadfile(upload.getBytes());
 		// 파일명 구하기
-		setFree_filename(free_upload.getOriginalFilename());
+		setFree_filename(upload.getOriginalFilename());
 	}
 
 	public int getFree_num() {
