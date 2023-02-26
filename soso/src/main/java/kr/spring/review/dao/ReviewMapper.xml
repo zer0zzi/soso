@@ -45,7 +45,9 @@
   			   a.*, 
   			   rownum rnum 
   			  FROM (SELECT 
+  			  		 '후기' as tblName,
   			  		 v.review_num,
+  			  		 v.review_content,
   			  		 v.review_stc_name,
   			  		 v.review_rating,
   			  		 v.review_fixed,

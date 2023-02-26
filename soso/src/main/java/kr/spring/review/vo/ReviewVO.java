@@ -37,6 +37,8 @@ public class ReviewVO {
 	
 	private int v_replyCnt;
 	private int v_favCnt;
+	
+	private String tblName;
 
 	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
 	public void setUpload(MultipartFile upload) throws IOException{
@@ -218,16 +220,25 @@ public class ReviewVO {
 		this.review_stc_name = review_stc_name;
 	}
 
+	public String getTblName() {
+		return tblName;
+	}
+
+	public void setTblName(String tblName) {
+		this.tblName = tblName;
+	}
+
 	@Override
 	public String toString() {
 		return "ReviewVO [review_num=" + review_num + ", review_fixed=" + review_fixed + ", review_title="
 				+ review_title + ", review_rating=" + review_rating + ", review_content=" + review_content
 				+ ", review_hit=" + review_hit + ", review_regdate=" + review_regdate + ", review_modifydate="
 				+ review_modifydate + ", review_filename=" + review_filename + ", review_ip=" + review_ip + ", mem_num="
-				+ mem_num + ", review_stc_name=" + review_stc_name + ", mem_id="
-				+ mem_id + ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num
-				+ ", stc_title=" + stc_title + ", stc_filter=" + stc_filter + ", v_replyCnt=" + v_replyCnt
-				+ ", v_favCnt=" + v_favCnt + "]";
+				+ mem_num + ", review_stc_name=" + review_stc_name + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick
+				+ ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num + ", stc_title=" + stc_title
+				+ ", stc_filter=" + stc_filter + ", v_replyCnt=" + v_replyCnt + ", v_favCnt=" + v_favCnt + ", tblName="
+				+ tblName + "]";
 	}
+
 	
 }

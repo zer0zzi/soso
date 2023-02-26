@@ -12,8 +12,14 @@
 .align-left{
 	text-align:left;
 }
+.align-right{
+	text-align:right;
+}
 .clear{
 	clear:both;
+}
+div.hr{
+	padding:1px 0;
 }
 /* 링크 */
 a:link{
@@ -49,7 +55,7 @@ a.main-menu-text{
 
 /* 서브 메뉴 - left */
 div.sub-menu-left{
-	padding-top:75px;
+	padding-top:90px;
 	float:left; width:40%;
 	font-size:14px;
 	position:relative;
@@ -98,8 +104,7 @@ div.sub-menu-left-detail ul li a{
 
 /* 서브 메뉴 - right */
 div.full-sub-menu-right{
-	padding:61px 0 15px 0;
-	margin-left:2px;
+	padding:78px 0 0 0;
 	float:right; width:25%;
 	position:relative;
 }
@@ -119,7 +124,8 @@ div.full-sub-menu-right ul li input.list-btn{
 }
 
 div.sub-menu-right{
-	padding:60px 0 15px 0;
+	/*padding:78px 30px 15px 0;*/
+	padding:76px 0 0 0;
 	float:right; width:50%;
 }
 div.sub-menu-right form{
@@ -136,6 +142,7 @@ div.sub-menu-right ul li{
 div.sub-menu-right ul li input.list-btn{
 	border:none;
 }
+
 /* 옵션 - 정렬 필터  */
 .sort-option{
 	height:25px;
@@ -199,25 +206,6 @@ div.sub-menu-right input[type=search]:focus{
 /* ============================================= */
 /* ==================== 전체 ==================== */
 /* ============================================= */
-/* 자유 목록 */
-.full-list{
-	font-size:14px;
-	margin-top:50px;
-	position:relative;
-}
-.full-list form{
-	border:none;	
-}
-
-.full-list table{
-	border-spacing:3px;
-}
-.full-list tr td{
-	height:30px;
-	text-align:center;
-	font-weight:normal;
-}
-
 /* 자유 작성폼 */
 .full-insert-title{
 	font-size:14px; font-weight:700;
@@ -306,8 +294,7 @@ div.sub-menu-right input[type=search]:focus{
 	color:black;
 }
 
-
-/* 전체 페이지 / 페이징 */
+/* 전체 페이지 */
 div.community-page-main{
 	width:1024px;
 	margin:0 auto;
@@ -316,22 +303,313 @@ div.community-paging{
 	text-align:center;
 	margin-top:10px;
 }
+
+/* 세부 페이지 */
+div.community-page-main-detail{
+	font-size:13px;
+	width:1024px;
+	margin:0 auto;
+	padding:30px; padding-top:50px; padding-left:80px;
+}
+ul.community-detail-member{
+	list-style:none;
+}
+ul.community-detail-member li{
+	float:left;
+	margin-right:10px;
+}
+li.community-detail-member-padding{
+	padding-top:15px;
+}
+div.community-page-main-detail-content{
+	padding-left:40px; margin-top:30px;
+	width:800px;
+}
+
+
+/* ================================================== */
+/* ==================== 전체 게시판 ==================== */
+/* ================================================== */
+/* 전체게시판 목록 */
+.full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:20px 120px 20px 0;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px;
+}
+table.full-class{
+	margin-left:66px;
+	border:1px solid gray;
+	border-collapse:collapse; border-radius:5px;
+	/*border-width:2px 2px 2px 20px;*/
+	border-top:3px; border-left:3px; border-right:3px;
+}
+table.full-class tr{
+	border-collapse:sepeate;
+}
+table.full-class tr td{
+	width:800px;
+	padding:5px 10px;
+}
+table.full-class tr.full-item{
+	font-size:13px;
+}
+table.full-class tr td a.title-hover{
+	font-weight:700;
+	color:black;
+	margin:5px 0;
+	display:block;
+}
+table.full-class tr td a.title-hover:hover{
+	color:#969CE4;
+	font-weight:700;
+}
+table.full-class tr td span.left{
+	float:left;
+	text-align:left; display:block;
+	width:35px;
+}
+table.full-class tr td span.left-id{
+	float:left;
+	text-align:left; display:block;
+	width:150px; height:30px; padding-top:2px;
+}
+table.full-class tr td span.right{
+	float:right;
+	text-align:right; display:block;
+	width:200px; padding-top:2px;
+}
+
+
+/* ================================================== */
+/* ==================== 자유 게시판 ==================== */
+/* ================================================== */
+/* 자유게시판 목록 */
+div.free-fixed-1 .full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:20px 120px 0 0;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px;
+}
+div.free-fixed-2 .full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:0 120px 20px 0;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px; border-top:1px;
+}
+
+
+/* ================================================== */
+/* ==================== 홍보 게시판 ==================== */
+/* ================================================== */
+/* 홍보게시판 목록 */
+div.promo-fixed-1 .full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:20px 120px 0 0;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px;
+}
+div.promo-fixed-2 .full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:0 120px 20px 0;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px; border-top:1px;
+}
+.promo-ing-btn{
+	background-color:#F8B739;
+	border:none; border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+	margin-bottom:10px;
+}
+.promo-comp-btn{
+	background-color:#D3D3D3;
+	border:none; border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+	margin-bottom:10px;
+}
+
+
+/* ================================================== */
+/* ==================== 후기 게시판 ==================== */
+/* ================================================== */
+/* 후기게시판 목록 */
+div.review-fixed-1 .full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:20px 120px 0 0;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px;
+}
+div.review-fixed-2 .full-list{
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	width:800px; padding:0 120px 20px 50px; /**/
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px; border-top:1px;
+}
+table.full-class-2{
+	box-shadow: 0px 1px 1px;
+	padding:20px;
+	float:left; width:45%; height:300px;
+	margin:0 40px 30px 0;
+}
+table.full-class-2:hover{
+	box-shadow: 0 10px 10px rgba(0,0,0,0.3),
+               0 20px 40px rgba(0,0,0,0.3);
+}
+div.review-fixed-2 table.full-class-2 tr td span.left{
+	float:left;
+	text-align:left; display:block;
+	width:35px;
+	padding-top:5px;
+}
+div.review-fixed-2 table.full-class-2 tr td span.left-id{
+	float:left;
+	text-align:left; display:block;
+	height:30px;
+	font-size:12px;
+}
+tr.review-content{
+	display:block; overflow:hidden;
+	/*border:1px solid gray;*/
+}
+.line{
+	display:block;
+	border:1px solid #C8C8C8;
+	border-top:1px; border-left:1px; border-right:1px;
+}
+.left-review{
+	float:left;
+}
+.right-review{
+	float:right;
+}
+table.full-class-2 tr td a.title-hover{
+	font-weight:700;
+	color:black;
+	margin:5px 0;
+	display:block;
+}
+table.full-class-2 tr td a.title-hover:hover{
+	color:#F8B739; /*#F8B739 969CE4*/
+	font-weight:700;
+}
+
+
+
+/* ============================================== */
+/* ==================== 좋아요 ==================== */
+/* ============================================== */
+div.detail-bottom-left{
+	float:left; width:100px; height:23px;
+	padding-top:5px;
+}
+div.detail-bottom-right{
+	float:right;
+}
+input.detail-delete-btn, input.detail-update-btn, input.detail-list-btn{
+	font-size:12px;
+	border:none; border-radius:3px;
+	background-color:#969CE4;
+	color:white;
+	margin-bottom:5px;
+}
+
+
 /* ============================================= */
-/* ==================== 자유 ==================== */
+/* ==================== 댓글 ==================== */
 /* ============================================= */
-
-
-
-/* ============================================= */
-/* ==================== 홍보 ==================== */
-/* ============================================= */
-
-
-
-/* ============================================= */
-/* ==================== 후기 ==================== */
-/* ============================================= */
-
+/* 자유 댓글 */
+div#f_reply_div, div#f_mreply_div,
+div#p_reply_div, div#p_mreply_div,
+div#v_reply_div, div#v_mreply_div{
+	font-size:15px;
+	padding-top:10px; padding-bottom:25px;
+	position:relative;
+}
+form#fre_form, form#fmre_form,
+form#pre_form, form#pmre_form,
+form#vre_form, form#vmre_form{
+	margin-top:5px;
+	border:none; 
+	width:735px;
+}
+#fre_first, #fre_second, #fmre_first, #fmre_second,
+#pre_first, #pre_second, #pmre_first, #pmre_second,
+#vre_first, #vre_second, #vmre_first, #vmre_second{
+	float:right;
+}
+#fre_first, #fmre_first,
+#pre_first, #pmre_first,
+#vre_first, #vmre_first{
+	padding-top:5px; padding-right:10px;
+}
+#fre_second, #fmre_second,
+#pre_second, #pmre_second,
+#vre_second, #vmre_second{
+	padding-right:60px;
+}
+.reply-insert-btn{
+	background-color:white;
+	border:none; border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+}
+.reply-insert-btn:active{
+	margin-left:5px; margin-top:5px;
+	box-shadow:none;
+}
+.rep-content{
+	border-radius:10px;
+	border:2px solid #F8B739;
+	outline-color:#969CE4;
+}
+.reply-div{
+	position:relative;
+ 	margin-left:50px;
+ 	width:750px;
+ 	height:130px;
+  	background:rgba(248, 183, 57,0.7); /*#F8B739 rgb(213, 194, 194)*/
+  	border-radius:10px;
+}
+.reply-div:after{
+	border-top:15px solid rgba(248, 183, 57,0.7);
+ 	border-left: 15px solid transparent;
+ 	border-right: 0px solid transparent;
+ 	border-bottom: 0px solid transparent;
+ 	content:"";
+ 	position:absolute;
+ 	top:10px;
+ 	left:-15px;
+}
+/* 자유 댓글 목록 */
+ul.detail-info{
+	list-style:none;
+}
+input.re-btn, input.re-modify-btn, input.re-delete-btn, input.re-reply-delete-btn{
+	background-color:white;
+	border:none; border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+	margin-bottom:10px;
+}
+input.re-btn:active, input.re-modify-btn:active, input.re-delete-btn:active{
+	margin-left:5px; margin-top:5px;
+	box-shadow:none;
+}
+div.item{
+	padding-top:5px;
+}
 
 
 /* ============================================= */
@@ -340,19 +618,19 @@ div.community-paging{
 .star-rating {
   display: flex;
   flex-direction: row-reverse;
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   line-height: 2.5rem;
   justify-content: space-around;
   padding: 0 0.2em;
   text-align: center;
-  width: 5em;
+  width: 4.3em;
 }
 .star-rating input {
   display: none;
 }
 .star-rating label {
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: #2b2a29;
   cursor: pointer;
 }

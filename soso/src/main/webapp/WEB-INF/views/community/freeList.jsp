@@ -20,80 +20,80 @@
 	<div class="community-result-display">작성된 게시글이 없습니다.</div>
 	</c:if>
 	
+	<div class="free-fixed-1">
 	<c:if test="${count>0}">
-	<div class="full-list free-fixed-1">
-		<table>
-			<tr class="title">
-				<th>번호</th>
-				<th width="400">제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th>free_fixed==1</th>
-				<th>좋아요수</th>
-			</tr>
-			<c:forEach var="free" items="${freeList}">
+	<div class="full-list">
+		<c:forEach var="free" items="${freeList}">
+		<c:if test="${free.free_fixed==1}">
 			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
-			<c:if test="${free.free_fixed==1}">
-			<tr class="item">
-				<td>${free.free_num}</td>
-				<td  style="text-align:left;">
-					<a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>
-				</td>
-				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
-				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>${free.free_fixed}</td>
-				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
-					</c:if>
-				</td>
-			</tr>
-			</c:if>
-			</c:forEach>
-		</table>
-	</div>
-	<div class="full-list free-fixed-2">
-		<table>
-			<tr class="title">
-				<th style="display:none;">게시판타입</th>
-				<th>번호</th>
-				<th width="400">제목[댓글수]</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th>free_fixed==2</th>
-				<th>좋아요수</th>
-			</tr>
-			<c:forEach var="free" items="${freeList}">
-			<input type="hidden" name="free_fixed" id="free_fixed" value="${free.free_fixed}">
-			<c:if test="${free.free_fixed==2}">
-			<tr class="item">
-				<td style="display:none;">${free.tblName}</td>
-				<td>${free.free_num}</td>
-				<td style="text-align:left;"><a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>&nbsp;[ ${free.f_replyCnt} ]</td>
-				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
-				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>${free.free_fixed}</td>
-				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
-					</c:if>
-				</td>
-			</tr>
-			</c:if>
-			</c:forEach>
-		</table>
+			<table class="full-class">
+				<tr class="full-item">
+					<td>공지사항</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">
+						<a href="freeDetail.do?free_num=${free.free_num}" class="title-hover">📌 &nbsp; ${free.free_title}</a>
+					</td>
+				</tr>
+			</table>
+		</c:if>
+		</c:forEach>
 	</div>
 	</c:if>
+	</div>
+		
+	<div class="free-fixed-2">
+	<c:if test="${count>0}">
+	<div class="full-list">
+		<c:forEach var="free" items="${freeList}">
+		<c:if test="${free.free_fixed==2}">
+			<table class="full-class">
+				<tr class="full-item">
+					<td>
+						<a href="fullList.do"><span style="color:gray">Community&nbsp;/</span></a>
+						<c:if test="${free.tblName=='자유'}">
+						<a href="freeList.do">${free.tblName}</a>
+						</c:if>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="freeDetail.do?free_num=${free.free_num}" class="title-hover">${free.free_title}</a>
+					</td>
+				</tr>
+				<tr class="full-item">
+					<td>
+						<span class="left">
+						<c:if test="${!empty free.mem_photo_name}">
+						<img src="imageFreeView.do?free_num=${free.free_num}&free_type=1" width="25" height="25" class="my-photo">
+						</c:if>
+						<c:if test="${empty free.mem_photo_name}">
+						<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
+						</c:if>
+						</span>
+						
+						<span class="left-id">
+						<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
+						<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
+						&nbsp;·&nbsp;${free.free_regdate}
+						</span>
+						
+						<span class="right">
+						👁‍🗨 ${free.free_hit}
+						&nbsp;·&nbsp;
+						💬 &nbsp; ${free.f_replyCnt}
+						&nbsp;·&nbsp;
+						💗 &nbsp; ${free.f_favCnt}
+						</span>
+						
+					</td>
+				</tr>
+			</table>
+		</c:if>
+		</c:forEach>
+	</div>
+	</c:if>
+	</div>
 	
 	<!-- 페이징 영역 시작 -->
 	<div class="community-paging">${page}</div>

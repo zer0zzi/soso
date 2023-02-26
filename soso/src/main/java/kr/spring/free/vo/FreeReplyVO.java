@@ -1,5 +1,7 @@
 package kr.spring.free.vo;
 
+import kr.spring.util.DurationFromNow;
+
 public class FreeReplyVO {
 	private int fre_num;
 	private int fre_pnum;
@@ -35,13 +37,13 @@ public class FreeReplyVO {
 		return fre_regdate;
 	}
 	public void setFre_regdate(String fre_regdate) {
-		this.fre_regdate = fre_regdate;
+		this.fre_regdate = DurationFromNow.getTimeDiffLabel(fre_regdate);
 	}
 	public String getFre_modifydate() {
 		return fre_modifydate;
 	}
 	public void setFre_modifydate(String fre_modifydate) {
-		this.fre_modifydate = fre_modifydate;
+		this.fre_modifydate = DurationFromNow.getTimeDiffLabel(fre_modifydate);
 	}
 	public String getFre_ip() {
 		return fre_ip;

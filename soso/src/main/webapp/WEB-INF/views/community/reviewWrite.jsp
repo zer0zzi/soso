@@ -88,6 +88,7 @@
 				<form:input path="review_title" class="insert-title"/>
 				<form:errors path="review_title" cssClass="error-color"/>
 			</li>
+			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>평점</label>
 				<div class="star-rating space-x-4 mx-auto">
@@ -103,6 +104,7 @@
 					<label for="1-star" class="star">★</label>
 				</div>
 			</li>
+			</c:if>
 			<li>
 				<label for="review_content">본문</label>
 				<form:textarea path="review_content" id="review_content" class="insert-content"/>

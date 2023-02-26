@@ -20,99 +20,94 @@
 	<div class="community-result-display">작성된 게시글이 없습니다.</div>
 	</c:if>
 	
+	<div class="review-fixed-1">
 	<c:if test="${count>0}">
-	<div class="full-list review-fixed-1">
-		<table>
-			<tr class="review-table-title">
-				<th>번호</th>
-				<th width="400">제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th>review_fixed==1</th>
-				<th>댓글수</th>
-				<th>좋아요수</th>
-			</tr>
-			<c:forEach var="review" items="${reviewList}">
+	<div class="full-list">
+		<c:forEach var="review" items="${reviewList}">
+		<c:if test="${review.review_fixed==1}">
 			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
-			<c:if test="${review.review_fixed==1}">
-			<tr class="review-table-item">
-				<td>${review.review_num}</td>
-				<td style="text-align:left;">
-					<a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a>
-				</td>
-				<td>
-					<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
-					<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>
-				</td>
-				<td>${review.review_regdate}</td>
-				<td>${review.review_hit}</td>
-				<td>${review.review_fixed}</td>
-				<td>
-					<c:if test="${review.v_replyCnt>0}">
-						<span>(${review.v_replyCnt})</span>
-					</c:if>
-				</td>
-				<td>
-					<c:if test="${review.v_favCnt>0}">
-						<span>(♥${review.v_favCnt})</span>
-					</c:if>
-				</td>
-			</tr>
-			</c:if>
-			</c:forEach>
-		</table>
-	</div>
-	<div class="full-list review-fixed-2">
-		<table>
-			<tr class="review-table-title">
-				<th>스터디명</th>
-				<th>번호</th>
-				<th>평점</th>
-				<th width="400">제목[댓글수]</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th>review_fixed==2</th>
-				<th>좋아요수</th>
-			</tr>
-			<c:forEach var="review" items="${reviewList}">
-			<input type="hidden" name="review_fixed" id="review_fixed" value="${review_fixed}">
-			<c:if test="${review.review_fixed==2}">
-			<tr class="review-table-item">
-				
-				<td>${review.review_stc_name}</td>
-				<td>${review.review_num}</td>
-				<td>${review.review_rating}</td>
-				<td style="text-align:left;">
-					<a href="reviewDetail.do?review_num=${review.review_num}">${review.review_title}</a>&nbsp;[ ${review.v_replyCnt} ]
-				</td>
-				<td>
-					<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
-					<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>
-				</td>
-				<td>${review.review_regdate}</td>
-				<td>${review.review_hit}</td>
-				<td>${review.review_fixed}</td>
-				<td>
-					<c:if test="${review.v_replyCnt>0}">
-						<span>(${review.v_replyCnt})</span>
-					</c:if>
-				</td>
-				<td>
-					<c:if test="${review.v_favCnt>0}">
-						<span>(♥${review.v_favCnt})</span>
-					</c:if>
-				</td>
-				
-			</tr>
-			</c:if>
-			</c:forEach>
-		</table>
+			<table class="full-class">
+				<tr class="full-item">
+					<td>공지사항</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">
+						<a href="reviewDetail.do?review_num=${review.review_num}" class="title-hover">📌 &nbsp; ${review.review_title}</a>
+					</td>
+				</tr>
+			</table>
+		</c:if>
+		</c:forEach>
 	</div>
 	</c:if>
+	</div>
 	
+	<div class="review-fixed-2">
+	<c:if test="${count>0}">
+	<div class="full-list">
+		<c:forEach var="review" items="${reviewList}">
+		<c:if test="${review.review_fixed==2}">
+			<input type="hidden" name="review_fixed" id="review_fixed" value="${review_fixed}">
+			<table class="full-class-2">
+				<tr class="full-item">
+					<tr class="full-item" height="20">
+						<td>
+							<a href="reviewList.do"><span style="color:gray">Community&nbsp;/</span></a>
+							<c:if test="${review.tblName=='후기'}">
+							<a href="reviewList.do">${review.tblName}</a>
+							</c:if>
+						</td>
+					</tr>
+					<tr height="50">
+						<td>
+							<span class="left">
+							<c:if test="${!empty review.mem_photo_name}">
+							<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="40" height="40" class="my-photo">
+							</c:if>
+							<c:if test="${empty review.mem_photo_name}">
+							<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
+							</c:if>
+							</span>
+							
+							<span class="left-id">
+							<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
+							<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>
+							<br>${review.review_regdate}
+							</span>
+							
+						</td>
+					</tr>
+					<tr height="20">
+						<td><b style="color:#969CE4;">${review.review_stc_name}</b></td>
+					</tr>
+					<tr height="50">
+						<td>
+							<a href="reviewDetail.do?review_num=${review.review_num}" class="title-hover"><b>${review.review_title}</b></a>
+						</td>
+					</tr>
+					<tr class="review-content" height="100">
+						<td><a href="reviewDetail.do?review_num=${review.review_num}" class="title-hover">${review.review_content}</a></td>
+					</tr>
+					<tr height="20" class="line"></tr>
+					<tr height="30">
+						<td>
+							<span class="left-review">
+							${review.review_hit} views &nbsp;·&nbsp;
+							${review.v_replyCnt} comments &nbsp;·&nbsp;
+								<span style="color:red">${review.review_rating}</span> rating
+							</span>
+							<span class="right-review">
+							${review.v_favCnt} 💗
+							</span>
+						</td>
+					</tr>
+			</table>
+		</c:if>
+		</c:forEach>
+	</div>
+	</c:if>
+	</div>
 	<!-- 페이징 영역 시작 -->
-	<div class="community-paging">${page}</div>
+	<div class="community-paging clear">${page}</div>
 	<!-- 페이징 영역 끝 -->
 </div>

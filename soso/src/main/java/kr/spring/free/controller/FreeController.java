@@ -29,14 +29,13 @@ import kr.spring.free.vo.FreeFavVO;
 import kr.spring.free.vo.FreeReplyVO;
 import kr.spring.free.vo.FreeVO;
 import kr.spring.member.vo.MemberVO;
-import kr.spring.util.DurationFromNow;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
 
 @Controller
 public class FreeController {
 	private static final Logger logger = LoggerFactory.getLogger(FreeController.class);
-	private int rowCount = 10;
+	private int rowCount = 7;
 	@Autowired // 의존 관계 주입
 	private FreeService freeService;
 	// 자바빈 초기화

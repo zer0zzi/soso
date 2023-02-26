@@ -93,10 +93,10 @@ $(function(){
 					output += '</ul>'; // end of .detail-info
 					output += '<div class="sub-item">';
 					output += '<p>' + item.fre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
-					output += ' <input type="button" data-num="' + item.fre_num + '" value="답댓글" class="re-btn">';
+					output += ' <input type="button" data-num="' + item.fre_num + '" value="댓글" class="re-btn">';
 					if(param.user_num==item.mem_num){
-						output += ' <input type="button" data-num="' + item.fre_num + '" value="수정" class="modify-btn">';
-						output += ' <input type="button" data-num="' + item.fre_num + '" value="삭제" class="delete-btn">';
+						output += ' <input type="button" data-num="' + item.fre_num + '" value="수정" class="re-modify-btn">';
+						output += ' <input type="button" data-num="' + item.fre_num + '" value="삭제" class="re-delete-btn">';
 					}
 					output += '<hr size="1" noshade>';
 					output += '</div>'; // sub의 div
@@ -154,7 +154,7 @@ $(function(){
 		$('#fmre_form').remove();
 	} // end of initModifyForm 수정폼 초기화
 	// 댓글 수정 버튼 클릭시 수정폼 노출
-	$(document).on('click','.modify-btn',function(){
+	$(document).on('click','.re-modify-btn',function(){
 		// 댓글 글번호
 		let fre_num = $(this).attr('data-num');
 		// 댓글 내용
@@ -164,11 +164,11 @@ $(function(){
 		let modifyUI = '<form id="fmre_form">';
 		modifyUI += '<input type="hidden" name="fre_num" id="mre_num" value="' + fre_num + '">';
 		modifyUI += '<textarea rows="3" cols="50" name="fre_content" id="mre_content" class="rep-content">' + fre_content + '</textarea>';
-		modifyUI += '<div id="fmre_first"><span class="letter-count">500/500</span></div>';
 		modifyUI += '<div id="fmre_second" class="align-right">';
-		modifyUI += ' <input type="submit" value="수정">';
-		modifyUI += ' <input type="button" value="취소" class="re-reset">';
+		modifyUI += ' <input type="submit" value="수정" class="re-modify-btn">';
+		modifyUI += ' <input type="button" value="취소" class="re-reset re-reply-delete-btn">';
 		modifyUI += '</div>';
+		modifyUI += '<div id="fmre_first"><span class="letter-count">500/500</span></div>';
 		modifyUI += '<hr size="1" noshade width="96%">';
 		modifyUI += '</form>';
 		
@@ -238,32 +238,36 @@ $(function(){
 	}); // end of 댓글 수정 처리
 	
 	// 댓글 삭제
-	$(document).on('click','.delete-btn',function(){
+	$(document).on('click','.re-delete-btn',function(){
 		// 댓글 번호
 		let fre_num = $(this).attr('data-num');
 		
-		// 서버와 통신
-		$.ajax({
-			url:'deleteFreeReply.do',
-			type:'post',
-			data:{fre_num:fre_num},
-			dataType:'json',
-			success:function(param){
-				if(param.result=='logout'){
-					alert('로그인해야 삭제할 수 있습니다.');
-				}else if(param.result=='success'){
-					alert('삭제 완료!');
-					selectList(1);
-				}else if(param.result=='wrongAccess'){
-					alert('타인의 댓글을 삭제할 수 없습니다.');
-				}else{
-					alert('댓글 삭제시 오류 발생');
+		let choice = confirm('댓글을 삭제할까요?');
+		
+		if(choice){
+			// 서버와 통신
+			$.ajax({
+				url:'deleteFreeReply.do',
+				type:'post',
+				data:{fre_num:fre_num},
+				dataType:'json',
+				success:function(param){
+					if(param.result=='logout'){
+						alert('로그인해야 삭제할 수 있습니다.');
+					}else if(param.result=='success'){
+						//alert('삭제 완료!');
+						selectList(1);
+					}else if(param.result=='wrongAccess'){
+						alert('타인의 댓글을 삭제할 수 없습니다.');
+					}else{
+						alert('댓글 삭제시 오류 발생');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
 				}
-			},
-			error:function(){
-				alert('네트워크 오류 발생');
-			}
-		});
+			});
+		}
 	}); // end of 댓글 삭제
 	
 }); // end of all function

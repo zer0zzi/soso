@@ -12,19 +12,11 @@
 	
 	<c:if test="${count>0}">
 	<div class="full-list">
-		<table>
-			<tr class="title">
-				<th>게시판타입</th>
-				<th width="400">제목[댓글수]</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th>댓글수</th>
-				<th>좋아요수</th>
-			</tr>
-			<c:forEach var="free" items="${fullList}">
-			<tr class="item">
+		<c:forEach var="free" items="${fullList}">
+		<table class="full-class">
+			<tr class="full-item">
 				<td>
+					<a href="fullList.do"><span style="color:gray">Community&nbsp;/</span></a>
 					<c:if test="${free.tblName=='자유'}">
 					<a href="freeList.do">${free.tblName}</a>
 					</c:if>
@@ -35,31 +27,50 @@
 					<a href="reviewList.do">${free.tblName}</a>
 					</c:if>
 				</td>
-				<td style="text-align:left;">
+			</tr>
+			<tr>
+				<td>					
 					<c:if test="${free.tblName=='자유'}">
-					<a href="freeDetail.do?free_num=${free.free_num}">${free.free_title}</a>&nbsp;[ ${free.f_replyCnt} ]
+					<a href="freeDetail.do?free_num=${free.free_num}" class="title-hover">${free.free_title}</a>
 					</c:if>
 					<c:if test="${free.tblName=='홍보'}">
-					<a href="promoDetail.do?promo_num=${free.free_num}">${free.free_title}</a>&nbsp;[ ${free.f_replyCnt} ]
+					<a href="promoDetail.do?promo_num=${free.free_num}" class="title-hover">${free.free_title}</a>
 					</c:if>
 					<c:if test="${free.tblName=='후기'}">
-					<a href="reviewDetail.do?review_num=${free.free_num}">${free.free_title}</a>&nbsp;[ ${free.f_replyCnt} ]
-					</c:if>
-				</td>
-				<td>
-					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
-					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
-				</td>
-				<td>${free.free_regdate}</td>
-				<td>${free.free_hit}</td>
-				<td>
-					<c:if test="${free.f_favCnt>0}">
-						<span>(♥${free.f_favCnt})</span>
+					<a href="reviewDetail.do?review_num=${free.free_num}" class="title-hover">${free.free_title}</a>
 					</c:if>
 				</td>
 			</tr>
-			</c:forEach>
+			<tr class="full-item">
+				<td>
+					<span class="left">
+					<c:if test="${!empty free.mem_photo_name}">
+					<img src="imageFreeView.do?free_num=${free.free_num}&free_type=1" width="25" height="25" class="my-photo">
+					</c:if>
+					<c:if test="${empty free.mem_photo_name}">
+					<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
+					</c:if>
+					</span>
+					
+					<span class="left-id">
+					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
+					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
+					&nbsp;·&nbsp;${free.free_regdate}
+					</span>
+					
+					<span class="right">
+					👁‍🗨 ${free.free_hit}
+					&nbsp;·&nbsp;
+					💬 &nbsp; ${free.f_replyCnt}
+					&nbsp;·&nbsp;
+					💗 &nbsp; ${free.f_favCnt}
+					</span>
+					
+				</td>
+			</tr>
 		</table>
+		<p>
+		</c:forEach>
 	</div>
 	</c:if>
 	<!-- 목록 영역 끝 -->

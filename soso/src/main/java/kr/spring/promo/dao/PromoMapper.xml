@@ -42,6 +42,7 @@
 				a.*,
 				rownum rnum
 			  FROM (SELECT
+			  		 '홍보' as tblName,
 			  		 p.promo_num,
 			  		 p.promo_status,
 			  		 <![CDATA[

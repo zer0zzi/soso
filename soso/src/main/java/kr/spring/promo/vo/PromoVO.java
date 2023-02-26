@@ -34,6 +34,8 @@ public class PromoVO {
 	private int p_replyCnt;
 	private int p_favCnt;
 	
+	private String tblName;
+	
 	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
 	public void setUpload(MultipartFile upload) throws IOException{
 		// MultipartFile → byte[] 변환
@@ -151,14 +153,32 @@ public class PromoVO {
 		this.promo_status = promo_status;
 	}
 
+	public int getStc_num() {
+		return stc_num;
+	}
+
+	public void setStc_num(int stc_num) {
+		this.stc_num = stc_num;
+	}
+
+	public String getTblName() {
+		return tblName;
+	}
+
+	public void setTblName(String tblName) {
+		this.tblName = tblName;
+	}
+
 	@Override
 	public String toString() {
 		return "PromoVO [promo_num=" + promo_num + ", promo_fixed=" + promo_fixed + ", promo_title=" + promo_title
 				+ ", promo_content=" + promo_content + ", promo_hit=" + promo_hit + ", promo_regdate=" + promo_regdate
 				+ ", promo_modifydate=" + promo_modifydate + ", promo_filename=" + promo_filename + ", promo_ip="
-				+ promo_ip + ", mem_num=" + mem_num + ", stc_num=" + stc_num
-				+ ", mem_id=" + mem_id + ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name
-				+ ", promo_status=" + promo_status + ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt + "]";
+				+ promo_ip + ", mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick
+				+ ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num + ", promo_status=" + promo_status
+				+ ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt + ", tblName=" + tblName + "]";
 	}
+
+	
 
 }
