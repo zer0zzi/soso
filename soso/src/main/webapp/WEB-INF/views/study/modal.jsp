@@ -25,8 +25,7 @@
 							</ul>
 							<ul>
 								<li>
-									<label for="mem_id">신청자</label><br>
-									<input type="text" value="${user.mem_id}" class="form-control" id="mem_id" name="mem_id" required>
+									<label for="mem_id">신청자 : <b>${user.mem_id}</b></label>
 								</li>
 								<li><br></li>
 								<li>
