@@ -18,13 +18,22 @@ public class StcServiceImpl implements StcService{
 	
 	@Override
 	public List<StudyVO> studyList(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return stcMapper.studyList(map);
 	}
 
 	@Override
 	public void studyCreate(StudyVO study) {
 		stcMapper.studyCreate(study);
+	}
+
+	@Override
+	public int studyCount(Map<String, Object> map) {
+		return stcMapper.studyCount(map);
+	}
+
+	@Override
+	public StudyVO selectStudy(Integer stc_num) {
+		return stcMapper.selectStudy(stc_num);
 	}
 
 }
