@@ -1,69 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/register.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmPw.js"></script>
 <div class="page-main">
-	<h2>회원가입</h2>
 	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">
 		<form:errors element="div" cssClass="error-color"/>
+		<h2 id="title_res">회원가입</h2>
 		<ul>
 			<li>
 				<label for="mem_id">아이디</label>
-				<form:input path="mem_id" placeholder="영문, 숫자만 4~12자" autocomplete="off"/>
-				<input type="button" id="confirmId" value="아이디 중복확인">
-				<span id="message_id"></span>
+				<form:input class="input-field" path="mem_id" placeholder="영문, 숫자만 4~12자" autocomplete="off"/>
+				<input class="action-button2" type="button" id="confirmId" value="아이디 중복확인">
+				<div class="error-message" id="message_id"></div>
 				<form:errors path="mem_id" cssClass="error-color"/>
 			</li>
 			<li>
 				<label for="mem_name">이름</label>
-				<form:input path="mem_name"/>
-				<form:errors path="mem_name" cssClass="error-color"/>
+				<form:input class="input-field" path="mem_name" placeholder="이름"/>
+				<div class="error-message">
+					<form:errors path="mem_name" cssClass="error-color"/>
+				</div>
 			</li>
 			<li>
-				<label for="mem_nick">별명</label>
-				<form:input path="mem_nick"/>
+				<label for="mem_nick">닉네임</label>
+				<form:input class="input-field" path="mem_nick" placeholder="닉네임"/>
 			</li>
 			<li>
-				<label for="mem_pw">비밀번호</label>
-				<form:password path="mem_pw" placeholder="영문, 숫자만 4~12자"/>
-				<form:errors path="mem_pw" cssClass="error-color"/>
+				<label for="mem_pw">암호</label>
+				<form:password class="input-field" path="mem_pw" placeholder="영문, 숫자만 4~12자"/>
+				<div class="error-message">
+					<form:errors path="mem_pw" cssClass="error-color"/>
+				</div>
 			</li>
 			<li>
-				<label for="confirm_passwd">비밀번호 확인</label>
-				<input type="password" id="confirm_passwd" placeholder="비밀번호와 동일"/>
-				<span id="message_pw"></span>
+				<label for="confirm_passwd">암호확인</label>
+				<input class="input-field" type="password" id="confirm_passwd" placeholder="암호와 동일"/>
+				<div class="error-message" id="message_pw"></div>
 			</li>
 			<li>
 				<label for="mem_phone">전화번호</label>
-				<form:input path="mem_phone" class="phoneNumber"/>
-				<form:errors path="mem_phone" cssClass="error-color"/>
+				<form:input path="mem_phone" class="phoneNumber input-field" placeholder="전화번호"/>
+				<div class="error-message">
+					<form:errors path="mem_phone" cssClass="error-color"/>
+				</div>
 			</li>
 			<li>
 				<label for="mem_email">이메일</label>
-				<form:input path="mem_email"/>
-				<form:errors path="mem_email" cssClass="error-color"/>
+				<form:input class="input-field" path="mem_email" placeholder="이메일"/>
+				<div class="error-message">
+					<form:errors path="mem_email" cssClass="error-color"/>
+				</div>
 			</li>
 			<li>
 				<label for="mem_zipcode">우편번호</label>
-				<form:input path="mem_zipcode"/>
-				<input type="button" onclick="execDaumPostcode()" value="우편번호찾기">
-				<form:errors path="mem_zipcode" cssClass="error-color"/>
+				<form:input class="input-field" path="mem_zipcode" placeholder="우편번호"/>
+				<input class="action-button2" type="button" onclick="execDaumPostcode()" value="우편번호찾기">
+				<div class="error-message">
+					<form:errors path="mem_zipcode" cssClass="error-color"/>
+				</div>
 			</li>
 			<li>
 				<label for="mem_address1">주소</label>
-				<form:input path="mem_address1"/>
-				<form:errors path="mem_address1" cssClass="error-color"/>
+				<form:input class="input-field" path="mem_address1" placeholder="주소"/>
+				<div class="error-message">
+					<form:errors path="mem_address1" cssClass="error-color"/>
+				</div>
 			</li>
 			<li>
 				<label for="mem_address2">상세주소</label>
-				<form:input path="mem_address2"/>
-				<form:errors path="mem_address2" cssClass="error-color"/>
+				<form:input class="input-field" path="mem_address2" placeholder="상세주소"/>
+				<div class="error-message">
+					<form:errors path="mem_address2" cssClass="error-color"/>
+				</div>
 			</li>
 		</ul>	
 		<div class="align-center">
-			<form:button>회원가입</form:button>
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
+			<form:button class="action-button">회원가입</form:button>
+			<input class="action-button" type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
 		</div>	
 	</form:form>
 </div>

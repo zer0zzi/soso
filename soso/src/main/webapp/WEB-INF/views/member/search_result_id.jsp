@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/login.css">
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/member/login.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script>
+	var path = "${pageContext.request.contextPath}";
+	$(document).ready(function() {
+	});
+</script>
 <div class="login-root">
 	<div class="box-root flex-flex flex-direction--column"
 		style="min-height: 100vh; flex-grow: 1;">
@@ -55,47 +64,39 @@
 			<div
 				class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
 				<h1>
-					<a href="${pageContext.request.contextPath}/main/main.do"
-						rel="dofollow">SoSo</a>
+					<a href="${pageContext.request.contextPath}/main/main.do">SoSo</a>
 				</h1>
 			</div>
 			<div class="formbg-outer">
 				<div class="formbg">
 					<div class="formbg-inner padding-horizontal--48">
 						<!-- 로고? <span class="padding-bottom--15"></span> -->
-						<form:form action="login.do" id="stripe-login"
-							modelAttribute="memberVO">
-							<form:errors element="div" cssClass="error-color" />
-							<div class="field padding-bottom--24">
-								<div class="grid--50-50">
-									<label for="mem_id">아이디</label>
-									<div class="reset-pass">
-										<a
-											href="${pageContext.request.contextPath}/member/search_id.do">아이디찾기</a>
-									</div>
-								</div>
-								<form:input path="mem_id" name="mem_id" />
-								<form:errors path="mem_id" cssClass="error-color"/>
+						<div class="form-group field padding-bottom--24">
+							<div class="padding-bottom--24">
+								<h2>아이디를 확인해주세요.</h2>
 							</div>
-							<div class="field padding-bottom--24">
-								<label for="mem_pw">비밀번호</label>
-								<form:password path="mem_pw" name="password" />
-								<form:errors path="mem_pw" cssClass="error-color"/>
+							<div class="align-center">
+							<c:choose>
+								<c:when test="${empty memberVO}">
+									<p class="mb-4">조회결과가 없습니다.</p>
+								</c:when>
+								<c:otherwise>
+									<p class="mb-4">회원님의 아이디는 [${memberVO.mem_id}] 입니다.</p>
+								</c:otherwise>
+							</c:choose>
 							</div>
-							<div
-								class="field field-checkbox padding-bottom--24 flex-flex align-center">
-								<label for="checkbox"> <input type="checkbox"
-									name="mem_auto" id="mem_auto"> 로그인유지
-								</label>
-							</div>
-							<div class="field padding-bottom--24">
-								<input type="submit" name="submit" value="로그인">
-							</div>
-							<div class="field">
+						</div>
+						<div
+							class="field field-checkbox padding-bottom--24 flex-flex align-center">
+						</div>
+						<div class="field padding-bottom--24 align-center">
+							<a href="${path}/member/login.do" class="search-id-btn" style="color: white;"> 로그인</a>
+						</div>
+
+						<div class="field">
 								<a class="ssolink"
 									href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
-							</div>
-						</form:form>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+/* 공통 메시지
+---------------------------*/
+.result-display{
+	width:400px;
+	height:200px;
+	margin:50px auto;
+	border:1px solid;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.error-color{
+	color: #c64141;
+}
+.error-message{
+	position: relative;
+    left: 11em;
+    font-size: 0.75em;
+}
+
+
+/* 공통 등록, 수정 폼
+---------------------------*/
+form{
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 425px;
+	background-color: #FFF;
+	border-radius: 10px;
+	padding: .75rem;
+	box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
+}
+
+form ul{
+	padding: 20px;
+}
+form ul li label{
+	width:105px;
+	float:left;
+	color: #592e6a;
+	font-weight: bold;
+}
+ul{
+	list-style:none;
+}
+input{
+	margin-top:4px;
+}
+input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
+	width:250px;
+}
+#register_form input[id="mem_id"]{
+	width:132px;
+}
+input[id="mem_zipcode"]{
+	width:132px;
+}
+input[id="number"]{
+	width:100px;
+}
+.input-field {
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #77397f;
+    font: inherit;
+    font-size: 0.75rem;
+    padding: .25em 0;
+    left: 2em;
+    position: relative;
+}
+.form-notice{
+	margin-left:130px;
+}
+ul.paging-button{
+	overflow:hidden;
+}
+li.paging-num{
+	float:left;
+	list-style:none;
+	padding:10px;
+	cursor:pointer;
+}
+li.paging-current{
+	float:left;
+	list-style:none;
+	padding:10px;
+}
+.action-button {
+	font: inherit;
+	font-size: 0.75rem;
+	padding: 1em;
+	width: 6em;
+	border-radius: 6px;
+	border: 0;
+	background-color: #887ce7;
+	color: #FFF;
+	font-weight: bold;
+	transition: all .15s linear;
+}
+.action-button:hover {
+	background-color: #6658d3;
+	color: #FFF;
+}
+.action-button2 {
+	position: relative;
+    font: inherit;
+    font-size: 0.75rem;
+    width: 9em;
+    font-weight: 500;
+    background-color: #887ce7;
+    border-radius: 6px;
+    color: #FFF;
+    border: 0;
+    float: right;
+    padding: 0.25em 0 0.4em 0;
+}
+.action-button2:hover {
+	background-color: #6658d3;
+	color: #FFF;
+}
+
+/* 공통 목록
+---------------------------*/
+form#search_form{
+	width:600px;
+	border:none;
+}
+ul.search{
+	width:340px;
+	list-style:none;
+	padding:0;
+	margin:0 auto;
+}
+ul.search li{
+	margin:0 0 9px 0;
+	padding:0;
+	display:inline;
+}
+ul.search li input[type="search"]{
+	width:150px;
+}
+.list-space{
+	width:700px;
+	margin:10px auto;
+}
+table.basic-table{
+	width:100%;
+	margin:7px 0;
+	border:1px solid #000;
+	border-collapse:collapse;
+}
+table.basic-table td, table.basic-table th{
+	border:1px solid #000;
+	padding:5px;
+}
+
+table.striped-table{
+	border:1px solid #FFF;
+	font-size:15px;
+	width:100%;
+	border-collapse:collapse;
+	margin:7px0;
+}
+table.striped-table td, table.striped-table th{
+	padding: .7em .5em;
+	vertical-align:middle;
+}
+table.striped-table th{
+	font-weight:bold;
+	background:#E1E1E1;
+}
+table.striped-table td{
+	border-bottom:1px solid rgba(0,0,0,.1);
+	text-align:center;
+}
+table.striped-table td:nth-child(2){
+	text-align:left;
+}
+table.striped-table tr:nth-child(odd){
+	background-color:rgb(250,250,247);
+}
+
+
+

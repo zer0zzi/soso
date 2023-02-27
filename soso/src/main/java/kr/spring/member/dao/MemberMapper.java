@@ -43,6 +43,9 @@ public interface MemberMapper {
 	@Select("SELECT mem_num,mem_id,mem_nick FROM member WHERE mem_auth >= 2 AND mem_id LIKE '%' || #{mem_id} || '%'")
 	public List<MemberVO> selectSearchMember(String mem_id);
 
+	//아이디 찾기
+	@Select("SELECT m.mem_id FROM member m JOIN member_detail d ON m.mem_num=d.mem_num WHERE mem_name=#{mem_name} AND mem_phone=#{mem_phone}")
+	MemberVO memberIdSearch(MemberVO memberVO);
 }
 
 

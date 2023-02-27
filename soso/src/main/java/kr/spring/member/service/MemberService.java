@@ -25,4 +25,7 @@ public interface MemberService {
 	
 	//채팅 회원이름 검색
 	public List<MemberVO> selectSearchMember(String mem_id);
+	
+	//아이디 찾기
+	MemberVO memberIdSearch(MemberVO memberVO);
 }

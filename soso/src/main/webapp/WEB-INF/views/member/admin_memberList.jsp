@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/admin.css">
 <div class="page-main">
 	<h2>회원목록(관리자전용)</h2>
 	<form action="admin_list.do" id="search_form" method="get">

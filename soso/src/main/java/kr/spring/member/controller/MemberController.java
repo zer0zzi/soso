@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -184,6 +185,36 @@ public class MemberController {
 		model.addAttribute("memberList", memberList);
 				
 		return "admin";
+	}
+	
+	//아이디 찾기
+	@GetMapping("/member/search_id.do")
+	public String search_id(HttpServletRequest request, Model model,
+	        MemberVO memberVO) {
+	    
+	    return "search_id";
+	}
+	
+	@RequestMapping("/member/search_result_id.do")
+	public String search_result_id(HttpServletRequest request, Model model,
+	    @RequestParam(required = true, value = "mem_name") String mem_name, 
+	    @RequestParam(required = true, value = "mem_phone") String mem_phone,
+	    MemberVO memberVO) {
+	 
+	try {
+	    
+	    memberVO.setMem_name(mem_name);
+	    memberVO.setMem_phone(mem_phone);
+	    MemberVO memberSearch = memberService.memberIdSearch(memberVO);
+	    
+	    model.addAttribute("memberVO", memberSearch);
+	 
+	} catch (Exception e) {
+	    System.out.println(e.toString());
+	    model.addAttribute("msg", "오류가 발생되었습니다.");
+	}
+	 
+	return "search_result_id";
 	}
 	
 }

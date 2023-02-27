@@ -39,7 +39,7 @@ public class MemberAdminController {
 		
 		logger.debug("<<회원관리 - count>> : " + count);
 		
-		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, 20, 10, "admin_list.do");
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, 10, 10, "admin_list.do");
 
 		List<MemberVO> list = null;
 		if(count > 0) {

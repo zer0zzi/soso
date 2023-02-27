@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+/* 전체 레이아웃
+---------------------------*/
+
+#title_res{
+	text-align: center;
+}
+body{
+	background-color: #f1f3fb;
+}
+
+div#main{
+	width:1024px;
+	margin:0 auto;
+	font-size:10pt;
+	font-family:"맑은 고딕";
+}
+div#main_header{
+	margin-bottom:10px;
+	padding:0 10px 0 0;
+}
+div#main_body{
+	padding:5px 5px 30px 5px;
+	min-height:500px;
+}
+div#main_footer{
+	background-color:yellow;
+}
+a:link{
+	text-decoration:none;
+	color:#000000;
+}
+a:visited {
+	text-decoration:none;
+	color:#000000;
+}
+a:hover {
+	text-decoration:underline;
+	color:#999999;
+}
+
+/* 페이지 기본 레이아웃
+---------------------------*/
+.page-main{
+	width: 50em;
+	margin:0 auto;
+}
+.page-one{
+	width:600px;
+	margin:0 auto;
+}
+/* 공통 정렬
+---------------------------*/
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+/* 상단 메뉴
+---------------------------*/
+div#main_menu ul{
+	list-style:none;
+}
+div#main_menu ul li{
+	margin-bottom:5px;
+}
+

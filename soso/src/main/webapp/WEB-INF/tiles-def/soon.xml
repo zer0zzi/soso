@@ -5,21 +5,51 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="admin" template="/WEB-INF/views/template/layout_admin.jsp">
-    	<put-attribute name="title" value="관리자페이지"/>
-    	<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
-    	<put-attribute name="nav" value="/WEB-INF/views/template/admin_nav.jsp"/>
-    	<put-attribute name="body" value="/WEB-INF/views/main/admin.jsp"/>
-    	<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+	<definition name="memberRegister" 
+        template="/WEB-INF/views/template/layout_memberPage.jsp">
+    	<put-attribute name="title" value="회원가입"/>
+    	<put-attribute name="header" 
+    	  value="/WEB-INF/views/template/header.jsp"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/member/memberRegister.jsp"/> 
+    	<put-attribute name="footer"
+    	  value="/WEB-INF/views/template/footer.jsp"/>         
     </definition>
 	
-    <definition name="memberRegister" extends="main">
-    	<put-attribute name="title" value="회원가입"/>
-    	<put-attribute name="body" value="/WEB-INF/views/member/memberRegister.jsp"/>
-    </definition>
-    <definition name="memberLogin" extends="main">
+<!-- 	<definition name="memberLogin" 
+        template="/WEB-INF/views/template/layout_memberPage.jsp">
+    	<put-attribute name="title" value="회원로그인"/>
+    	<put-attribute name="header" 
+    	  value="/WEB-INF/views/template/header.jsp"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/member/memberLogin.jsp"/> 
+    	<put-attribute name="footer"
+    	  value="/WEB-INF/views/template/footer.jsp"/>         
+    </definition> -->
+	
+    <definition name="memberLogin" extends="memberRegister">
     	<put-attribute name="title" value="회원로그인"/>
     	<put-attribute name="body" value="/WEB-INF/views/member/memberLogin.jsp"/>
+    </definition>
+    
+    <definition name="search_id" extends="memberRegister">
+    	<put-attribute name="title" value="아이디찾기"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/search_id.jsp"/>
+    </definition>
+    
+    <definition name="search_result_id" extends="memberRegister">
+    	<put-attribute name="title" value="아이디확인"/>
+    	<put-attribute name="body" value="/WEB-INF/views/member/search_result_id.jsp"/>
+    </definition>
+    
+    <!-- 관리자 -->
+    
+    <definition name="admin" template="/WEB-INF/views/template/layout_admin.jsp">
+    	<put-attribute name="title" value="관리자페이지"/>
+    	<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
+    	<!-- <put-attribute name="nav" value="/WEB-INF/views/template/admin_nav.jsp"/> -->
+    	<put-attribute name="body" value="/WEB-INF/views/main/admin.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
     </definition>
     
     <definition name="admin_memberList" extends="admin">
