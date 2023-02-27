@@ -1,4 +1,25 @@
+.cehck-total{
+	width: 100%;
+}
+.check-left{
+	float: left;
+	padding-left: 280px;
+	padding-right: 100px;
+	text-align: center;
+}
+.check-right{
+	float: right;
+	text-align: center;
+}
 
+input[type=radio] {
+    accent-color: #969ce4;
+}
+
+
+
+
+/*부트스트랩*/
 /* ==========================================================================
    #FONT
    ========================================================================== */
@@ -82,7 +103,7 @@
 .form-row .name {
   width: 188px;
   color: #333;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   margin-top: 11px;
 }
@@ -278,7 +299,7 @@ h6 {
 }
 
 .p-t-45 {
-  padding-top: 45px;
+  padding-top: 80px;
 }
 
 .p-t-20 {
@@ -353,7 +374,7 @@ h6 {
 .btn {
   display: inline-block;
   line-height: 50px;
-  padding: 0 30px;
+  padding: 0 20px;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -501,7 +522,7 @@ textarea {
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: #666;
-  font-size: 15px;
+  font-size: 14px;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -576,12 +597,12 @@ textarea {
 }
 
 .input-file + label {
-  font-size: 15px;
+  font-size: 14px;
   color: #fff;
   color: white;
-  line-height: 40px;
+  line-height: 30px;
   background-color: #666666;
-  padding: 0 20px;
+  padding: 0 15px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -600,7 +621,7 @@ textarea {
 }
 
 .input-file__info {
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
 }
 
@@ -652,7 +673,7 @@ textarea {
   position: relative;
   border: 1px solid #e5e5e5;
   border-bottom: none;
-  padding: 30px 0;
+  padding: 10px 0;
   padding-bottom: 0;
   -webkit-border-top-left-radius: 3px;
   -moz-border-radius-topleft: 3px;
@@ -686,7 +707,7 @@ textarea {
   -webkit-border-bottom-right-radius: 3px;
   -moz-border-radius-bottomright: 3px;
   border-bottom-right-radius: 3px;
-  padding: 50px 55px;
+  padding: 20px 45px;
 }
 
 @media (max-width: 767px) {

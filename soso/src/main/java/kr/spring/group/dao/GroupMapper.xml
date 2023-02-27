@@ -4,7 +4,34 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="kr.spring.group.dao.GroupMapper">  
   	
-
+  	<select id="selectCountNotice" parameterType="map" resultType="integer">
+  		select count(*) from group_notice
+  		
+  	</select>
+  	
+  	
+  	<select id="selectNoticeList" parameterType="map"
+  	                         resultType="GroupNoticeVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		        a.*,
+  		        rownum rnum
+  		      FROM (SELECT
+  		              grp_num,
+  		              <![CDATA[
+  		              REPLACE(REPLACE(grp_title,'<','&lt;'),'>','&gt;') grp_title,
+  		              ]]>
+  		              grp_hit,
+  		              grp_filename,
+  		              grp_mdate,
+  		              stc_num
+  		            FROM group_notice
+  		            ORDER BY grp_num DESC)a)                         
+  		<![CDATA[
+  		WHERE rnum >= #{start} AND rnum <= #{end}
+  		]]>
+  	</select>
   	
 </mapper>
 

@@ -17,7 +17,6 @@
 }
 .notice-main {
     max-height: 440px;  /*한줄에 40개니까 헤더제외하고 총 10개가 출력될 수 있도록 11*40=440*/
-    margin-bottom: 50px;
 }
 .notice-table{
     width: 100%;
@@ -41,7 +40,7 @@
     height: 40px;
 }
 .notice-table .no2{
-    width: 40%;
+    width: 60%;
     height: 40px;
 }
 .notice-table .no3{
@@ -49,7 +48,7 @@
     height: 40px;
 }
 .notice-table .no4{
-    width: 30%;
+    width: 10%;
     height: 40px;
 }
 .notice-table tr{
@@ -64,6 +63,17 @@
 
 .notice-table tr:first-child{
 	border: none !important;
+}
+/*페이지 버튼*/
+.page{
+	text-align: center;
+	margin: 0 auto;
+	padding:50px 50px 0 50px;
+
+}
+.page b span{ /* 페이지 버튼 글씨 */
+	color: grey !important;
+	cursor: pointer !important;
 }
 
 /* 글쓰기 버튼 디자인 */

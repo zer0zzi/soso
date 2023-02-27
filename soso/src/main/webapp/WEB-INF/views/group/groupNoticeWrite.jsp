@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -12,7 +14,14 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Main CSS-->
+<style>
+.ck-editor__editable_inline{
+	min-height:250px;
+}
+</style>
     <link href="${pageContext.request.contextPath}/css/group/noticeWrite.css" rel="stylesheet" media="all">
+    <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
+	<script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 </head>
 
 <body>
@@ -20,31 +29,32 @@
         <div class="wrapper wrapper--w800">
             <div class="card card-6">
                 <div class="card-body">
-                    <form method="POST">
+                    <form:form action="groupNoticeWrite.do" modelAttribute="groupNoticeVO" enctype="multipart/form-data">
+                    <form:errors element="div" cssClass="error-color"/>
+                    
+                    
                         <div class="form-row">
-                            <div class="name">Full name</div>
+                            <div class="name">
+                            <label for="grp_title">Title</label>
+                        </div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="full_name">
+                            	<form:input path="grp_title" class="input--style-6"/>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Email address</div>
+                            <div class="name">
+								<label for="grp_content">content</label>
+							</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com">
+                                    <form:textarea path="grp_content" class="textarea--style-6" placeholder="Message sent to the employer"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Message</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <textarea class="textarea--style-6" name="message" placeholder="Message sent to the employer"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Upload CV</div>
+                            <div class="name">
+                            	<label for="file">Upload CV</label>
+                           	</div>
                             <div class="value">
                                 <div class="input-group js-input-file">
                                     <input class="input-file" type="file" name="file_cv" id="file">
@@ -54,10 +64,10 @@
                                 <div class="label--desc">Upload your CV/Resume or any other relevant file. Max file size 50 MB</div>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Send Application</button>
+                        <div class="card-footer">
+							<form:button class="btn btn--radius-2 btn--blue-2">Send Application</form:button>
+						</div>
+                    </form:form>
                 </div>
             </div>
         </div>
@@ -65,6 +75,7 @@
 
     <script src="${pageContext.request.contextPath}/js/group/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/group/global.js"></script>
+    
 
 </body>
 </html>

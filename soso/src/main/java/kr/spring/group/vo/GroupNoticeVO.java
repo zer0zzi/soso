@@ -1,6 +1,10 @@
 package kr.spring.group.vo;
 
+import java.io.IOException;
 import java.sql.Date;
+import java.util.Arrays;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class GroupNoticeVO {
 
@@ -9,14 +13,23 @@ public class GroupNoticeVO {
 	private String grp_title;
 	private String grp_content;
 	private Date grp_date;
-	private Date grp_time;
-	private String grp_vital;
+	private Date grp_mdate;
 	private int grp_hit;
 	private int stc_num;
+	private byte[] grp_uploadfile;
+	private String grp_filename;
 	
 	private int mem_num;
 
 	
+	//파일 업로드 처리
+	public void setUpload(MultipartFile upload)
+	                            throws IOException{
+		//MultipartFile -> byte[] 변환
+		setGrp_uploadfile(upload.getBytes());
+		//파일명 구하기
+		setGrp_filename(upload.getOriginalFilename());
+	}
 	
 	
 	
@@ -52,22 +65,6 @@ public class GroupNoticeVO {
 		this.grp_date = grp_date;
 	}
 
-	public Date getGrp_time() {
-		return grp_time;
-	}
-
-	public void setGrp_time(Date grp_time) {
-		this.grp_time = grp_time;
-	}
-
-	public String getGrp_vital() {
-		return grp_vital;
-	}
-
-	public void setGrp_vital(String grp_vital) {
-		this.grp_vital = grp_vital;
-	}
-
 	public int getGrp_hit() {
 		return grp_hit;
 	}
@@ -92,11 +89,52 @@ public class GroupNoticeVO {
 		this.mem_num = mem_num;
 	}
 
+
+
+	public Date getGrp_mdate() {
+		return grp_mdate;
+	}
+
+
+
+	public void setGrp_mdate(Date grp_mdate) {
+		this.grp_mdate = grp_mdate;
+	}
+
+
+
+	public byte[] getGrp_uploadfile() {
+		return grp_uploadfile;
+	}
+
+
+
+	public void setGrp_uploadfile(byte[] grp_uploadfile) {
+		this.grp_uploadfile = grp_uploadfile;
+	}
+
+
+
+	public String getGrp_filename() {
+		return grp_filename;
+	}
+
+
+
+	public void setGrp_filename(String grp_filename) {
+		this.grp_filename = grp_filename;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "GroupMemberVO [grp_num=" + grp_num + ", grp_title=" + grp_title + ", grp_content=" + grp_content
-				+ ", grp_date=" + grp_date + ", grp_time=" + grp_time + ", grp_vital=" + grp_vital + ", grp_hit="
-				+ grp_hit + ", stc_num=" + stc_num + ", mem_num=" + mem_num + "]";
+		return "GroupNoticeVO [grp_num=" + grp_num + ", grp_title=" + grp_title + ", grp_content=" + grp_content
+				+ ", grp_date=" + grp_date + ", grp_mdate=" + grp_mdate + ", grp_hit="
+				+ grp_hit + ", stc_num=" + stc_num + ", grp_uploadfile=" + Arrays.toString(grp_uploadfile)
+				+ ", grp_filename=" + grp_filename + ", mem_num=" + mem_num + "]";
 	}
+	
+	
 	
 }
