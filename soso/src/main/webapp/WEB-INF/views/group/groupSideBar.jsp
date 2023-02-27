@@ -21,8 +21,8 @@
 					<li><a href="/group/groupMain.do?stc_num=1">GROUP MAIN</a></li>
 					<li><a href="/group/notice_list.do?stc_num=1">NOTICE</a></li>
 					<li><a href="/group/calendar_list.do">CALENDAR</a></li>
-					<li><a href="#">MANAGE MEMBERS</a></li>
 					<li><a href="#">EVALUATE MEMBERS</a></li>
+					<li><a href="#">MANAGE MEMBERS</a></li>
 				</ul>
 
 				<div class="footer">

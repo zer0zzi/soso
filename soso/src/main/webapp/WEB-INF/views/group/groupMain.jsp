@@ -6,21 +6,26 @@
 <!-- 메인 시작 -->
 <div class="page-main">
 
-	<p>RULE</p>
+	<p>NOTICE</p>
 	<div class="member-main">
         <table class="member-table">
         	<tr class="member-table-header">
-                <th class="no1">rule</th>
+                <th class="no1">notice</th>
                 <th class="no2">title</th>
                 <th class="no3">content</th>
                 <th class="no4"></th>
             </tr>
+            <c:forEach var="notice" items="${rule}">
             <tr style="border-bottom: none !important">
 	            <td class="no1"></td>
-	            <td class="no2">${rule.grp_title}</td>
-	            <td class="no3"><a href="#">${rule.grp_content}</a></td>
+	            <td class="no2"><a href="/group/groupNoticeDetail.do?grp_num=${notice.grp_num}">${notice.grp_title}</a></td>
+	            <c:if test="${empty notice.grp_mdate}">
+	            <td class="no3">${notice.grp_date}</td>
+	            </c:if>
+	            <td class="no3">${notice.grp_mdate}</td>
 	            <td class="no4"></td>
             </tr>
+            </c:forEach>
         </table>
     </div>
 	
