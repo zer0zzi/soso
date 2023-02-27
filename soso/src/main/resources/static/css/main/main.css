@@ -1,0 +1,55 @@
+/* 스터디 목록
+---------------------------*/
+
+.main-page{
+	width:1200px;
+	margin:0 auto;
+}
+
+.study-main{
+	width:1024px;
+	margin:0 auto;
+}
+
+.main-banner{
+	margin:0 auto;
+	width:1024px;
+	height:300px;
+	border:1px solid;
+}
+
+.study-list .horizontal-area{
+	margin:2px;
+	padding:3px;
+	width:220px;
+	height:180px;
+	float:left;
+	overflow:hidden;
+}
+
+.filter{
+	background-color:#f0f0f0;
+	border-radius:5px;
+}
+
+.list-mem{
+	float:left;
+}
+
+.per{
+	background-color:#f0f0f0;
+	border-radius:5px;
+	float:right;
+}
+
+.float-clear{
+	clear:both;
+}
+
+.align-center{
+	text-align:center;
+}
+
+.align-right{
+	text-align:right;
+}
