@@ -38,7 +38,7 @@
                             <label for="grp_title">Title</label>
                         </div>
                             <div class="value">
-                            	<form:input path="grp_title" class="input--style-6"/>
+                            	<form:input path="grp_title" class="input--style-6" placeholder="Notice Title"/>
                             </div>
                         </div>
                         <div class="form-row">
@@ -47,7 +47,7 @@
 							</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <form:textarea path="grp_content" class="textarea--style-6" placeholder="Message sent to the employer"/>
+                                    <form:textarea path="grp_content" class="textarea--style-6" placeholder="Please fill out the notice."/>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                     <label class="label--file" for="file">Choose file</label>
                                     <span class="input-file__info">No file chosen</span>
                                 </div>
-                                <div class="label--desc">Upload your CV/Resume or any other relevant file. Max file size 50 MB</div>
+                                <div class="label--desc">Upload your image or document file. Max file size 50 MB</div>
                             </div>
                         </div>
                         <div class="card-footer">
