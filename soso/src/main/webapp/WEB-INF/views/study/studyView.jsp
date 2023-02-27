@@ -60,7 +60,7 @@
 				  fn:endsWith(study.stc_filename,'.png') ||
 				  fn:endsWith(study.stc_filename,'.PNG')}">
 	<div class="align-center">
-		<img src="imageView.do?stc_num=${study.stc_num}&study_type=2" class="detail-img">
+		<img src="imageView.do?stc_num=${study.stc_num}&stc_type=2" class="detail-img">
 	</div>	
 	</c:if>
 	<p>

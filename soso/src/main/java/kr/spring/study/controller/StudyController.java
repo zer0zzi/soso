@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.spring.study.vo.StudyVO;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.study.controller.StudyController;
 import kr.spring.study.service.StudyService;
@@ -186,4 +187,63 @@ public class StudyController {
 		}
 		return mapJson;
 	}
+	
+	//=====이미지 출력=====//
+	@RequestMapping("/study/imageView.do")
+	public ModelAndView viewImage(
+			@RequestParam int stc_num,
+			@RequestParam int stc_type) {
+
+		StudyVO study = 
+				studyService.selectStudy(stc_num);
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+
+		if(stc_type==1) {//프로필 사진
+			mav.addObject("imageFile",study.getMem_photo());
+			mav.addObject("filename", study.getMem_photo_name());
+		}else if(stc_type==2) {//업로드된 이미지
+			mav.addObject("imageFile", study.getStc_uploadfile());
+			mav.addObject("filename", study.getStc_filename());
+		}
+		return mav;
+	}
+	//=====파일 삭제=======//
+	@RequestMapping("/study/deleteFile.do")
+	@ResponseBody
+	public Map<String,String> processFile(
+			int stc_num,
+			HttpSession session){
+		Map<String,String> mapJson = 
+				new HashMap<String,String>();
+
+		MemberVO user = 
+				(MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else {
+			studyService.deleteFile(stc_num);
+
+			mapJson.put("result", "success");
+		}
+
+		return mapJson;
+	}
+	//=====파일 다운로드====//
+	@RequestMapping("/study/file.do")
+	public ModelAndView download(
+			@RequestParam int stc_num) {
+		StudyVO study = 
+				studyService.selectStudy(stc_num);
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("downloadView");
+		mav.addObject("downloadFile", 
+				study.getStc_uploadfile());
+		mav.addObject("filename", study.getStc_filename());
+
+		return mav;
+	}
+		
 }
