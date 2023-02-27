@@ -132,14 +132,19 @@ $(function(){
    
    //채팅방 생성 전송
    $('#talk_form').submit(function(){
+	if($('#talkroom_name').val().trim()==''){
+		alert('방 이름을 입력해주세요!');
+		$('#talkroom_name').val('').focus();
+			return false;
+		}
       if(member_list.length<=1){
-         //이미 배열에 현재 로그인한 유저가 기본 등록되어 있어서
-         //로그인한 유저 포함 최소 2명이 되어야 채팅 가능
+         //이미 배열에 현재 로그인한 유저가 기본 등록되어 있어서 로그인한 유저 포함 최소 2명이 되어야 채팅 가능
          alert('채팅에 참여할 회원을 검색하세요!');
          $('#member_search').focus();
          return false;
-      }
+      }		 
    });
+
    
    //=========채팅 데이터 읽기==========//
    function selectMsg(){
