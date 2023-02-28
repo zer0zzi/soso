@@ -114,7 +114,7 @@
 				<input type="submit" value="댓글 등록" class="reply-insert-btn">
 			</div>
 			<div id="pre_first">
-				<span class="letter-count" style="color:#495057">500/500</span>
+				<span class="letter-count" style="color:#495057">0/500</span>
 			</div>
 			</c:if>
 		</form>

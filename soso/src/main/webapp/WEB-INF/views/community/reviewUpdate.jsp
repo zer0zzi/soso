@@ -59,7 +59,7 @@
 						<option>${study.stc_title}</option>
 					</c:forEach>
 				</select>
-				<%-- <input type="text" name="review_stc_name" value="${review_stc_name}" id="1changeInput" required> --%>
+				<span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 작성할 수 없습니다.</span><br>
 				<form:input path="review_stc_name" id="changeInput" class="insert-studyName"/>
 				<script type="text/javascript">
 					var selectBoxChange = function(value){
@@ -71,6 +71,7 @@
 			<li>
 				<label for="review_title">제목</label>
 				<form:input path="review_title" class="insert-title"/>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<form:errors path="review_title" cssClass="error-color"/>
 			</li>
 			</c:if>

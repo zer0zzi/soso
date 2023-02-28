@@ -12,7 +12,7 @@ $(function(){
 	// 댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
-		$('#pre_first .letter-count').text('500/500');
+		$('#pre_first .letter-count').text('0/500');
 	} // end of initForm
 	
 	// 댓글 등록
@@ -132,7 +132,7 @@ $(function(){
 			$(this).val($(this).val().substring(0,500));
 		}else{ // 500자 이하인 경우
 			// 남은 글자수 구하기
-			let remain = 500 - inputLength;
+			let remain = inputLength;
 			remain += '/500';
 			if($(this).attr('id')=='pre_content'){
 				// 등록 폼 글자수
@@ -164,7 +164,7 @@ $(function(){
 		let modifyUI = '<form id="pmre_form">';
 		modifyUI += '<input type="hidden" name="pre_num" id="pmre_num" value="' + pre_num + '">';
 		modifyUI += '<textarea rows="3" cols="50" name="pre_content" id="pmre_content" class="rep-content">' + pre_content + '</textarea>';
-		modifyUI += '<div id="pmre_first"><span class="letter-count">500/500</span></div>';
+		modifyUI += '<div id="pmre_first"><span class="letter-count">0/500</span></div>';
 		modifyUI += '<div id="pmre_second" class="align-right">';
 		modifyUI += ' <input type="submit" value="수정">';
 		modifyUI += ' <input type="button" value="취소" class="re-reset">';
@@ -182,7 +182,7 @@ $(function(){
 		
 		// 입력한 글자수 셋팅
 		let inputLength = $('#pmre_content').val().length;
-		let remain = 500 - inputLength;
+		let remain = inputLength;
 		remain += '/500';
 		
 		// 문서 객체에 반영

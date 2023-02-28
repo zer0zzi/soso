@@ -16,6 +16,10 @@
 				$('#free_content').val('').focus();
 				return false;
 			}
+			if($('#free_title').val().size()>100){
+				alert('100자까지 입력 가능합니다.');
+				$('#free_title').val('').focus();
+			}
 		});
 	});
 </script>
@@ -51,7 +55,8 @@
 			</li>
 			<li>
 				<label for="free_title">제목</label>
-				<form:input path="free_title" class="insert-title"/>
+				<form:input path="free_title" class="insert-title" minlength="0" maxlegnth="100"/>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<form:errors path="free_title" cssClass="error-color"/>
 			</li>
 			<li>

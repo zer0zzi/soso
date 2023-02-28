@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community/community.css">
 
 
@@ -31,13 +32,13 @@
 			<tr>
 				<td>					
 					<c:if test="${free.tblName=='자유'}">
-					<a href="freeDetail.do?free_num=${free.free_num}" class="title-hover">${free.free_title}</a>
+					<a href="freeDetail.do?free_num=${free.free_num}" class="title-hover">${fn:replace(fn:replace(free.free_title,'<','&lt;'),'>','&gt;')}</a>
 					</c:if>
 					<c:if test="${free.tblName=='홍보'}">
-					<a href="promoDetail.do?promo_num=${free.free_num}" class="title-hover">${free.free_title}</a>
+					<a href="promoDetail.do?promo_num=${free.free_num}" class="title-hover">${fn:replace(fn:replace(free.free_title,'<','&lt;'),'>','&gt;')}</a>
 					</c:if>
 					<c:if test="${free.tblName=='후기'}">
-					<a href="reviewDetail.do?review_num=${free.free_num}" class="title-hover">${free.free_title}</a>
+					<a href="reviewDetail.do?review_num=${free.free_num}" class="title-hover">${fn:replace(fn:replace(free.free_title,'<','&lt;'),'>','&gt;')}</a>
 					</c:if>
 				</td>
 			</tr>

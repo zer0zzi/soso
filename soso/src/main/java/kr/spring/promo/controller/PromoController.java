@@ -123,6 +123,8 @@ public class PromoController {
 
 		// 제목에 태그를 허용하지 않음
 		promo.setPromo_title(StringUtil.useNoHtml(promo.getPromo_title()));
+		// 내용에 태그를 허용하지 않음
+		promo.setPromo_content(StringUtil.useBrNoHtml(promo.getPromo_content()));
 
 		return new ModelAndView("promoDetail", "promo", promo);
 	}

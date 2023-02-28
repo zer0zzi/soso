@@ -70,7 +70,10 @@
 			  		</if>
 			  		<if test="sort=='reply'">
 			  			ORDER BY p_replyCnt DESC, p.promo_hit DESC
-			  		</if> 
+			  		</if>
+			  		<if test="sort=='promo-ing'">
+			  			ORDER BY p.promo_status ASC, p.promo_hit DESC
+			  		</if>
 			  		)a)
 		<![CDATA[
 		WHERE rnum>=#{start} AND rnum<=#{end}

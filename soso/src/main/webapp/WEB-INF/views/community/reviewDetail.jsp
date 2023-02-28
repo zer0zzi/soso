@@ -48,6 +48,10 @@
 		<hr size="1" width="100%">
 	</div>
 	
+	<p>
+		${review.review_content}
+	</p>
+	
 	<!-- filename의 끝부분에 .jpg가 있으면 true를 반환해서 이미지를 시각적으로 보여준다. -->
 	<c:if test="${fn:endsWith(review.review_filename,'.jpg') || fn:endsWith(review.review_filename,'.JPG') ||
 				  fn:endsWith(review.review_filename,'.jpeg') || fn:endsWith(review.review_filename,'.JPEG') ||
@@ -60,8 +64,6 @@
 	</c:if>
 	
 	<p>
-		${review.review_content}
-	</p>
 	
 	<c:if test="${!empty review.review_filename}">
 	첨부파일 : <a href="fileReview.do?review_num=${review.review_num}">${review.review_filename}</a>
@@ -114,7 +116,7 @@
 				<input type="submit" value="댓글 등록" class="reply-insert-btn">
 			</div>
 			<div id="vre_first">
-				<span class="letter-count" style="color:#495057">500/500</span>
+				<span class="letter-count" style="color:#495057">0/500</span>
 			</div>
 			</c:if>
 		</form>

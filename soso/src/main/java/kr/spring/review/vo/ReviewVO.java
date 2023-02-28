@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +14,7 @@ public class ReviewVO {
 	private int review_num;
 	private int review_fixed;
 	@NotEmpty
+	@Pattern(regexp="^[가-힣\sA-Za-z0-9!@#$%^&*/<>(){}]{1,100}$")
 	private String review_title;
 	private int review_rating;
 	@NotEmpty

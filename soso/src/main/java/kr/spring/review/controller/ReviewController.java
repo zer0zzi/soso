@@ -47,7 +47,7 @@ public class ReviewController {
 
 	// ========== 후기 글 목록 ==========
 	@RequestMapping("/community/reviewList.do")
-	public ModelAndView reviewList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
+	public ModelAndView reviewList(ReviewVO review, @RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
@@ -68,6 +68,8 @@ public class ReviewController {
 			reviewList = reviewService.selectReviewList(map);
 			logger.debug("<<리뷰 목록>> : " + reviewList);
 		}
+		
+		reviewService.selectReview(review.getReview_num());
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("reviewList");
@@ -123,86 +125,7 @@ public class ReviewController {
 
 		return "redirect:/community/reviewList.do";
 	}
-	/* 원래
-	// 등록 폼 호출
-	@GetMapping("/community/reviewWrite.do")
-	public String reviewWriteForm() {
-		return "reviewWrite"; // 타일스 설정값
-	}
-	// 등록 폼에서 전송된 데이터 처리
-	@PostMapping("/community/reviewWrite.do")
-	public String reviewSubmit(@Valid ReviewVO reviewVO, BindingResult result, HttpServletRequest request, 
-			RedirectAttributes redirect, HttpSession session) {
-		logger.debug("<<게시판 글쓰기>> : " + reviewVO);
-		logger.debug("<<업로드 파일 용량>> : " + reviewVO.getReview_uploadfile().length);
-
-		// 업로드 파일 용량 체크
-		if(reviewVO.getReview_uploadfile().length>=52428800) { // 5MB
-			result.reject("limitUploadSize");
-		}
-
-		// 유효성 체크 결과 오류가 있으면 폼을 호출
-		if(result.hasErrors()) {
-			return reviewWriteForm();
-		}
-		// 에러가 없으면 회원번호 셋팅
-		reviewVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
-		// ip셋팅
-		reviewVO.setReview_ip(request.getRemoteAddr());
-		// 글쓰기
-		reviewService.insertReview(reviewVO);
-
-		redirect.addFlashAttribute("result", "success");
-
-		return "redirect:/community/reviewList.do";
-	}
-	 */
-	/* 수정
-	// 등록 폼 호출
-	@GetMapping("/community/reviewWrite.do")
-	public ModelAndView reviewWriteForm(@RequestParam int review_num) {
-		// 스터디명 정보 출력
-		List<ReviewVO> studyList = null;
-		studyList = reviewService.selectReviewMemberStudyList(review_num);
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("reviewWrite");
-		mav.addObject("studyList", studyList);
-
-		logger.debug("<<studyList 정보>> : " + studyList);
-
-		return mav; // 타일스 설정값
-	}
-	// 등록 폼에서 전송된 데이터 처리
-	@PostMapping("/community/reviewWrite.do")
-	public String reviewSubmit(@Valid ReviewVO reviewVO, BindingResult result, HttpServletRequest request, 
-			RedirectAttributes redirect, HttpSession session, ModelAndView mav) {
-		logger.debug("<<게시판 글쓰기>> : " + reviewVO);
-		logger.debug("<<업로드 파일 용량>> : " + reviewVO.getReview_uploadfile().length);
-
-		// 업로드 파일 용량 체크
-		if(reviewVO.getReview_uploadfile().length>=52428800) { // 5MB
-			result.reject("limitUploadSize");
-		}
-
-
-		// 유효성 체크 결과 오류가 있으면 폼을 호출
-		if(result.hasErrors()) {
-			return "redirect:/community/reviewWrite.do";
-			//return reviewWriteForm(); // 리다이렉트로 변경
-		}
-		// 에러가 없으면 회원번호 셋팅
-		reviewVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
-		// ip셋팅
-		reviewVO.setReview_ip(request.getRemoteAddr());
-		// 글쓰기
-		reviewService.insertReview(reviewVO);
-
-		redirect.addFlashAttribute("result", "success");
-
-		return "redirect:/community/reviewList.do";
-	}
-	 */
+	
 	// ========== 후기 글상세 ==========
 	@RequestMapping("/community/reviewDetail.do")
 	public ModelAndView process(@RequestParam int review_num) {
@@ -213,11 +136,11 @@ public class ReviewController {
 
 		ReviewVO review = reviewService.selectReview(review_num);
 
-		// 제목에 태그를 허용하지 않음
 		logger.debug("<<review>> : " + review);
+		// 제목에 태그를 허용하지 않음
 		review.setReview_title(StringUtil.useNoHtml(review.getReview_title()));
-		// 내용에 태그를 허용하지 않음 : ckeditor 사용 시, 주석처리
-		//board.setContent(StringUtil.useBrNoHtml(board.getContent()));
+		// 내용에 태그를 허용하지 않음
+		review.setReview_content(StringUtil.useBrNoHtml(review.getReview_content()));
 
 		return new ModelAndView("reviewDetail", "review", review); // (뷰이름, 속성명, 속성값) // board폴더에 뷰 존재
 	}

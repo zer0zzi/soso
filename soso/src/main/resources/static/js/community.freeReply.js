@@ -12,7 +12,7 @@ $(function(){
 	// 댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
-		$('#fre_first .letter-count').text('500/500');
+		$('#fre_first .letter-count').text('0/500');
 	} // end of initForm
 	
 	// 댓글 등록
@@ -132,7 +132,7 @@ $(function(){
 			$(this).val($(this).val().substring(0,500));
 		}else{ // 500자 이하인 경우
 			// 남은 글자수 구하기
-			let remain = 500 - inputLength;
+			let remain = inputLength;
 			remain += '/500';
 			if($(this).attr('id')=='fre_content'){
 				// 등록 폼 글자수
@@ -168,7 +168,7 @@ $(function(){
 		modifyUI += ' <input type="submit" value="수정" class="re-modify-btn">';
 		modifyUI += ' <input type="button" value="취소" class="re-reset re-reply-delete-btn">';
 		modifyUI += '</div>';
-		modifyUI += '<div id="fmre_first"><span class="letter-count">500/500</span></div>';
+		modifyUI += '<div id="fmre_first"><span class="letter-count">0/500</span></div>';
 		modifyUI += '<hr size="1" noshade width="96%">';
 		modifyUI += '</form>';
 		
@@ -182,7 +182,7 @@ $(function(){
 		
 		// 입력한 글자수 셋팅
 		let inputLength = $('#mre_content').val().length;
-		let remain = 500 - inputLength;
+		let remain = inputLength;
 		remain += '/500';
 		
 		// 문서 객체에 반영

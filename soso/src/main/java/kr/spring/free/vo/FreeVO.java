@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +14,7 @@ public class FreeVO {
 	private int free_num;
 	private int free_fixed; // default(2)
 	@NotEmpty
+	@Pattern(regexp="^[가-힣\sA-Za-z0-9!@#$%^&*/<>(){}]{1,100}$")
 	private String free_title;
 	@NotEmpty
 	private String free_content;

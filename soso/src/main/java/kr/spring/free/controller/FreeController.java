@@ -46,7 +46,7 @@ public class FreeController {
 
 	// ========== 전체 글 목록 ===========
 	@RequestMapping("/community/fullList.do")
-	public ModelAndView fullList(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
+	public ModelAndView fullList(FreeVO free, @RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String sort) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
@@ -67,7 +67,10 @@ public class FreeController {
 
 			fullList = freeService.selectFullList(map);
 		}
-
+		
+		freeService.selectFree(free.getFree_num());
+		free.setFree_title(StringUtil.useNoHtml(free.getFree_title()));
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("fullList");
 		mav.addObject("count", count);

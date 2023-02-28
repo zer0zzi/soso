@@ -46,7 +46,7 @@ WHERE a.mem_num=3;
 	public void deleteReviewFile(Integer review_num);
 	
 	// 좋아요
-	@Select("SELECT * FROM review_board WHERE review_num=#{review_num} AND mem_num=#{mem_num}")
+	@Select("SELECT * FROM review_fav WHERE review_num=#{review_num} AND mem_num=#{mem_num}")
 	public ReviewFavVO selectReviewFav(ReviewFavVO fav);
 	@Select("SELECT COUNT(*) FROM review_fav WHERE review_num=#{review_num}")
 	public int selectReviewFavCount(Integer review_num);
