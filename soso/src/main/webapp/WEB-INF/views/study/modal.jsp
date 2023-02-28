@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="${pageContext.request.contextPath}/js/study.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/studyView.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/study/studyView.css">
 <!-- Modal -->
 		<c:if test="${!empty user.mem_num}">
 		<div class="modal fade" id="exampleModal">

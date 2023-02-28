@@ -8,7 +8,7 @@
 <script src="${pageContext.request.contextPath}/js/study.fav.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/studyView.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/study/studyView.css">
 <div class="page-main">
 	<h2>${study.stc_title}</h2>
 	<ul class="detail-info">
