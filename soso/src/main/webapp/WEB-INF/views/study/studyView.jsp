@@ -14,7 +14,7 @@
 	<ul class="detail-info">
 		<li>
 			<c:if test="${!empty study.mem_photo_name}">
-			<img src="imageView.do?stc_num=${study.stc_num}&study_type=1" width="40" height="40" class="my-mem_photo">
+			<img src="imageView.do?stc_num=${study.stc_num}&stc_type=1" width="40" height="40" class="my-mem_photo">
 			</c:if>
 			<c:if test="${empty study.mem_photo_name}">
 			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-mem_photo">
