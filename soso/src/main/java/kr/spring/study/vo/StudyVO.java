@@ -4,15 +4,11 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.Arrays;
 
-import javax.validation.constraints.NotEmpty;
-
 import org.springframework.web.multipart.MultipartFile;
 
 public class StudyVO {
 	private int stc_num;
-	@NotEmpty
 	private String stc_title;
-	@NotEmpty
 	private String stc_content;
 	private String stc_state;
 	private String stc_period;

@@ -3,6 +3,24 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!-- 중앙 컨텐츠 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main/stcmain.css">
+<script type="text/javascript">
+	$(function(){
+		$("#stc-ing").attr("checked","checked");
+		
+		$('#create_form').submit(function(){
+			if($('#stc_title').val().trim()==''){
+				alert('제목을 입력하세요');
+				$('#stc_title').val('').focus();
+				return false;
+			}
+			if($('#stc_content').val().trim()==''){
+				alert('내용을 입력하세요');
+				$('#stc_content').val('').focus();
+				return false;
+			}
+		});
+	})
+</script>
 <div class="stc-main">
 <h2 class="align-center">STUDY</h2>
 	<form:form action="studyCreate.do" id="create_form"
@@ -10,7 +28,7 @@
 		<form:errors element="div" cssClass="error-color" />
 		<ul>
 			<li>
-				<form:radiobutton path="stc_state" value="모집중"/>모집중
+				<form:radiobutton path="stc_state" value="모집중" id="stc-ing"/>모집중
 				<form:radiobutton path="stc_state" value="모집완료"/>모집완료
 			</li>
 			<li>
@@ -18,8 +36,8 @@
 					<form:option value="상시"/>
 					<form:option value="기간"/>
 				</form:select>
-				<form:input path="stc_per" value="모집인원"/>
-				</li>
+				<form:input path="stc_per" id="stc_per" value="모집인원" placeholder="모집인원" type='number' min='1' max='999'/>
+			</li>
 			<li>
 				<form:select path="stc_way">
 					<form:option value="온라인"/>
@@ -35,11 +53,11 @@
 				</form:select>
 			</li>
 			<li>
-				<form:input path="stc_title" id="stc_title"/> 
+				<form:input path="stc_title" id="stc_title" placeholder="제목"/> 
 				<form:errors path="stc_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<form:textarea path="stc_content" />
+				<form:textarea path="stc_content" id="stc_content" placeholder="내용"/>
 				<form:errors path="stc_content" cssClass="error-color"/>
 			</li>
 			<li>

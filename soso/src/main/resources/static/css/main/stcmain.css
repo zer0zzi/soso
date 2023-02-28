@@ -9,7 +9,7 @@ form{
 	border:1px solid #f0f0f0;
 	padding:10px 10px 10px 30px;
 }
-input[type="text"]{
+input[type="text"], [type="number"]{
 	width:294px;
 	height:25px;
 }
