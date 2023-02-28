@@ -11,7 +11,7 @@
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty free.mem_photo_name}">
-			<img src="imageFreeView.do?free_num=${free.free_num}&free_type=1" width="40" height="40" class="my-photo">
+			<img src="imageView.do?free_num=${free.free_num}&free_type=1" width="40" height="40" class="my-photo">
 			</c:if>
 			<c:if test="${empty free.mem_photo_name}">
 			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">

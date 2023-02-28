@@ -111,51 +111,34 @@
 			  		ON m.mem_num=f.mem_num
 			  		<include refid="freeSearch"></include>
 			  		<if test="sort=='last' || sort==null">
-			  			ORDER BY f.free_regdate DESC
+			  			ORDER BY f.free_regdate DESC)a)
+			  			<![CDATA[
+						WHERE rnum>=#{start} AND rnum<=#{end}
+						]]>
 			  		</if>
 			  		<if test="sort=='hit'">
-			  			ORDER BY f.free_hit DESC
+			  			ORDER BY f.free_hit DESC)a)
+			  			<![CDATA[
+						WHERE rnum>=#{start} AND rnum<=#{end}
+						]]>
 			  		</if>
 			  		<if test="sort=='fav'">
-			  			ORDER BY f_favCnt DESC, f.free_hit DESC
+			  			ORDER BY f_favCnt DESC, f.free_hit DESC)a)
+			  			<![CDATA[
+						WHERE rnum>=#{start} AND rnum<=#{end}
+						]]>
 			  		</if>
 			  		<if test="sort=='reply'">
-			  			ORDER BY f_replyCnt DESC, f.free_hit DESC
+			  			ORDER BY f_replyCnt DESC, f.free_hit DESC)a)
+			  			<![CDATA[
+						WHERE rnum>=#{start} AND rnum<=#{end}
+						]]>
 			  		</if> 
-			  		)a)
-		<![CDATA[
+			  		<!-- )a) -->
+		<!-- <![CDATA[
 		WHERE rnum>=#{start} AND rnum<=#{end}
-		]]>
+		]]> -->
 	</select>
-	
-	<!-- <select id="selectFreeList" parameterType="map" resultType="freeVO">
-		SELECT
-		 *
-		FROM (SELECT
-				a.*,
-				rownum rnum
-			  FROM (SELECT
-			  		 '자유' as tblName,
-			  		 f.free_num,
-			  		 <![CDATA[
-			  		 REPLACE(REPLACE(f.free_title,'<','&lt'),'>','&gt;') free_title,
-			  		 ]]>
-			  		 f.free_hit,
-			  		 f.free_fixed,
-			  		 f.free_filename,
-			  		 f.free_regdate,
-			  		 (SELECT COUNT(*) FROM free_reply r WHERE r.free_num=f.free_num) f_replyCnt,
-			  		 (SELECT COUNT(*) FROM free_fav w WHERE w.free_num=f.free_num) f_favCnt,
-			  		 m.mem_num,
-			  		 m.mem_nick
-			  		FROM free_board f JOIN member m
-			  		ON m.mem_num=f.mem_num
-			  		<include refid="freeSearch"></include>
-			  		ORDER BY f.free_num DESC)a)
-		<![CDATA[
-		WHERE rnum>=#{start} AND rnum<=#{end}
-		]]>
-	</select> -->
 	
 	<update id="updateFree" parameterType="freeVO">
   		UPDATE free_board SET

@@ -76,7 +76,7 @@
 					<td>
 						<span class="left">
 						<c:if test="${!empty promo.mem_photo_name}">
-						<img src="imageView.do?promo_num=${promo.promo_num}&promo_type=1" width="25" height="25" class="my-photo">
+						<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=1" width="25" height="25" class="my-photo">
 						</c:if>
 						<c:if test="${empty promo.mem_photo_name}">
 						<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">

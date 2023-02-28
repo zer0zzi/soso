@@ -12,7 +12,7 @@
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty promo.mem_photo_name}">
-			<img src="imageView.do?promo_num=${promo.promo_num}&promo_type=1" width="40" height="40" class="my-photo">
+			<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=1" width="40" height="40" class="my-photo">
 			</c:if>
 			<c:if test="${empty promo.mem_photo_name}">
 			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
