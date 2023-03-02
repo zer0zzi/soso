@@ -2,9 +2,12 @@
 
 /* 공통 목록
 ---------------------------*/
+.page-main{
+	width: 70em;
+}
 form#search_form{
 	border: none;
-    padding: 1em;
+    padding: 2em 3em 3em 3em;
     margin: 0 auto;
 }
 ul.search{
@@ -19,7 +22,7 @@ ul.search li{
 	display:inline;
 }
 ul.search li input[type="search"]{
-	width:150px;
+	width:13em;
 }
 .list-space{
 	width:700px;
@@ -41,8 +44,8 @@ table.striped-table{
 	font-size:15px;
 	width:100%;
 	border-collapse:collapse;
-	margin:7px0;
 	background-color: #fff;
+	margin-bottom: 2em;
 }
 
 table.striped-table th{
@@ -53,16 +56,104 @@ table.striped-table td, table.striped-table th{
 	vertical-align:middle;
 }
 table.striped-table th{
+    color: white;
 	font-weight:bold;
-	background:#E1E1E1;
+	background:#969ce4;
 }
 table.striped-table td{
 	border-bottom:1px solid rgba(0,0,0,.1);
 	text-align:center;
 }
-/* table.striped-table td:nth-child(2){
-	text-align:left;
+.list-btn {
+    font: inherit;
+    font-size: 0.75rem;
+    padding: 0.25em;
+    width: 3.5em;
+    border-radius: 6px;
+    border: 0;
+    background-color: #969ce4;
+    color: #FFF;
+    font-weight: bold;
+    transition: all .15s linear;
 }
-table.striped-table tr:nth-child(odd){
-	background-color:rgb(250,250,247);
-} */
+.list-btn:hover {
+	background-color: #6658d3;
+	color: #FFF;
+}
+.admin-btn {
+    font: inherit;
+    font-size: 0.75rem;
+    padding: 1em;
+    width: 6em;
+    border-radius: 6px;
+    border: 0;
+    background-color: #969ce4;
+    color: #FFF;
+    font-weight: bold;
+    transition: all .15s linear;
+}
+.admin-btn:hover {
+	background-color: #6658d3;
+	color: #FFF;
+}
+
+/*회원권한수정*/
+.form-modi h2{
+	text-align:center;
+	padding: 0.75em;	
+}
+.form-modi {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 560px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
+}
+.form-modi ul{
+	padding: 1em;	
+}
+.form-modi ul li{
+	list-style: none;
+	padding: 0.15em;
+}
+.form-modi ul li label{
+    width: 105px;
+    float: left;
+    color: #592e6a;
+    font-weight: bold;
+}
+
+.modi-btn {
+    font: inherit;
+    font-size: 0.75rem;
+    padding: 1em;
+    width: 6em;
+    border-radius: 6px;
+    border: 0;
+    background-color: #969ce4;
+    color: #FFF;
+    font-weight: bold;
+    transition: all .15s linear;
+}
+.modi-btn:hover {
+	background-color: #6658d3;
+	color: #FFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

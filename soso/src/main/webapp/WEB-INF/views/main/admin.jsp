@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/admin.css">
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
 	<h2>회원목록</h2>
-	<div>
-		<input type="button" value="회원관리" onclick="location.href='${pageContext.request.contextPath}/member/admin_list.do'">
-	</div>
+
 	<table class="striped-table">
 		<tr>
 			<th>아이디</th>
@@ -38,8 +37,12 @@
 			</td>
 		</tr>
 		</c:forEach>
+		
 	</table>
-	
+	<div class="align-center">
+		<input class="admin-btn" type="button" value="회원관리"
+			onclick="location.href='${pageContext.request.contextPath}/member/admin_list.do'">
+	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
 

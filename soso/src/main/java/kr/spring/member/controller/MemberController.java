@@ -138,11 +138,7 @@ public class MemberController {
 
 				logger.debug("<<인증성공>> : " + member.getMem_id());
 
-				if(member.getMem_auth() == 9) {
-					return "redirect:/main/admin.do";
-				}else {
-					return "redirect:/main/main.do";
-				}
+				return "redirect:/main/main.do";
 			}
 			throw new AuthCheckException();
 

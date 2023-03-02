@@ -2,14 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/admin.css">
 <div class="page-main">
+<div class="form-modi">
 	<h2>회원권환수정</h2>
 	<form:form action="admin_update.do" id="modify_form" modelAttribute="memberVO">
 		<form:hidden path="mem_num"/>
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
-			<li>
+			<li class="modi-li">
 				<label>회원권한</label>
 				<c:if test="${memberVO.mem_auth < 3}">
 				<form:radiobutton path="mem_auth" value="1"/>정지
@@ -20,9 +21,9 @@
 		</ul>
 		<div class="align-center">
 			<c:if test="${memberVO.mem_auth!=9}">
-			<form:button>전송</form:button>
+			<form:button class="modi-btn">전송</form:button>
 			</c:if>
-			<input type="button" value="회원목록" onclick="location.href='admin_list.do'">
+			<input class="modi-btn" type="button" value="회원목록" onclick="location.href='admin_list.do'">
 		</div>
 		<ul>
 			<li>
@@ -47,6 +48,7 @@
 			</li>
 		</ul>
 	</form:form>
+	</div>
 </div>
 
 
