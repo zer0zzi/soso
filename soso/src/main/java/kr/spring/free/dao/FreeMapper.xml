@@ -106,9 +106,10 @@
 			  		 (SELECT COUNT(*) FROM free_reply r WHERE r.free_num=f.free_num) f_replyCnt,
 			  		 (SELECT COUNT(*) FROM free_fav w WHERE w.free_num=f.free_num) f_favCnt,
 			  		 m.mem_num,
-			  		 m.mem_nick
-			  		FROM free_board f JOIN member m
-			  		ON m.mem_num=f.mem_num
+			  		 m.mem_nick,
+			  		 d.mem_photo_name
+			  		FROM free_board f JOIN member m ON m.mem_num=f.mem_num
+			  		JOIN member_detail d ON d.mem_num=f.mem_num
 			  		<include refid="freeSearch"></include>
 			  		<if test="sort=='last' || sort==null">
 			  			ORDER BY f.free_regdate DESC)a)

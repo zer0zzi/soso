@@ -55,9 +55,10 @@
 			  		 (SELECT COUNT(*) FROM promo_reply r WHERE r.promo_num=p.promo_num) p_replyCnt,
 			  		 (SELECT COUNT(*) FROM promo_fav w WHERE w.promo_num=p.promo_num) p_favCnt,
 			  		 m.mem_num,
-			  		 m.mem_nick
-			  		FROM promo_board p JOIN member m
-			  		ON m.mem_num=p.mem_num
+			  		 m.mem_nick,
+			  		 d.mem_photo_name
+			  		FROM promo_board p JOIN member m ON m.mem_num=p.mem_num
+			  		JOIN member_detail d ON d.mem_num=p.mem_num
 			  		<include refid="promoSearch"></include>
 			  		<if test="sort=='last' || sort==null">
 			  			ORDER BY p.promo_regdate DESC

@@ -6,6 +6,7 @@ import java.util.Map;
 import kr.spring.promo.vo.PromoFavVO;
 import kr.spring.promo.vo.PromoReplyVO;
 import kr.spring.promo.vo.PromoVO;
+import kr.spring.study.vo.StudyVO;
 
 public interface PromoService {
 	// 부모글
@@ -17,6 +18,8 @@ public interface PromoService {
 	public void updatePromoHit(Integer promo_num);
 	public void updatePromo(PromoVO promo);
 	public void deletePromo(Integer promo_num);
+	
+	public List<StudyVO> selectPromoMemberStudyList(int mem_num);
 	
 	// 좋아요
 	public PromoFavVO selectPromoFav(PromoFavVO fav);

@@ -29,6 +29,7 @@ import kr.spring.promo.service.PromoService;
 import kr.spring.promo.vo.PromoFavVO;
 import kr.spring.promo.vo.PromoReplyVO;
 import kr.spring.promo.vo.PromoVO;
+import kr.spring.study.vo.StudyVO;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
 
@@ -80,9 +81,28 @@ public class PromoController {
 	// ========== 홍보 글 작성 ==========
 	// 등록 폼 호출
 	@GetMapping("/community/promoWrite.do")
+	public String promoWriteForm(HttpSession session, Model model) {
+		// 로그인 한 회원정보 셋팅
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user!=null) {
+			// 회원번호 셋팅
+			user.getMem_num();
+			// 스터디명 정보 출력
+			List<StudyVO> studyList = null;
+			studyList = promoService.selectPromoMemberStudyList(user.getMem_num());
+
+			model.addAttribute("studyList", studyList);
+		}
+
+		return "promoWrite"; // 타일스 설정값
+	}
+	/*
+	// 등록 폼 호출
+	@GetMapping("/community/promoWrite.do")
 	public String promoWriteForm() {
 		return "promoWrite"; // 타일스 설정값
 	}
+	 */
 	// 등록 폼에서 전송된 데이터 처리
 	@PostMapping("/community/promoWrite.do")
 	public String promoSubmit(@Valid PromoVO promoVO, BindingResult result, HttpServletRequest request, 
@@ -97,7 +117,7 @@ public class PromoController {
 
 		// 유효성 체크 결과 오류가 있으면 폼을 호출
 		if(result.hasErrors()) {
-			return promoWriteForm();
+			return "redirect:/community/reviewWrite.do"; /*return promoWriteForm();*/
 		}
 		// 에러가 없으면 회원번호 셋팅
 		promoVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
@@ -133,7 +153,7 @@ public class PromoController {
 	@RequestMapping("/community/imagePromoView.do")
 	public ModelAndView viewPromoImage(@RequestParam int promo_num, @RequestParam int promo_type) {
 		PromoVO promo = promoService.selectPromo(promo_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView"); // 뷰 출력
 

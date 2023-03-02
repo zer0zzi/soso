@@ -19,7 +19,7 @@
 		</li>
 		<li>
 			<span>
-			<b>${review.review_stc_name}</b>
+			<b>${review.studyName}</b>
 			<c:if test="${review.review_rating==1}">⭐</c:if>
 			<c:if test="${review.review_rating==2}">⭐⭐</c:if>
 			<c:if test="${review.review_rating==3}">⭐⭐⭐</c:if>

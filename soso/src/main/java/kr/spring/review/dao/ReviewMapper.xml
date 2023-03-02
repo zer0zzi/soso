@@ -48,7 +48,7 @@
   			  		 '후기' as tblName,
   			  		 v.review_num,
   			  		 v.review_content,
-  			  		 v.review_stc_name,
+  			  		 v.studyName,
   			  		 v.review_rating,
   			  		 v.review_fixed,
   			  		 <![CDATA[
@@ -61,8 +61,10 @@
 			  		 (SELECT COUNT(*) FROM review_fav w WHERE w.review_num=v.review_num) v_favCnt,
   			  		 v.mem_num,
   			  		 m.mem_id,
-  			  		 m.mem_nick
+  			  		 m.mem_nick,
+  			  		 d.mem_photo_name
   			  		FROM review_board v JOIN member m ON v.mem_num=m.mem_num
+  			  		JOIN member_detail d ON d.mem_num=v.mem_num
   			  		<include refid="reviewSearch"></include>
   			  		<if test="sort=='last' || sort==null">
 			  			ORDER BY v.review_regdate DESC
@@ -88,7 +90,7 @@
   		 review_uploadfile=#{review_uploadfile},
   		 review_filename=#{review_filename},
   		 </if>
-  		 review_stc_name=#{review_stc_name},
+  		 studyName=#{studyName},
   		 review_title=#{review_title},
   		 review_rating=#{review_rating},
   		 review_content=#{review_content},

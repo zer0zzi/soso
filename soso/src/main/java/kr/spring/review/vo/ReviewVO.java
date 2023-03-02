@@ -41,6 +41,7 @@ public class ReviewVO {
 	private int v_favCnt;
 	
 	private String tblName;
+	private String studyName;
 
 	// 파일 업로드 처리 : 파일을 업로드 하려면 필수로 setUpload가 있어야 한다.
 	public void setUpload(MultipartFile upload) throws IOException{
@@ -229,6 +230,14 @@ public class ReviewVO {
 	public void setTblName(String tblName) {
 		this.tblName = tblName;
 	}
+	
+	public String getStudyName() {
+		return studyName;
+	}
+
+	public void setStudyName(String studyName) {
+		this.studyName = studyName;
+	}
 
 	@Override
 	public String toString() {
@@ -239,8 +248,6 @@ public class ReviewVO {
 				+ mem_num + ", review_stc_name=" + review_stc_name + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick
 				+ ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num + ", stc_title=" + stc_title
 				+ ", stc_filter=" + stc_filter + ", v_replyCnt=" + v_replyCnt + ", v_favCnt=" + v_favCnt + ", tblName="
-				+ tblName + "]";
+				+ tblName + ", studyName=" + studyName + "]";
 	}
-
-	
 }

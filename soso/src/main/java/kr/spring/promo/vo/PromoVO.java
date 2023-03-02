@@ -25,6 +25,10 @@ public class PromoVO {
 	private String promo_filename; // 홍보하는 데 필요한 첨부파일명
 	private String promo_ip;
 	private int mem_num;
+	
+	private String promo_stc_name;
+	private int promo_stc_num;
+	private int promo_stc_status;
 
 	private String mem_id;
 	private String mem_nick;
@@ -171,16 +175,39 @@ public class PromoVO {
 		this.tblName = tblName;
 	}
 
+	public String getPromo_stc_name() {
+		return promo_stc_name;
+	}
+
+	public void setPromo_stc_name(String promo_stc_name) {
+		this.promo_stc_name = promo_stc_name;
+	}
+
+	public int getPromo_stc_num() {
+		return promo_stc_num;
+	}
+
+	public void setPromo_stc_num(int promo_stc_num) {
+		this.promo_stc_num = promo_stc_num;
+	}
+
+	public int getPromo_stc_status() {
+		return promo_stc_status;
+	}
+
+	public void setPromo_stc_status(int promo_stc_status) {
+		this.promo_stc_status = promo_stc_status;
+	}
+
 	@Override
 	public String toString() {
 		return "PromoVO [promo_num=" + promo_num + ", promo_fixed=" + promo_fixed + ", promo_title=" + promo_title
 				+ ", promo_content=" + promo_content + ", promo_hit=" + promo_hit + ", promo_regdate=" + promo_regdate
 				+ ", promo_modifydate=" + promo_modifydate + ", promo_filename=" + promo_filename + ", promo_ip="
-				+ promo_ip + ", mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_nick=" + mem_nick
-				+ ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num + ", promo_status=" + promo_status
-				+ ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt + ", tblName=" + tblName + "]";
+				+ promo_ip + ", mem_num=" + mem_num + ", promo_stc_name=" + promo_stc_name + ", promo_stc_num="
+				+ promo_stc_num + ", promo_stc_status=" + promo_stc_status + ", mem_id=" + mem_id + ", mem_nick="
+				+ mem_nick + ", mem_photo_name=" + mem_photo_name + ", stc_num=" + stc_num + ", promo_status="
+				+ promo_status + ", p_replyCnt=" + p_replyCnt + ", p_favCnt=" + p_favCnt + ", tblName=" + tblName + "]";
 	}
-
-	
 
 }

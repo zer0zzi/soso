@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import kr.spring.promo.vo.PromoFavVO;
 import kr.spring.promo.vo.PromoReplyVO;
 import kr.spring.promo.vo.PromoVO;
+import kr.spring.study.vo.StudyVO;
 
 @Mapper
 public interface PromoMapper {
@@ -31,6 +32,12 @@ public interface PromoMapper {
 	public void updatePromo(PromoVO promo);
 	@Delete("DELETE FROM promo_board WHERE promo_num=#{promo_num}")
 	public void deletePromo(Integer promo_num);
+	
+	@Select("SELECT c.stc_num,c.stc_title,c.stc_state "
+			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a "
+			+ "JOIN study_create c ON a.stc_num=c.stc_num "
+			+ "WHERE a.mem_num=#{a.mem_num}")
+	public List<StudyVO> selectPromoMemberStudyList(int mem_num);
 
 	// 좋아요
 	@Select("SELECT * FROM promo_fav WHERE promo_num=#{promo_num} AND mem_num=#{mem_num}")

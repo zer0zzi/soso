@@ -6,6 +6,12 @@
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoFav.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoReply.js"></script>
+<style>
+
+</style>
+<script>
+
+</script>
 <!-- 홍보 글상세 시작 -->
 <div class="community-page-main-detail">
 	
@@ -25,17 +31,15 @@
 			<span style="color:gray"><b>
 			<c:if test="${promo.promo_status==2}">모집완료</c:if>
 			</b></span>
+			
+			<input type="button" id="promo_faq" value="1:1문의하기">
 			<br>
 			<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
 			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
-		</li>
-		<li class="community-detail-member-padding">·</li>
-		<li class="community-detail-member-padding">
+			&nbsp;·&nbsp;
 			<c:if test="${!empty promo.promo_modifydate}">(수정)${promo.promo_modifydate}</c:if>
 			<c:if test="${empty promo.promo_modifydate}">${promo.promo_regdate}</c:if>
-		</li>
-		<li class="community-detail-member-padding">·</li>
-		<li class="community-detail-member-padding">
+			&nbsp;·&nbsp;
 			${promo.promo_hit} views
 		</li>
 	</ul>

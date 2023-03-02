@@ -11,6 +11,7 @@ import kr.spring.promo.dao.PromoMapper;
 import kr.spring.promo.vo.PromoFavVO;
 import kr.spring.promo.vo.PromoReplyVO;
 import kr.spring.promo.vo.PromoVO;
+import kr.spring.study.vo.StudyVO;
 
 @Service
 @Transactional
@@ -112,6 +113,11 @@ public class PromoServiceImpl implements PromoService{
 	@Override
 	public void deletePromoReply(Integer pre_num) {
 		promoMapper.deletePromoReply(pre_num);
+	}
+
+	@Override
+	public List<StudyVO> selectPromoMemberStudyList(int mem_num) {
+		return promoMapper.selectPromoMemberStudyList(mem_num);
 	}
 
 }

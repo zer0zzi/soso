@@ -62,7 +62,7 @@
 						<td>
 							<span class="left">
 							<c:if test="${!empty review.mem_photo_name}">
-							<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="40" height="40" class="my-photo">
+							<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="25" height="25" class="my-photo">
 							</c:if>
 							<c:if test="${empty review.mem_photo_name}">
 							<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
@@ -78,7 +78,7 @@
 						</td>
 					</tr>
 					<tr height="20">
-						<td><b style="color:#969CE4;">${review.review_stc_name}</b></td>
+						<td><b style="color:#969CE4;">${review.studyName}</b></td>
 					</tr>
 					<tr height="50">
 						<td>

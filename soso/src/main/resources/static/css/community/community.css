@@ -439,6 +439,11 @@ div.promo-fixed-2 .full-list{
 	box-shadow:2px 2px 2px gray;
 	margin-bottom:10px;
 }
+#promo_faq{
+	margin:2px 0 2px 5px;
+	width:80px; height:20px;
+	font-size:12px;
+}
 
 
 /* ================================================== */
