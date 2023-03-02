@@ -38,6 +38,7 @@ public class MemberVO {
 	private String mem_photo_name;
 	private Date mem_reg;
 	private Date mem_modify;
+	private int mem_score;
 	
 	//비밀번호 변경시 현재 비밀번호를 저장하는 용도로 사용
 	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
@@ -167,6 +168,12 @@ public class MemberVO {
 	public void setNow_passwd(String now_passwd) {
 		this.now_passwd = now_passwd;
 	}
+	public int getMem_score() {
+		return mem_score;
+	}
+	public void setMem_score(int mem_score) {
+		this.mem_score = mem_score;
+	}
 	
 	@Override
 	public String toString() {
@@ -175,8 +182,10 @@ public class MemberVO {
 				+ ", mem_pw=" + mem_pw + ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + ", mem_zipcode="
 				+ mem_zipcode + ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2
 				+ ", mem_photo_name=" + mem_photo_name + ", mem_reg=" + mem_reg + ", mem_modify=" + mem_modify
-				+ ", now_passwd=" + now_passwd + "]";
+				+ ", now_passwd=" + now_passwd + ", mem_score=" + mem_score + "]";
 	}
+
+	
 	
 	
 	

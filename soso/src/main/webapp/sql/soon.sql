@@ -21,6 +21,7 @@ create table member_detail(
 	mem_photo_name varchar2(100),
 	mem_reg date default sysdate not null,
 	mem_modify date,
+    mem_score number(2) default 50,
 	constraint member_detail_pk primary key (mem_num),
 	constraint member_detail_fk1 foreign key (mem_num) references member (mem_num)
 );

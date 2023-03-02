@@ -2,4 +2,42 @@
 
 .mypage-main{
 	width:1024px;
+	margin:0 auto;
+}
+.mypage-main > h2{
+	text-align:center;
+	margin-top:40px;
+}
+.mypage-left{
+	float:left;
+	margin-top:40px;
+}
+.mypage-right{
+	float:right;
+	margin-top:40px;
+}
+.mypage-box{
+	box-sizing:border-box;
+	background-color:rgba(224, 224, 224, 0.76);
+	border-radius:10px;
+	padding:20px 25px 20px 25px;
+	display:flex;
+}
+.mypage-ul{
+	text-align:center;
+	padding:0px;
+	margin:0px;
+}
+.mypage-ul > li[id='click']{
+	cursor:pointer;
+	margin-top:5px;
+}
+input[type='button']{
+	padding:2px 15px 2px 15px;
+	border:none 10px;
+	background-color:white;
+	border-radius:2px;
+}
+.mypage-ul > li[id='score']{
+	font-size:30px;
 }

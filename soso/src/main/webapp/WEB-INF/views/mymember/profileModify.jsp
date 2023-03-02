@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!-- MyPage 메뉴 시작 -->
+<!-- 프로필 수정 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mymember/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/member.js"></script>
 <div class="mypage-main">
