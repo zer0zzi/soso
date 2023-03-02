@@ -51,6 +51,7 @@ $(function(){
 		
 		//문서 객체에 추가
 		$('#output_fav').attr('src',output);
+		$('#output_fav').attr('title',favText);
 		$('#output_fcount').text(param.count);
 		$('#output_text').text(favText);
 	}

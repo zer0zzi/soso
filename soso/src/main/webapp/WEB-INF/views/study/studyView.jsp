@@ -10,44 +10,61 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/study/studyView.css">
 <div class="page-main">
-	<h2>${study.stc_title}</h2>
+	<h1><b>${study.stc_title}</b></h1>
 	<ul class="detail-info">
 		<li>
 			<c:if test="${!empty study.mem_photo_name}">
-			<img src="imageView.do?stc_num=${study.stc_num}&stc_type=1" width="40" height="40" class="my-mem_photo">
+			<img src="imageView.do?stc_num=${study.stc_num}&stc_type=1" width="40" height="40" class="my-photo">
 			</c:if>
 			<c:if test="${empty study.mem_photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-mem_photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
 			</c:if>
 		</li>
 		<li>
+			&nbsp;
 			<c:if test="${empty study.mem_nick}">${study.mem_id}</c:if>
 			<c:if test="${!empty study.mem_nick}">${study.mem_nick}</c:if>
-			<br>
+		</li>
+		<li>&nbsp;·&nbsp;</li>
+		<li>
 			<c:if test="${!empty study.stc_modify_date}">
 			최근 수정일 : ${study.stc_modify_date}
 			</c:if>
 			<c:if test="${empty study.stc_modify_date}">
-			작성일 : ${study.stc_date}
+			작성일 - ${study.stc_date}
 			</c:if>
-			조회 : ${study.hit}
+		</li>
+		<li class="text-right">
+			${study.hit} views
+		</li>
+		<li class="text-clear">
 		</li>
 	</ul>
 	<hr size="1" width="100%">
-	<ul class="detail-info">
+	<ul class="detail-information">
+		<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}">
 		<li>
-			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}">
-			<h3><b>모집마감</b></h3><br>
-			</c:if>
-			주제 : ${study.stc_filter}<br>
+			<h3><b>모집마감</b></h3>
+		</li>
+		</c:if>
+		<li>
+			주제 : ${study.stc_filter}
+		</li>
+		<li>
 			<c:if test="${!empty study.stc_way}">
-			장소 : ${study.stc_way}<br>
+			장소 : ${study.stc_way}
 			</c:if>
-			모집인원 : ${study.stc_per}명<br>
+		</li>
+		<li>
+			모집인원 : ${study.stc_per}명
+		</li>
+		<li>
 			<c:if test="${!empty study.stc_period}">
-			마감기한 : ${study.stc_period}<br>
+			마감기한 : ${study.stc_period}
 			</c:if>
-			연락처 : ${study.mem_email}<br>
+		</li>
+		<li>
+			연락처 : ${study.mem_email}
 		</li>
 	</ul>
 	<hr size="1" width="100%">
@@ -63,9 +80,11 @@
 		<img src="imageView.do?stc_num=${study.stc_num}&stc_type=2" class="detail-img">
 	</div>	
 	</c:if>
-	<p>
-		${study.stc_content}
-	</p>
+	<div class="study-content">
+		<p>
+			${study.stc_content}
+		</p>
+	</div>
 	<c:if test="${!empty study.stc_filename}">
 	<ul>
 		<li>
@@ -74,26 +93,30 @@
 	</ul>
 	</c:if>
 	<hr size="1" width="100%">
-	<div>
-		<%-- 관심등록 --%>
+	
+	<!-- 관심등록 -->
+	<ul class="detail-info">
+	<li>
 		<img id="output_fav" data-num="${study.stc_num}"
 		 src="${pageContext.request.contextPath}/images/fav01.gif" width="40">
 		<span id="output_fcount"></span>
-		<br>
 		<span id="output_text"></span>
-	</div>
+	</li>
+	<li class="text-right">
+	
 	
 	<!-- 모달창 -->
-	<div class="modal-container">
-		<!-- Modal창 호출 버튼 -->
-		
-		<jsp:include page="../study/modal.jsp"/>
-		<button type="button" class="btn btn-primary" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}"> disabled="disabled"</c:if>>
-			신청하기
-		</button>
-	</div>
-	<div class="align-center" id="clear">
+		<div class="modal-container">
+			<!-- Modal창 호출 버튼 -->
+			<jsp:include page="../study/modal.jsp"/>
+			<button type="button" class="btn btn-primary" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+				<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}"> disabled="disabled"</c:if>>
+				<b>신청하기</b>
+			</button>
+		</div>
+	</li>
+	</ul>
+	<div class="align-center text-claer" id="main-button">
 		<a href="${pageContext.request.contextPath}/main/main.do">
 		<i class="bi bi-house-door-fill"></i>메인페이지로</a>
 	</div>

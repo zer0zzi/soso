@@ -1,18 +1,67 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&family=Noto+Sans+KR:wght@300&display=swap');
+
+*{
+	font-family: 'Noto Sans KR', 'Archivo', sans-serif;
+}
+div.page-main{
+	width:1024px;
+	margin:10px auto;
+	padding:50px;
+	align-content: center;
+}
+
+a:hover{
+	color:black;
+	text-decoration:none;
+}
+ul.detail-info{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+li.text-right{
+	float: right;
+}
+.text-clear{
+	float:none;
+	clear:both;
+}
+ul.detail-information{
+	font-size: 17px;
+	padding-left: 0px;
+}
+.study-content{
+	background-color: #E2E2E2;
+	min-height:100px;
+	padding: 10px;
+}
+
+#output_text{
+	display: none;
+}
+
+
+#main-button{
+	padding-top:50px;
+	font-size: 20px;
+}
+
+/* 모달창 */
 #exampleModal{
 	margin-top:100px;	
 }
 #exampleModal .btn-close {
 	float: right;
 }
+
 .btn-primary{
 	float: right;
+	width: 180px;
+	height: 50px;
+	font-size: 25px;
 }
 
-div#clear{
-	clear:both;
-}
 #register_signupDetail{
 	border: none;
 }
