@@ -31,7 +31,7 @@
 			최근 수정일 : ${study.stc_modify_date}
 			</c:if>
 			<c:if test="${empty study.stc_modify_date}">
-			작성일 - ${study.stc_date}
+			${study.stc_date}
 			</c:if>
 		</li>
 		<li class="text-right">
@@ -43,30 +43,36 @@
 	<hr size="1" width="100%">
 	<ul class="detail-information">
 		<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}">
-		<li>
+		<li class="text-br">
 			<h3><b>모집마감</b></h3>
 		</li>
 		</c:if>
-		<li>
-			주제 : ${study.stc_filter}
+		<li class="text-br">
+			<span class="text-grey"><b>주제 구분</b></span>
+			<span class="text-black">${study.stc_filter}</span>
 		</li>
-		<li>
+		<li class="text-br">
 			<c:if test="${!empty study.stc_way}">
-			장소 : ${study.stc_way}
+			<span class="text-grey">모임 장소</span>
+			<span class="text-black">${study.stc_way}</span>
 			</c:if>
 		</li>
-		<li>
-			모집인원 : ${study.stc_per}명
+		<li class="text-br">
+			<span class="text-grey">모집 인원</span>
+			<span class="text-black">${study.stc_per}명</span>
 		</li>
-		<li>
+		<li class="text-br">
 			<c:if test="${!empty study.stc_period}">
-			마감기한 : ${study.stc_period}
+			<span class="text-grey">마감 기한</span>
+			<span class="text-black">${study.stc_period}</span>
 			</c:if>
 		</li>
-		<li>
-			연락처 : ${study.mem_email}
+		<li class="text-br">
+			<span class="text-grey">연락 주소</span>
+			<span class="text-black">${study.mem_email}</span>
 		</li>
 	</ul>
+	<h3><b>스터디 소개</b></h3><br>
 	<hr size="1" width="100%">
 	<c:if test="${fn:endsWith(study.stc_filename,'.jpg') || 
 	              fn:endsWith(study.stc_filename,'.JPG') ||

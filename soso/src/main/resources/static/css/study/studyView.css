@@ -5,6 +5,7 @@
 *{
 	font-family: 'Noto Sans KR', 'Archivo', sans-serif;
 }
+
 div.page-main{
 	width:1024px;
 	margin:10px auto;
@@ -27,14 +28,31 @@ li.text-right{
 	float:none;
 	clear:both;
 }
+
 ul.detail-information{
 	font-size: 17px;
 	padding-left: 0px;
+	padding-bottom: 50px;
 }
+li.text-br{
+	padding-top: 10px;
+}
+
 .study-content{
-	background-color: #E2E2E2;
+	background-color: #f2f4fc;
 	min-height:100px;
 	padding: 10px;
+}
+
+.text-grey{
+	color:#495057;
+	font-size:20px;
+	font-weight: bolder;
+}
+.text-black{
+	padding-left:20px;
+	font-size:20px;
+	font-weight: bolder;
 }
 
 #output_text{
@@ -46,6 +64,13 @@ ul.detail-information{
 	padding-top:50px;
 	font-size: 20px;
 }
+
+button.btn{
+	border-radius: 27px;
+}
+
+
+
 
 /* 모달창 */
 #exampleModal{
@@ -59,7 +84,9 @@ ul.detail-information{
 	float: right;
 	width: 180px;
 	height: 50px;
-	font-size: 25px;
+	font-size: 23px;
+	background-color: red;
+	border: none;
 }
 
 #register_signupDetail{
