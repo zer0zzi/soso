@@ -53,7 +53,6 @@ public class StudyController {
 		studyService.updateHit(stc_num);
 
 		StudyVO study = studyService.selectStudy(stc_num);
-
 		//제목에 태그를 허용하지 않음
 		study.setStc_title(StringUtil.useNoHtml(study.getStc_title()));
 		//내용에 태그를 허용하지 않음

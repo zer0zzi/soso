@@ -69,7 +69,18 @@ button.btn{
 	border-radius: 27px;
 }
 
+.jb-text {
+  padding: 15px 20px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position: absolute;
+  display: none;
+}
 
+.jb-title:hover + .jb-text {
+  display: block;
+}
 
 
 /* 모달창 */

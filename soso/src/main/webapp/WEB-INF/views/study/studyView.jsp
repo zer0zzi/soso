@@ -103,13 +103,20 @@
 	<!-- 관심등록 -->
 	<ul class="detail-info">
 	<li>
-		<img id="output_fav" data-num="${study.stc_num}"
+		<img class="jb-title" id="output_fav" data-num="${study.stc_num}"
 		 src="${pageContext.request.contextPath}/images/fav01.gif" width="40">
+		<div class="jb-text">
+			<c:if test="${studyFav.mem_num == user.mem_num}">
+				이미 관심등록한 스터디입니다.
+			</c:if>
+			<c:if test="${studyFav.mem_num != user.mem_num}">
+				스터디에 관심등록 하시겠습니까?
+			</c:if>
+		</div>
 		<span id="output_fcount"></span>
-		<span id="output_text"></span>
 	</li>
 	<li class="text-right">
-	
+    
 	
 	<!-- 모달창 -->
 		<div class="modal-container">
