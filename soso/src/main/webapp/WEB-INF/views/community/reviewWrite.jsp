@@ -66,14 +66,14 @@
 			</li>
 			<li>
 				<label>스터디명</label>
-				<select id="studyName" class="studyName" name="studyName">
+				<select id="studyName" class="studyName" name="studyName" required>
 					<option value="" disabled selected>참여 스터디</option>
 					<c:forEach var="study" items="${studyList}">
 						<option>${study.stc_title}</option>
 					</c:forEach>
 				</select>
+				<span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 작성할 수 없습니다.</span>
 				<%--
-				<span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 작성할 수 없습니다.</span><br>
 				<form:input path="review_stc_name" id="changeInput" width="500px" class="insert-studyName" placeholder="참여한 스터디를 선택해주세요." readonly="true"/>
 				<script type="text/javascript">
 					var selectBoxChange = function(value){

@@ -184,6 +184,27 @@ public class PromoController {
 	// ========== 홍보 글수정 ==========
 	// 수정 폼 호출
 	@GetMapping("/community/promoUpdate.do")
+	public String promoFormUpdate(HttpSession session, @RequestParam int promo_num, Model model) {
+		// 로그인 한 회원정보 셋팅
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user!=null) {
+			// 회원번호 셋팅
+			user.getMem_num();
+			// 스터디명 정보 출력
+			List<StudyVO> studyList = null;
+			studyList = promoService.selectPromoMemberStudyList(user.getMem_num());
+
+			model.addAttribute("studyList", studyList);
+		}
+		
+		PromoVO promoVO = promoService.selectPromo(promo_num);
+
+		model.addAttribute("promoVO", promoVO);
+
+		return "promoUpdate";
+	}
+	/*
+	@GetMapping("/community/promoUpdate.do")
 	public String promoFormUpdate(@RequestParam int promo_num, Model model) {
 		PromoVO promoVO = promoService.selectPromo(promo_num);
 
@@ -191,6 +212,7 @@ public class PromoController {
 
 		return "promoUpdate";
 	}
+	*/
 	// ========== 파일 삭제 ==========
 	@RequestMapping("/community/promoFile.do")
 	@ResponseBody

@@ -29,7 +29,7 @@
 			<input type="hidden" name="promo_fixed" id="promo_fixed" value="${promo.promo_fixed}">
 			<table class="full-class">
 				<tr class="full-item">
-					<td>공지사항</td>
+					<td style="color:red">공지사항</td>
 				</tr>
 				<tr>
 					<td style="text-align:left;">

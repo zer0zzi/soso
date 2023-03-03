@@ -45,6 +45,7 @@
 			  		 '홍보' as tblName,
 			  		 p.promo_num,
 			  		 p.promo_status,
+			  		 p.studyNum,
 			  		 <![CDATA[
 			  		 REPLACE(REPLACE(p.promo_title,'<','&lt'),'>','&gt;') promo_title,
 			  		 ]]>
@@ -87,6 +88,7 @@
   		 promo_uploadfile=#{promo_uploadfile},
   		 promo_filename=#{promo_filename},
   		 </if>
+  		 studyNum=#{studyNum},
   		 promo_title=#{promo_title},
   		 promo_status=#{promo_status},
   		 promo_content=#{promo_content},

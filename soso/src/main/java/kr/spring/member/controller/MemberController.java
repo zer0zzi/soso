@@ -29,32 +29,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.AuthCheckException;
+import kr.spring.util.FileUtil;
 
 @Controller
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
+
 	@Autowired
 	private MemberService memberService;
-	 
+
 	@ModelAttribute
 	public MemberVO initCommand() {
 		return new MemberVO();
 	}
-	
-	
-	
+
+
+
 	//========회원가입
 	//아이디 중복 체크
 	@RequestMapping("/member/confirmId.do")
 	@ResponseBody
 	public Map<String, String> process(@RequestParam String mem_id){
 		logger.debug("<<mem_id>>" + mem_id);
-		
+
 		Map<String, String> mapAjax = new HashMap<String, String>();
-		
+
 		MemberVO member = memberService.selectCheckMember(mem_id);
-		
+
 		if(member!=null) {
 			mapAjax.put("result", "idDuplicated");
 		}else {
@@ -69,7 +70,7 @@ public class MemberController {
 		//자동으로 JSON 문자열로 출력
 		return mapAjax;
 	}
-	
+
 	//회원등록 폼 호출
 	@GetMapping("/member/registerUser.do")
 	public String form() {
@@ -79,25 +80,25 @@ public class MemberController {
 	@PostMapping("/member/registerUser.do")
 	public String submit(@Valid MemberVO memberVO, BindingResult result, Model model) {
 		logger.debug("<<회원가입>> : " + memberVO);
-		
+
 		if(result.hasErrors()) {
 			return form();
 		}
-		
+
 		memberService.insertMember(memberVO);
-		
+
 		model.addAttribute("accessMsg","회원가입이 완료되었습니다.");
-		
+
 		return "common/notice";
 	}
-	
+
 	//========회원로그인
 	//로그인 폼 호출
 	@GetMapping("/member/login.do")
 	public String formLogin() {
 		return "memberLogin";
 	}
-	
+
 	//로그인 폼에 전송된 데이터 처리
 	@PostMapping("/member/login.do")
 	public String submitLogin(@Valid MemberVO memberVO, BindingResult result, HttpSession session, HttpServletResponse response) {
@@ -154,22 +155,22 @@ public class MemberController {
 			return formLogin();
 		}
 	}
-	
+
 	//========회원로그아웃
 	@RequestMapping("/member/logout.do")
 	public String processLogout(HttpSession session, HttpServletResponse response) {
-		
+
 		session.invalidate();
-		
+
 		Cookie auto_cookie = new Cookie("au-log", "");
 		auto_cookie.setMaxAge(0);//쿠키 유효기간 만료
 		auto_cookie.setPath("/");
-		
+
 		response.addCookie(auto_cookie);
-		
+
 		return "redirect:/main/main.do";
 	}
-	
+
 	//관리자 페이지
 	@RequestMapping("/main/admin.do")
 	public String adminMain(Model model) {
@@ -177,40 +178,82 @@ public class MemberController {
 		map.put("start", 1);
 		map.put("end", 5);
 		List<MemberVO> memberList = memberService.selectList(map);
-		
+
 		model.addAttribute("memberList", memberList);
-				
+
 		return "admin";
 	}
-	
+
 	//아이디 찾기
 	@GetMapping("/member/search_id.do")
 	public String search_id(HttpServletRequest request, Model model,
-	        MemberVO memberVO) {
-	    
-	    return "search_id";
+			MemberVO memberVO) {
+
+		return "search_id";
 	}
-	
+
 	@RequestMapping("/member/search_result_id.do")
 	public String search_result_id(HttpServletRequest request, Model model,
-	    @RequestParam(required = true, value = "mem_name") String mem_name, 
-	    @RequestParam(required = true, value = "mem_phone") String mem_phone,
-	    MemberVO memberVO) {
-	 
-	try {
-	    
-	    memberVO.setMem_name(mem_name);
-	    memberVO.setMem_phone(mem_phone);
-	    MemberVO memberSearch = memberService.memberIdSearch(memberVO);
-	    
-	    model.addAttribute("memberVO", memberSearch);
-	 
-	} catch (Exception e) {
-	    System.out.println(e.toString());
-	    model.addAttribute("msg", "오류가 발생되었습니다.");
+			@RequestParam(required = true, value = "mem_name") String mem_name, 
+			@RequestParam(required = true, value = "mem_phone") String mem_phone,
+			MemberVO memberVO) {
+
+		try {
+
+			memberVO.setMem_name(mem_name);
+			memberVO.setMem_phone(mem_phone);
+			MemberVO memberSearch = memberService.memberIdSearch(memberVO);
+
+			model.addAttribute("memberVO", memberSearch);
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			model.addAttribute("msg", "오류가 발생되었습니다.");
+		}
+
+		return "search_result_id";
 	}
-	 
-	return "search_result_id";
+
+	// ==================== 프로필 사진 출력(로그인 전용) ====================
+	@RequestMapping("/member/photoView.do")
+	public String getProfile(HttpSession session, HttpServletRequest request, Model model) {
+		MemberVO user = (MemberVO)session.getAttribute("user"); // 세션에 저장돼 있는 자바빈 호출
+
+		logger.debug("<<photoView>> : " + user);
+
+		if(user==null) { // 시간이 만료돼서 로그아웃이 된 상태일 때 이미지가 깨지면 적용될 코드
+			byte[] readbyte = FileUtil.getBytes(request.getServletContext().getRealPath("/image_bundle/face.png"));
+			// 이미지 뷰에서 읽을 수 있게 (속성명, 속성값) 셋팅
+			model.addAttribute("imageFile", readbyte);
+			model.addAttribute("filename", "face.png");
+		}else {
+			MemberVO memberVO = memberService.selectMember(user.getMem_num()); // selectMember : 한 건의 레코드를 읽어온다.
+			viewProfile(memberVO, request, model); // 뷰 프로필에서 정보 처리
+		}
+
+		return "imageView"; // 바이트 배열형태로 출력된 이미지를 화면에 표시
 	}
-	
+
+	// 프로필 사진 출력(회원번호 지정)
+	@RequestMapping("/member/viewProfile.do")
+	public String getProfileByMem_num(@RequestParam int mem_num, HttpSession session, 
+			HttpServletRequest request, Model model) {
+		MemberVO memberVO = memberService.selectMember(mem_num);
+		viewProfile(memberVO, request, model);
+
+		return "imageView";
+	}
+
+	// 프로필 사진 처리를 위한 공통 코드 : 모든 곳에서의 이미지 처리
+	public void viewProfile(MemberVO memberVO, HttpServletRequest request, Model model) {
+		if(memberVO==null || memberVO.getMem_photo_name()==null) { // 프로필 사진을 변경하지 않았다. = 프로필 사진을 업로드하지 않았을 경우 = 기본 이미지를 보여준다.
+			byte[] readbyte = FileUtil.getBytes(request.getServletContext().getRealPath("/image_bundle/face.png"));
+			// 이미지 뷰에서 읽을 수 있게 (속성명, 속성값) 셋팅
+			model.addAttribute("imageFile", readbyte);
+			model.addAttribute("filename", "face.png");
+		}else { // 프로필 사진을 변경했다. = 프로필 사진을 업로드 했을 경우
+			model.addAttribute("imageFile", memberVO.getMem_photo());
+			model.addAttribute("filename", memberVO.getMem_photo_name());
+		}
+	}
 }

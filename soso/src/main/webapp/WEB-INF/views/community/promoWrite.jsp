@@ -19,6 +19,11 @@
 		});
 	});
 </script>
+<style> /* 밑으로 드랍다운 했을 때, option 텍스트가 안 보이게 설정 */
+	select option[value=""][disabled]{
+	display:none;
+	}
+</style>
 <!-- 글작성 영역 시작 -->
 <div class="community-page-main">
 
@@ -51,29 +56,26 @@
 			</li>
 			<li>
 				<label>스터디명</label>
-				
-				<select onchange="selectBoxChange(this.value)" id="studyNum" class="studyNum" name="studyNum">
+				<select id="studyNum" class="studyNum" name="studyNum" onchange="changePormoSelect()" required>
 					<option value="" disabled selected>참여 스터디</option>
 						<c:forEach var="study" items="${studyList}">
 						<option value="${study.stc_num}">
-							${study.stc_num} &nbsp;｜&nbsp; ${study.stc_title} &nbsp;｜&nbsp; ${study.stc_state}
+							${study.stc_num} &nbsp;｜&nbsp; ${study.stc_title}
 						</option>
 						</c:forEach>
 				</select>
-				<span style="color:gray">&nbsp;참여 스터디가 없으면 홍보글을 작성할 수 없습니다.</span><br>
-				<!-- 원래 id="changeName" -->
-				<form:input path="promo_stc_name" id="changeName" class="insert-studyName" width="500px" placeholder="홍보할 스터디명을 선택해주세요." readonly="true"/>
-				<form:input path="promo_stc_num" id="changeNum" class="insert-studyName" width="500px" placeholder="홍보할 스터디 번호를 선택해주세요." readonly="true"/>
-				<form:input path="promo_stc_status" id="changeStatus" class="insert-studyName" width="500px" placeholder="홍보할 스터디 상태(모집중 혹은 모집완료)를 선택해주세요." readonly="true"/>
-				<script type="text/javascript">
-					var selectBoxChange = function(value){
-						console.log("값변경테스트 : " + value);
-						$('#changeName').val(value);
-						$('#changeNum').val(value);
-						$('#changeStatus').val(value);
-					}
+				<span style="color:gray">&nbsp;첨여 스터디가 모집중이 아니라면 홍보글을 작성할 수 없습니다.</span><br>
+				<script>
+				function changePormoSelect(){
+				    var promoSelect = document.getElementById("studyNum");
+				     
+				    // select element에서 선택된 option의 value가 저장된다.
+				    var selectValue = langSelect.options[promoSelect.selectedIndex].value;
+				 
+				    // select element에서 선택된 option의 text가 저장된다.
+				    var selectText = langSelect.options[promoSelect.selectedIndex].text;
+				}
 				</script>
-				
 			</li>
 			<li>
 				<label for="promo_title">제목</label>

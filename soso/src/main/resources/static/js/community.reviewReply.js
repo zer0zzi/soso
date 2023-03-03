@@ -93,7 +93,7 @@ $(function(){
 					output += '</ul>'; // end of .detail-info
 					output += '<div class="sub-item">';
 					output += '<p>' + item.vre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
-					output += ' <input type="button" data-num="' + item.vre_num + '" value="댓글" class="re-btn">';
+					/*output += ' <input type="button" data-num="' + item.vre_num + '" value="댓글" class="re-btn">';*/
 					if(param.user_num==item.mem_num){
 						output += ' <input type="button" data-num="' + item.vre_num + '" value="수정" class="modify-btn">';
 						output += ' <input type="button" data-num="' + item.vre_num + '" value="삭제" class="delete-btn">';

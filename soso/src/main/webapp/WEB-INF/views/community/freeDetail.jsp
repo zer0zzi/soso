@@ -41,6 +41,10 @@
 		<hr size="1" width="100%">
 	</div>
 	
+	<p>
+		${free.free_content}
+	</p>
+	
 	<!-- filename의 끝부분에 .jpg가 있으면 true를 반환해서 이미지를 시각적으로 보여준다. -->
 	<c:if test="${fn:endsWith(free.free_filename,'.jpg') || fn:endsWith(free.free_filename,'.JPG') ||
 				  fn:endsWith(free.free_filename,'.jpeg') || fn:endsWith(free.free_filename,'.JPEG') ||
@@ -51,10 +55,6 @@
 		<img src="imageView.do?free_num=${free.free_num}&free_type=2" class="detail-img">
 	</div>
 	</c:if>
-	
-	<p>
-		${free.free_content}
-	</p>
 	
 	<c:if test="${!empty free.free_filename}">
 	첨부파일 : <a href="freeFile.do?free_num=${free.free_num}">${free.free_filename}</a>
