@@ -171,19 +171,28 @@ public class StudyController {
 		Map<String,Object> mapJson = new HashMap<String,Object>();
 
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		
 		if(user==null) {
 			mapJson.put("result", "logout");
 		}else {
 			//로그인된 회원번호 셋팅
 			signupVO.setMem_num(user.getMem_num());
+
+			logger.debug("<<신청하기0>> : " + signupVO);
+			
+			StudySignupVO studySignup = studyService.selectSignup(signupVO);
+			if(studySignup!=null) {
+				//이미 신청했으면 거부
+				mapJson.put("result", "aleadySigned");
+			}else {
+			//로그인된 회원번호 셋팅
+			signupVO.setMem_num(user.getMem_num());
 			
 			logger.debug("<<신청하기1>> : " + signupVO);
-
-			StudySignupVO studySignup = studyService.selectSignup(signupVO);
 			
 			studyService.insertSignup(signupVO);
 			mapJson.put("result", "success");
-			
+			}
 		}
 		return mapJson;
 	}

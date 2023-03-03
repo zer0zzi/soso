@@ -51,12 +51,15 @@ $(function(){
 				}else if(param.result == 'aleadySigned'){
 					alert('이미 신청한 스터디입니다.');
 					location.href='../member/myPage.do';
-				}else{
+				}else if(param.result == 'first'){
 					//폼 초기화
 					initForm();
 					//등록된 데이터가 표시될 수 있도록 
 					//목록 갱신
 					selectList(1);
+				}else{
+					alert('기타 네트워크 오류 발생');
+					return false;
 				}
 			},
 			error:function(){
@@ -102,6 +105,9 @@ $(function(){
 			success:function(param){
 				if(param.result == 'success'){
 					alert('신청 성공');
+				}else if(param.result == 'aleadySigned'){
+					alert('이미 신청한 스터디입니다.');
+					location.href='../member/myPage.do';
 				}else{
 					alert('신청에 오류 발생');
 				}
