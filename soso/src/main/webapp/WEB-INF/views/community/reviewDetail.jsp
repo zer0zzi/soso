@@ -8,6 +8,9 @@
 <script src="${pageContext.request.contextPath}/js/community.reviewReply.js"></script>
 <!-- 자유 글상세 시작 -->
 <div class="community-page-main-detail">
+	<c:if test="${review.review_fixed==1}">
+	<span style="color:red">공지사항</span>
+	</c:if>
 	<ul class="community-detail-member">
 		<li class="review-profile">
 			<c:if test="${!empty review.mem_photo_name}">

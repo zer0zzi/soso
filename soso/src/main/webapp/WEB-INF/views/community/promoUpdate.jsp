@@ -47,6 +47,7 @@
 				</c:if>
 				<input type="text" value="${user.mem_nick} ( ${user.mem_id} )" class="insert-id" readonly/>
 			</li>
+			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>
 				<select id="studyNum" class="studyNum" name="studyNum" required>
@@ -59,6 +60,7 @@
 				</select>
 				<span style="color:gray">&nbsp;참여 스터디가 모집중이 아니라면 홍보글을 수정할 수 없습니다.</span><br>
 			</li>
+			</c:if>
 			<li>
 				<label for="promo_title">제목</label>
 				<form:input path="promo_title" class="insert-title"/>
@@ -66,15 +68,19 @@
 				<form:errors path="promo_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label>모집 여부</label>
 				<c:if test="${!empty user && user.mem_auth==9}">
 				<form:hidden path="promo_status" value="0"/>
 				</c:if>
+			</li>
+			<c:if test="${!empty user && user.mem_auth<9}">
+			<li>
+				<label>모집 여부</label>
 				<c:if test="${!empty user && user.mem_auth<9}">
 				<form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
 				<form:radiobutton path="promo_status" value="2" id="status2"/>모집완료
 				</c:if>
 			</li>
+			</c:if>
 			<li>
 				<label for="promo_content">본문</label>
 				<form:textarea path="promo_content" class="insert-content"/>

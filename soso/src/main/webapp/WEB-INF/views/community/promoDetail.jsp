@@ -14,7 +14,9 @@
 </script>
 <!-- 홍보 글상세 시작 -->
 <div class="community-page-main-detail">
-	
+	<c:if test="${promo.promo_fixed==1}">
+	<span style="color:red">공지사항</span>
+	</c:if>
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty promo.mem_photo_name}">
@@ -49,11 +51,13 @@
 	<div class="community-page-main-detail-content">
 	<h2>${promo.promo_title}</h2>
 	
+	<c:if test="${promo.promo_fixed==2}">
 	<p>
 		(스터디 소개 페이지 : 
 		<a href="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" target="_blank" style="color:#969CE4"><b>클릭 시 이동</b></a>
 		)
 	</p>
+	</c:if>
 	
 	<div class="hr">
 		<hr size="1" width="100%">
