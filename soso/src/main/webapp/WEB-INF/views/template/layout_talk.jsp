@@ -9,18 +9,19 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body id="main">
-	<div id="main_header">
-		<tiles:insertAttribute name="header"/>
-	</div>
-	<div id="main_body">
-		<tiles:insertAttribute name="body"/>
-	</div>
-	<div id="main_footer">
-		<tiles:insertAttribute name="footer"/>
-	</div>
+   <div id="main_header">
+      <tiles:insertAttribute name="header"/>
+   </div>
+   <div class="main_content" style="width: 1024px; margin: 0 auto;">
+      <div id="main_list" style="float: left; width: 34%;">
+      <tiles:insertAttribute name="list"/>
+      </div>
+      <div id="main_body" style="float: right; width: 65%;">
+         <tiles:insertAttribute name="body"/>
+      </div>
+   </div>
+   <div id="main_footer" style="clear: both;">
+      <tiles:insertAttribute name="footer"/>
+   </div>
 </body>
 </html>
-
-
-
-

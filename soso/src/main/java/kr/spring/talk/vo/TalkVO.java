@@ -7,9 +7,49 @@ public class TalkVO {
 	private String message;
 	private String chat_date;
 	
+	
 	private int read_count;
 	private String mem_id;
 	
+	
+	//
+	private int room_cnt;
+	private String talkroom_name;
+	private TalkVO talkVO;
+	private String talkroom_date;
+	private int[] members;
+	
+	public String getTalkroom_name() {
+		return talkroom_name;
+	}
+	public void setTalkroom_name(String talkroom_name) {
+		this.talkroom_name = talkroom_name;
+	}
+	public int getRoom_cnt() {
+		return room_cnt;
+	}
+	public void setRoom_cnt(int room_cnt) {
+		this.room_cnt = room_cnt;
+	}
+	public TalkVO getTalkVO() {
+		return talkVO;
+	}
+	public void setTalkVO(TalkVO talkVO) {
+		this.talkVO = talkVO;
+	}
+	public String getTalkroom_date() {
+		return talkroom_date;
+	}
+	public void setTalkroom_date(String talkroom_date) {
+		this.talkroom_date = talkroom_date;
+	}
+	public int[] getMembers() {
+		return members;
+	}
+	public void setMembers(int[] members) {
+		this.members = members;
+	}
+	//
 	public int getTalk_num() {
 		return talk_num;
 	}

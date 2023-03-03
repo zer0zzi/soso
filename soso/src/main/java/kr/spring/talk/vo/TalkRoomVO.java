@@ -3,6 +3,7 @@ package kr.spring.talk.vo;
 import java.util.Arrays;
 
 public class TalkRoomVO {
+	
 	private int talkroom_num;
 	private String talkroom_name;
 	private String talkroom_date;
@@ -11,6 +12,47 @@ public class TalkRoomVO {
 	private int room_cnt;
 	private int[] members;
 	private TalkVO talkVO;
+	
+	
+	/*
+	private int talk_num;
+	private String message;
+	private String chat_date;
+	private int read_count;
+	private String mem_id;
+	
+	public int getTalk_num() {
+		return talk_num;
+	}
+	public void setTalk_num(int talk_num) {
+		this.talk_num = talk_num;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getChat_date() {
+		return chat_date;
+	}
+	public void setChat_date(String chat_date) {
+		this.chat_date = chat_date;
+	}
+	public int getRead_count() {
+		return read_count;
+	}
+	public void setRead_count(int read_count) {
+		this.read_count = read_count;
+	}
+	public String getMem_id() {
+		return mem_id;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
+	*/
+	
 	
 	public int getTalkroom_num() {
 		return talkroom_num;

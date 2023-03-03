@@ -1,23 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 채팅하기 시작 -->
 <script type="text/javascript"src="${pageContext.request.contextPath}/js/message.js"></script>
 <link rel="stylesheet"href="${pageContext.request.contextPath}/css/talk/talk.css">
 <!-- 채팅목록 시작 -->
 <div class="page-main-talk">
 <div id="talkDetail" class="talk">
-   <div class="text-align-center"><span class="talk-title" onclick="location.href='talkList.do'">SoSoTalk</span></div> 	
-			<div class="chat-name">
+<div class="talklist-head">&nbsp;${fn:substring(talkRoomVO.talkroom_name,0,25)}</div>
+			<%-- <div class="chat-name">
 				<div class="chat-name-right"><b>${talkRoomVO.talkroom_name}</b></div>				
-			</div>
+			</div> --%>
 			<div class="chat-members-left">
-				채팅 멤버<c:forEach var="talkVO" items="${list}" varStatus="status">										
+				채팅 멤버<c:forEach var="talkVO" items="${list2}" varStatus="status">										
 					<c:if test="${status.last}">(${status.count})</c:if>
 				</c:forEach>
 			</div>
 			<div class="chat-members">
-				<c:forEach var="talkVO" items="${list}" varStatus="status">					
+				<c:forEach var="talkVO" items="${list2}" varStatus="status">					
 					<c:if test="${status.index >0}">, </c:if>
 					${talkVO.mem_id}
 				</c:forEach>
