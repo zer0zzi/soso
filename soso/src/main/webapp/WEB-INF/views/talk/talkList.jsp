@@ -6,11 +6,12 @@
 <!-- 채팅목록 시작 -->
 <div class="page-main-talk">
 <div class="talk">
-<div class="talklist-head">&nbsp;sosotalk</div>
+<div class="talklist-head">&nbsp;Sosotalk</div>
 	<form action="talkList.do" id="search_form" method="get">
       <div class="search">
         <input type="search" name="keyword" id="keyword" value="${param.keyword}" class="search-bar" placeholder="search">
-      	<input type="submit" value="go" class="search-btn">
+<!--       	<input type="submit" value="go" class="search-btn"> -->
+		<img src="">
       </div>                                
    </form>
    <c:if test="${empty list}">
@@ -42,7 +43,6 @@
       </c:forEach>
    </div>
    </c:if>
-   <hr size="5" width="100%" color="#7a81d6">
 <div class="talklist-mypage-btn">
    	<input type="button" value="New Talk" class="bottom-btn" onclick="location.href='talkList.do'">
 <!--    	<input type="button" value="My Page" class="bottom-btn" onclick="location.href='talkList.do'">   	

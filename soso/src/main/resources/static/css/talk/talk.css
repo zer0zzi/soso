@@ -12,6 +12,10 @@
     font-weight: normal;
     font-style: normal;
 }
+*{
+    font-family:  'NEXON Lv1 Gothic OTF';
+}
+
 .text-align-center{
 	text-align: center;
 	margin-top: 10px;
@@ -35,6 +39,7 @@ talkList
     background-color: #aaaee6;
     color: white;
     overflow: hidden;
+    font-size: 15px;
 }
 .page-top-line{
 	width: 100%;
@@ -81,28 +86,33 @@ form{
 form#search_form {
     border: none;
 }
-.search-bar{
-	width: 220px;
+.search-bar {
+    width: 220px;
+    border-radius: 10px;
+    padding-left: 12px;
 }
 .search {
     text-align: center;
     margin-bottom: 5px;
     width: 330px;
     margin: 0 auto;
-    border: 1px solid black;
+/*     border: 1px solid black; */
+	margin-top: 11px;
 }
 .talklist-list{
 	/* border:1px solid black; *//* 임시 */
-	height: 420px;
+	height: 455px;
     margin-top: 15px;
 	overflow: auto;
 	padding-right: 5px;
+	border-bottom: 5px solid #7a81d6;
 }
-.talklist-box{
-	/* border:1px solid black; *//* 임시 */
-	height: 50px;
-	overflow: hidden;
-	cursor: pointer;
+.talklist-box {
+    /* border: 1px solid black; */
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 15px;
 }
 .talklist-box:hover{
 	background-color: #ebf7ff;
@@ -145,30 +155,36 @@ form#search_form {
     border-color: buttonborder;
     border-image: initial;
 }
-.talklist-mypage-btn{
-	text-align: center;
+.talklist-mypage-btn {
+    text-align: center;
+    height: 67px;
+    background-color: aliceblue;
 }
-input.search-btn{
-	width: 40px;
-	height: 34px;
-	border: none;
-	border-radius:7px;
-	color:white;
-	cursor: pointer;
+input.search-btn {
+    width: 30px;
+    height: 22px;
+    border: none;
+    border-radius: 100px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
 }
 .search-btn:hover{
 	transform:scale(1.1);
 }
-.bottom-btn{
-	width: 200px;
-	height: 50px;
-	background-color: #969ce4;
-	border: none;
-	border-radius:7px;
-	color:white;
-	margin: 0 12px 0 12px;
-	cursor: pointer;
-	font-size: 20px;
+.bottom-btn {
+    width: 200px;
+    height: 50px;
+    background-color: #969ce4;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    /* margin: 0 12px 0 12px; */
+    /* margin: 0 auto; */
+    margin-top: 7px;
+    cursor: pointer;
+    font-size: 20px;
 }
 .bottom-btn:hover{
 	transform:scale(1.1);
@@ -215,7 +231,7 @@ talkDetail
     /* border: 1px solid black; */
     float: left;
     width: 58%;
-    height: 22px;
+    height: 19px;
     overflow: auto;
     font-weight: bolder;
     color: dimgray;
@@ -233,31 +249,41 @@ talkDetail
 	cursor: pointer;
 }
 .chat-exit:hover{
-	color:#7981e8;
+	color: #5c66ff;
 	font-weight: bolder;
-	transform:scale(1.1);
+	text-decoration: underline;
+	/* transform:scale(1.1); */
 }
 .chatdate-right{
 	text-align: right;
 	font-size: 12px;	
 	color:white;
 }
-.chatting_message_bottom{
-	height: 70px;
-	width: 430px;
-	resize: none;
-	margin-top: 3px;
+.chatting_message_bottom {
+    height: 40px;
+    width: 500px;
+    /* text-align: center; */
+    resize: none;
+    margin-top: 3px;
     margin-left: 3px;
     border: none;
     border-right: 3px solid lightgray;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-left: 70px;
+    /* margin: 0 auto; */
 }
 .chatting_message_bottom:focus{
 	outline: none;
 }
-.chatform-bottom{
-	padding:0px;
-	margin: 0px;	
-	height: 90px;
+.chatform-bottom {
+    padding: 0px;
+    margin: 0px;
+    height: 66px;
+    width: 661px;
+    text-align: center;
+    background-color: aliceblue;
 }
 .chatform-bottom li{
 	display: inline-block;
@@ -275,11 +301,11 @@ talkDetail
 	transform:scale(1.1);
 }
 .chatread-count{
-	color:#f56767;
+	color:yellow;
 	font-weight: bolder;
 }
 .chat-submit-btn-box{
-	height: 80px;
+	/* height: 80px; */
 }
 /*----------------------------
 스크롤바
@@ -341,8 +367,8 @@ talkDetail
 }
 /*////////////////////////////////////////////////////*/
 #chatting_message{
-	border-bottom: 3px solid lightgray;
-	height:360px;
+	border-bottom: 5px solid #7a81d6;
+	height:450px;
 	margin:0 auto;
 	padding:10px;
 	overflow:auto;

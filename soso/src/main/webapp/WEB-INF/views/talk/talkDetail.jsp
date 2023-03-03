@@ -34,11 +34,11 @@
 				<ul class="chatform-bottom">
 					<li>
 						<label for="message"></label> 
-						<textarea rows="5"cols="40" name="message" id="message" class="chatting_message_bottom"></textarea> 
+						<textarea rows="5"cols="40" name="message" id="message" class="chatting_message_bottom" placeholder="메세지를 입력하세요"></textarea> 
 					</li>
 					<li>
 					<div class="chat-submit-btn-box">
-						<input type="submit" value="전송" class="chat-submit-btn">
+						<input type="submit" value="Go" class="chat-submit-btn">
 					</div>	
 					</li>
 				</ul>
