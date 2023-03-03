@@ -214,46 +214,4 @@ public class MemberController {
 		return "search_result_id";
 	}
 
-	// ==================== 프로필 사진 출력(로그인 전용) ====================
-	@RequestMapping("/member/photoView.do")
-	public String getProfile(HttpSession session, HttpServletRequest request, Model model) {
-		MemberVO user = (MemberVO)session.getAttribute("user"); // 세션에 저장돼 있는 자바빈 호출
-
-		logger.debug("<<photoView>> : " + user);
-
-		if(user==null) { // 시간이 만료돼서 로그아웃이 된 상태일 때 이미지가 깨지면 적용될 코드
-			byte[] readbyte = FileUtil.getBytes(request.getServletContext().getRealPath("/image_bundle/face.png"));
-			// 이미지 뷰에서 읽을 수 있게 (속성명, 속성값) 셋팅
-			model.addAttribute("imageFile", readbyte);
-			model.addAttribute("filename", "face.png");
-		}else {
-			MemberVO memberVO = memberService.selectMember(user.getMem_num()); // selectMember : 한 건의 레코드를 읽어온다.
-			viewProfile(memberVO, request, model); // 뷰 프로필에서 정보 처리
-		}
-
-		return "imageView"; // 바이트 배열형태로 출력된 이미지를 화면에 표시
-	}
-
-	// 프로필 사진 출력(회원번호 지정)
-	@RequestMapping("/member/viewProfile.do")
-	public String getProfileByMem_num(@RequestParam int mem_num, HttpSession session, 
-			HttpServletRequest request, Model model) {
-		MemberVO memberVO = memberService.selectMember(mem_num);
-		viewProfile(memberVO, request, model);
-
-		return "imageView";
-	}
-
-	// 프로필 사진 처리를 위한 공통 코드 : 모든 곳에서의 이미지 처리
-	public void viewProfile(MemberVO memberVO, HttpServletRequest request, Model model) {
-		if(memberVO==null || memberVO.getMem_photo_name()==null) { // 프로필 사진을 변경하지 않았다. = 프로필 사진을 업로드하지 않았을 경우 = 기본 이미지를 보여준다.
-			byte[] readbyte = FileUtil.getBytes(request.getServletContext().getRealPath("/image_bundle/face.png"));
-			// 이미지 뷰에서 읽을 수 있게 (속성명, 속성값) 셋팅
-			model.addAttribute("imageFile", readbyte);
-			model.addAttribute("filename", "face.png");
-		}else { // 프로필 사진을 변경했다. = 프로필 사진을 업로드 했을 경우
-			model.addAttribute("imageFile", memberVO.getMem_photo());
-			model.addAttribute("filename", memberVO.getMem_photo_name());
-		}
-	}
 }
