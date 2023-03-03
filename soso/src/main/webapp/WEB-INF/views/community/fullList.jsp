@@ -48,20 +48,6 @@
 					<c:if test="${!empty free.mem_photo_name}">
 					<img src="${pageContext.request.contextPath}/member/viewProfile.do?mem_num=${free.mem_num}" width="25" height="25" class="my-photo">
 					</c:if>
-					<%-- <c:if test="${free.tblName=='자유'}">
-					<c:if test="${!empty free.mem_photo_name}">
-					<img src="imageView.do?free_num=${free.free_num}&free_type=1" width="25" height="25" class="my-photo">
-					</c:if>
-					</c:if>
-					<c:if test="${free.tblName=='홍보'}">
-					<img src="imageView.do?promo_num=${free.free_num}&free_type=1" width="25" height="25" class="my-photo">
-					</c:if>
-					<c:if test="${free.tblName=='후기'}">
-					<img src="imageView.do?review_num=${free.free_num}&free_type=1" width="25" height="25" class="my-photo">
-					</c:if>
-					<c:if test="${empty free.mem_photo_name}">
-					<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
-					</c:if> --%>
 					</span>
 					
 					<span class="left-id">

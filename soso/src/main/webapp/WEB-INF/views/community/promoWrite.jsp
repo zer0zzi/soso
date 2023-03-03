@@ -54,6 +54,7 @@
 					<option value="reviewWrite.do">후기게시판</option>
 				</select>
 			</li>
+			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>
 				<select id="studyNum" class="studyNum" name="studyNum" onchange="changePormoSelect()" required>
@@ -65,18 +66,8 @@
 						</c:forEach>
 				</select>
 				<span style="color:gray">&nbsp;첨여 스터디가 모집중이 아니라면 홍보글을 작성할 수 없습니다.</span><br>
-				<script>
-				function changePormoSelect(){
-				    var promoSelect = document.getElementById("studyNum");
-				     
-				    // select element에서 선택된 option의 value가 저장된다.
-				    var selectValue = langSelect.options[promoSelect.selectedIndex].value;
-				 
-				    // select element에서 선택된 option의 text가 저장된다.
-				    var selectText = langSelect.options[promoSelect.selectedIndex].text;
-				}
-				</script>
 			</li>
+			</c:if>
 			<li>
 				<label for="promo_title">제목</label>
 				<form:input path="promo_title" class="insert-title"/>

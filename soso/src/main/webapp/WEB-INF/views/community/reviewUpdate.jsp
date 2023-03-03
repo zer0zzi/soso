@@ -61,18 +61,18 @@
 				<select id="studyName" class="studyName" name="studyName" required>
 					<option value="" disabled selected>참여 스터디</option>
 					<c:forEach var="study" items="${studyList}">
-						<option>${study.stc_title}</option>
+						<option <c:if test="${study.stc_title==reviewVO.studyName}">selected</c:if>>${study.stc_title}</option>
 					</c:forEach>
 				</select>
 				<span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 수정할 수 없습니다.</span>
 			</li>
+			</c:if>
 			<li>
 				<label for="review_title">제목</label>
 				<form:input path="review_title" class="insert-title"/>
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<form:errors path="review_title" cssClass="error-color"/>
 			</li>
-			</c:if>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>평점</label>
