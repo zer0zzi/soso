@@ -28,7 +28,7 @@
 			<input type="hidden" name="review_fixed" id="review_fixed" value="${review.review_fixed}">
 			<table class="full-class">
 				<tr class="full-item">
-					<td>공지사항</td>
+					<td style="color:red">공지사항</td>
 				</tr>
 				<tr>
 					<td style="text-align:left;">

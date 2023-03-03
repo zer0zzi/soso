@@ -83,14 +83,23 @@ public class TalkController {
 	}	
 	//=========채팅 메시지 페이지 호출==========//
 	@RequestMapping("/talk/talkDetail.do")
-	public String chatDetail(@RequestParam int talkroom_num, Model model) {
+	public String chatDetail( String keyword, HttpSession session,@RequestParam int talkroom_num, Model model) {
 		
 		TalkRoomVO talkRoomVO = talkService.selectTalkRoom(talkroom_num);
-		List<TalkVO> list = talkService.selectTalkMember(talkroom_num);
+		List<TalkVO> list2 = talkService.selectTalkMember(talkroom_num);
 		
 		model.addAttribute("talkRoomVO",talkRoomVO);
-		model.addAttribute("list", list);
+		model.addAttribute("list2", list2);
 		
+		
+		//== 채팅리스트읽기==//
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("keyword", keyword);
+		map.put("mem_num", user.getMem_num());
+
+		List<TalkRoomVO> list = talkService.selectTalkRoomList(map);
+		model.addAttribute("list", list);
 		return "talkDetail";
 	}
 	

@@ -5,12 +5,12 @@
 <!-- 채팅방 생성 시작 -->
 <div class="page-main-talk">    
 <div class="talk">
-   <div class="text-align-center"><span class="talk-title2" onclick="location.href='talkList.do'">SoSoTalk</span></div>
+<div class="talklist-head">&nbsp;Make a room</div>
    <div class="talk-make-body">
 	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"
 		 data-id="${user.mem_id}" value="${user.mem_num}">
-		<div class="makeroom-word">Make a room</div>
+		<div class="makeroom-word">방 만들기</div>
 		<div class="make-nameNmem">
 			<div class="inputform-a">
 				<input type="text" name="talkroom_name" id="talkroom_name" class="inputform" autocomplete="off" placeholder="Room Name">

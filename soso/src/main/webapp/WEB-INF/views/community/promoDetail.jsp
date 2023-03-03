@@ -32,7 +32,7 @@
 			<c:if test="${promo.promo_status==2}">모집완료</c:if>
 			</b></span>
 			
-			<input type="button" id="promo_faq" value="1:1문의하기">
+			<!-- <input type="button" id="promo_faq" value="1:1문의하기"> -->
 			<br>
 			<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
 			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
@@ -49,9 +49,19 @@
 	<div class="community-page-main-detail-content">
 	<h2>${promo.promo_title}</h2>
 	
+	<p>
+		(스터디 소개 페이지 : 
+		<a href="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" target="_blank" style="color:#969CE4"><b>클릭 시 이동</b></a>
+		)
+	</p>
+	
 	<div class="hr">
 		<hr size="1" width="100%">
 	</div>
+	
+	<p>
+		${promo.promo_content}
+	</p>
 		
 	<c:if test="${fn:endsWith(promo.promo_filename,'.jpg') || fn:endsWith(promo.promo_filename,'.JPG') ||
 				  fn:endsWith(promo.promo_filename,'.jpeg') || fn:endsWith(promo.promo_filename,'.JPEG') ||
@@ -62,10 +72,6 @@
 		<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=2" class="detail-img">
 	</div>
 	</c:if>
-	
-	<p>
-		${promo.promo_content}
-	</p>
 	
 	<c:if test="${!empty promo.promo_filename}">
 	첨부파일 : <a href="file.do?promo_num=${promo.promo_num}">${promo.promo_filename}</a>

@@ -58,20 +58,13 @@
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>
-				<select id="studyName" class="studyName" name="studyName">
+				<select id="studyName" class="studyName" name="studyName" required>
 					<option value="" disabled selected>참여 스터디</option>
 					<c:forEach var="study" items="${studyList}">
-						<option value="${studyName}">${study.stc_title}</option>
+						<option>${study.stc_title}</option>
 					</c:forEach>
 				</select>
-				<%-- <span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 작성할 수 없습니다.</span><br>
-				<form:input path="review_stc_name" id="changeInput" class="insert-studyName"/>
-				<script type="text/javascript">
-					var selectBoxChange = function(value){
-						console.log("값변경테스트 : " + value);
-						$('#changeInput').val(value);
-					}
-				</script> --%>
+				<span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 수정할 수 없습니다.</span>
 			</li>
 			<li>
 				<label for="review_title">제목</label>

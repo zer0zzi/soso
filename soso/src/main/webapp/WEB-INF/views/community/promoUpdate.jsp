@@ -19,6 +19,11 @@
 		});
 	});
 </script>
+<style> /* 밑으로 드랍다운 했을 때, option 텍스트가 안 보이게 설정 */
+	select option[value=""][disabled]{
+	display:none;
+	}
+</style>
 <!-- 홍보 글수정 시작 -->
 <div class="community-page-main">
 
@@ -41,6 +46,18 @@
 				<c:if test="${!empty user.mem_nick}">
 				</c:if>
 				<input type="text" value="${user.mem_nick} ( ${user.mem_id} )" class="insert-id" readonly/>
+			</li>
+			<li>
+				<label>스터디명</label>
+				<select id="studyNum" class="studyNum" name="studyNum" required>
+					<option value="" disabled selected>참여 스터디</option>
+						<c:forEach var="study" items="${studyList}">
+						<option value="${study.stc_num}" <c:if test="${study.stc_num!=null}">selected</c:if>>
+							${study.stc_num} &nbsp;｜&nbsp; ${study.stc_title}
+						</option>
+						</c:forEach>
+				</select>
+				<span style="color:gray">&nbsp;참여 스터디가 모집중이 아니라면 홍보글을 수정할 수 없습니다.</span><br>
 			</li>
 			<li>
 				<label for="promo_title">제목</label>
