@@ -62,7 +62,16 @@ public class AppConfig implements WebMvcConfigurer{
 				.addPathPatterns("/member/delete.do")
 				.addPathPatterns("/talk/talkRoomWrite.do")
 				.addPathPatterns("/talk/talkList.do")
-				.addPathPatterns("/talk/talkDetail.do");
+				.addPathPatterns("/talk/talkDetail.do")
+				.addPathPatterns("/community/freeWrite.do")
+				.addPathPatterns("/community/freeUpdate.do")
+				.addPathPatterns("/community/freeDelete.do")
+				.addPathPatterns("/community/promoWrite.do")
+				.addPathPatterns("/community/promoUpdate.do")
+				.addPathPatterns("/community/promoDelete.do")
+				.addPathPatterns("/community/reviewWrite.do")
+				.addPathPatterns("/community/reviewUpdate.do")
+				.addPathPatterns("/community/reviewDelete.do");
 				//.addPathPatterns("/board/write.do")
 				//.addPathPatterns("/board/update.do")
 				//.addPathPatterns("/board/delete.do")
