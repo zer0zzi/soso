@@ -33,6 +33,12 @@
     	<put-attribute name="body"
     	  value="/WEB-INF/views/group/groupNoticeDetail.jsp"/>        
     </definition>
+    <definition name="noticeModify" extends="groupMain">
+    	<put-attribute name="title" value="공지사항 글 수정하기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/group/groupNoticeModify.jsp"/>        
+    </definition>
+    
     
     
     
@@ -40,6 +46,11 @@
 		<put-attribute name="title" value="CalendarPage" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/group/groupCalendarMain.jsp" />       
+    </definition>
+    <definition name="calenderWrite" extends="groupMain">
+    	<put-attribute name="title" value="캘린더 일정 추가하기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/group/groupCalendarWrite.jsp"/>        
     </definition>
     
 </tiles-definitions>

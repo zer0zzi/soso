@@ -10,8 +10,7 @@
   	</select>
   	
   	
-  	<select id="selectNoticeList" parameterType="map"
-  	                         resultType="GroupNoticeVO">
+  	<select id="selectNoticeList" parameterType="map" resultType="GroupNoticeVO">
   		SELECT
   		   *
   		FROM (SELECT
@@ -24,6 +23,7 @@
   		              ]]>
   		              grp_hit,
   		              grp_filename,
+  		              grp_date,
   		              grp_mdate,
   		              stc_num
   		            FROM group_notice
@@ -32,6 +32,18 @@
   		WHERE rnum >= #{start} AND rnum <= #{end}
   		]]>
   	</select>
+  	
+  	<update id="updateNotice" parameterType="groupNoticeVO">
+  		UPDATE group_notice SET
+  		  <if test="grp_filename != ''">
+  		  grp_uploadfile=#{grp_uploadfile},
+  		  grp_filename=#{grp_filename},
+  		  </if>
+  		  grp_title=#{grp_title},
+  		  grp_content=#{grp_content},
+  		  grp_mdate=SYSDATE
+  		WHERE grp_num=#{grp_num}  
+  	</update>
   	
 </mapper>
 

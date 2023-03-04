@@ -15,7 +15,26 @@
 input[type=radio] {
     accent-color: #969ce4;
 }
-
+.non-cursor{
+	cursor:default;
+}
+.width-content{
+	width:100% !important;
+}
+[type="button"]:not(:disabled), .btn-width{
+	width: 150px !important;
+}
+.two-button{
+	margin:0 auto;
+	width: 500px !important;
+	border:none !important;
+}
+.button1{
+	float: left;
+}
+.button2{
+	float: right;
+}
 
 
 

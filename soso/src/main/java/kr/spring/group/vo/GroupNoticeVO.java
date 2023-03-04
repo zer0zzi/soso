@@ -4,13 +4,17 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.Arrays;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class GroupNoticeVO {
 
 	
 	private int grp_num;
+	@NotEmpty
 	private String grp_title;
+	@NotEmpty
 	private String grp_content;
 	private Date grp_date;
 	private Date grp_mdate;
@@ -23,6 +27,7 @@ public class GroupNoticeVO {
 
 	
 	//파일 업로드 처리
+	//(주의)폼에서 파일업로드 파라미터네임은 반드시 upload로 지정해야 함
 	public void setUpload(MultipartFile upload)
 	                            throws IOException{
 		//MultipartFile -> byte[] 변환
