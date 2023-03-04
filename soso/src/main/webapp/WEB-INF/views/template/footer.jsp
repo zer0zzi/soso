@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header_footer/footerbootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header_footer/footer.css">
-     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header_footer/footericon.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header_footer/footericon.css">
 </head>
     <div class="footer-line"></div>
     <footer class="footer-16371">
@@ -21,7 +21,7 @@
               <a>soso</a>
             </div>
             <ul class="list-unstyled nav-links mb-5">
-            	<li><a href="${pageContext.request.contextPath}/main/main.do">홈</a></li>
+              <li><a href="${pageContext.request.contextPath}/main/main.do">홈</a></li>
               <li><a href="#">서비스</a></li>
               <li><a href="#">프로젝트</a></li>
               <li><a href="#">이용약관</a></li>

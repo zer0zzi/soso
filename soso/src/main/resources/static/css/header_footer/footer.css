@@ -28,10 +28,11 @@ a {
     font-size: 2rem;
     font-weight: 900; }
     .footer-16371 .footer-site-logo a {
-      color: #4200ff;
+      font-size: 30px;
+      color: #969ce4;
       cursor: default; }
     .footer-16371 .footer-site-logo a:hover {
-      color: #4200ff !important; }
+      color: #969ce4 !important; }
   .footer-16371 .nav-links {
     padding: 0;
     margin: 0; }
@@ -41,7 +42,7 @@ a {
         padding: 10px;
         color: #000; }
         .footer-16371 .nav-links li a:hover {
-          color: #4200ff; }
+          color: #969ce4; }
   .footer-16371 .social h3 {
     font-weight: bold;
     font-size: 18px;
