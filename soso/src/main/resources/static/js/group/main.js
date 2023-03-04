@@ -5,7 +5,7 @@
 
 
 
-	// Setup the calendar with the current date
+// Setup the calendar with the current date
 $(document).ready(function(){
     var date = new Date();
     var today = date.getDate();
@@ -13,7 +13,6 @@ $(document).ready(function(){
     $(".right-button").click({date: date}, next_year);
     $(".left-button").click({date: date}, prev_year);
     $(".month").click({date: date}, month_click);
-    $("#add-button").click({date: date}, new_event);
     // Set current month as active
     $(".months-row").children().eq(date.getMonth()).addClass("active-month");
     init_calendar(date);
@@ -51,7 +50,8 @@ function init_calendar(date) {
             row.append(curr_date);
         }   
         else {
-            var curr_date = $("<td class='table-date'>"+day+"</td>");
+            var curr_date = 
+            $("<td class='table-date'>"+day+"</td>");
             var events = check_events(day, month+1, year);
             if(today===day && $(".active-date").length===0) {
                 curr_date.addClass("active-date");
@@ -78,19 +78,20 @@ function days_in_month(month, year) {
     return (monthEnd - monthStart) / (1000 * 60 * 60 * 24);    
 }
 
+
+
+
+
+
+
+
 // Event handler for when a date is clicked
 function date_click(event) {
-    $(".events-container").show(250);
-    $("#dialog").hide(250);
-    $(".active-date").removeClass("active-date");
-    $(this).addClass("active-date");
     show_events(event.data.events, event.data.month, event.data.day);
 };
 
 // Event handler for when a month is clicked
 function month_click(event) {
-    $(".events-container").show(250);
-    $("#dialog").hide(250);
     var date = event.data.date;
     $(".active-month").removeClass("active-month");
     $(this).addClass("active-month");
@@ -101,7 +102,6 @@ function month_click(event) {
 
 // Event handler for when the year right-button is clicked
 function next_year(event) {
-    $("#dialog").hide(250);
     var date = event.data.date;
     var new_year = date.getFullYear()+1;
     $("year").html(new_year);
@@ -111,7 +111,6 @@ function next_year(event) {
 
 // Event handler for when the year left-button is clicked
 function prev_year(event) {
-    $("#dialog").hide(250);
     var date = event.data.date;
     var new_year = date.getFullYear()-1;
     $("year").html(new_year);
@@ -128,16 +127,9 @@ function new_event(event) {
     $("input").click(function(){
         $(this).removeClass("error-input");
     })
-    // empty inputs and hide events
-    $("#dialog input[type=text]").val('');
-   
-    $(".events-container").hide(250);
-    $("#dialog").show(250);
     // Event handler for cancel button
     $("#cancel-button").click(function() {
         $("#name").removeClass("error-input");
-        $("#dialog").hide(250);
-        $(".events-container").show(250);
     });
     // Event handler for ok button
     $("#ok-button").unbind().click({date: event.data.date}, function() {
@@ -149,7 +141,6 @@ function new_event(event) {
             $("#name").addClass("error-input");
         }
         else {
-            $("#dialog").hide(250);
             console.log("new event");
             console.log(date.getFullYear(),date.getMonth()+1,day);  //년,월,일 출력 테스트__________________________________
             new_event_json(name, date, day);  // name은 내가 쓴내용. day는 날짜. date 영문날짜+시간
@@ -167,23 +158,15 @@ function new_event_json(name, date, day) {
         "month": date.getMonth()+1,
         "day": day
     };
-    event_data["events"].push(event);
-    console.log(event);  //내가 쓴 내용, 날짜 출력시키기 테스트 ________________________________________________________________
 }
 
 // Display all events of the selected date in card views
 function show_events(events, month, day) {
-    // Clear the dates container
-    $(".events-container").empty();
-    $(".events-container").show(250);
-    console.log(event_data["events"]);
     // If there are no events for this date, notify the user
     if(events.length===0) {
         var event_card = $("<div class='event-card'></div>");
         var event_name = $("<div class='event-name'>There are no events planned for "+month+" "+day+".</div>");
         $(event_card).css({ "border-left": "10px solid #FF1744" });
-        $(event_card).append(event_name);
-        $(".events-container").append(event_card);
     }
     else {
         // Go through and add each event as a card to the events container
@@ -196,8 +179,6 @@ function show_events(events, month, day) {
                 });
                 event_count = $("<div class='event-cancelled'>Cancelled</div>");
             }
-            $(event_card).append(event_name);
-            $(".events-container").append(event_card);
         }
     }
 }
@@ -205,105 +186,8 @@ function show_events(events, month, day) {
 // Checks if a specific date has any events
 function check_events(day, month, year) {
     var events = [];
-    for(var i=0; i<event_data["events"].length; i++) {
-        var event = event_data["events"][i];
-        if(event["day"]===day &&
-            event["month"]===month &&
-            event["year"]===year) {
-                events.push(event);
-            }
-    }
     return events;
 }
-
-// Given data for events in JSON format
-var event_data = {
-    "events": [
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-    {
-        "occasion": " Test Event",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 11
-    }
-    ]
-};
 
 const months = [ 
     "January", 
@@ -319,5 +203,6 @@ const months = [
     "November", 
     "December" 
 ];
+
 
 })(jQuery);

@@ -1,8 +1,19 @@
 @charset "UTF-8";
 
 body{
-	background-color: #f8f9fd;
+	background-color: white;
 }
+/*커서모양 default*/
+.cursor-d{
+	cursor: default;
+}
+.member-table .cursor-dd th{
+	cursor: default;
+}
+.member-table .cursor-ddd td{
+	cursor: default;
+}
+
 /* 메인 페이지 전체 */
 .page-main{
 	margin:0 auto;
@@ -44,7 +55,7 @@ body{
     width: 8px;
 }
 .member-main::-webkit-scrollbar-track {
-    background-color:#e6e3e3;
+    background-color:rgb(242, 240, 240);
     border-radius: 100px;
 }
 .member-main::-webkit-scrollbar-thumb {
@@ -84,9 +95,13 @@ body{
 .member-table .no3{
     width: 50%;
 }
-.member-table tr{
-	 border-bottom: 3px solid #f8f9fd;
+
+.member-table tr .no1, .member-table tr .no2, .member-table tr .no3{
+	 border-bottom: 3px solid rgb(242, 240, 240);
 }
+.member-table .member-table-header .no1,.member-table .member-table-header .no2,.member-table .member-table-header .no3{
+	border-bottom: 3px solid white !important;
+} 
 .member-table tr th{ /* 테이블 헤더 글씨들 */
 	color: white;
 }
@@ -95,8 +110,8 @@ body{
 }
 .member-table .no4{
     width: 1%;
-    border-bottom: 3px solid #f8f9fd !important;
-    background-color: #f8f9fd !important;
+    border-bottom: none !important;
+    background-color:white !important;
 }
 .member-table tr:first-child{
 	border: none !important;

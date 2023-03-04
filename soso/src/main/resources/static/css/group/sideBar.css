@@ -73,7 +73,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: white; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -8153,8 +8153,8 @@ body {
   font-size: 14px;
   line-height: 1.8;
   font-weight: normal;
-  background: #fafafa;
-  color: gray; }
+  background: white;
+  color: black; }
 
 a {
   -webkit-transition: .3s all ease;
