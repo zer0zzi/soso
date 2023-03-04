@@ -1,9 +1,14 @@
 package kr.spring.group.vo;
 
+import javax.validation.constraints.NotEmpty;
+import java.io.IOException;
+
 public class GroupCalendarVO {
 
 	private int cal_num;
+	@NotEmpty
 	private String cal_date;
+	@NotEmpty
 	private String cal_content;
 	private int stc_num;
 	
