@@ -22,7 +22,7 @@
       <c:forEach var="talk" items="${list}">
       <div class="talklist-box" onclick="location.href='talkDetail.do?talkroom_num=${talk.talkroom_num}'">
          <div class="box-left">
-               <span>
+               <span style="color: darkblue;">
                <b>
                ${fn:substring(talk.talkroom_name,0,15)}
                <c:if test="${talk.room_cnt!=0}"><span style="color: red;">${talk.room_cnt}</span></c:if>               

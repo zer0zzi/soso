@@ -35,11 +35,13 @@ talkList
 .talklist-head {
     width: 100%;
     height: 24px;
-    /* border-bottom: 2px solid black; */
-    background-color: #aaaee6;
-    color: white;
+    border-bottom: 2px solid lightsteelblue;
+    background-color: aliceblue;
+    color: darkslateblue;
     overflow: hidden;
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: bolder;
+    text-align: center;
 }
 .page-top-line{
 	width: 100%;
@@ -51,16 +53,18 @@ talkList
 }
 .page-main-talk{
 	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 100px;
 	/* border: 1px solid black; 임시	 */
 }
-.talk{
-   border:3px solid lightgray;
-   width: auto;
-   height: 600px;
-   background-color: white;
-   border-radius: 4px;
-   box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
-   margin: 0;
+.talk {
+    border: 3px solid lightsteelblue;
+    width: auto;
+    height: 600px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
+    margin: 0;
 }
 /* .talk{
 	border:3px solid lightgray;
@@ -87,9 +91,10 @@ form#search_form {
     border: none;
 }
 .search-bar {
-    width: 220px;
+    width: 300px;
     border-radius: 10px;
     padding-left: 12px;
+	border: 2px solid lightsteelblue;
 }
 .search {
     text-align: center;
@@ -99,16 +104,17 @@ form#search_form {
 /*     border: 1px solid black; */
 	margin-top: 11px;
 }
-.talklist-list{
-	/* border:1px solid black; *//* 임시 */
-	height: 455px;
+.talklist-list {
+    /* border: 1px solid black; */
+    height: 455px;
     margin-top: 15px;
-	overflow: auto;
-	padding-right: 5px;
-	border-bottom: 5px solid #7a81d6;
+    overflow: auto;
+    padding-right: 5px;
+    border-bottom: 5px solid lightsteelblue;
 }
 .talklist-box {
     /* border: 1px solid black; */
+    border-top: 1px solid lightgray;
     height: 40px;
     overflow: hidden;
     cursor: pointer;
@@ -174,14 +180,15 @@ input.search-btn {
 	transform:scale(1.1);
 }
 .bottom-btn {
-    width: 200px;
+    width: 120px;
     height: 50px;
-    background-color: #969ce4;
+    background-color: aliceblue;
     border: none;
     border-radius: 7px;
-    color: white;
+    color: darkblue;
     /* margin: 0 12px 0 12px; */
     /* margin: 0 auto; */
+    /* border: 1px solid; */
     margin-top: 7px;
     cursor: pointer;
     font-size: 20px;
@@ -223,8 +230,10 @@ talkDetail
     width: 19%;
     text-align: left;
     font-weight: bolder;
-    color: gray;
-    margin-left: 5px;
+    color: darkslateblue;
+    margin-left: 11px;
+    margin-top: 8px;
+    font-size: 13px;
 }
 .chat-members {
     /* margin-left: 10px; */
@@ -232,25 +241,27 @@ talkDetail
     float: left;
     width: 58%;
     height: 24px;
-    line-height:23px;
+    line-height: 23px;
     overflow: auto;
     font-weight: bolder;
-    color: dimgray;
+    color: darkslateblue;
+    margin-top: 5px;
+    font-size: 13px;
 }
-.chat-exit{
-	/* border: 1px solid black; */ /* 임시 */
-	float: right;
-	width: 20%;
-	text-align: center;
-	padding-right: 8px;
-	margin-bottom: 9px;
-	color: #7981e8;
-	font-size: 10px;
-	font-weight: bolder;
-	cursor: pointer;
+.chat-exit {
+    /* border: 1px solid black; */
+    float: right;
+    width: 20%;
+    text-align: right;
+    padding-right: 8.8px;
+    margin-bottom: 9px;
+    color: steelblue;
+    font-size: 10px;
+    font-weight: bolder;
+    cursor: pointer;
 }
 .chat-exit:hover{
-	color: #5c66ff;
+	color: steelblue;
 	font-weight: bolder;
 	text-decoration: underline;
 	/* transform:scale(1.1); */
@@ -258,7 +269,7 @@ talkDetail
 .chatdate-right{
 	text-align: right;
 	font-size: 12px;	
-	color:white;
+	color:darkblue;
 }
 .chatting_message_bottom {
     height: 40px;
@@ -289,24 +300,21 @@ talkDetail
 .chatform-bottom li{
 	display: inline-block;
 }
-.chat-submit-btn{
-	width: 50px;
+.chat-submit-btn {
+    width: 50px;
     height: 24px;
-    background-color: #7a81d6;
+    background-color: aliceblue;
     border: none;
     border-radius: 7px;
-    color: white;
+    color: darkblue;
     cursor: pointer;
 }
 .chat-submit-btn:hover{
 	transform:scale(1.1);
 }
 .chatread-count{
-	color:yellow;
+	color:orangered;
 	font-weight: bolder;
-}
-.chat-submit-btn-box{
-	/* height: 80px; */
 }
 /*----------------------------
 스크롤바
@@ -368,7 +376,7 @@ talkDetail
 }
 /*////////////////////////////////////////////////////*/
 #chatting_message{
-	border-bottom: 5px solid #7a81d6;
+	border-bottom: 5px solid lightsteelblue;
 	height:450px;
 	margin:0 auto;
 	padding:10px;
@@ -444,75 +452,110 @@ form#detail_form{
 /*----------------------------
 talkRoomWrite
 ----------------------------  */
-.talk-make-body{
-	/* border: 1px solid black; *//* 임시 */
-	width: 500px;
-	margin: 0 auto;
+.talk-make-body {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 488px;
+    margin: 0 auto;
+    border-bottom: 5px solid lightsteelblue;
 }
 .make-nameNmem{
 	height: 400px;
 }
-.make-btn-box{
-	/* border: 1px solid black; *//* 임시 */
+.make-btn-box {
+    /* border: 1px solid black; */
+    height: 67px;
+    width: 660px;
+    text-align: center;
+    background-color: aliceblue;
 }
 .inputform{
 	width: 325px;
 	height: 40px;
 	padding-left: 10px;
 	padding-right: 10px;
-    border: 3px solid #969ce4;
+    border: 3px solid darkgray;
     border-radius: 10px;
 }
 .inputform-a{
-	width: 330px;
+	width: 530px;
 	height: 40px;
 	margin: 0 auto;
 	margin-top: 15px;
 	margin-bottom: 10px;
+	padding-top: 80px;
+}
+
+.chatname-create {
+    margin-right: 60px;
+    margin-left: 20px;
+}
+.inputform-a-1{
+	width: 530px;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+.chatname-create-1 {
+    margin-right: 60px;
+    margin-left: 20px;
+    float: left;
 }
 .inputform-b{
-	width: 330px;
+	width: 530px;
 	height: 40px;
 	margin: 0 auto;
 	margin-top: 18px;
 	margin-bottom: 10px;
 }
+.membersearch-create{
+    margin-right: 75px;
+    margin-left: 20px;
+}
 .chatauto{
-	margin-left: 90px;
+	margin-left: 234px;
+}
+.autocreate{
+	
 }
 #search_area{
-	border: 3px solid #969ce4;
+/* 	border: 3px solid #969ce4; */
 	border-radius:10px;
 	height: 100px;
 	width: 345px;
-	margin-left: 84px;
+	margin-left: 225px;
 	overflow: auto;
 }
 #talk_member {
-    border: 3px solid #ff9cc5;
-	border-radius:10px;
+    border: 3px solid darkgray;
+    border-radius: 10px;
     height: 90px;
     overflow: auto;
     width: 335px;
-    margin-left: 84px;
-    margin-top: 3px;
+    /* margin-left: 84px; */
+    /* margin-top: 3px; */
     padding-left: 8px;
     word-wrap: break-word;
+    float: left;
 }
 .memlist{
 	border-bottom: 1px solid black;
 	padding-left: 8px;
 }
-.bottom-btn-2{
-	width: 354px;
-	height: 50px;
-	background-color: #969ce4;
-	border: none;
-	border-radius:7px;
-	color:white;
-	cursor: pointer;
-	font-size: 20px;
-	margin-left: 81px;
+.bottom-btn-2 {
+    width: 150px;
+    height: 50px;
+    margin-top: 8px;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+    background-color: aliceblue;
+    border: none;
+    border-radius: 7px;
+    color: darkblue;
+    cursor: pointer;
+    font-size: 25px;
+    /* margin-left: 81px; */
 }
 .bottom-btn-2:hover{
 	transform:scale(1.1);
