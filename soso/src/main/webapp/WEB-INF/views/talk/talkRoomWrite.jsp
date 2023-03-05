@@ -10,7 +10,6 @@
 	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"
 		 data-id="${user.mem_id}" value="${user.mem_num}">
-		<div class="makeroom-word">방 만들기</div>
 		<div class="make-nameNmem">
 			<div class="inputform-a">
 				<input type="text" name="talkroom_name" id="talkroom_name" class="inputform" autocomplete="off" placeholder="Room Name">

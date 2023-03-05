@@ -20,8 +20,8 @@
          <tiles:insertAttribute name="body"/>
       </div>
    </div>
-   <div id="main_footer" style="clear: both;">
+   <%-- <div id="main_footer" style="clear: both;">
       <tiles:insertAttribute name="footer"/>
-   </div>
+   </div> --%>
 </body>
 </html>

@@ -29,7 +29,10 @@
                </b>
                </span>
                <br>                            
-               <span>${fn:substring(talk.talkVO.message,0,16)}</span>
+               <span style="color: lightslategray;">
+               		<c:if test="${empty talk.talkVO.message}">새로운 채팅방에 초대되었습니다.</c:if>
+               		<c:if test="${!empty talk.talkVO.message}">${fn:substring(talk.talkVO.message,0,16)}</c:if>
+               </span>
          </div>
          <div class="box-right">
 <%--            <span class="box-right-date">

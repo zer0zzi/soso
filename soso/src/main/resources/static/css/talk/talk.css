@@ -121,7 +121,7 @@ form#search_form {
 	width: 340px;
 	overflow: hidden;
 	float: left;
-	margin-left: 19px;
+	margin-left: 5px;
 }
 .box-right{
 	width: 90px;
@@ -157,7 +157,7 @@ form#search_form {
 }
 .talklist-mypage-btn {
     text-align: center;
-    height: 67px;
+    height: 69px;
     background-color: aliceblue;
 }
 input.search-btn {
@@ -231,7 +231,8 @@ talkDetail
     /* border: 1px solid black; */
     float: left;
     width: 58%;
-    height: 19px;
+    height: 24px;
+    line-height:23px;
     overflow: auto;
     font-weight: bolder;
     color: dimgray;
@@ -280,7 +281,7 @@ talkDetail
 .chatform-bottom {
     padding: 0px;
     margin: 0px;
-    height: 66px;
+    height: 69px;
     width: 661px;
     text-align: center;
     background-color: aliceblue;
@@ -376,33 +377,36 @@ talkDetail
 .date-position{
 	text-align:center;
 }
-.date-position span{
-	display:inline-block;
-	width:300px;
-	height:20px;
-	border-radius:10px;
-	background-color:#f2efef;
+.date-position span {
+    display: inline-block;
+    width: 300px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #595a63;
+    color: white;
+    font-size: 13px;
 }
 .from-position{
 	width:280px;
 	margin:10px 0 10px 350px;
 }
-.from-position .item{
-	background-color:deepskyblue;
-	padding:10px;
-	min-height:50px;
-	border-radius:20px;
-	border-top-right-radius:0;
-	word-wrap: break-word;
+.from-position .item {
+    background-color: #acb1e8;
+    padding: 10px;
+    min-height: 32px;
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    word-wrap: break-word;
+    color: whit;
 }
 .to-position{
 	width:330px;
 	margin:10px 0 10px 0;
 }
 .to-position .item{
-	background-color:darkorange;
+	background-color:#e5eaef;
 	padding:10px;
-	min-height:50px;
+	min-height:32px;
 	border-radius:20px;
 	border-top-left-radius:0;
 	word-wrap: break-word;
@@ -533,11 +537,4 @@ talkRoomWrite
 	font-weight:800;
 	color: lightgray;
 	cursor:pointer;
-}
-.makeroom-word{
-	font-size: 40px;
-/* 	font-weight: bolder; */
-	color: black;
-	text-align: center;
-	margin-top: -20px;
 }

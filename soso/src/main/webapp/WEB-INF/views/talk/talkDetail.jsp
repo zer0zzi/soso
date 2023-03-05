@@ -38,7 +38,7 @@
 					</li>
 					<li>
 					<div class="chat-submit-btn-box">
-						<input type="submit" value="Go" class="chat-submit-btn">
+						<input type="submit" value="입력" class="chat-submit-btn">
 					</div>	
 					</li>
 				</ul>
