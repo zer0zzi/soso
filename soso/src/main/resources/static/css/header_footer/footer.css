@@ -7,7 +7,10 @@
 .footer-16371{
 	background-color: white;
 }
-
+.footer-center{
+	text-align: center;
+	margin: 0 auto;
+}
 /* 부트스트랩 css */
 a {
   -webkit-transition: .3s all ease;
