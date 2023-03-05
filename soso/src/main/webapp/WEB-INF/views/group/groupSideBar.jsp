@@ -20,13 +20,13 @@
 				<ul class="list-unstyled components mb-5">
 					<li><a href="/group/groupMain.do?stc_num=1">GROUP MAIN</a></li>
 					<li><a href="/group/notice_list.do?stc_num=1">NOTICE</a></li>
-					<li><a href="/group/calendar_list.do">CALENDAR</a></li>
+					<li><a href="/group/calendar_list.do?stc_num=1">CALENDAR</a></li>
 					<li><a href="#">EVALUATE MEMBERS</a></li>
 					<li><a href="#">MANAGE MEMBERS</a></li>
 				</ul>
 
 				<div class="footer">
-					<p style="margin-top: 210px;">
+					<p style="margin-top: 210px; font-size:14px;">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;
 						<script>document.write(new Date().getFullYear());</script>

@@ -52,7 +52,7 @@
     height: 40px;
 }
 .notice-table tr{
-	 border-bottom: 3px solid #f8f9fd;
+	 border-bottom: 3px solid rgb(242, 240, 240);
 }
 .notice-table tr th{ /* 테이블 헤더 글씨들 */
 	color: white;
@@ -81,14 +81,14 @@
 	width: 800px;
 }
 .button {   
-  margin-left: 700px;
+  margin-left: 640px;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   font-size: 1rem;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 0.65rem 1.9rem;
   -webkit-transition: .2s ease all;
   -o-transition: .2s ease all;
@@ -96,6 +96,8 @@
   color: white;
   border: none;
   background: #969ce4; 
+  height: 51.33px;
+  width: 150px;
 }
 .button:focus {
     -webkit-box-shadow: none;

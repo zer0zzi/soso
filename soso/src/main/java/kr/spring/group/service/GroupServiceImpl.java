@@ -39,6 +39,11 @@ public class GroupServiceImpl implements GroupService{
 		return groupMapper.selectMemberList(stc_num);
 	} 
 	
+	@Override
+	public int selectMemberCheck(Map<String,Object> map) {
+		return groupMapper.selectMemberCheck(map);
+	}
+	
 	/*------------공지사항 페이지-----------*/
 	//공지사항 글 리스트 조회
 	@Override
@@ -60,8 +65,39 @@ public class GroupServiceImpl implements GroupService{
 	public GroupNoticeVO selectNoticeDetail(int grp_num) {
 		return groupMapper.selectNoticeDetail(grp_num);
 	}
+	// 공지사항 글 삽입
+	@Override
+	public void insertNotice(GroupNoticeVO notice) {
+		groupMapper.insertNotice(notice);
+	}
+	//공지사항 첨부파일 삭제
+	@Override
+	public void deleteFile(int grp_num) {
+		groupMapper.deleteFile(grp_num);
+	}
+	//공지사항 글 업데이트
+	@Override
+	public void updateNotice(GroupNoticeVO notice) {
+		groupMapper.updateNotice(notice);
+	}
+	//공지사항 글 삭제
+	@Override
+	public void deleteNotice(int grp_num) {
+		groupMapper.deleteNotice(grp_num);
+	}
+	
 	
 	
 	/*------------캘린더 페이지-----------*/
+	// 캘린더 일정 삽입
+	@Override
+	public void insertCalendar(GroupCalendarVO calendar){
+		groupMapper.insertCalendar(calendar);
+	}
+	// 캘린더 일정 전체 조회
+	@Override
+	public List<GroupCalendarVO> selectCalendarList(int stc_num){
+		return groupMapper.selectCalendarList(stc_num);
+	}
 
 }

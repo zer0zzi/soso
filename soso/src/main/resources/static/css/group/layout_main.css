@@ -19,7 +19,6 @@ div#main_sidebar{
 	float:left;
 	width:20%;
 	height: 100vh;
-	background-color: pink;
 }
 /* 헤더+본문 */
 .header-body{
