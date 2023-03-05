@@ -1,12 +1,11 @@
 @charset "UTF-8";
 
-*{
-	background-color: white;
-}
-
 .footer-line{
 	width: 100%;
 	border-top:1px solid #dddddd; 
+}
+.footer-16371{
+	background-color: white;
 }
 
 /* 부트스트랩 css */

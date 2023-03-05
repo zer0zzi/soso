@@ -6,7 +6,6 @@ div#main{
 	width:1024px;
 	margin:0 auto;
 	font-size:10pt;
-	font-family:"맑은 고딕";
 }
 div#main_header{
 	margin-bottom:10px;
@@ -15,9 +14,6 @@ div#main_header{
 div#main_body{
 	padding:5px 5px 30px 5px;
 	min-height:500px;
-}
-div#main_footer{
-	background-color:yellow;
 }
 a:link{
 	text-decoration:none;
