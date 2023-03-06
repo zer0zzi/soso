@@ -2,12 +2,18 @@
 
 /* 공통 목록
 ---------------------------*/
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
   font-family: 'NEXON Lv1 Gothic OTF';
 }
 .admin-title{
-	left: 18em;
 	position: relative;	
+	margin-bottom: 15px;
 }
 
 form#search_form{
@@ -33,44 +39,6 @@ ul.search li input[type="search"]{
 	width:700px;
 	margin:10px auto;
 }
-
-table.striped-table{
-	
-	border:1px solid #FFF;
-	font-size:15px;
-	width:100%;
-	border-collapse:collapse;
-	background-color: #fff;
-	margin-bottom: 2em;
-	box-shadow: 0 0 40px 0 rgb(0 0 0 / 15%);
-}
-
-table.striped-table tr{
-	border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    background-color: white;
-}
-table.striped-table tr:first-child{
-	border-radius: 10px;
-}
-
-table.striped-table th{
-	background-color: #969ce4;
-}
-table.striped-table td, table.striped-table th{
-	padding: .7em .5em;
-	vertical-align:middle;
-}
-table.striped-table th{
-    color: white;
-	font-weight:bold;
-	background:#969ce4;
-}
-table.striped-table td{
-	border-bottom:1px solid rgba(0,0,0,.1);
-	text-align:center;
-}
-
 
 .list-btn {
     font: inherit;

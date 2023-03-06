@@ -7,78 +7,79 @@
 <div class="page-main">
 	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">
 		<form:errors element="div" cssClass="error-color"/>
-		<h2 id="title_res">회원가입</h2>
+		<h2 id="title_res">Registration Form</h2>
+		<hr>
 		<ul>
 			<li>
-				<label for="mem_id" style="margin-bottom:0em;">아이디</label>
-				<form:input class="input-field" path="mem_id" placeholder="영문, 숫자만 4~12자" autocomplete="off"/>
-				<input class="action-button2" type="button" id="confirmId" value="아이디 중복확인">
+				<label for="mem_id" style="margin-bottom:0em;">ID</label>
+				<form:input class="input-field" path="mem_id" autocomplete="off"/>
+				<input class="action-button2" type="button" id="confirmId" value="ID Check">
 				<div class="error-message" id="message_id"></div>
 				<form:errors path="mem_id" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="mem_name" style="margin-bottom:0em;">이름</label>
-				<form:input class="input-field" path="mem_name" placeholder="이름"/>
+				<label for="mem_name" style="margin-bottom:0em;">Name</label>
+				<form:input class="input-field" path="mem_name"/>
 				<div class="error-message">
 					<form:errors path="mem_name" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_nick" style="margin-bottom:0em;">닉네임</label>
-				<form:input class="input-field" path="mem_nick" placeholder="닉네임"/>
+				<label for="mem_nick" style="margin-bottom:0em;">Nickname</label>
+				<form:input class="input-field" path="mem_nick"/>
 			</li>
 			<li>
-				<label for="mem_pw" style="margin-bottom:0em;">암호</label>
-				<form:password class="input-field" path="mem_pw" placeholder="영문, 숫자만 4~12자"/>
+				<label for="mem_pw" style="margin-bottom:0em;">Passwd</label>
+				<form:password class="input-field" path="mem_pw"/>
 				<div class="error-message">
 					<form:errors path="mem_pw" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="confirm_passwd" style="margin-bottom:0em;">암호확인</label>
-				<input class="input-field" type="password" id="confirm_passwd" placeholder="암호와 동일"/>
+				<label for="confirm_passwd" style="margin-bottom:0em;">Confirm Passwd</label>
+				<input class="input-field" type="password" id="confirm_passwd"/>
 				<div class="error-message" id="message_pw"></div>
 			</li>
 			<li>
-				<label for="mem_phone" style="margin-bottom:0em;">전화번호</label>
-				<form:input path="mem_phone" class="phoneNumber input-field" placeholder="전화번호"/>
+				<label for="mem_phone" style="margin-bottom:0em;">Phone</label>
+				<form:input path="mem_phone" class="phoneNumber input-field"/>
 				<div class="error-message">
 					<form:errors path="mem_phone" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_email" style="margin-bottom:0em;">이메일</label>
-				<form:input class="input-field" path="mem_email" placeholder="이메일"/>
+				<label for="mem_email" style="margin-bottom:0em;">Email</label>
+				<form:input class="input-field" path="mem_email"/>
 				<div class="error-message">
 					<form:errors path="mem_email" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_zipcode" style="margin-bottom:0em;">우편번호</label>
-				<form:input class="input-field" path="mem_zipcode" placeholder="우편번호"/>
-				<input class="action-button2" type="button" onclick="execDaumPostcode()" value="우편번호찾기">
+				<label for="mem_zipcode" style="margin-bottom:0em;">Zipcode</label>
+				<form:input class="input-field" path="mem_zipcode"/>
+				<input class="action-button2" type="button" onclick="execDaumPostcode()" value="ZipCode Search">
 				<div class="error-message">
 					<form:errors path="mem_zipcode" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_address1" style="margin-bottom:0em;">주소</label>
-				<form:input class="input-field" path="mem_address1" placeholder="주소"/>
+				<label for="mem_address1" style="margin-bottom:0em;">Address</label>
+				<form:input class="input-field" path="mem_address1"/>
 				<div class="error-message">
 					<form:errors path="mem_address1" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_address2" style="margin-bottom:0em;">상세주소</label>
-				<form:input class="input-field" path="mem_address2" placeholder="상세주소"/>
+				<label for="mem_address2" style="margin-bottom:0em;">Detailed address</label>
+				<form:input class="input-field" path="mem_address2"/>
 				<div class="error-message">
 					<form:errors path="mem_address2" cssClass="error-color"/>
 				</div>
 			</li>
 		</ul>	
 		<div class="align-center">
-			<form:button class="action-button">회원가입</form:button>
-			<input class="action-button" type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
+			<form:button class="action-button">Sign Up</form:button>
+			<input class="action-button" type="button" value="Home" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
 		</div>	
 	</form:form>
 </div>

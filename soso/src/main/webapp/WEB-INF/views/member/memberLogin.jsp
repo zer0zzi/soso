@@ -60,10 +60,12 @@
 			<div class="formbg-outer">
 				<div class="formbg">
 					<div class="formbg-inner padding-horizontal--logo">
-					<div class="align-center">
-					<a href="${pageContext.request.contextPath}/main/main.do"
-						rel="dofollow"><img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width:150px; height:150px;"></a>
-					</div>
+						<div class="align-center padding-bottom--24">
+							<a href="${pageContext.request.contextPath}/main/main.do"
+								rel="dofollow"><img
+								src="${pageContext.request.contextPath}/images/soon/logo2.png"
+								style="width: 150px; height: 150px;"></a>
+						</div>
 						<!-- 로고? <span ></span> -->
 						<form:form action="login.do" id="stripe-login"
 							modelAttribute="memberVO">
@@ -72,7 +74,7 @@
 								<div class="grid--50-50">
 									<label for="mem_id">아이디</label>
 								</div>
-								<form:input path="mem_id" name="mem_id" placeholder="아이디를 입력하세요."/>
+								<form:input path="mem_id" name="mem_id" placeholder="아이디를 입력하세요." autocomplete="on"/>
 								<form:errors path="mem_id" cssClass="error-color"/>
 							</div>
 							<div class="field padding-bottom--24">

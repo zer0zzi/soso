@@ -59,22 +59,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="box-root padding-top--24 flex-flex flex-direction--column"
+		<div class="box-root flex-flex flex-direction--column"
 			style="flex-grow: 1;">
 			<div
-				class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-				<h1 style="z-index: 2; background-color: transparent;">
-					<a href="${pageContext.request.contextPath}/main/main.do">SoSo</a>
-				</h1>
+				class="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
 			</div>
 			<div class="formbg-outer">
 				<div class="formbg">
-					<div class="formbg-inner padding-horizontal--48">
-						<!-- 로고? <span class="padding-bottom--15"></span> -->
+					<div class="formbg-inner padding-horizontal--logo">
+						<div class="align-center padding-bottom--24">
+					<a href="${pageContext.request.contextPath}/main/main.do"
+						rel="dofollow"><img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width:150px; height:150px;"></a>
+					</div>
 						<div class="form-group field padding-bottom--24">
-							<div class="padding-bottom--24">
-								<h2>아이디를 확인해주세요.</h2>
-							</div>
 							<div class="align-center">
 							<c:choose>
 								<c:when test="${empty memberVO}">

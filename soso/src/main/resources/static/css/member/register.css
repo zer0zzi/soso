@@ -2,6 +2,15 @@
 
 /* 공통 메시지
 ---------------------------*/
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
 .result-display{
 	width:400px;
 	height:200px;
@@ -38,11 +47,15 @@ form{
 form ul{
 	padding: 20px;
 }
+form ul li{
+	padding: 0 0 7px 0;
+}
 form ul li label{
-	width:105px;
-	float:left;
-	color: #592e6a;
-	font-weight: bold;
+    width: 134px;
+    float: left;
+    font-weight: bold;
+    position: relative;
+    font-size: 15px;
 }
 ul{
 	list-style:none;
@@ -63,7 +76,20 @@ input[id="number"]{
 	width:100px;
 }
 .input-field {
-    border: 0;
+	font-size: 16px;
+    line-height: 28px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+    /* border: 0;
     z-index: 1;
     background-color: transparent;
     border-bottom: 2px solid #77397f;
@@ -71,7 +97,7 @@ input[id="number"]{
     font-size: 0.75rem;
     padding: .25em 0;
     left: 2em;
-    position: relative;
+    position: relative; */
 }
 .form-notice{
 	margin-left:130px;
@@ -108,7 +134,6 @@ li.paging-current{
 }
 .action-button2 {
 	position: relative;
-    font: inherit;
     font-size: 0.75rem;
     width: 9em;
     font-weight: 500;
@@ -116,8 +141,8 @@ li.paging-current{
     border-radius: 6px;
     color: #FFF;
     border: 0;
-    padding: 0.25em 0 0.4em 0;
-    left:2.3em;
+    padding: 0.6em 0 0.4em 0;
+    left: 0.55em;
 }
 .action-button2:hover {
 	background-color: #6658d3;
@@ -149,5 +174,7 @@ ul.search li input[type="search"]{
 	margin:10px auto;
 }
 
-
+#title_res{
+	padding: 7px 0 15px 0;
+}
 
