@@ -22,52 +22,59 @@
 	})
 </script>
 <div class="stc-main">
-<h2 class="align-center">STUDY</h2>
-	<form:form action="studyCreate.do" id="create_form"
-		modelAttribute="studyVO" enctype="multipart/form-data">
-		<form:errors element="div" cssClass="error-color" />
+	<h1 class="sixth"><b>STUDY</b></h1><br>
+	
+	<form id="create_form" action="studyCreate.do" method="post" enctype="multipart/form-data">
+		
 		<ul>
-			<li>
-				<form:radiobutton path="stc_state" value="모집중" id="stc-ing"/>모집중
-				<form:radiobutton path="stc_state" value="모집완료"/>모집완료
+			<li class="form1">
+				<select id="stc_filter" name="stc_filter">
+					<option value="프로그래밍">프로그래밍</option>
+					<option value="데이터사이언스">데이터사이언스</option>
+					<option value="어학">어학</option>
+					<option value="디자인">디자인</option>
+					<option value="영상">영상</option>
+					<option value="마케팅">마케팅</option>
+				</select>
+				<label class="stcradio">
+					<input id="stc_state1" name="stc_state" checked="checked" type="radio" value="모집중"/><span>모집중</span>
+				</label>
+				<label class="stcradio">
+					<input id="stc_state2" name="stc_state" type="radio" value="모집완료"/><span>모집완료</span>
+				</label>
+				<input id="stc_per" name="stc_per" min="1" max="999" placeholder="모집인원" type="number" value="모집인원" value="0"/>
+			</li>
+			<li class="form2">
+				<label class="stcradio-gray">
+					<input id="stc_way1" name="stc_way" checked="checked" type="radio" value="온라인"/><span>온라인</span>
+				</label>
+				<label class="stcradio-gray">
+					<input id="stc_way2" name="stc_way" type="radio" value="오프라인"/><span>오프라인</span>
+				</label>
+			</li>
+			<li class="form3">
+				<label class="stcradio">
+					<input id="stc_period1" name="stc_period" checked="checked" type="radio" value="상시"/><span>상시</span>
+				</label>
+				<label class="stcradio">
+					<input id="stc_period2" name="stc_period" type="radio" value="기간"/><span>기간</span>
+				</label>
+				<input id="stc_pedate" name="stc_pedate" placeholder="모집기간" type="text" value=""/>
 			</li>
 			<li>
-				<form:select path="stc_period">
-					<form:option value="상시"/>
-					<form:option value="기간"/>
-				</form:select>
-				<form:input path="stc_per" id="stc_per" value="모집인원" placeholder="모집인원" type='number' min='1' max='999'/>
+				<input id="stc_title" name="stc_title" placeholder="제목" type="text" value=""/> 
 			</li>
 			<li>
-				<form:select path="stc_way">
-					<form:option value="온라인"/>
-					<form:option value="오프라인"/>
-				</form:select>
-				<form:select path="stc_filter">
-					<form:option value="프로그래밍"/>
-					<form:option value="데이터사이언스"/>
-					<form:option value="어학"/>
-					<form:option value="디자인"/>
-					<form:option value="영상"/>
-					<form:option value="마케팅"/>
-				</form:select>
-			</li>
-			<li>
-				<form:input path="stc_title" id="stc_title" placeholder="제목"/> 
-				<form:errors path="stc_title" cssClass="error-color"/>
-			</li>
-			<li>
-				<form:textarea path="stc_content" id="stc_content" placeholder="내용"/>
-				<form:errors path="stc_content" cssClass="error-color"/>
+				<textarea id="stc_content" name="stc_content" placeholder="내용"></textarea>
 			</li>
 			<li>
 				<input type="file" name="upload" id="upload">
 			</li>
 		</ul>
 		<div class="stc_button">
-			<form:button>전송</form:button>
+			<button type="submit" value="Submit">전송</button>
 			<input type="button" value="목록" onclick="location.href='main.do'">
 		</div>
-	</form:form>
+	</form>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

@@ -11,10 +11,40 @@ body{font-family:'NEXON Lv1 Gothic OTF';}
 
 input, textarea, select, button, #upload{
 	font-family:'NEXON Lv1 Gothic OTF';
+	outline:none;
 }
 
 input[type=file]::file-selector-button{
 	font-family:'NEXON Lv1 Gothic OTF';
+	margin-bottom:7px;
+}
+
+/* 타이틀
+---------------------------*/
+
+h1.sixth { position: relative; }
+
+h1.sixth:before,
+h1.sixth:after {
+  content: '[';
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  height: 100%;
+  font-size: 1.25em;
+  color: #969ce4;
+  
+  transition: all 0.5s ease;
+}
+
+h1.sixth:after { content: ']'; }
+
+h1.sixth:hover:before { 
+  transform: translateX(-5px);
+}
+
+h1.sixth:hover:after { 
+  transform: translateX(5px);
 }
 
 
@@ -28,35 +58,126 @@ input[type=file]::file-selector-button{
 }
 form{
 	width:800px;
-	margin:0 auto;
-	border:1px solid #f0f0f0;
+	margin:17px auto;
+	border:5px solid #969ce4;
 	padding:10px 10px 10px 30px;
 }
+.form1{
+	margin:30px 0 5px 0;
+}
+.form2{
+	display:inline-block;
+	margin:0 10px 0 20px;
+}
+.form3{
+	display:inline-block;
+	margin-bottom:20px;
+}
 input[type="text"], [type="number"]{
-	width:294px;
-	height:25px;
+	width:170px;
+	height:27px;
+	margin:0 20px;
+	padding-left:5px;
+	border:1px solid #cacbcc;
 }
 input#stc_title{
-	width:598px;
+	width:557px;
 	height:30px;
+	border:1px solid #cacbcc;
 }
 select{
-	width:300px;
-	height:30px;
+	width:168px;
+	height:29px;
+	margin:0 20px;
+	border:1px solid #cacbcc;
+}
+select:focus{
+	background-color:#969ce4;
+	color:white;
 }
 textarea{
-	width:600px;
+	width:558px;
 	height:300px;
+	padding:5px 0 0 5px;
+	margin-bottom:3px;
+	border:1px solid #cacbcc;
 }
 
 ul li{
 	padding:5px;
 }
+button{
+	background-color:#969ce4;
+	color:white;
+	width:50px;
+	height:30px;
+	border:none;
+	border-radius:3px;
+}
+input[type="button"]{
+	background-color:#8e959e;
+	color:white;
+	width:50px;
+	height:30px;
+	border:none;
+	border-radius:3px;
+}
 .stc_button{
 	padding:0 0 15px 0;
+	margin-bottom:17px;
 	font-family:'NEXON Lv1 Gothic OTF';
 }
 
+label.stcradio{
+	float: none;
+}
 
+.stcradio input[type="radio"]{
+  display:none;
+}
 
+.stcradio input[type="radio"] + span{
+  display:inline-block;
+  background:none;
+  border:1px solid #dfdfdf;  
+  padding:0px 10px;
+  text-align:center;
+  width:60px;
+  height:28px;
+  line-height:30px;
+  font-size:9pt;
+  cursor:pointer;
+}
 
+.stcradio input[type="radio"]:checked + span{
+  border:1px solid #969ce4;
+  background:#969ce4;
+  color:#fff;
+}
+
+label.stcradio-gray{
+	float: none;
+}
+
+.stcradio-gray input[type="radio"]{
+  display:none;
+}
+
+.stcradio-gray input[type="radio"] + span{
+  display:inline-block;
+  background:none;
+  border:1px solid #dfdfdf;  
+  padding:0px 10px;
+  text-align:center;
+  width:60px;
+  height:28px;
+  line-height:30px;
+  font-size:9pt;
+  cursor:pointer;
+}
+
+.stcradio-gray input[type="radio"]:checked + span{
+  border:1px solid #8e959e;
+  background:#8e959e;
+  color:#fff;
+}
