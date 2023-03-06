@@ -5,7 +5,7 @@
 <!-- 채팅방 생성 시작 -->
 <div class="page-main-talk">    
 <div class="talk">
-<div class="talklist-head">&nbsp;Make a room</div>
+<div class="talklist-head">&nbsp;채팅방 만들기</div>
    <div class="talk-make-body">
 	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"
@@ -30,11 +30,12 @@
 				<div id="talk_member"></div>
 			</div>	 -->
 		</div>
-	</form>
-	</div>
+	
 	<div class="make-btn-box">
 			<input type="submit" value="Create!" class="bottom-btn-2">
  	</div> 
+ 	</form>
+	</div>
 </div>
 </div><!-- end of page-main-talk -->
 <!-- 채팅방 생성 끝 --> 
