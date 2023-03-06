@@ -40,6 +40,7 @@
 				<a class="p-l-10" href="${pageContext.request.contextPath}/member/login.do">LOGIN</a>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth == 9}">
+				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">COMMUNITY</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/main/admin.do">MASTER MAIN</a>
 			</c:if>
 		</div>
