@@ -5,7 +5,12 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main/stcmain.css">
 <script type="text/javascript">
 	$(function(){
-		$("#stc-ing").attr("checked","checked");
+		$('#stc_period1').on('click', function() {
+		    $('#stc_pedate').attr('disabled', true);
+		});
+		$('#stc_period2').on('click', function() {
+		    $('#stc_pedate').attr('disabled', false);
+		});
 		
 		$('#create_form').submit(function(){
 			if($('#stc_title').val().trim()==''){
@@ -59,7 +64,7 @@
 				<label class="stcradio">
 					<input id="stc_period2" name="stc_period" type="radio" value="기간"/><span>기간</span>
 				</label>
-				<input id="stc_pedate" name="stc_pedate" placeholder="모집기간" type="text" value=""/>
+				<input id="stc_pedate" name="stc_pedate" placeholder="모집기간" type="text" value="" disabled="disabled"/>
 			</li>
 			<li>
 				<input id="stc_title" name="stc_title" placeholder="제목" type="text" value=""/> 
@@ -72,7 +77,7 @@
 			</li>
 		</ul>
 		<div class="stc_button">
-			<button type="submit" value="Submit">전송</button>
+			<button type="submit" value="Submit">작성</button>
 			<input type="button" value="목록" onclick="location.href='main.do'">
 		</div>
 	</form>
