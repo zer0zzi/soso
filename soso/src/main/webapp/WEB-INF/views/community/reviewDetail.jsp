@@ -9,7 +9,7 @@
 <!-- 자유 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${review.review_fixed==1}">
-	<span style="color:red">공지사항</span>
+	<div style="color:red" class="detail-notice">공지사항</div>
 	</c:if>
 	<ul class="community-detail-member">
 		<li class="review-profile">
@@ -22,7 +22,9 @@
 		</li>
 		<li>
 			<span>
+			<c:if test="${review.review_fixed==2}">
 			<b>${review.studyName}</b>
+			</c:if>
 			<c:if test="${review.review_rating==1}">⭐</c:if>
 			<c:if test="${review.review_rating==2}">⭐⭐</c:if>
 			<c:if test="${review.review_rating==3}">⭐⭐⭐</c:if>

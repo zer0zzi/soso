@@ -14,6 +14,7 @@
 /* ============================================= */
 *{
 	font-family: 'NEXON Lv1 Gothic OTF', 'Noto Sans KR', 'Archivo', sans-serif;
+	line-height:150%;
 }
 .align-left{
 	text-align:left;
@@ -220,6 +221,11 @@ div.sub-menu-right input[type=search]:focus{
 /* ============================================= */
 /* ==================== 전체 ==================== */
 /* ============================================= */
+.detail-notice{
+	position:relative;
+	height:35px;
+	font-weight:bold;
+}
 /* 자유 작성폼 */
 .full-insert-title{
 	font-size:14px; font-weight:700;
@@ -639,6 +645,12 @@ form#vre_form, form#vmre_form{
  	top:10px;
  	left:-15px;
 }
+.reply-content{
+	padding:10px 0;
+}
+.reply-margin{
+	margin-right:7px;
+}
 
 
 /* 자유 댓글 목록 */
@@ -649,7 +661,7 @@ input.re-btn, input.re-modify-btn, input.re-delete-btn, input.re-reply-delete-bt
 	background-color:white;
 	border:none; border-radius:3px;
 	box-shadow:2px 2px 2px gray;
-	margin-right:2px; margin-bottom:5px;
+	margin-right:2px; margin-bottom:5px; margin-top:0;
 	width:30px; height:20px;
 }
 input.re-btn:active, input.re-modify-btn:active, input.re-delete-btn:active{

@@ -55,6 +55,12 @@
 				</c:if>
 				<input type="text" value="${user.mem_nick} ( ${user.mem_id} )" class="insert-id" readonly/>
 			</li>
+			<c:if test="${!empty user && user.mem_auth==9}">
+			<li style="display:none;">
+					<label for="studyName">상단 고정</label>
+					<input type="text" name="studyName" id="studyName" value="공지사항" readonly/>
+			</li>
+			</c:if>
 			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>

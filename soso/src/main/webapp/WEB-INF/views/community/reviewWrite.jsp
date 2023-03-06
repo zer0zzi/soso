@@ -49,7 +49,6 @@
 		<input type="hidden" name="review_stc_name" id="changeInput" value="관리자">
 		</c:if>
 		<ul>
-			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>닉네임 (아이디)</label>
 				<c:if test="${!empty user.mem_nick}">
@@ -64,6 +63,13 @@
 					<option value="reviewWrite.do" selected>후기게시판</option>
 				</select>
 			</li>
+			<c:if test="${!empty user && user.mem_auth==9}">
+			<li style="display:none;">
+					<label for="studyName">상단 고정</label>
+					<input type="text" name="studyName" id="studyName" value="공지사항" readonly/>
+			</li>
+			</c:if>
+			<c:if test="${!empty user && user.mem_auth<9}">
 			<li>
 				<label>스터디명</label>
 				<select id="studyName" class="studyName" name="studyName" required>
@@ -73,15 +79,6 @@
 					</c:forEach>
 				</select>
 				<span style="color:gray">&nbsp;참여 스터디가 없다면 후기를 작성할 수 없습니다.</span>
-				<%--
-				<form:input path="review_stc_name" id="changeInput" width="500px" class="insert-studyName" placeholder="참여한 스터디를 선택해주세요." readonly="true"/>
-				<script type="text/javascript">
-					var selectBoxChange = function(value){
-						console.log("값변경테스트 : " + value);
-						$('#changeInput').val(value);
-					}
-				</script>
-				 --%>
 			</li>
 			</c:if>
 			

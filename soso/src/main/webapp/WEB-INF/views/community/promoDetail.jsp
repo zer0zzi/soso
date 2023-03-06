@@ -6,24 +6,18 @@
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoFav.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoReply.js"></script>
-<style>
-
-</style>
-<script>
-
-</script>
 <!-- 홍보 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${promo.promo_fixed==1}">
-	<span style="color:red">공지사항</span>
+	<div style="color:red" class="detail-notice">공지사항</div>
 	</c:if>
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty promo.mem_photo_name}">
-			<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=1" width="30" height="30" class="my-photo">
+			<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=1" width="35" height="35" class="my-photo">
 			</c:if>
 			<c:if test="${empty promo.mem_photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="30" height="30" class="my-photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" width="35" height="35" class="my-photo">
 			</c:if>
 		</li>
 		<li>
