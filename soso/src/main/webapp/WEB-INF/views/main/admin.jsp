@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/admin.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/table.css">
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
+	<div class="align-center">
 	<h2>회원목록</h2>
-
-	<table class="striped-table">
+	</div>
+	<table class="rwd-table">
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>

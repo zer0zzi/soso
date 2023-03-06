@@ -8,7 +8,7 @@
 		});*/
 
 		function fnSubmit() {
-
+	
 			var email_rule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			var tel_rule = /^\d{2,3}-\d{3,4}-\d{4}$/;
 
@@ -24,7 +24,7 @@
 				$("#mem_phone").focus();
 
 				return false;
-			}
+			}	
 
 			if (!tel_rule.test($("#mem_phone").val())) {
 				alert("전화번호 형식에 맞게 입력해주세요.");

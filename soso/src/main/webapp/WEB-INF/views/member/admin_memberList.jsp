@@ -3,8 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/admin.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/table.css">
 <div class="page-main">
+	<div class="align-center">
 	<h2>회원목록(관리자전용)</h2>
+	</div>
 	<form action="admin_list.do" id="search_form" method="get">
 		<ul class="search">
 			<li>
@@ -28,7 +31,7 @@
 	<div class="result-display">표시할 회원정보가 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0}">
-	<table class="striped-table">
+	<table class="rwd-table">
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>

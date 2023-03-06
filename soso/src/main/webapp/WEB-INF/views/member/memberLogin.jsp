@@ -5,7 +5,7 @@
 <div class="login-root">
 	<div class="box-root flex-flex flex-direction--column"
 		style="min-height: 100vh; flex-grow: 1;">
-		<div class="loginbackground box-background--white padding-top--64">
+		<div class="loginbackground box-background--white padding-top--64" style="z-index: 1">
 			<div class="loginbackground-gridContainer">
 				<div class="box-root flex-flex" style="grid-area: top/start/8/end;">
 					<div class="box-root"
@@ -50,36 +50,34 @@
 				</div>
 			</div>
 		</div>
-		<div class="box-root padding-top--24 flex-flex flex-direction--column"
-			style="flex-grow: 1; z-index: 9;">
+		<div class="box-root flex-flex flex-direction--column"
+			style="flex-grow: 1;">
 			<div
-				class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-				<h1>
-					<a href="${pageContext.request.contextPath}/main/main.do"
-						rel="dofollow">SoSo</a>
+				class="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
+				<h1 style="z-index: 2; background-color: transparent;">
 				</h1>
 			</div>
 			<div class="formbg-outer">
 				<div class="formbg">
-					<div class="formbg-inner padding-horizontal--48">
-						<!-- 로고? <span class="padding-bottom--15"></span> -->
+					<div class="formbg-inner padding-horizontal--logo">
+					<div class="align-center">
+					<a href="${pageContext.request.contextPath}/main/main.do"
+						rel="dofollow"><img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width:150px; height:150px;"></a>
+					</div>
+						<!-- 로고? <span ></span> -->
 						<form:form action="login.do" id="stripe-login"
 							modelAttribute="memberVO">
 							<form:errors element="div" cssClass="error-color" />
 							<div class="field padding-bottom--24">
 								<div class="grid--50-50">
 									<label for="mem_id">아이디</label>
-									<div class="reset-pass">
-										<a
-											href="${pageContext.request.contextPath}/member/search_id.do">아이디찾기</a>
-									</div>
 								</div>
-								<form:input path="mem_id" name="mem_id" />
+								<form:input path="mem_id" name="mem_id" placeholder="아이디를 입력하세요."/>
 								<form:errors path="mem_id" cssClass="error-color"/>
 							</div>
 							<div class="field padding-bottom--24">
 								<label for="mem_pw">비밀번호</label>
-								<form:password path="mem_pw" name="password" />
+								<form:password path="mem_pw" name="password" placeholder="비밀번호를 입력하세요."/>
 								<form:errors path="mem_pw" cssClass="error-color"/>
 							</div>
 							<div
@@ -91,9 +89,10 @@
 							<div class="field padding-bottom--24">
 								<input type="submit" name="submit" value="로그인">
 							</div>
-							<div class="field">
-								<a class="ssolink"
-									href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
+							<div class="align-center">
+								<a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
+								 | 
+								<a href="${pageContext.request.contextPath}/member/search_id.do">아이디찾기</a>
 							</div>
 						</form:form>
 					</div>

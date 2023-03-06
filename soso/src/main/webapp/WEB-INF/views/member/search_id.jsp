@@ -8,7 +8,7 @@
 <div class="login-root">
 	<div class="box-root flex-flex flex-direction--column"
 		style="min-height: 100vh; flex-grow: 1;">
-		<div class="loginbackground box-background--white padding-top--64">
+		<div class="loginbackground box-background--white padding-top--64" style="z-index: 1">
 			<div class="loginbackground-gridContainer">
 				<div class="box-root flex-flex" style="grid-area: top/start/8/end;">
 					<div class="box-root"
@@ -53,18 +53,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="box-root padding-top--24 flex-flex flex-direction--column"
-			style="flex-grow: 1; z-index: 9;">
+		<div class="box-root flex-flex flex-direction--column"
+			style="flex-grow: 1;">
 			<div
-				class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-				<h1>
-					<a href="${pageContext.request.contextPath}/main/main.do">SoSo</a>
-				</h1>
+				class="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
 			</div>
 			<div class="formbg-outer">
 				<div class="formbg">
-					<div class="formbg-inner padding-horizontal--48">
-						<!-- 로고? <span class="padding-bottom--15"></span> -->
+					<div class="formbg-inner padding-horizontal--logo">
+						<div class="align-center">
+					<a href="${pageContext.request.contextPath}/main/main.do"
+						rel="dofollow"><img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width:150px; height:150px;"></a>
+					</div>
 						<form id="createForm" action="${path}/member/search_result_id.do" method="post">
 							<div class="form-group field padding-bottom--24">
 								<div class="grid--50-50">
@@ -84,9 +84,8 @@
 								<!-- <input type="submit" name="submit" value="로그인" onclick="fnSubmit(); return false;"> -->
 							</div>
 							
-							<div class="field">
-								<a class="ssolink"
-									href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
+							<div class="align-center">
+								<a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
 							</div>
 						</form>
 					</div>

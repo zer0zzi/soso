@@ -60,10 +60,10 @@
 			</div>
 		</div>
 		<div class="box-root padding-top--24 flex-flex flex-direction--column"
-			style="flex-grow: 1; z-index: 9;">
+			style="flex-grow: 1;">
 			<div
 				class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-				<h1>
+				<h1 style="z-index: 2; background-color: transparent;">
 					<a href="${pageContext.request.contextPath}/main/main.do">SoSo</a>
 				</h1>
 			</div>
@@ -81,7 +81,7 @@
 									<p class="mb-4">조회결과가 없습니다.</p>
 								</c:when>
 								<c:otherwise>
-									<p class="mb-4">회원님의 아이디는 [${memberVO.mem_id}] 입니다.</p>
+									<div class="mb-4">회원님의 아이디는 [ ${memberVO.mem_id} ] 입니다.</div>
 								</c:otherwise>
 							</c:choose>
 							</div>

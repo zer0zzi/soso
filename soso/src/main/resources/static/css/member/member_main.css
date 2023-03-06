@@ -2,12 +2,11 @@
 
 /* 전체 레이아웃
 ---------------------------*/
-
+* {
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
 #title_res{
 	text-align: center;
-}
-body{
-	background-color: #f1f3fb;
 }
 
 div#main{
@@ -42,14 +41,6 @@ a:hover {
 
 /* 페이지 기본 레이아웃
 ---------------------------*/
-.page-main{
-	width: 50em;
-	margin:0 auto;
-}
-.page-one{
-	width:600px;
-	margin:0 auto;
-}
 /* 공통 정렬
 ---------------------------*/
 .align-center{
