@@ -69,7 +69,7 @@
 							</c:if>
 							</span>
 							
-							<span class="left-id">
+							<span class="left-id list-margin">
 							<c:if test="${empty review.mem_nick}">${review.mem_id}</c:if>
 							<c:if test="${!empty review.mem_nick}">${review.mem_nick}</c:if>
 							<br>${review.review_regdate}

@@ -25,7 +25,7 @@
 	}
 </style>
 <!-- 글작성 영역 시작 -->
-<div class="community-page-main">
+<div class="community-page-main-write">
 
 	<span class="full-insert-title">
 	<a href='promoList.do' style="color:white"><b>

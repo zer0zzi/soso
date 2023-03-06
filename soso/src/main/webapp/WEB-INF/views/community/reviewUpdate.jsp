@@ -30,7 +30,7 @@
 </style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community/community.css">
 <!-- 후기 글수정 시작 -->
-<div class="community-page-main">
+<div class="community-page-main-write">
 
 	<span class="full-insert-title">
 	<a href='reviewList.do' style="color:white"><b>

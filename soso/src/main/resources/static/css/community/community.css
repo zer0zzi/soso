@@ -33,6 +33,9 @@
 .hr-reply{
 	margin:5px 0;
 }
+.list-margin{
+	margin-top:3px;
+}
 /* 링크 */
 a:link{
 	text-decoration:none;
@@ -242,11 +245,11 @@ div.sub-menu-right input[type=search]:focus{
 	position:absolute;
 	border-top:13px solid #969CE4;
  	border-left:120px solid #969CE4;
- 	border-bottom:10px solid #969CE4;
+ 	border-bottom:13px solid #969CE4;
  	border-radius:3px;
  	
  	content:"";
- 	top:-19px;
+ 	top:-23px;
  	right:730px;
 }
 
@@ -308,6 +311,11 @@ div.sub-menu-right input[type=search]:focus{
 /* 전체 페이지 */
 div.community-page-main{
 	width:1024px;
+	margin:0 auto;
+}
+div.community-page-main-write{
+	width:1024px;
+	height:900px;
 	margin:0 auto;
 }
 div.community-paging{
@@ -454,12 +462,14 @@ div.promo-fixed-2 .full-list{
 	border:none; border-radius:3px;
 	box-shadow:2px 2px 2px gray;
 	margin-bottom:10px;
+	width:60px; height:20px;
 }
 .promo-comp-btn{
 	background-color:#D3D3D3;
 	border:none; border-radius:3px;
 	box-shadow:2px 2px 2px gray;
 	margin-bottom:10px;
+	width:60px; height:20px;
 }
 #promo_faq{
 	margin:2px 0 2px 5px;
@@ -629,10 +639,8 @@ form#vre_form, form#vmre_form{
  	top:10px;
  	left:-15px;
 }
-.my-photo{
-	padding-right:10px;
-	margin-bottom:10px;
-}
+
+
 /* 자유 댓글 목록 */
 ul.detail-info{
 	list-style:none;
