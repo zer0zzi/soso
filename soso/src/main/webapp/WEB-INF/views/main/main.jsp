@@ -36,7 +36,7 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=all">
-				<img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>
 				필터다
 				</a>
@@ -45,7 +45,7 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=programming">
-				<img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>
 				프래밍
 				</a>
@@ -54,7 +54,7 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=datascience">
-				<img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>
 				데언스</a>
 			</li>
@@ -62,13 +62,14 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=design">
-				<img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>디자인</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
-				<a href="main.do?filter=video"><img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<a href="main.do?filter=video">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>
 				비디오
 				</a>
@@ -77,7 +78,7 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=language">
-				<img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>
 				어언어
 				</a>
@@ -86,7 +87,7 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=marketing">
-				<img src="${pageContext.request.contextPath}/images/gray.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
 				<br>
 				마케팅
 				</a>

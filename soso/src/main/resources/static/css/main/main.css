@@ -237,7 +237,7 @@ select {
 ---------------------------*/
 
 .card ul{
-	padding:0 20px;
+	padding:13px 20px 10px 20px;
 	list-style:none;
 }
 
@@ -300,7 +300,7 @@ select {
 
 .std-wdate{
 	font-size:9pt;
-	padding-bottom:5px;
+	padding-bottom:7px;
 }
 
 .std-mem{
