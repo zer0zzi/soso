@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 글꼴  */
 @font-face {
     font-family: 'NEXON Lv1 Gothic OTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
@@ -10,7 +11,117 @@
     font-family:  'NEXON Lv1 Gothic OTF';
 }
 
+/* 버튼 */
 
+/*
+.btn{
+	border: 5px double white;
+	border-radius: 15px;
+	box-shadow: inset -5px -5px 10px 4px rgba(77, 71, 71, 0.4);
+	
+}
+.btn:hover{
+	border: 5px double white;
+	box-shadow: inset 5px 5px 10px 6px rgba(77, 71, 71, 0.5);
+	color: #dde;
+}
+.btn:focus{
+	border: 5px double white;
+}
+*/
+
+
+.btn{
+	color:#555;
+	background-color:white;
+	border:none;
+	border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+	margin-bottom:10px;
+	
+	position: relative;
+}
+
+.btn:hover{
+	background-color:white;
+	color:black;
+	transition: all 0.5s;
+}
+
+.btn span{position: absolute; background: #969CE4;}
+.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 5px;}
+.btn span:nth-child(2) {right: 0; top: 0; width: 4px; height: 0;}
+.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 5px;}
+.btn span:nth-child(4) {left: 0; bottom: 0; width: 4px; height: 0;}
+
+.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 5px; transition: width 0.3s;}
+.btn span:nth-child(2) {right: 0; top: 0; width: 4px; height: 0; transition: height 0.3s;}
+.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 5px; transition: width 0.3s;}
+.btn span:nth-child(4) {left: 0; bottom: 0; width: 4px; height: 0; transition: height 0.3s;}
+
+
+.btn:hover span:nth-child(1) {width: 100%;}
+.btn:hover span:nth-child(2) {height: 100%;}
+.btn:hover span:nth-child(3) {width: 100%;}
+.btn:hover span:nth-child(4) {height: 100%;}
+
+.btn:focus{
+	background-color:white;
+	color:gray;
+}
+
+
+/* 필터 */
+.std-filter1{
+	background-color:#969ce4;
+	color:white;
+	border-radius:5px;
+	padding:3px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter2{
+	background-color:#ace0dd;
+	color:white;
+	border-radius:5px;
+	padding:3px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter3{
+	background-color:#f0cc96;
+	color:white;
+	border-radius:5px;
+	padding:3px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter4{
+	background-color:#acdbfc;
+	color:white;
+	border-radius:5px;
+	padding:3px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter5{
+	background-color:#fcb6d0;
+	color:white;
+	border-radius:5px;
+	padding:3px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter6{
+	background-color:#d8b5f5;
+	color:white;
+	border-radius:5px;
+	padding:3px 4px 2px 3px;
+	margin:15px 0;
+}
+
+
+/* 페이지 */
 div.page-main{
 	width:1024px;
 	margin:10px auto;
@@ -68,6 +179,8 @@ ul.detail-information{
 }
 
 
+/* 관심등록 */
+
 .jb-text {
 	padding: 15px 20px;
 	background-color: #444444;
@@ -92,40 +205,6 @@ ul.detail-information{
 }
 
 
-
-
-.btn{
-	border: 5px double white;
-	border-radius: 15px;
-	background-color: #969CE4;
-	box-shadow: inset -4px -4px 10px 4px rgba(77, 71, 71, 0.4);
-	
-}
-.btn:hover{
-	border: 5px double white;
-	background-color: #9090E0;
-	box-shadow: inset 4px 4px 10px 4px rgba(77, 71, 71, 0.4);
-	color: #dde;
-}
-.btn:focus{
-	border: 5px double white;
-	background-color: #969CE4;
-}
-
-/*
-.btn{
-	color:black;
-	background-color:white;
-	border:none; border-radius:3px;
-	box-shadow:2px 2px 2px gray;
-	margin-bottom:10px;
-}
-.btn:hover{
-	color:black;
-	background-color:white;
-	box-shadow:3px 3px 3px #444;
-}
-*/
 .btn-close {
 	background-color: red;
 	transition: 0.3s;
