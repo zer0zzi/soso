@@ -8,9 +8,11 @@ body{
     width: 100vw;
     height: auto; 
     font-family: 'NEXON Lv1 Gothic OTF';
+    margin: 0;
 }
 .header-div{
 	overflow-x: hidden;
+	overflow-y: hidden;
    	height: 100px;
 }
 .header-left{/*넓이는 left, right의 width와 각 paddingleft, paddingright 합쳐서100%되도록*/
