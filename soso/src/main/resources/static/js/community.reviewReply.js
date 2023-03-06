@@ -76,7 +76,7 @@ $(function(){
 					let output = '<div class="item">';
 					output += '<ul class="detail-info">';
 					output += '<li>'; // 프로필 사진 처리
-					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="40" height="40" class="my-photo">';
+					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="30" height="30" class="my-photo">';
 					output += '</li>';
 					output += '<li>';
 					if(item.mem_nick){ // 존재하면 true
@@ -95,8 +95,8 @@ $(function(){
 					output += '<p>' + item.vre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
 					/*output += ' <input type="button" data-num="' + item.vre_num + '" value="댓글" class="re-btn">';*/
 					if(param.user_num==item.mem_num){
-						output += ' <input type="button" data-num="' + item.vre_num + '" value="수정" class="modify-btn">';
-						output += ' <input type="button" data-num="' + item.vre_num + '" value="삭제" class="delete-btn">';
+						output += ' <input type="button" data-num="' + item.vre_num + '" value="수정" class="re-modify-btn">';
+						output += ' <input type="button" data-num="' + item.vre_num + '" value="삭제" class="re-delete-btn">';
 					}
 					output += '<hr size="1" noshade>';
 					output += '</div>'; // sub의 div
@@ -154,7 +154,7 @@ $(function(){
 		$('#vmre_form').remove();
 	} // end of initModifyForm 수정폼 초기화
 	// 댓글 수정 버튼 클릭시 수정폼 노출
-	$(document).on('click','.modify-btn',function(){
+	$(document).on('click','.re-modify-btn',function(){
 		// 댓글 글번호
 		let vre_num = $(this).attr('data-num');
 		// 댓글 내용
@@ -164,11 +164,11 @@ $(function(){
 		let modifyUI = '<form id="vmre_form">';
 		modifyUI += '<input type="hidden" name="vre_num" id="vmre_num" value="' + vre_num + '">';
 		modifyUI += '<textarea rows="3" cols="50" name="vre_content" id="vmre_content" class="rep-content">' + vre_content + '</textarea>';
-		modifyUI += '<div id="vmre_first"><span class="letter-count">0/500</span></div>';
 		modifyUI += '<div id="vmre_second" class="align-right">';
-		modifyUI += ' <input type="submit" value="수정">';
-		modifyUI += ' <input type="button" value="취소" class="re-reset">';
+		modifyUI += ' <input type="submit" value="수정" class="re-modify-btn">';
+		modifyUI += ' <input type="button" value="취소" class="re-reset re-reply-delete-btn">';
 		modifyUI += '</div>';
+		modifyUI += '<div id="vmre_first"><span class="letter-count">0/500</span></div>';
 		modifyUI += '<hr size="1" noshade width="96%">';
 		modifyUI += '</form>';
 		

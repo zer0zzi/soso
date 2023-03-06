@@ -20,10 +20,10 @@
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty promo.mem_photo_name}">
-			<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=1" width="40" height="40" class="my-photo">
+			<img src="imagePromoView.do?promo_num=${promo.promo_num}&promo_type=1" width="30" height="30" class="my-photo">
 			</c:if>
 			<c:if test="${empty promo.mem_photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" width="30" height="30" class="my-photo">
 			</c:if>
 		</li>
 		<li>
@@ -34,7 +34,6 @@
 			<c:if test="${promo.promo_status==2}">모집완료</c:if>
 			</b></span>
 			
-			<!-- <input type="button" id="promo_faq" value="1:1문의하기"> -->
 			<br>
 			<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
 			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
@@ -52,7 +51,7 @@
 	<h2>${promo.promo_title}</h2>
 	
 	<c:if test="${promo.promo_fixed==2}">
-	<p>
+	<p class="study-info">
 		(스터디 소개 페이지 : 
 		<a href="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" target="_blank" style="color:#969CE4"><b>클릭 시 이동</b></a>
 		)
@@ -77,11 +76,13 @@
 	</div>
 	</c:if>
 	
+	<div class="detail-filename">
 	<c:if test="${!empty promo.promo_filename}">
 	첨부파일 : <a href="file.do?promo_num=${promo.promo_num}">${promo.promo_filename}</a>
 	</c:if>
+	</div>
 	
-	<div class="hr">
+	<div>
 		<hr size="1" width="100%">
 	</div>
 	

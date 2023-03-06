@@ -15,10 +15,10 @@
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty free.mem_photo_name}">
-			<img src="imageView.do?free_num=${free.free_num}&free_type=1" width="40" height="40" class="my-photo">
+			<img src="imageView.do?free_num=${free.free_num}&free_type=1" width="30" height="30" class="my-photo">
 			</c:if>
 			<c:if test="${empty free.mem_photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" width="30" height="30" class="my-photo">
 			</c:if>
 		</li>
 		<li class="community-detail-member-padding">
@@ -45,7 +45,7 @@
 		<hr size="1" width="100%">
 	</div>
 	
-	<p>
+	<p class="detail-content">
 		${free.free_content}
 	</p>
 	
@@ -60,11 +60,13 @@
 	</div>
 	</c:if>
 	
+	<div class="detail-filename">
 	<c:if test="${!empty free.free_filename}">
 	첨부파일 : <a href="freeFile.do?free_num=${free.free_num}">${free.free_filename}</a>
 	</c:if>
+	</div>
 	
-	<div class="hr">
+	<div>
 		<hr size="1" width="100%">
 	</div>
 	
@@ -120,7 +122,7 @@
 	<!-- 댓글 목록 출력 -->
 	<div id="f_output"></div>
 	<div class="paging-button" style="display:none;">
-		<input type="button" value="댓글 더보기">
+		<input type="button" value="댓글 더보기" class="reply-plus">
 	</div>
 	<div id="loading" style="display:none;"> <!-- 목록 출력 대기 시간동안 로딩이미지 보여주기 -->
 		<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">

@@ -2,12 +2,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&family=Noto+Sans+KR:wght@300&display=swap');
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* ============================================= */
 /* ==================== 공통 ==================== */
 /* ============================================= */
 *{
-	font-family: 'Noto Sans KR', 'Archivo', sans-serif;
+	font-family: 'NEXON Lv1 Gothic OTF', 'Noto Sans KR', 'Archivo', sans-serif;
 }
 .align-left{
 	text-align:left;
@@ -18,8 +24,14 @@
 .clear{
 	clear:both;
 }
-div.hr{
-	padding:1px 0;
+.hr{
+	margin:25px 0;
+}
+.review-hr{
+	margin-bottom:25px;
+}
+.hr-reply{
+	margin:5px 0;
 }
 /* 링크 */
 a:link{
@@ -318,7 +330,7 @@ ul.community-detail-member li{
 	margin-right:10px;
 }
 li.community-detail-member-padding{
-	padding-top:15px;
+	padding-top:10px;
 }
 div.community-page-main-detail-content{
 	padding-left:40px; margin-top:30px;
@@ -332,7 +344,8 @@ div.community-page-main-detail-content{
 /* 전체게시판 목록 */
 .full-list{
 	margin:0 auto;
-	width:980px; padding:20px 0 20px 30px;
+	width:980px;
+	padding:20px 0 20px 30px;
 	font-size:14px;
 	margin-top:35px;
 	position:relative;
@@ -380,6 +393,15 @@ table.full-class tr td span.right{
 	float:right;
 	text-align:right; display:block;
 	width:200px; padding-top:2px;
+}
+.detail-content{
+	padding-left:10px; padding-bottom:10px;
+}
+.detail-img{
+	margin:10px 0;
+}
+.detail-filename{
+	margin:10px 0;
 }
 
 
@@ -443,6 +465,9 @@ div.promo-fixed-2 .full-list{
 	margin:2px 0 2px 5px;
 	width:80px; height:20px;
 	font-size:12px;
+}
+.study-info{
+	margin-top:10px;
 }
 
 
@@ -533,6 +558,7 @@ input.detail-delete-btn, input.detail-update-btn, input.detail-list-btn{
 	background-color:#969CE4;
 	color:white;
 	margin-bottom:5px;
+	width:30px; height:20px;
 }
 
 
@@ -573,6 +599,7 @@ form#vre_form, form#vmre_form{
 	background-color:white;
 	border:none; border-radius:3px;
 	box-shadow:2px 2px 2px gray;
+	height:22px; width:65px;
 }
 .reply-insert-btn:active{
 	margin-left:5px; margin-top:5px;
@@ -582,6 +609,7 @@ form#vre_form, form#vmre_form{
 	border-radius:10px;
 	border:2px solid #F8B739;
 	outline-color:#969CE4;
+	padding:5px;
 }
 .reply-div{
 	position:relative;
@@ -603,6 +631,7 @@ form#vre_form, form#vmre_form{
 }
 .my-photo{
 	padding-right:10px;
+	margin-bottom:10px;
 }
 /* 자유 댓글 목록 */
 ul.detail-info{
@@ -612,7 +641,8 @@ input.re-btn, input.re-modify-btn, input.re-delete-btn, input.re-reply-delete-bt
 	background-color:white;
 	border:none; border-radius:3px;
 	box-shadow:2px 2px 2px gray;
-	margin-bottom:10px;
+	margin-right:2px; margin-bottom:5px;
+	width:30px; height:20px;
 }
 input.re-btn:active, input.re-modify-btn:active, input.re-delete-btn:active{
 	margin-left:5px; margin-top:5px;
@@ -620,6 +650,13 @@ input.re-btn:active, input.re-modify-btn:active, input.re-delete-btn:active{
 }
 div.item{
 	padding-top:5px;
+}
+.reply-plus{
+	background-color:white;
+	border:none; border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+	margin-bottom:10px; padding-top:10px; margin-right:2px;
+	width:90px;
 }
 
 

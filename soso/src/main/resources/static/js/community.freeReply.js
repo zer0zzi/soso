@@ -76,7 +76,7 @@ $(function(){
 					let output = '<div class="item">';
 					output += '<ul class="detail-info">';
 					output += '<li>'; // 프로필 사진 처리
-					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="40" height="40" class="my-photo">';
+					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="30" height="30" class="my-photo">';
 					output += '</li>';
 					output += '<li>';
 					if(item.mem_nick){ // 존재하면 true
@@ -98,7 +98,7 @@ $(function(){
 						output += ' <input type="button" data-num="' + item.fre_num + '" value="수정" class="re-modify-btn">';
 						output += ' <input type="button" data-num="' + item.fre_num + '" value="삭제" class="re-delete-btn">';
 					}
-					output += '<hr size="1" noshade>';
+					output += '<hr size="1" class="hr-reply" noshade>';
 					output += '</div>'; // sub의 div
 					output += '</div>'; // item의 div
 					
@@ -169,7 +169,7 @@ $(function(){
 		modifyUI += ' <input type="button" value="취소" class="re-reset re-reply-delete-btn">';
 		modifyUI += '</div>';
 		modifyUI += '<div id="fmre_first"><span class="letter-count">0/500</span></div>';
-		modifyUI += '<hr size="1" noshade width="96%">';
+		modifyUI += '<hr size="1" class="hr-reply" noshade width="96%">';
 		modifyUI += '</form>';
 		
 		// 이전에 이미 수정하는 댓글이 있을 경우 수정버튼을 클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화한다.
