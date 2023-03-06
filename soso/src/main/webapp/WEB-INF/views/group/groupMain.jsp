@@ -8,7 +8,7 @@
 
 	<p class="cursor-d">공지사항</p>
 	<div class="member-main">
-        <table class="member-table">
+        <table class="member-table h-40">
         	<tr class="member-table-header cursor-dd">
                 <th class="no1">공지사항</th>
                 <th class="no2">제목</th>
@@ -28,7 +28,7 @@
 	
 	<p class="cursor-d">오늘의 일정</p>
 	<div class="member-main">
-        <table class="member-table">
+        <table class="member-table h-70">
         	<tr class="member-table-header cursor-dd">
                 <th style="width: 99%">일정</th>
                 <th class="no4"></th>

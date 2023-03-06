@@ -29,7 +29,7 @@
         </table>
         <div class="page">${page}</div>
     </div>
-	<c:if test="!empty ${master}">
+	<c:if test="${master==stc_num}">
 	<div class="writebutton">
 	    <button class="button" id="add-button" onclick="location.href='${pageContext.request.contextPath}/groupNoticeWrite.do?stc_num=${stc_num}'">공지 작성</button>
 	</div>

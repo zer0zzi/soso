@@ -72,7 +72,7 @@
                     <form>
                         <div class="card-footer two-button">
 							<input type="button" value="수정" class="btn btn--radius-2 btn--blue-2 button1" 
-							onclick="location.href='${pageContext.request.contextPath}/group/groupNoticeModify.do?grp_num=${detail.grp_num}'">
+							onclick="location.href='${pageContext.request.contextPath}/group/groupNoticeModify.do?grp_num=${detail.grp_num}&stc_num=${detail.stc_num}'">
 							<input type="button" value="삭제" class="btn btn--radius-2 btn--blue-2 button2" 
 							onclick="location.href='${pageContext.request.contextPath}/group/groupNoticeDelete.do?grp_num=${detail.grp_num}&stc_num=${detail.stc_num}'">
 						</div>

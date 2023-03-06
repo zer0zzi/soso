@@ -57,24 +57,24 @@
 								  <tbody class="tbody">             
 								  </tbody>
 								  </table>
-								  <c:if test="!empty master">
+								  <c:if test="${master==stc_num}">
 								  <div class="writebutton">
 								    <button class="button1" id="add-button" onclick="location.href=
-								    '${pageContext.request.contextPath}/group/groupCalendarWrite.do?stc_num=1'">일정 추가</button>
+								    '${pageContext.request.contextPath}/group/groupCalendarWrite.do?stc_num=${stc_num}'">일정 추가</button>
 								  </div>
 								  </c:if>
 								</div> 
 							  </div>
 							</div>
 							
-							<c:forEach var="calendar" items="${list}">
+							
 							<div class="calendar-list">
 								<div class="calendar-list-form">
 									<div class="form-data">
 									
 									
 									<table class="notice-table">
-							            <c:forEach var="calendar" items="${list}">
+									<c:forEach var="calendar" items="${list}">
 							            <c:if test="${calendar.stc_num==stc_num}">
 							            <tr>
 								            <td><p>${calendar.cal_date} : ${calendar.cal_content}</p></td>
@@ -85,7 +85,7 @@
 									</div>
 								</div>
 							</div>
-							</c:forEach>
+							
 						</div>
 					</div>
 				</div>

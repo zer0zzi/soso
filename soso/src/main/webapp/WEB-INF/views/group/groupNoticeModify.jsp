@@ -25,6 +25,7 @@
                 <div class="card-body">
                     <form:form action="groupNoticeModify.do" modelAttribute="groupNoticeVO" id="noticeModify_form" enctype="multipart/form-data">
                     <form:input path="grp_num" type="hidden" value="${grp_num}"/>
+                    <form:input path="stc_num" type="hidden" value="${stc_num}"/>
                     <form:errors element="div" cssClass="error-color"/>
                         <div class="form-row">
                             <div class="name">

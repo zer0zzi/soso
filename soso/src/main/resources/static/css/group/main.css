@@ -18,6 +18,8 @@ body{
 .page-main{
 	margin:0 auto;
 }
+
+
 .page-main>p{ /* important, today, members 글씨체 */
 	font-size: 15px;
 	font-weight: bold;
@@ -78,12 +80,17 @@ body{
 	border: none;
 }
 .member-table tr,.member-table td,.member-table th{ /* 메인페이지 내 모든 tr, td, th 크기 지정 */
-    height: 40px;
     font-weight: lighter;
     text-align: center;
 }
-.member-table:last-child td{ /* 회원목록 부분만 행 높이 70px */
-    height: 70px !important;
+.h-40 tr, .h-40 td, .h40-th{
+	height: 40px;
+}
+.h-70 td{
+	height: 70px !important;
+}
+.h-70 tr, .h70-th{
+	height: 40px;
 }
 .member-table, .member-table th, .member-table td {
     border-collapse: collapse;
@@ -102,9 +109,7 @@ body{
 .member-table tr .no1, .member-table tr .no2, .member-table tr .no3{
 	 border-bottom: 3px solid rgb(242, 240, 240);
 }
-.member-table .member-table-header .no1,.member-table .member-table-header .no2,.member-table .member-table-header .no3{
-	border-bottom: 3px solid white !important;
-} 
+
 .member-table tr th{ /* 테이블 헤더 글씨들 */
 	color: white;
 }
