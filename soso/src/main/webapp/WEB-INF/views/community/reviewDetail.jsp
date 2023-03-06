@@ -14,15 +14,17 @@
 	<ul class="community-detail-member">
 		<li class="review-profile">
 			<c:if test="${!empty review.mem_photo_name}">
-			<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="30" height="30" class="my-photo">
+			<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="35" height="35" class="my-photo">
 			</c:if>
 			<c:if test="${empty review.mem_photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="30" height="30" class="my-photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" width="35" height="35" class="my-photo">
 			</c:if>
 		</li>
 		<li>
 			<span>
+			<c:if test="${review.review_fixed==2}">
 			<b>${review.studyName}</b>
+			</c:if>
 			<c:if test="${review.review_rating==1}">⭐</c:if>
 			<c:if test="${review.review_rating==2}">⭐⭐</c:if>
 			<c:if test="${review.review_rating==3}">⭐⭐⭐</c:if>

@@ -27,13 +27,6 @@ public interface ReviewMapper {
 			+ "WHERE a.mem_num=#{a.mem_num}")
 	public List<StudyVO> selectReviewMemberStudyList(int mem_num);
 	
-	/*
-	 	SELECT c.stc_title,a.*
-FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a
-JOIN study_create c ON a.stc_num=c.stc_num
-WHERE a.mem_num=3;
-	 */
-	
 	@Select("SELECT * FROM review_board v JOIN member m USING(mem_num) JOIN member_detail d USING(mem_num) "
 			+ "WHERE v.review_num=#{v.review_num}")
 	public ReviewVO selectReview(Integer review_num);
