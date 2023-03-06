@@ -137,7 +137,7 @@
 		<!-- Modal창 호출 버튼 -->
 		<jsp:include page="../study/modal.jsp"/>
 		<button type="button" class="btn btn-primary" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료' || study.mem_auth != 9}"> disabled="disabled"</c:if>>
+			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료' || user.mem_auth == 9}"> disabled="disabled"</c:if>>
 			<span></span>
 	        <span></span>
 	        <span></span>
