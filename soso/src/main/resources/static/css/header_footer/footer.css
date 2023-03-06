@@ -33,12 +33,13 @@ a {
   height: 70vh; }
 
 .footer-16371 {
-  padding: 2rem 0;
-  font-family: "Poppins", sans-serif; }
+  padding: 2rem 0;}
   .footer-16371 .footer-site-logo {
     text-align: center;
     font-size: 2rem;
-    font-weight: 900; }
+    font-weight: 900; 
+    padding: 0 0 30px 0;
+    }
     .footer-16371 .footer-site-logo a {
       font-size: 30px;
       color: #969ce4;

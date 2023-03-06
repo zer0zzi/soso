@@ -17,7 +17,7 @@
         <div class="row justify-content-center">
           <div class="col-md-9 text-center">
             <div class="footer-site-logo mb-4">
-              <a>soso</a>
+              <a class="footer-soso">soso</a>
             </div>
             <div class="footer-center">
 	            <ul class="list-unstyled nav-links mb-5">
