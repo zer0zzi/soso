@@ -93,19 +93,19 @@
 	</ul>
 	<h3><b>스터디 소개</b></h3>
 	<hr size="1" width="100%">
-	<c:if test="${fn:endsWith(study.stc_filename,'.jpg') || 
-	              fn:endsWith(study.stc_filename,'.JPG') ||
-				  fn:endsWith(study.stc_filename,'.jpeg') ||
-				  fn:endsWith(study.stc_filename,'.JPEG') ||
-				  fn:endsWith(study.stc_filename,'.gif') ||
-				  fn:endsWith(study.stc_filename,'.GIF') ||
-				  fn:endsWith(study.stc_filename,'.png') ||
-				  fn:endsWith(study.stc_filename,'.PNG')}">
-	<div class="align-center">
-		<img src="imageView.do?stc_num=${study.stc_num}&stc_type=2" class="detail-img">
-	</div>	
-	</c:if>
 	<div class="study-content">
+		<c:if test="${fn:endsWith(study.stc_filename,'.jpg') || 
+		              fn:endsWith(study.stc_filename,'.JPG') ||
+					  fn:endsWith(study.stc_filename,'.jpeg') ||
+					  fn:endsWith(study.stc_filename,'.JPEG') ||
+					  fn:endsWith(study.stc_filename,'.gif') ||
+					  fn:endsWith(study.stc_filename,'.GIF') ||
+					  fn:endsWith(study.stc_filename,'.png') ||
+					  fn:endsWith(study.stc_filename,'.PNG')}">
+		<div class="align-center">
+			<img src="imageView.do?stc_num=${study.stc_num}&stc_type=2" class="detail-img">
+		</div><br>			
+		</c:if>
 		<p>
 			${study.stc_content}
 		</p>
@@ -137,7 +137,7 @@
 		<!-- Modal창 호출 버튼 -->
 		<jsp:include page="../study/modal.jsp"/>
 		<button type="button" class="btn btn-primary" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}"> disabled="disabled"</c:if>>
+			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료' || study.mem_auth != 9}"> disabled="disabled"</c:if>>
 			<span></span>
 	        <span></span>
 	        <span></span>

@@ -27,6 +27,7 @@ public class StudyVO {
 	private String mem_nick;
 	private byte[] mem_photo;
 	private String mem_photo_name;
+	private int mem_auth;
 	
 	//파일 업로드 처리
 	public void setUpload(MultipartFile upload) throws IOException{
@@ -151,15 +152,22 @@ public class StudyVO {
 	public void setMem_email(String mem_email) {
 		this.mem_email = mem_email;
 	}
+	public int getMem_auth() {
+		return mem_auth;
+	}
+
+	public void setMem_auth(int mem_auth) {
+		this.mem_auth = mem_auth;
+	}
 
 	@Override
 	public String toString() {
 		return "StudyVO [stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_content=" + stc_content
 				+ ", stc_state=" + stc_state + ", stc_period=" + stc_period + ", stc_per=" + stc_per + ", stc_way="
-				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_uploadfile="
-				+ Arrays.toString(stc_uploadfile) + ", stc_date=" + stc_date + ", stc_modify_date=" + stc_modify_date
-				+ ", hit=" + hit + ", mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_email=" + mem_email
-				+ ", mem_nick=" + mem_nick + ", mem_photo=" + Arrays.toString(mem_photo) + ", mem_photo_name="
-				+ mem_photo_name + "]";
+				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_date=" + stc_date
+				+ ", stc_modify_date=" + stc_modify_date + ", hit=" + hit + ", mem_num=" + mem_num + ", mem_id="
+				+ mem_id + ", mem_email=" + mem_email + ", mem_nick=" + mem_nick + ", mem_photo_name=" + mem_photo_name
+				+ ", mem_auth=" + mem_auth + "]";
 	}
+	
 }
