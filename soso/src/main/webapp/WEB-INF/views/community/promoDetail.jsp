@@ -6,16 +6,10 @@
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoFav.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoReply.js"></script>
-<style>
-
-</style>
-<script>
-
-</script>
 <!-- 홍보 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${promo.promo_fixed==1}">
-	<span style="color:red">공지사항</span>
+	<div style="color:red" class="detail-notice">공지사항</div>
 	</c:if>
 	<ul class="community-detail-member">
 		<li>

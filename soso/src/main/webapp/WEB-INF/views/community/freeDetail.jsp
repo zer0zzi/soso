@@ -9,9 +9,9 @@
 <!-- 자유 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${free.free_fixed==1}">
-	<span style="color:red">공지사항</span>
+	<div style="color:red" class="detail-notice">공지사항</div>
 	</c:if>
-	<p><p>
+
 	<ul class="community-detail-member">
 		<li>
 			<c:if test="${!empty free.mem_photo_name}">

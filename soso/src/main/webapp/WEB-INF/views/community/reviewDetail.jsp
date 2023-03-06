@@ -9,15 +9,15 @@
 <!-- 자유 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${review.review_fixed==1}">
-	<span style="color:red">공지사항</span>
+	<div style="color:red" class="detail-notice">공지사항</div>
 	</c:if>
 	<ul class="community-detail-member">
 		<li class="review-profile">
 			<c:if test="${!empty review.mem_photo_name}">
-			<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="35" height="35" class="my-photo">
+			<img src="imageReviewView.do?review_num=${review.review_num}&review_type=1" width="30" height="30" class="my-photo">
 			</c:if>
 			<c:if test="${empty review.mem_photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="35" height="35" class="my-photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" width="30" height="30" class="my-photo">
 			</c:if>
 		</li>
 		<li>

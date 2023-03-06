@@ -76,7 +76,7 @@ $(function(){
 					let output = '<div class="item">';
 					output += '<ul class="detail-info">';
 					output += '<li>'; // 프로필 사진 처리
-					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="30" height="30" class="my-photo">';
+					output += '<img src="../member/viewProfile.do?mem_num=' + item.mem_num + '" width="30" height="30" class="my-photo reply-margin">';
 					output += '</li>';
 					output += '<li>';
 					if(item.mem_nick){ // 존재하면 true
@@ -92,7 +92,7 @@ $(function(){
 					output += '</li>';
 					output += '</ul>'; // end of .detail-info
 					output += '<div class="sub-item">';
-					output += '<p>' + item.pre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
+					output += '<p class="reply-content">' + item.pre_content.replace(/\r\n/g,'<br>') + '</p>'; // //g 안에서 넣으면 모든 \r\n을 찾으라는 뜻
 					/*output += ' <input type="button" data-num="' + item.pre_num + '" value="댓글" class="re-btn">';*/
 					if(param.user_num==item.mem_num){
 						output += ' <input type="button" data-num="' + item.pre_num + '" value="수정" class="re-modify-btn">';
