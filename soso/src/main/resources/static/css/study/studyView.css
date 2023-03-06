@@ -90,16 +90,51 @@ ul.detail-information{
 	color:white;
 	background-color: #969CE4;
 }
+
+
+
+
+.btn{
+	border: 5px double white;
+	border-radius: 15px;
+	background-color: #969CE4;
+	box-shadow: inset -4px -4px 10px 4px rgba(77, 71, 71, 0.4);
+	
+}
+.btn:hover{
+	border: 5px double white;
+	background-color: #9090E0;
+	box-shadow: inset 4px 4px 10px 4px rgba(77, 71, 71, 0.4);
+	color: #dde;
+}
+.btn:focus{
+	border: 5px double white;
+	background-color: #969CE4;
+}
+
+/*
+.btn{
+	color:black;
+	background-color:white;
+	border:none; border-radius:3px;
+	box-shadow:2px 2px 2px gray;
+	margin-bottom:10px;
+}
+.btn:hover{
+	color:black;
+	background-color:white;
+	box-shadow:3px 3px 3px #444;
+}
+*/
 .btn-close {
 	background-color: red;
+	transition: 0.3s;
 }
 .btn-primary{
 	float: right;
 	width: 150px;
 	height: 50px;
-	font-size: 23px;
-	/* background-color: red; */
-	border: none;
+	font-size: 21px;
 }
 
 div#modal_count{

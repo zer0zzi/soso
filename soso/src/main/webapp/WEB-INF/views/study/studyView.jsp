@@ -109,7 +109,7 @@
 			이미 관심등록한 스터디입니다.
 		</c:if>
 		<c:if test="${studyFav.mem_num != user.mem_num}">
-			스터디에 관심등록 하시겠습니까?
+			이 스터디를 관심 등록/해제 하시겠습니까?
 		</c:if>
 	</div>
 	<span id="output_fcount"></span>
