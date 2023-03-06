@@ -15,6 +15,10 @@
 *{
 	font-family: 'NEXON Lv1 Gothic OTF', 'Noto Sans KR', 'Archivo', sans-serif;
 	line-height:150%;
+	margin:0; padding:0;
+}
+body{
+	margin:0;
 }
 .align-left{
 	text-align:left;
@@ -56,6 +60,7 @@ div.main-menu{
 	width:100%; height:40px;
 	background-color:#969CE4;
 	position:absolute;
+	margin:0; padding:0;
 }
 div.top-page-main{
 	width:1024px; margin:0 auto;
@@ -121,7 +126,7 @@ div.sub-menu-left-detail ul li a{
 /* 서브 메뉴 - right */
 div.full-sub-menu-right{
 	padding:78px 0 0 0;
-	float:right; width:15%;
+	float:right; width:15.5%;
 	position:relative;
 }
 div.full-sub-menu-right form{
@@ -133,7 +138,6 @@ div.full-sub-menu-right ul{
 }
 div.full-sub-menu-right ul li{
 	display:inline-block;
-	margin-left:-2px;
 }
 div.full-sub-menu-right ul li input.list-btn{
 	border:none;
@@ -152,7 +156,7 @@ div.sub-menu-right ul{
 }
 div.sub-menu-right ul li{
 	display:inline-block;
-	margin-left:-2px;
+	
 }
 div.sub-menu-right ul li input.list-btn{
 	border:none;
@@ -288,6 +292,7 @@ div.sub-menu-right input[type=search]:focus{
 }
 .full-insert form ul li label{
 	font-weight:700;
+	margin-top:15px;
 }
 .full-insert form .insert-btn{
 	margin-left:60px;
@@ -448,9 +453,9 @@ div.free-fixed-2 .full-list{
 /* 홍보게시판 목록 */
 div.promo-fixed-1 .full-list{
 	margin:0 auto;
-	width:980px; padding:20px 0 0 30px;
+	width:980px; 
 	font-size:14px;
-	margin-top:35px;
+	margin-top:35px;  padding:20px 0 0 30px;
 	position:relative;
 	border:2px solid black;
 	border-bottom:1px; border-left:3px; border-right:3px;
