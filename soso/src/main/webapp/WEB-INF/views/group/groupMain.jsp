@@ -28,14 +28,14 @@
 	
 	<p class="cursor-d">오늘의 일정</p>
 	<div class="member-main">
-        <table class="member-table h-70">
+        <table class="member-table h-40">
         	<tr class="member-table-header cursor-dd">
-                <th style="width: 99%">일정</th>
+                <th style="width: 99%" style="border-bottom: 3px solid rgb(242,240,240);">일정</th>
                 <th class="no4"></th>
             </tr>
             <c:forEach var="today" items="${todayList}">
             <tr class="cursor-ddd">
-                <td style="width: 99%">${today.cal_content}</td>
+                <td style="width: 99%; border-bottom: 3px solid rgb(242, 240, 240);">${today.cal_content}</td>
                 <td class="no4"></td>
             </tr>
             </c:forEach>
@@ -44,7 +44,7 @@
 	
 	<p class="cursor-d">그룹 회원</p>
 	<div class="member-main">
-        <table class="member-table">
+        <table class="member-table h-70">
             <tr class="member-table-header cursor-dd">
                 <th class="no1">프로필</th>
                 <th class="no2">이름</th>
@@ -54,7 +54,7 @@
             
             <c:if test="${count > 0}">
             	<c:forEach var="member" items="${memberList}">
-            	<tr class="cursor-ddd h-50">
+            	<tr class="cursor-ddd">
 	         		<td class="no1">
 	         			<img src="/member/viewProfile.do?mem_num=${member.mem_num}" class="std-memimage" width="70px" height="70px">
 	         		</td>

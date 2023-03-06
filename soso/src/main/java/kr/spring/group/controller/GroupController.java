@@ -60,9 +60,10 @@ public class GroupController {
 			
 		// 오늘 일정 출력
 		List<GroupCalendarVO> todayList = null;
-		todayList = groupService.selectTodayList(stc_num);
+		todayList=groupService.selectCalendarList(stc_num);
+		
 		logger.debug("stc_num 테스트출력"+stc_num);
-		logger.debug("<<오늘일정 출력>> : " + todayList); //---> null
+		logger.debug("<<오늘일정 출력>> : " + todayList);
 			
 		// 글 총 갯수.
 		int count = groupService.selectCountMember(stc_num);
