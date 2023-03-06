@@ -21,7 +21,6 @@ public class StudyVO {
 	private Date stc_modify_date;
 	private int hit;
 	private int mem_num;
-	private String stc_pedate;
 	
 	private String mem_id;
 	private String mem_email;
@@ -152,22 +151,15 @@ public class StudyVO {
 	public void setMem_email(String mem_email) {
 		this.mem_email = mem_email;
 	}
-	
-	public String getStc_pedate() {
-		return stc_pedate;
-	}
-
-	public void setStc_pedate(String stc_pedate) {
-		this.stc_pedate = stc_pedate;
-	}
 
 	@Override
 	public String toString() {
 		return "StudyVO [stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_content=" + stc_content
 				+ ", stc_state=" + stc_state + ", stc_period=" + stc_period + ", stc_per=" + stc_per + ", stc_way="
-				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_date=" + stc_date
-				+ ", stc_modify_date=" + stc_modify_date + ", hit=" + hit + ", mem_num=" + mem_num + ", stc_pedate="
-				+ stc_pedate + ", mem_id=" + mem_id + ", mem_email=" + mem_email + ", mem_nick=" + mem_nick
-				+ ", mem_photo_name=" + mem_photo_name + "]";
+				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_uploadfile="
+				+ Arrays.toString(stc_uploadfile) + ", stc_date=" + stc_date + ", stc_modify_date=" + stc_modify_date
+				+ ", hit=" + hit + ", mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_email=" + mem_email
+				+ ", mem_nick=" + mem_nick + ", mem_photo=" + Arrays.toString(mem_photo) + ", mem_photo_name="
+				+ mem_photo_name + "]";
 	}
 }

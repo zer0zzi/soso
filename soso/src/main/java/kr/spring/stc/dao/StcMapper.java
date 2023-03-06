@@ -13,9 +13,9 @@ import kr.spring.study.vo.StudyVO;
 public interface StcMapper {
 	//스터디 모집 글 생성
 	@Insert("INSERT INTO study_create (stc_num, stc_title, stc_content, stc_state, stc_period,"
-			+ "stc_per, stc_way, stc_filter, mem_num, stc_uploadfile, stc_filename, stc_pedate)"
+			+ "stc_per, stc_way, stc_filter, mem_num, stc_uploadfile, stc_filename)"
 			+ "VALUES (stc_seq.nextval, #{stc_title}, #{stc_content}, #{stc_state}, #{stc_period},"
-			+ "#{stc_per}, #{stc_way}, #{stc_filter}, #{mem_num}, #{stc_uploadfile}, #{stc_filename}, #{stc_pedate})")
+			+ "#{stc_per}, #{stc_way}, #{stc_filter}, #{mem_num}, #{stc_uploadfile}, #{stc_filename})")
 	public void studyCreate(StudyVO study);
 	
 	//스터디 개수
