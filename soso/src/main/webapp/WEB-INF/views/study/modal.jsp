@@ -9,31 +9,25 @@
 		<div class="modal fade" id="exampleModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal=header">
-						<h5 class="modal-title">신청하기
-							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					<div class="modal-header">
+						<h5 class="modal-title">
+							신청하기
 						</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 					<div class="modal-body">
 						<form action="signup.do" class="modal-body">
 							<ul>
-							<li>
-							<b>신청스터디 :</b> ${study.stc_title}<br>
-							<b>주제 :</b> ${study.stc_filter}<br>
-							<b>마감기한 :</b> ${study.stc_period}<br>
-							</li>
-							</ul>
-							<ul>
-								<li>
-									<label for="mem_id">신청자 : <b>${user.mem_id}</b></label>
-								</li>
-								<li><br></li>
-								<li>
+								<li><b>신청스터디 :</b> ${study.stc_title}<br></li>
+								<li><b>주제 :</b> ${study.stc_filter}<br></li>
+								<li><b>마감기한 :</b> ${study.stc_period}<br></li>
+								<li><label for="mem_id"><b>신청자 :</b> ${user.mem_id}</label></li>
+								<li class="text-br">
 									<label for="signup_detail">신청사유 </label><br>
 									<textarea class="form-control col-sm-5" rows="5" id="signup_detail" placeholder="300자 이내로 신청사유를 적어주세요!" name="signup_detail" required></textarea>
 								</li>
 							</ul>
-							<div id="detail_count">
+							<div id="modal_count">
 								<span class="letter-count">300/300</span>
 							</div>
 						</form>
