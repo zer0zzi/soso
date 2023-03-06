@@ -68,11 +68,13 @@
 	
 	<p>
 	
+	<div class="detail-filename">
 	<c:if test="${!empty review.review_filename}">
 	첨부파일 : <a href="fileReview.do?review_num=${review.review_num}">${review.review_filename}</a>
 	</c:if>
+	</div>
 	
-	<div class="hr">
+	<div>
 		<hr size="1" width="100%">
 	</div>
 	
@@ -100,7 +102,7 @@
 		<input type="button" value="목록" onclick="location.href='reviewList.do'" class="detail-list-btn">
 	</div>
 	
-	<div class="hr clear">
+	<div class="review-hr clear">
 		<hr size="1" width="100%">
 	</div>
 	

@@ -33,8 +33,18 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
-						<button type="button" class="btn btn-success" data-bs-dismiss="modal">신청하기</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+						<span></span>
+				        <span></span>
+				        <span></span>
+				        <span></span>
+				        취소하기</button>
+						<button type="button" class="btn btn-success" data-bs-dismiss="modal">
+						<span></span>
+				        <span></span>
+				        <span></span>
+				        <span></span>
+				        신청하기</button>
 					</div>
 				</div>
 			</div>

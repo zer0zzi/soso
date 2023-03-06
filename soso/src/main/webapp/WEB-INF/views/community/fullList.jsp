@@ -50,7 +50,7 @@
 					</c:if>
 					</span>
 					
-					<span class="left-id">
+					<span class="left-id list-margin">
 					<c:if test="${empty free.mem_nick}">${free.mem_id}</c:if>
 					<c:if test="${!empty free.mem_nick}">${free.mem_nick}</c:if>
 					&nbsp;·&nbsp;${free.free_regdate}

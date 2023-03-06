@@ -18,7 +18,7 @@
 		<div class="header-right">
 		<!-- 회원 -->
 			<c:if test="${!empty user && user.mem_auth == 2}">
-				<a class="p-l-10" href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=1">STUDY DETAIL</a>  <!-- 마이페이지 이동 생기면 없앨것 -->
+				<a class="p-l-10" href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=182">STUDY DETAIL</a>  <!-- 마이페이지 이동 생기면 없앨것 -->
 				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">COMMUNITY</a>
 				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">TALK</a>
 			</c:if>
@@ -40,6 +40,7 @@
 				<a class="p-l-10" href="${pageContext.request.contextPath}/member/login.do">LOGIN</a>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth == 9}">
+				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">COMMUNITY</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/main/admin.do">MASTER MAIN</a>
 			</c:if>
 		</div>

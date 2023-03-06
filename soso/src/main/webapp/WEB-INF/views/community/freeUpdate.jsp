@@ -20,7 +20,7 @@
 	});
 </script>
 <!-- 자유 글수정 시작 -->
-<div class="community-page-main">
+<div class="community-page-main-write">
 
 	<span class="full-insert-title">
 	<a href='freeList.do' style="color:white"><b>

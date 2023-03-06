@@ -24,7 +24,7 @@
 	});
 </script>
 <!-- 글작성 영역 시작 -->
-<div class="community-page-main">
+<div class="community-page-main-write">
 
 	<span class="full-insert-title">
 	<a href='freeList.do' style="color:white"><b>
@@ -91,4 +91,5 @@
 	</div>
 	<!-- 작성 폼 끝 -->
 </div>
+<div class="clear"></div>
 <!-- 글작성 영역 끝 -->

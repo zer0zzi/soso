@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/table.css">
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
-	<div class="align-center">
+	<div class="align-center admin-title">
 	<h2>회원목록</h2>
 	</div>
 	<table class="rwd-table">

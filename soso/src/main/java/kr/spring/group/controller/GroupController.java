@@ -84,10 +84,15 @@ public class GroupController {
 		StudyVO stcDetail = stcService.selectStudy(stc_num);
 		// 2. 가져온 정보에서 mem_num을 추출해 현재 mem_num과 비교하기
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		logger.debug("들어온사람 체크하기"+user.getMem_num());
+		logger.debug("들어온 그룹번호 체크하기"+stc_num);
+		logger.debug("들어온 그룹 방장 번호 조회하기"+stcDetail.getMem_num());
 		if(stcDetail.getMem_num()==user.getMem_num()) {
 			// master가 비어있는지 아닌지만 체크할거라 아무 변수 넣어도 됨.
-			mav.addObject("master",count);
+			mav.addObject("master",true);
 		}
+		mav.addObject("master",false);
 			
 		logger.debug("<<그룹멤버 수 - count>> : " + count);
 		logger.debug("<<그룹멤버 정보 - memberList>> : " + memberList);
@@ -120,9 +125,16 @@ public class GroupController {
 		StudyVO stcDetail = stcService.selectStudy(stc_num);
 		// 2. 가져온 정보에서 mem_num을 추출해 현재 mem_num과 비교하기
 		MemberVO user = (MemberVO)session.getAttribute("user");
+				
+		logger.debug("들어온사람 체크하기"+user.getMem_num());
+		logger.debug("들어온 그룹번호 체크하기"+stc_num);
+		logger.debug("들어온 그룹 방장 번호 조회하기"+stcDetail.getMem_num());
+				
 		if(stcDetail.getMem_num()==user.getMem_num()) {
 			// master가 비어있는지 아닌지만 체크할거라 아무 변수 넣어도 됨.
 			mav.addObject("master",stc_num);
+		}else {
+		mav.addObject("master",0);
 		}
 		
 		return mav;
@@ -161,16 +173,24 @@ public class GroupController {
 		mav.addObject("stc_num",stc_num);
 		
 		
+		
+		
 		// 지금 들어온 사람이 이 그룹의 방장인지 체크
 		// 1. 현재 그룹 페이지 정보 다 가져오기
 		StudyVO stcDetail = stcService.selectStudy(stc_num);
 		// 2. 가져온 정보에서 mem_num을 추출해 현재 mem_num과 비교하기
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		logger.debug("들어온사람 체크하기"+user.getMem_num());
+		logger.debug("들어온 그룹번호 체크하기"+stc_num);
+		logger.debug("들어온 그룹 방장 번호 조회하기"+stcDetail.getMem_num());
+		
 		if(stcDetail.getMem_num()==user.getMem_num()) {
 			// master가 비어있는지 아닌지만 체크할거라 아무 변수 넣어도 됨.
 			mav.addObject("master",stc_num);
+		}else {
+		mav.addObject("master",0);
 		}
-		
 		return mav;
 	}
 	
@@ -278,7 +298,7 @@ public class GroupController {
 	
 	//========= 공지사항 글 수정 ========//
 	@GetMapping("/group/groupNoticeModify.do")
-	public String formUpdate(@RequestParam int grp_num, Model model) {
+	public String formUpdate(@RequestParam int grp_num, @RequestParam int stc_num, Model model) {
 		
 		GroupNoticeVO groupNoticeVO = groupService.selectNoticeDetail(grp_num);
 		model.addAttribute("groupNoticeVO",groupNoticeVO);
@@ -314,7 +334,7 @@ public class GroupController {
 		//View에 표시할 메시지
 		model.addAttribute("message", "글수정 완료!");
 		model.addAttribute("url", request.getContextPath()
-			+"/group/groupNoticeDetail.do?grp_num="+groupNoticeVO.getGrp_num());
+			+"/group/groupNoticeDetail.do?grp_num="+groupNoticeVO.getGrp_num()+"&stc_num="+groupNoticeVO.getStc_num());
 		
 		return "common/resultView";
 	}

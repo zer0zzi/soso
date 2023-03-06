@@ -83,7 +83,7 @@
 						</c:if>
 						</span>
 						
-						<span class="left-id">
+						<span class="left-id list-margin">
 						<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
 						<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
 						&nbsp;·&nbsp;${promo.promo_regdate}
