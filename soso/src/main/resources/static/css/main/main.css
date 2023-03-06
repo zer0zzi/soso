@@ -1,45 +1,24 @@
-/* 스터디 목록
+/* 폰트
+---------------------------*/
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{font-family:'NEXON Lv1 Gothic OTF';}
+
+input, select, button{
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+
+/* 메인 - 전체(틀, 공통)
 ---------------------------*/
 
 .main-page{
 	width:1200px;
 	margin:0 auto;
-}
-
-.study-main{
-	width:1024px;
-	margin:0 auto;
-}
-
-.main-banner{
-	margin:0 auto;
-	width:1024px;
-	height:300px;
-	border:1px solid;
-}
-
-.study-list .horizontal-area{
-	margin:2px;
-	padding:3px;
-	width:220px;
-	height:180px;
-	float:left;
-	overflow:hidden;
-}
-
-.filter{
-	background-color:#f0f0f0;
-	border-radius:5px;
-}
-
-.list-mem{
-	float:left;
-}
-
-.per{
-	background-color:#f0f0f0;
-	border-radius:5px;
-	float:right;
 }
 
 .float-clear{
@@ -53,3 +32,319 @@
 .align-right{
 	text-align:right;
 }
+
+/* 메인 - 배너
+---------------------------*/
+
+.main-banner{
+	margin:5px auto;
+	padding:10px 0;
+	width:1024px;
+	height:300px;
+}
+
+/* 메인 - 스터디모집 버튼
+---------------------------*/
+
+.study-create{
+	width:1024px;
+	margin:0 auto 20px auto;
+	text-align:right;
+}
+
+#stc-button{
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+
+a#std-a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+a#std-a span {
+    padding: 15px;
+    transition: .5s;
+    position: relative;
+}
+a#std-a span:nth-child(1) {
+    color: #fff;
+    background: #b4bbc2;
+}
+a#std-a span:nth-child(2) {
+    color: #fff;
+    background: #969ce4;
+}
+a#std-a span:nth-child(1):before {
+    content: attr(data-attr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #969ce4;
+    padding: 15px;
+    transition: 0.5S;
+    transform-origin: top;
+    transform: rotateX(90deg) translateY(-50%);
+}
+a#std-a:hover span:nth-child(1):before {
+    transform: rotateX(0deg) translateY(0%);
+} 
+a#std-a span:nth-child(2):before {
+    content: attr(data-attr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #b4bbc2;
+    padding: 15px;
+    transition: 0.5S;
+    transform-origin: bottom;
+    transform: rotateX(90deg) translateY(50%);
+}
+a#std-a:hover span:nth-child(2):before {
+    transform: rotateX(0deg) translateY(0%);
+} 
+a#std-a span:nth-child(1):after {
+  content: attr(data-attr);
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #b4bbc2;
+  transform-origin: bottom;
+  transform: rotateX(0deg) translateY(0%);
+  transition: 0.5s;
+}
+a#std-a:hover span:nth-child(1):after {
+  transform: rotateX(90deg) translateY(50%);
+}
+a#std-a span:nth-child(2):after {
+    content: attr(data-attr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #969ce4;
+    padding: 15px;
+    transition: 0.5S;
+    transform-origin: top;
+    transform: rotateX(0deg) translateY(0%);
+}
+a#std-a:hover span:nth-child(2):after {
+    transform: rotateX(90deg) translateY(-50%);
+}
+
+/* 메인 - 필터
+---------------------------*/
+
+.filter{
+	width:1024px;
+	margin:0 auto;
+	text-align:center;
+}
+
+.filter ul{
+	display:inline-block;
+	text-align:center;
+	padding:0 15px;
+}
+
+.filter ul li{
+	float:left;
+	position:relative;
+}
+
+.filter-icon{
+	width:50px;
+	height:50px;
+	border-radius:5px;
+}
+
+/* 메인 - 검색창
+---------------------------*/
+
+select::-ms-expand { 
+	display: none;
+}
+select {
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.study-search{
+	width:451px;
+	height:31px;
+	list-style:none;
+	padding:0 0 10px 0;
+	margin:10px auto;
+}
+
+.study-search li{
+	margin:0 0 9px 0;
+	padding:0;
+	display:inline;
+}
+
+.search1{
+	width:77px;
+    margin: 0;
+    padding:7px;
+    height:31px;
+    border:1px solid #CCCCCC;
+}
+
+.search1:focus, .search2:focus{
+	outline:none;
+}
+
+.search2{
+	margin-left:-1px;
+	padding:7px;
+	width:300px;
+	height:31px;
+	border:1px solid #CCCCCC;
+}
+
+.search3{
+	margin-left:-1px;
+	width:70px;
+	height:31px;
+	border:1px solid #CCCCCC;
+	cursor:pointer;
+}
+
+/* 메인 - 스터디 목록
+---------------------------*/
+
+.studylist-main{
+	width:1024px;
+	margin:0 auto;
+}
+
+.card{
+	float:left;
+	margin:16px;
+	width:222px;
+	height:260px;
+	overflow:hidden;
+	text-align:left;
+	cursor:pointer;
+	border:1px solid #ced4de;
+}
+
+
+
+/* 메인 - 스터디 목록(텍스트)
+---------------------------*/
+
+.card ul{
+	padding:0 20px;
+	list-style:none;
+}
+
+.std-filter1{
+	background-color:#969ce4;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter2{
+	background-color:#ace0dd;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter3{
+	background-color:#f0cc96;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter4{
+	background-color:#acdbfc;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter5{
+	background-color:#fcb6d0;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-filter6{
+	background-color:#d8b5f5;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
+.std-label{
+	font-size:8pt;
+	text-align:center;
+}
+
+.std-title{
+    padding:8px 0 3px 0;
+}
+
+.std-wdate{
+	font-size:9pt;
+	padding-bottom:5px;
+}
+
+.std-mem{
+	float:left;
+	font-size:9pt;
+}
+
+.std-nick{
+	line-height:2.3;
+}
+
+.std-perlabel{
+	float:right;
+	background-color:#ced4de;
+	color:white;
+	border-radius:5px;
+    height: 18px;
+    margin:5px 2px 0 3px;
+}
+
+.std-per{
+	float:right;
+	line-height:1.7;
+	font-size:9pt;
+	margin:0 3px 2px 2px;
+}
+
+
+/* 메인 - 스터디 목록(이미지)
+---------------------------*/
+
+.std-image{
+	width:182px;
+	height:110px;
+	padding:8px 0;
+}
+
+.std-memimage{
+	width:27px;
+	height:27px;
+	float:left;
+	border-radius:20px;
+	vertical-align:middle;
+}
+
+
+

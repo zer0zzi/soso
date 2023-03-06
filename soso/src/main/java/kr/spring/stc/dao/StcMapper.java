@@ -24,6 +24,6 @@ public interface StcMapper {
 	//스터디 리스트(메인)
 	public List<StudyVO> studyList(Map<String,Object> map);
 	
-	@Select("SELECT * FROM study_create WHERE stc_num=#{stc_num}")
+	@Select("SELECT * FROM study_create s JOIN member m on s.mem_num = m.mem_num JOIN member_detail d on m.mem_num=d.mem_num WHERE stc_num=#{stc_num}")
 	public StudyVO selectStudy(Integer stc_num);
 }

@@ -18,6 +18,20 @@
   		</if>
   	</sql>
   	
+  	  	<sql id="filterSearch">
+  		<if test="keyword!=null and keyword!=''">
+  			<if test="keyfield == 1">
+  				 AND stc_title LIKE '%' || #{keyword} || '%'
+  			</if>
+  			<if test="keyfield == 2">
+  				 AND stc_content LIKE '%' || #{keyword} || '%'
+  			</if>
+  			<if test="keyfield == 3">
+  				 AND (stc_title LIKE '%' || #{keyword} || '%' OR stc_content LIKE '%' || #{keyword} || '%')
+  			</if>
+  		</if>
+  	</sql>
+  	
   	<select id="studyCount" parameterType="map" resultType="integer">
   		SELECT
   		  COUNT(*)
@@ -34,7 +48,30 @@
   	          FROM (SELECT
   	                  *
   	                FROM study_create JOIN member USING(mem_num)
-  	                <include refid="studySearch"></include>
+  	                <if test="filter=='all' || filter==null">
+  	               		<include refid="studySearch"></include>
+  	                </if>
+  	                <if test="filter!=null">
+	  	                <if test="filter=='programming'">
+	  	                	WHERE stc_filter = '프로그래밍'
+	  	                </if>
+	  	                <if test="filter=='datascience'">
+	  	                	WHERE stc_filter = '데이터사이언스'
+	  	                </if>
+	  	                <if test="filter=='design'">
+	  	                	WHERE stc_filter = '디자인'
+	  	                </if>
+	  	                <if test="filter=='video'">
+	  	                	WHERE stc_filter = '영상'
+	  	                </if>
+	  	                <if test="filter=='language'">
+	  	                	WHERE stc_filter = '어학'
+	  	                </if>
+	  	                <if test="filter=='marketing'">
+	  	                	WHERE stc_filter = '마케팅'
+	  	                </if>
+	  	                <include refid="filterSearch"></include>
+  	                </if>
   	                ORDER BY stc_num DESC)a)
   	    <![CDATA[
   	    WHERE rnum >= #{start} AND rnum <= #{end}

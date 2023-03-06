@@ -38,10 +38,11 @@ public class MainController {
 	}
 	
 	@RequestMapping("/main/main.do")
-	public ModelAndView process(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword) {
+	public ModelAndView process(@RequestParam(value="pageNum", defaultValue="1") int currentPage, String keyfield, String keyword, String filter) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("filter", filter);
 		
 		//stc_state -> 모집중 / 모집완료 
 
@@ -50,7 +51,7 @@ public class MainController {
 
 		logger.debug("<<스터디 목록>> : " + count);
 
-		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,20,10,"studyList.do");
+		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,20,10,"main.do",filter);
 
 		List<StudyVO> list = null;
 		if(count > 0) {
@@ -61,7 +62,7 @@ public class MainController {
 		}
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("studyList");
+		mav.setViewName("main");
 		mav.addObject("count", count);
 		mav.addObject("list", list);
 		mav.addObject("page", page.getPage());
@@ -70,27 +71,16 @@ public class MainController {
 	}
 	
 	//이미지 출력
-	@RequestMapping("/main/imageView.do")
-	public ModelAndView viewImage(@RequestParam int stc_num, @RequestParam int stc_type) {
-		
+	@RequestMapping("/main/stcView.do")
+	public ModelAndView viewImage(@RequestParam int stc_num) {
 		StudyVO study = stcService.selectStudy(stc_num);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
+		mav.addObject("imageFile", study.getStc_uploadfile());
+		mav.addObject("filename", study.getStc_filename());
 		
-		if(stc_type==1) {//프로필 사진
-			mav.addObject("imageFile",study.getMem_photo());
-			mav.addObject("filename", study.getMem_photo_name());
-		}else if(stc_type==2) {//업로드된 이미지
-			mav.addObject("imageFile", study.getStc_uploadfile());
-			mav.addObject("filename", study.getStc_filename());
-		}
 		return mav;
 	}
 	
 }
-
-
-
-
-
