@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+
+body{
+	font-family:'NEXON Lv1 Gothic OTF';
+}
 /*공지사항 전체 페이지*/
 .page-main{
 	width: 800px;
@@ -8330,7 +8334,7 @@ h1, h2, h3, h4, h5,
   height: 500px;
   width: 50%;
   background: #fff;
-  font: 13px Arial, san-serif;
+  font-size: 13px;
   display: inline-block;
   padding: 20px 0 20px 20px;
   }
@@ -8441,7 +8445,7 @@ h1, h2, h3, h4, h5,
 
 /* Days/months tables */
 .days-table, .dates-table, .months-table {
-  margin:0 !important;
+  margin: 0 auto;
   border-collapse: separate;
   text-align: center; }
 
