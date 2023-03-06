@@ -11,66 +11,66 @@
 		<hr>
 		<ul>
 			<li>
-				<label for="mem_id" style="margin-bottom:0em;">ID</label>
+				<label for="mem_id" style="margin-bottom:0em;">아이디</label>
 				<form:input class="input-field" path="mem_id" autocomplete="off"/>
-				<input class="action-button2" type="button" id="confirmId" value="ID Check">
+				<input class="action-button2" type="button" id="confirmId" value="중복확인">
 				<div class="error-message" id="message_id"></div>
 				<form:errors path="mem_id" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="mem_name" style="margin-bottom:0em;">Name</label>
+				<label for="mem_name" style="margin-bottom:0em;">이름</label>
 				<form:input class="input-field" path="mem_name"/>
 				<div class="error-message">
 					<form:errors path="mem_name" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_nick" style="margin-bottom:0em;">Nickname</label>
+				<label for="mem_nick" style="margin-bottom:0em;">닉네임</label>
 				<form:input class="input-field" path="mem_nick"/>
 			</li>
 			<li>
-				<label for="mem_pw" style="margin-bottom:0em;">Passwd</label>
+				<label for="mem_pw" style="margin-bottom:0em;">비밀번호</label>
 				<form:password class="input-field" path="mem_pw"/>
 				<div class="error-message">
 					<form:errors path="mem_pw" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="confirm_passwd" style="margin-bottom:0em;">Confirm Passwd</label>
+				<label for="confirm_passwd" style="margin-bottom:0em;">비밀번호 확인</label>
 				<input class="input-field" type="password" id="confirm_passwd"/>
 				<div class="error-message" id="message_pw"></div>
 			</li>
 			<li>
-				<label for="mem_phone" style="margin-bottom:0em;">Phone</label>
+				<label for="mem_phone" style="margin-bottom:0em;">전화번호</label>
 				<form:input path="mem_phone" class="phoneNumber input-field"/>
 				<div class="error-message">
 					<form:errors path="mem_phone" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_email" style="margin-bottom:0em;">Email</label>
+				<label for="mem_email" style="margin-bottom:0em;">이메일</label>
 				<form:input class="input-field" path="mem_email"/>
 				<div class="error-message">
 					<form:errors path="mem_email" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_zipcode" style="margin-bottom:0em;">Zipcode</label>
+				<label for="mem_zipcode" style="margin-bottom:0em;">우편번호</label>
 				<form:input class="input-field" path="mem_zipcode"/>
-				<input class="action-button2" type="button" onclick="execDaumPostcode()" value="ZipCode Search">
+				<input class="action-button2" type="button" onclick="execDaumPostcode()" value="우편번호 검색">
 				<div class="error-message">
 					<form:errors path="mem_zipcode" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_address1" style="margin-bottom:0em;">Address</label>
+				<label for="mem_address1" style="margin-bottom:0em;">주소</label>
 				<form:input class="input-field" path="mem_address1"/>
 				<div class="error-message">
 					<form:errors path="mem_address1" cssClass="error-color"/>
 				</div>
 			</li>
 			<li>
-				<label for="mem_address2" style="margin-bottom:0em;">Detailed address</label>
+				<label for="mem_address2" style="margin-bottom:0em;">상세 주소</label>
 				<form:input class="input-field" path="mem_address2"/>
 				<div class="error-message">
 					<form:errors path="mem_address2" cssClass="error-color"/>
@@ -78,8 +78,8 @@
 			</li>
 		</ul>	
 		<div class="align-center">
-			<form:button class="action-button">Sign Up</form:button>
-			<input class="action-button" type="button" value="Home" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
+			<form:button class="action-button">완료</form:button>
+			<input class="action-button" type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
 		</div>	
 	</form:form>
 </div>
