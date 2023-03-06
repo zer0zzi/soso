@@ -46,7 +46,7 @@
 	<div class="member-main">
         <table class="member-table">
             <tr class="member-table-header cursor-dd">
-                <th class="no1">아이디</th>
+                <th class="no1">프로필</th>
                 <th class="no2">이름</th>
                 <th class="no3">이메일</th>
                 <th class="no4"></th>
@@ -54,8 +54,10 @@
             
             <c:if test="${count > 0}">
             	<c:forEach var="member" items="${memberList}">
-            	<tr class="cursor-ddd">
-	         		<td class="no1">${member.mem_id}</td>
+            	<tr class="cursor-ddd h-50">
+	         		<td class="no1">
+	         			<img src="/member/viewProfile.do?mem_num=${member.mem_num}" class="std-memimage" width="70px" height="70px">
+	         		</td>
 	                <td class="no2">${member.mem_name}</td>
 	                <td class="no3">${member.mem_email}</td>
 	                <td class="no4"></td>
