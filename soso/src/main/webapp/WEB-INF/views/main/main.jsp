@@ -146,6 +146,13 @@
 						</c:if>
 					</li>
 					<li>
+						<c:if test="${study.stc_state=='모집중'}">
+							<label class="std-state1"><span class="std-label">🔥${study.stc_state}</span></label>
+						</c:if>
+						<c:if test="${study.stc_state=='모집완료'}">
+							<label class="std-state2"><span class="std-label">🤍${study.stc_state}</span></label>
+						</c:if>
+						
 						<c:if test="${study.stc_filter=='프로그래밍'}">
 							<label class="std-filter1"><span class="std-label">${study.stc_filter}</span></label>
 						</c:if>

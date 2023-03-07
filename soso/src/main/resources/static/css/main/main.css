@@ -289,6 +289,21 @@ select {
 	margin:15px 0;
 }
 
+.std-state1{
+	background-color:#ff7575;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+.std-state2{
+	background-color:#6e6e6e;
+	color:white;
+	border-radius:5px;
+	padding:0px 4px 2px 3px;
+	margin:15px 0;
+}
+
 .std-label{
 	font-size:8pt;
 	text-align:center;
