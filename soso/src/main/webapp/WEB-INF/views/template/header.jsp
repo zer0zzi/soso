@@ -26,7 +26,7 @@
 				<img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo">
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth == 2}">
-				<a href="${pageContext.request.contextPath}/member/myPage.do">MYPAGE</a>
+				<a href="${pageContext.request.contextPath}/mymember/myPage.do">MYPAGE</a>
 			</c:if>
 			<c:if test="${!empty user}">
 				<a class="p-l-10" href="${pageContext.request.contextPath}/member/logout.do">LOGOUT</a>
