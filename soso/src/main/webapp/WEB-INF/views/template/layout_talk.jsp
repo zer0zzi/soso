@@ -19,7 +19,7 @@
 		</h2>
 		</div>
 	</div>
-   <div class="main_content" style="width: 1024px; margin: 0 auto; margin-top: 35px;">
+   <div class="main_content" style="width: 1024px; margin: 0 auto; margin-top: 85px;">
       <div id="main_list" style="float: left; width: 34%;">
       <tiles:insertAttribute name="list"/>
       </div>
