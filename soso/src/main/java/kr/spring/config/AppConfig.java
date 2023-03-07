@@ -71,7 +71,8 @@ public class AppConfig implements WebMvcConfigurer{
 				.addPathPatterns("/community/promoDelete.do")
 				.addPathPatterns("/community/reviewWrite.do")
 				.addPathPatterns("/community/reviewUpdate.do")
-				.addPathPatterns("/community/reviewDelete.do");
+				.addPathPatterns("/community/reviewDelete.do")
+				.addPathPatterns("/main/studyCreate.do");
 				//.addPathPatterns("/board/write.do")
 				//.addPathPatterns("/board/update.do")
 				//.addPathPatterns("/board/delete.do")
