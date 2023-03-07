@@ -6,6 +6,7 @@
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoFav.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoReply.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
 <!-- 홍보 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${promo.promo_fixed==1}">
@@ -28,9 +29,110 @@
 			<c:if test="${promo.promo_status==2}">모집완료</c:if>
 			</b></span>
 			
+			&nbsp;
+			<div id="my_modal">
+			    <iframe src="${pageContext.request.contextPath}/talk/talkList.do" style="width:1300px; height:800px;" id="faq_iframe">대체 내용</iframe>  
+			    <a class="modal_close_btn" style="color:white; float:right;">닫기</a>
+			</div>
+			<c:if test="${!empty user.mem_num && promo.promo_status==1 && user.mem_num!=promo.mem_num}">
+			<button id="faqBot" class="promo-chat">1:1채팅하기</button>
+			</c:if>
+			<c:if test="${!empty user.mem_num && user.mem_num==promo.mem_num && promo.promo_status==1}">
+			<button id="faqBot" class="promo-confirm">1:1채팅 확인하기</button>
+			</c:if>
+			<c:if test="${!empty user.mem_num && user.mem_num==promo.mem_num && promo.promo_status==2}">
+			<button id="faqBot" class="promo-confirm-comp">1:1채팅 확인하기</button>
+			</c:if>
+			<script type="text/javascript">
+				// div 숨기기
+				document.getElementById("my_modal").style.display = "none";
+				
+				function modal(id) {
+				    var zIndex = 9999;
+				    var modal = document.getElementById(id);
+				
+				    // 모달 div 뒤에 흰 레이어
+				    var bg = document.createElement('div');
+				    bg.setStyle({
+				        position: 'fixed',
+				        zIndex: zIndex,
+				        left: '0px',
+				        top: '0px',
+				        width: '100%',
+				        height: '100%',
+				        overflow: 'auto',
+				        backgroundColor: 'rgba(0,0,0,0.7)' // 레이어 색깔
+				    });
+				    document.body.append(bg);
+				
+				    // 닫기 버튼 처리, 검정 레이어와 모달 div 지우기
+				    modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+				        bg.remove();
+				        modal.style.display = 'none';
+				    });
+				
+				    modal.setStyle({
+				        position: 'fixed',
+				        display: 'block',
+				        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+				
+				        // 검정 레이어 보다 한칸 위에 보이기
+				        zIndex: zIndex + 1,
+				
+				        // div center 정렬
+				        top: '50%',
+				        left: '50%',
+				        transform: 'translate(-50%, -50%)',
+				        msTransform: 'translate(-50%, -50%)',
+				        webkitTransform: 'translate(-50%, -50%)'
+				    });
+				}
+				
+				// Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+				Element.prototype.setStyle = function(styles) {
+				    for (var k in styles) this.style[k] = styles[k];
+				    return this;
+				};
+				
+				document.getElementById('faqBot').addEventListener('click', function() {
+				    // 모달창 띄우기
+				    modal('my_modal');
+				});
+			</script>
+			
+			&nbsp;
+			<c:if test="${!empty user.mem_num && promo.promo_status==1 && user.mem_num!=promo.mem_num}">
+			<button id="btn_div_copy">작성자 아이디 복사하기</button>
+			<div id="div">${promo.mem_id}</div>
+			</c:if>
+			<script>
+				document.getElementById("div").style.display = "none";
+				// 3. 다른 태그(div등)의 값 복사 기능 구현
+			    document.getElementById("btn_div_copy").onclick = function(){
+		        // div 내부 텍스트 취득
+		        const valOfDIV = document.getElementById("div").innerText;
+
+		        // textarea 생성
+		        const textArea = document.createElement('textarea');
+
+		        // textarea 추가
+		        document.body.appendChild(textArea);
+		        
+		        // textara의 value값으로 div내부 텍스트값 설정
+		        textArea.value = valOfDIV;
+
+		        // textarea 선택 및 복사
+		        textArea.select();
+		        document.execCommand('copy');
+
+		        // textarea 제거
+		        document.body.removeChild(textArea);
+		    }
+			</script>
+			
 			<br>
 			<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
-			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick}</c:if>
+			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick} (${promo.mem_id}) </c:if>
 			&nbsp;·&nbsp;
 			<c:if test="${!empty promo.promo_modifydate}">(수정)${promo.promo_modifydate}</c:if>
 			<c:if test="${empty promo.promo_modifydate}">${promo.promo_regdate}</c:if>
