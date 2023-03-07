@@ -53,6 +53,7 @@ body{
   padding: 20px 30px 20px 30px;
 }
 .calendar-list{
+	overflow-y: hidden;
 	width: 50%;
 	height: 100%;
 	float:right;
@@ -8289,7 +8290,7 @@ h1, h2, h3, h4, h5,
   background-position: center center; }
 
 .content {
-  overflow: none;
+  overflow-y: hidden;
   width: 100%;
   max-width: 790px;
   padding: 0px 0;
@@ -8348,6 +8349,7 @@ h1, h2, h3, h4, h5,
 
 /*  Calendar wrapper */
 .calendar-container {
+  overflow-y: hidden;
   position: relative;
   margin: 0 auto;
   height: 500px;
@@ -8380,6 +8382,7 @@ h1, h2, h3, h4, h5,
 
 /* Calendar Header */
 .year-header {
+  overflow-y: hidden;
   background: #fff;
   height: 40px;
   text-align: center;
