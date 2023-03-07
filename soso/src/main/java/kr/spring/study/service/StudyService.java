@@ -28,5 +28,6 @@ public interface StudyService {
 	//스터디 신청	
 	public StudySignupVO selectSignup(StudySignupVO signup);
 	public void insertSignup(StudySignupVO signup);
+	public int selectSignupCount(Integer stc_num);
 }
 

@@ -59,7 +59,9 @@ public interface StudyMapper {
 	@Insert("INSERT INTO study_signup (signup_num,stc_num,mem_num,signup_status,signup_detail) "
 			+ "VALUES (study_signup_seq.nextval,#{stc_num},#{mem_num},#{signup_status},#{signup_detail})")
 	public void insertSignup(StudySignupVO signup);
-	
+	//관심 등록 카운트
+	@Select("SELECT COUNT(*) FROM study_signup WHERE stc_num=#{stc_num}")
+	public int selectSignupCount(Integer stc_num);
 }
 
 

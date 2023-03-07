@@ -124,10 +124,9 @@
 div.page-main{
 	width:1024px;
 	margin:10px auto;
-	padding:50px;
+	padding:80px 100px 80px 100px;
 	align-content: center;
 }
-
 a:hover{
 	color:black;
 	text-decoration:none;
@@ -148,7 +147,7 @@ ul.study-info li:last-child{
 	vertical-align:top;
 }
 
-li.text-right{
+.text-right{
 	float: right;
 }
 .text-clear{
@@ -162,7 +161,8 @@ li.text-br{
 ul.detail-information{
 	font-size: 17px;
 	padding-left: 0px;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
+	width: 50%;
 }
 
 .study-content{
@@ -172,7 +172,7 @@ ul.detail-information{
 }
 
 .text-grey{
-	color:#495057;
+	color:#888;
 	font-size:20px;
 	font-weight: bolder;
 }

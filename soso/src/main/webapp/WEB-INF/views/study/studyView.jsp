@@ -56,9 +56,6 @@
 	<hr size="1" width="100%">
 	<ul class="detail-information">
 		<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}">
-		<li class="text-br">
-			<h3><b>모집마감</b></h3>
-		</li>
 		</c:if>
 		<li class="text-br">
 			<span class="text-grey"><b>주제 구분</b></span>
@@ -81,7 +78,6 @@
 			<c:if test="${study.stc_filter=='마케팅'}">
 				<label class="text-black"><span class="std-filter6">${study.stc_filter}</span></label>
 			</c:if>
-				
 		</li>
 		<li class="text-br">
 			<c:if test="${!empty study.stc_way}">
@@ -94,9 +90,12 @@
 			<span class="text-black">${study.stc_per}명</span>
 		</li>
 		<li class="text-br">
-			<c:if test="${!empty study.stc_period}">
-			<span class="text-grey">마감 기한</span>
-			<span class="text-black">${study.stc_period}</span>
+			<span class="text-grey">모집 기간</span>
+			<c:if test="${study.stc_period == '상시'}">
+				<span class="text-black">${study.stc_period}</span>
+			</c:if>
+			<c:if test="${study.stc_period == '기간'}">
+				<span class="text-black">${study.stc_pedate}</span>
 			</c:if>
 		</li>
 		<li class="text-br">
@@ -104,7 +103,7 @@
 			<span class="text-black">${study.mem_email}</span>
 		</li>
 	</ul>
-	<h3><b>스터디 소개</b></h3>
+	<h5><b>스터디 소개</b></h5>
 	<hr size="1" width="100%">
 	<div class="study-content">
 		<c:if test="${fn:endsWith(study.stc_filename,'.jpg') || 
@@ -145,11 +144,14 @@
 		<!-- Modal창 호출 버튼 -->
 		<jsp:include page="../study/modal.jsp"/>
 		<button type="button" class="btn btn-primary" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-			<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료' || user.mem_auth == 9}"> disabled="disabled"</c:if>>
+			<c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}"> disabled="disabled"</c:if>>
 			<span></span>
 	        <span></span>
 	        <span></span>
 	        <span></span>
+	        <c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}">
+	        	<b>모집완료</b>
+	        </c:if>
 			<b>신청하기</b>
 		</button>
 	</div>

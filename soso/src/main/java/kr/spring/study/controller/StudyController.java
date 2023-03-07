@@ -160,6 +160,7 @@ public class StudyController {
 		return mapJson;
 	}
 	
+	
 	//신청하기
 	@RequestMapping("/study/signup.do")
 	@ResponseBody

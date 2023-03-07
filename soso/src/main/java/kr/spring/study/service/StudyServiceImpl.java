@@ -87,6 +87,10 @@ public class StudyServiceImpl implements StudyService{
 	public void insertSignup(StudySignupVO signup) {
 		studyMapper.insertSignup(signup);
 	}
+	@Override
+	public int selectSignupCount(Integer stc_num) {
+		return studyMapper.selectSignupCount(stc_num);
+	}
 }
 
 
