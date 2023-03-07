@@ -1,43 +1,315 @@
 @charset "UTF-8";
-
+@font-face{
+	font-family: 'NEXON Lv1 Gothic OTF';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+	font-family:'NEXON Lv1 Gothic OTF';
+	margin:0px;
+}
 .mypage-main{
 	width:1024px;
 	margin:0 auto;
 }
-.mypage-main > h2{
+
+/* 마이페이지 메인 - memberView */
+
+.mypage-main > h2[id="0"]{
 	text-align:center;
-	margin-top:40px;
+	margin:50px 60px 0px 60px;
+	padding:10px 0px 15px 0px;
+	/* background-color:#969ce4; */
+	/* border-bottom:1px solid rgb(200,200,200); */
+	/* color:white; */
 }
 .mypage-left{
 	float:left;
 	margin-top:40px;
+	margin-left:60px;
 }
 .mypage-right{
 	float:right;
 	margin-top:40px;
+	margin-right:60px;
+}
+.mypage-bottom{
+	float:left;
+	margin-top:100px;
+	margin-left:60px;
 }
 .mypage-box{
 	box-sizing:border-box;
-	background-color:rgba(224, 224, 224, 0.76);
-	border-radius:10px;
+	background-color:rgba(225, 225, 225, 0.76);
+	border-radius:8px;
 	padding:20px 25px 20px 25px;
 	display:flex;
+	align-items: center;
+	height:200px;
 }
 .mypage-ul{
+	padding:0px 20px 0px 15px;
+	list-style:disc inside;
+	line-height:180%;
+	width:450px;
+}
+.mypage-ul-l{
+	text-align:center;
+	padding:0px 35px 0px 0px;
+	margin:5px 0px 5px 15px;
+	float:left;
+	border-right:1px solid rgb(200,200,200);
+}
+.mypage-ul-r{
 	text-align:center;
 	padding:0px;
-	margin:0px;
+	margin:0px 15px 0px 35px;
+	float:right;
 }
-.mypage-ul > li[id='click']{
+.mypage-ul-b{
+	display:flex;
+	flex-wrap:wrap;
+	width:908px;
+	padding:0px;
+	margin-bottom:100px;
+}
+.mypage-ul-l > li[id='click']{
 	cursor:pointer;
 	margin-top:5px;
 }
-input[type='button']{
-	padding:2px 15px 2px 15px;
+input[value='로그아웃']{
+	padding:5px 18px 4px 18px;
 	border:none 10px;
 	background-color:white;
-	border-radius:2px;
+	border-radius:3px;
+	cursor:pointer;
+	font-size:10px;
+	color:#7f7f7f;
+	margin-top:7px;
+	font-family:'NEXON Lv1 Gothic OTF';
 }
-.mypage-ul > li[id='score']{
+input[value='+']{
+	padding:0px 16px 0px 16px;
+	border:none 10px;
+	background-color:white;
+	cursor:pointer;
+	font-size:24px;
+	color:#7f7f7f;
+	font-family:'NEXON Lv1 Gothic OTF';
+	margin-top:0px;
+	/* margin-right:3px; */
+	float:right;
+}
+.mypage-ul-r > li[id='score']{
 	font-size:30px;
+	margin-top:15px;
+}
+.hr{
+	border:0.5px solid rgb(200,200,200);
+}
+button[value='내가 가입한 스터디 그룹']{
+	padding:0px 0px 0px 0px;
+	border:none 10px;
+	background-color:rgba(243, 213, 99, 0.69);
+	border-radius:25px;
+	cursor:pointer;
+	font-size:17px;
+	color:rgb(195, 124, 14);
+	font-family:'NEXON Lv1 Gothic OTF';
+	width:440px;
+	height:110px;
+	display:flex;
+	align-items:center;
+	padding:0px 0px 0px 25px;
+	margin:10px 10px 10px 5px;
+}
+button[value='내가 좋아요한 스터디 그룹']{
+	padding:0px 0px 0px 0px;
+	border:none 10px;
+	background-color:rgba(230, 137, 126, 0.57);
+	border-radius:25px;
+	cursor:pointer;
+	font-size:17px;
+	color:rgb(175, 51, 38);
+	font-family:'NEXON Lv1 Gothic OTF';
+	width:440px;
+	height:110px;
+	display:flex;
+	align-items:center;
+	padding:0px 0px 0px 25px;
+	margin:10px 5px 10px 5px;
+}
+button[value='내가 신청한 스터디 그룹']{
+	padding:0px 0px 0px 0px;
+	border:none 10px;
+	background-color:rgba(94, 198, 138, 0.64);
+	border-radius:25px;
+	cursor:pointer;
+	font-size:17px;
+	color:rgb(22, 119, 62);
+	font-family:'NEXON Lv1 Gothic OTF';
+	width:440px;
+	height:110px;
+	display:flex;
+	align-items:center;
+	padding:0px 0px 0px 25px;
+	margin:5px 10px 10px 5px;
+}
+button[value='내가 만든 스터디 그룹']{
+	padding:0px 0px 0px 0px;
+	border:none 10px;
+	background-color:rgba(75, 160, 216, 0.57);
+	border-radius:25px;
+	cursor:pointer;
+	font-size:17px;
+	color:rgb(22, 89, 133);
+	font-family:'NEXON Lv1 Gothic OTF';
+	width:440px;
+	height:110px;
+	display:flex;
+	align-items:center;
+	padding:0px 0px 0px 25px;
+	margin:5px 5px 10px 5px;
+}
+
+
+
+
+
+/* 마이페이지 회원정보 수정 */
+.mypage-main > h3[id="0"]{
+	text-align:center;
+	margin:50px 60px 0px 60px;
+	padding:10px 0px 15px 0px;
+	/* background-color:#969ce4; */
+	/* border-bottom:1px solid rgb(200,200,200); */
+	/* color:white; */
+}
+.mypage-main > h2[id="1"]{
+	/* text-align:center; */
+	margin:50px 60px 0px 60px;
+	padding:10px 0px 15px 0px;
+	/* background-color:#969ce4; */
+	border-bottom:1px solid rgb(200,200,200);
+	/* color:white; */
+}
+.mypage-main > form{
+	margin:0 auto;
+	padding:40px 0px 80px 0px;
+	border:none;
+}
+table {
+    width: 100%;
+    border-top: 1px solid rgb(200,200,200);
+    border-collapse: collapse;
+    margin-bottom:30px;
+}
+td{
+    border-bottom: 1px solid rgb(200,200,200);
+    border-left: 1px solid rgb(200,200,200);
+    padding: 20px;
+}
+td:first-child {
+    border-left: none;
+    background-color:rgb(245,245,245);
+    width:150px;
+    font-weight:bold;
+    font-size:15px;
+}
+td > input[type="text"]{
+	width:310px;
+	padding:5px;
+	border:1px solid rgb(200,200,200);
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+td > input[id="mem_zipcode"]{
+	width:220px;
+	padding:5px;
+	border:1px solid rgb(200,200,200);
+}
+td > input[class="cg-pw"]{
+	width:100px;
+	padding:5px;
+	border:1px solid rgb(200,200,200);
+	cursor:pointer;
+}
+td > input[type="password"]{
+	width:170px;
+	padding:5px;
+	border:1px solid rgb(200,200,200);
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+td > input[id="mem_id"]{
+	width:170px;
+	padding:5px;
+	border:1px solid rgb(200,200,200);
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+
+
+
+
+
+/* 마이페이지 내 스터디 그룹  */
+.mypage-box-study{
+	box-sizing:border-box;
+	background-color:rgba(224, 224, 224, 0.50);
+	padding:30px 60px 30px 60px;
+	width:900px;
+	margin:50px auto;
+}
+.study_div{
+	display:flex;
+	margin-bottom:120px;
+	margin-top:28px;
+}
+.mypage-study-ul-l{
+	padding:0px;
+	margin:0px 10px 0px 0px;
+}
+.mypage-study-ul-r{
+	padding:0px;
+	margin:5px 0px 0px 10px;
+	line-height:150%;
+}
+td[id='tdtd']{
+    background-color:rgb(245,245,245);
+    width:150px;
+    font-weight:bold;
+    font-size:15px;
+    text-align:center;
+    font-size:16px;
+    padding: 40px 20px 40px 20px;
+}
+p[id='score']{
+	font-size:28px;
+	margin-top:10px;
+	margin-bottom:0px;
+}
+input[value='칭찬']{
+	padding:5px 10px 4px 10px;
+	border:2px solid rgb(100,170,230);
+	background-color:rgba(100, 170, 230, 0.67);
+	border-radius:3px;
+	cursor:pointer;
+	font-size:12px;
+	color:white;
+	margin-top:15px;
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+input[value='격려']{
+	padding:5px 10px 4px 10px;
+	border:2px solid rgb(235,150,130);
+	background-color:rgba(235, 150, 130, 0.67);
+	border-radius:3px;
+	cursor:pointer;
+	font-size:12px;
+	color:white;
+	margin-top:15px;
+	font-family:'NEXON Lv1 Gothic OTF';
+}
+.mypage-study-ul-r > li[id='click']{
+	cursor:pointer;
+	margin-top:5px;
 }

@@ -1,10 +1,14 @@
 package kr.spring.member_my.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.spring.member_my.dao.MemberMyMapper;
+import kr.spring.study.vo.StudyVO;
 import kr.spring.member.vo.MemberVO;
 
 @Service
@@ -63,4 +67,10 @@ public class MemberMyServiceImpl implements MemberMyService{
 		memberMyMapper.deleteAu_id(mem_num);
 	}
 
+	//내 스터디 그룹
+	@Override
+	public List<StudyVO> selectStudy(Map<String, Object> map) {
+		return memberMyMapper.selectStudy(map);
+	}
+	
 }

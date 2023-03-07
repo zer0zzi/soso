@@ -7,75 +7,88 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/member.js"></script>
 <div class="mypage-main">
-	<h2>프로필 수정</h2>
-	<ul>
-		<li>
-			<img src="${pageContext.request.contextPath}/member/photoView.do" width="200" height="200" class="my-photo">
-		</li>
-		<li>
-			<div class="align-center">
-				<input type="button" value="수정" id="photo_btn">
-			</div>
-			<div id="photo_choice" style="display:none;">
-				<input type="file" id="upload" accept="image/gif,image/png,image/jpeg">
-				<input type="button" value="전송" id="photo_submit">
-				<input type="button" value="취소" id="photo_reset">         
-			</div>
-		</li>
-		<li>
-			<input type="button" class="menu-btn" value="비밀번호변경" onclick="location.href='${pageContext.request.contextPath}/member/changePassword.do'">
-		</li>
-		<li>
-			<input type="button" class="menu-btn" value="채팅" onclick="location.href='${pageContext.request.contextPath}/talk/talkList.do'">
-		</li>
-		<li>
-			<input type="button" class="menu-btn" value="회원탈퇴" onclick="location.href='${pageContext.request.contextPath}/member/delete.do'">
-		</li>
-	</ul>
-	<h2>회원정보수정</h2>
+	<h2 id="0">[&nbsp;&nbsp;&nbsp;&nbsp;회원정보 수정&nbsp;&nbsp;&nbsp;&nbsp;]</h2>
+	<!-- <h3 id="0">회원정보 수정</h3> -->
 	<form:form action="update.do" id="modify_form" modelAttribute="memberVO">
-		<form:errors element="div" cssClass="error-color"/>                            
-		<ul>
-			<li>
-				<label for="mem_name">이름</label>
-				<form:input path="mem_name"/>
-				<form:errors path="mem_name" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_nick">별명</label>
-				<form:input path="mem_nick"/>
-			</li>
-			<li>
-				<label for="mem_phone">전화번호</label>
-				<form:input path="mem_phone"/>
-				<form:errors path="mem_phone" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_email">이메일</label>
-				<form:input path="mem_email"/>
-				<form:errors path="mem_email" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_zipcode">우편번호</label>
-				<form:input path="mem_zipcode"/>
-				<input type="button" onclick="execDaumPostcode()" value="우편번호찾기">
-				<form:errors path="mem_zipcode" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_address1">주소</label>
-				<form:input path="mem_address1"/>
-				<form:errors path="mem_address1" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_address2">상세주소</label>
-				<form:input path="mem_address2"/>
-				<form:errors path="mem_address2" cssClass="error-color"/>
-			</li>
-		</ul>
-		<div class="align-center">
-			<form:button>수정</form:button>
-			<input type="button" value="My페이지" onclick="location.href='myPage.do'">
-		</div>
+		<form:errors element="div" cssClass="error-color"/>    
+			<table>
+				<tr>
+					<td>프로필 수정</td>
+					<td class="profile">
+						<div>
+							<img src="${pageContext.request.contextPath}/mymember/photoView.do" width="90" height="90" class="my-photo">
+						</div>
+						<div>
+							<input type="button" value="수정" id="photo_btn">
+							<div id="photo_choice" style="display:none;">
+								<input type="file" id="upload" accept="image/gif,image/png,image/jpeg">
+								<input type="button" value="전송" id="photo_submit">
+								<input type="button" value="취소" id="photo_reset">         
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td>
+						<form:input path="mem_name"/>
+						<form:errors path="mem_name" cssClass="error-color"/>
+					</td>
+				</tr>
+				<tr>
+					<td>별명</td>
+					<td>
+						<form:input path="mem_nick"/>
+					</td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td>
+						<input type="button" class="cg-pw" value="비밀번호변경" onclick="location.href='${pageContext.request.contextPath}/mymember/changePassword.do'">
+					</td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td>
+						<form:input path="mem_phone"/>
+						<form:errors path="mem_phone" cssClass="error-color"/>
+					</td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td>
+						<form:input path="mem_email"/>
+						<form:errors path="mem_email" cssClass="error-color"/>
+					</td>
+				</tr>
+				<tr>
+					<td>우편번호</td>
+					<td>
+						<form:input path="mem_zipcode"/>
+						<input type="button" onclick="execDaumPostcode()" value="우편번호찾기">
+						<form:errors path="mem_zipcode" cssClass="error-color"/>
+					</td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td>
+						<form:input path="mem_address1"/>
+						<form:errors path="mem_address1" cssClass="error-color"/>
+					</td>
+				</tr>
+				<tr>
+					<td>상세주소</td>
+					<td>
+						<form:input path="mem_address2"/>
+						<form:errors path="mem_address2" cssClass="error-color"/>
+					</td>
+				</tr>
+			</table>
+			<div class="align-center">
+				<form:button>수정</form:button>
+				<input type="button" value="My페이지" onclick="location.href='myPage.do'">
+				<input type="button" value="회원탈퇴" onclick="location.href='${pageContext.request.contextPath}/mymember/delete.do'">
+			</div>
 	</form:form>
 </div>
 <!-- 우편번호 검색 시작 -->

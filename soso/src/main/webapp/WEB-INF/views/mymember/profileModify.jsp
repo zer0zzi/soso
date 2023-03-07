@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!-- 프로필 수정 시작 -->
@@ -30,7 +30,7 @@
 		</li>
 	</ul>
 </div>
-<!-- MyPage 메뉴 끝 -->
+<!-- MyPage 메뉴 끝 --> --%>
 
 
 

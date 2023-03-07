@@ -1,6 +1,11 @@
 package kr.spring.member_my.service;
 
+
+import java.util.List;
+import java.util.Map;
+
 import kr.spring.member.vo.MemberVO;
+import kr.spring.study.vo.StudyVO;
 
 public interface MemberMyService {
 	public MemberVO selectCheckMember(String mem_id);
@@ -16,4 +21,7 @@ public interface MemberMyService {
 	
 	//프로필 이미지 업데이트
 	public void updateProfile(MemberVO member);
+	
+	//내 스터디 그룹
+	public List<StudyVO> selectStudy(Map<String, Object> map);
 }

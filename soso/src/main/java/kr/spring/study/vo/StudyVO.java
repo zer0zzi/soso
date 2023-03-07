@@ -29,6 +29,11 @@ public class StudyVO {
 	private String mem_photo_name;
 	private int mem_auth;
 	
+	private String mem_name;
+	private int mem_score;
+	private int rownum;
+	
+	
 	//파일 업로드 처리
 	public void setUpload(MultipartFile upload) throws IOException{
 		//MultipartFile -> byte[] 변환
@@ -168,6 +173,41 @@ public class StudyVO {
 		this.stc_pedate = stc_pedate;
 	}
 
+	
+//	@Override
+//	public String toString() {
+//		return "StudyVO [stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_content=" + stc_content
+//				+ ", stc_state=" + stc_state + ", stc_period=" + stc_period + ", stc_per=" + stc_per + ", stc_way="
+//				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_date=" + stc_date
+//				+ ", stc_modify_date=" + stc_modify_date + ", hit=" + hit + ", mem_num=" + mem_num + ", stc_pedate="
+//				+ stc_pedate + ", mem_id=" + mem_id + ", mem_email=" + mem_email + ", mem_nick=" + mem_nick
+//				+ ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth + "]";
+//	}
+
+	public String getMem_name() {
+		return mem_name;
+	}
+
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
+
+	public int getMem_score() {
+		return mem_score;
+	}
+
+	public void setMem_score(int mem_score) {
+		this.mem_score = mem_score;
+	}
+	
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
 	@Override
 	public String toString() {
 		return "StudyVO [stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_content=" + stc_content
@@ -175,7 +215,8 @@ public class StudyVO {
 				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_date=" + stc_date
 				+ ", stc_modify_date=" + stc_modify_date + ", hit=" + hit + ", mem_num=" + mem_num + ", stc_pedate="
 				+ stc_pedate + ", mem_id=" + mem_id + ", mem_email=" + mem_email + ", mem_nick=" + mem_nick
-				+ ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth + "]";
+				+ ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth + ", mem_name=" + mem_name + ", mem_score=" + mem_score 
+				+", rownum=" + rownum + "]";
 	}
-	
+
 }

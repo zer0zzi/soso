@@ -32,6 +32,13 @@
     	<put-attribute name="title" value="회원탈퇴"/>
     	<put-attribute name="body" value="/WEB-INF/views/mymember/memberDelete.jsp"/>        
     </definition>
+    
+    <definition name="myStudy" template="/WEB-INF/views/template/layout_mypage.jsp">
+    	<put-attribute name="title" value="MyPage"/>
+    	<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
+    	<put-attribute name="body" value="/WEB-INF/views/mymember/mystudy.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+    </definition>
 </tiles-definitions>
 
 

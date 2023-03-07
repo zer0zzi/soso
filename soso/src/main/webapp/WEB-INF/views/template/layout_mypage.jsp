@@ -13,9 +13,6 @@
 	<div id="main_header">
 		<tiles:insertAttribute name="header"/>
 	</div>
-	<%-- <div id="main_proflie">
-		<tiles:insertAttribute name="profile"/>
-	</div> --%>
 	<div id="main_body">
 		<tiles:insertAttribute name="body"/>
 	</div>

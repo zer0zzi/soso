@@ -1,5 +1,8 @@
 package kr.spring.member_my.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -7,6 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import kr.spring.member.vo.MemberVO;
+import kr.spring.study.vo.StudyVO;
 
 @Mapper
 public interface MemberMyMapper {
@@ -41,4 +45,10 @@ public interface MemberMyMapper {
 	//프로필 이미지 업데이트
 	@Update("UPDATE member_detail SET mem_photo=#{mem_photo},mem_photo_name=#{mem_photo_name} WHERE mem_num=#{mem_num}")
 	public void updateProfile(MemberVO member);
+	
+	//내 스터디 그룹
+	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score FROM study_create c, study_signup s, member_detail m "
+			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_signup WHERE mem_num=#{mem_num} AND signup_status=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num AND signup_status=1")
+	public List<StudyVO> selectStudy(Map<String, Object> map);
+	//public StudyVO selectStudy(Integer mem_num);
 }
