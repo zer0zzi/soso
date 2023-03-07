@@ -16,7 +16,13 @@
 	font-family: 'NEXON Lv1 Gothic OTF', 'Noto Sans KR', 'Archivo', sans-serif;
 	line-height:150%;
 	margin:0px; padding:0;
+	
+	/* -ms-overflow-style: none; IE and Edge
+    scrollbar-width: none; Firefox */
 }
+/* *::-webkit-scrollbar {
+    display: none; Chrome, Safari, Opera
+} */
 body{
 	margin:0;
 }
@@ -529,7 +535,26 @@ div.promo-fixed-2 .full-list{
 	color:gray;
 	text-decoration : underline;
   	text-underline-offset : 3px;
+  	margin-left:3px;
 }
+.modal_close_btn{
+	padding-right:10px;
+	font-size:13px;
+	height:20px;
+}
+.qna-text{
+	padding: 15px 20px;
+	background-color: #444444;
+	border-radius: 5px;
+	color: #ffffff;
+	position: absolute;
+	opacity: 0;
+	transition: all ease 0.5s;
+}
+#faqBot:hover + .qna-text {
+	opacity: 1;
+}
+
 
 /* ================================================== */
 /* ==================== 후기 게시판 ==================== */

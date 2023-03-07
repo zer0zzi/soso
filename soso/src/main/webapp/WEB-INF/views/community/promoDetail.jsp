@@ -28,14 +28,16 @@
 			<span style="color:gray"><b>
 			<c:if test="${promo.promo_status==2}">모집완료</c:if>
 			</b></span>
-			
 			&nbsp;
 			<div id="my_modal">
-			    <iframe src="${pageContext.request.contextPath}/talk/talkList.do" style="width:1300px; height:800px;" id="faq_iframe">대체 내용</iframe>  
-			    <a class="modal_close_btn" style="color:white; float:right;">닫기</a>
+				<a class="modal_close_btn" style="color:black; float:right;">닫기</a>
+			    <iframe src="${pageContext.request.contextPath}/talk/talkList.do" style="width:1100px; height:800px;" id="faq_iframe">대체 내용</iframe>  
 			</div>
 			<c:if test="${!empty user.mem_num && promo.promo_status==1 && user.mem_num!=promo.mem_num}">
-			<button id="faqBot" class="promo-chat">1:1채팅하기</button>
+			<button id="faqBot" class="promo-chat">1:1 채팅하기</button>
+			<span class="qna-text">
+				우측에서 작성자 아이디를 복사하셨습니까?
+			</span>
 			</c:if>
 			<c:if test="${!empty user.mem_num && user.mem_num==promo.mem_num && promo.promo_status==1}">
 			<button id="faqBot" class="promo-confirm">1:1채팅 확인하기</button>
@@ -61,7 +63,7 @@
 				        width: '100%',
 				        height: '100%',
 				        overflow: 'auto',
-				        backgroundColor: 'rgba(0,0,0,0.7)' // 레이어 색깔
+				        backgroundColor: 'rgba(0,0,0,0.9)' // 레이어 색깔
 				    });
 				    document.body.append(bg);
 				
@@ -84,7 +86,8 @@
 				        left: '50%',
 				        transform: 'translate(-50%, -50%)',
 				        msTransform: 'translate(-50%, -50%)',
-				        webkitTransform: 'translate(-50%, -50%)'
+				        webkitTransform: 'translate(-50%, -50%)',
+				        backgroundColor: 'white'
 				    });
 				}
 				
@@ -98,11 +101,14 @@
 				    // 모달창 띄우기
 				    modal('my_modal');
 				});
+				
+				window.addEventListener('click', (e) => {
+					  e.target === modal_background ?  close() : false
+					})
 			</script>
 			
-			&nbsp;
 			<c:if test="${!empty user.mem_num && promo.promo_status==1 && user.mem_num!=promo.mem_num}">
-			<button id="btn_div_copy">작성자 아이디 복사하기</button>
+			<button id="btn_div_copy">(작성자 아이디 복사하기)</button>
 			<div id="div">${promo.mem_id}</div>
 			</c:if>
 			<script>
