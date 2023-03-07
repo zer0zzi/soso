@@ -62,7 +62,7 @@
 										fn:endsWith(detail.grp_filename,'.PNG')}">
 										<div class="align-center">
 											<img src="/group/imageView.do?grp_num=${detail.grp_num}" class="detail-img"
-											style="width:400px;">
+											style="width:100%;">
 										</div>	
 									</c:if>
                                 </div>

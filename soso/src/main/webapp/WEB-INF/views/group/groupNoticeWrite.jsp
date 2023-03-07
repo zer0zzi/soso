@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-							<form:button class="btn btn--radius-2 btn--blue-2 btn-width">전송</form:button>
+							<form:button class="btn-main">전송</form:button>
 						</div>
                     </form:form>
                 </div>

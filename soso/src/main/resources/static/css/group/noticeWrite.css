@@ -36,6 +36,24 @@ input[type=radio] {
 .button2{
 	float: right;
 }
+.btn-main{
+	background: #969ce4;
+	display: inline-block;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 15px;
+	font-weight: 500;
+	color: white;
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 5px;
+}
+.btn-main:hover{
+	background-color: rgb(66, 66, 134);
+	cursor: pointer;
+}
+
 
 
 

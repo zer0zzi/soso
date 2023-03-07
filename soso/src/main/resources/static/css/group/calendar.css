@@ -9,6 +9,25 @@ body{
 	width: 800px;
 	margin: 0 auto;
 }
+.btn-main{
+	background: #969ce4;
+	display: inline-block;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 15px;
+	font-weight: 500;
+	color: white;
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 5px;
+	border: none;
+}
+.btn-main:hover{
+	background-color: rgb(66, 66, 134);
+	cursor: pointer;
+}
+
 .page-main>p{ /* group notice 상단 글씨체 */
 	font-size: 15px;
 	font-weight: bold;

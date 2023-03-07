@@ -27,6 +27,7 @@ body{
     line-height: 70px; /*라인 높이는 height와 동일하게*/
     text-align: right;
     padding: 15px 5% 15px 0;
+    overflow-y: hidden;
     
 }
 .header-right a{

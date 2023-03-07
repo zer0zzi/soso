@@ -78,42 +78,24 @@
 }
 
 /* 글쓰기 버튼 디자인 */
-.writebutton{
-	width: 800px;
+.btn-main{
+	background: #969ce4;
+	display: inline-block;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 15px;
+	font-weight: 500;
+	color: white;
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 5px;
+	margin-left: 640px;
+	border: none;
 }
-.button {   
-  margin-left: 640px;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  font-size: 1rem;
-  border-radius: 5px;
-  padding: 0.65rem 1.9rem;
-  -webkit-transition: .2s ease all;
-  -o-transition: .2s ease all;
-  transition: .2s ease all;
-  color: white;
-  border: none;
-  background: #969ce4; 
-  height: 51.33px;
-  width: 150px;
-}
-.button:focus {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    outline: none; 
-}
-#add-button:hover{
-  -webkit-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  transform: scale(1.03); 
-}
-#add-button:active{
-  -webkit-transform: translateY(3px) scale(0.97);
-  -ms-transform: translateY(3px) scale(0.97);
-  transform: translateY(3px) scale(0.97); 
+.btn-main:hover{
+	background-color: rgb(66, 66, 134);
+	cursor: pointer;
 }
 /*---------- 글쓰기 ----------*/
 

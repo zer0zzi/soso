@@ -59,7 +59,7 @@
 								  </table>
 								  <c:if test="${master==stc_num}">
 								  <div class="writebutton">
-								    <button class="button1" id="add-button" onclick="location.href=
+								    <button class="btn-main" id="add-button" onclick="location.href=
 								    '${pageContext.request.contextPath}/group/groupCalendarWrite.do?stc_num=${stc_num}'">일정 추가</button>
 								  </div>
 								  </c:if>
