@@ -9,7 +9,6 @@
 * {
   padding: 0;
   margin: 0;
-  color: #1a1f36;
   box-sizing: border-box;
   word-wrap: break-word;
   font-family: 'NEXON Lv1 Gothic OTF';
@@ -270,4 +269,11 @@ a.ssolink {
     left: 11em;
     font-size: 0.75em;
 }
-
+.sign-title{
+	font-size: 30px;
+	color: #969ce4;
+}
+.sign-title:hover {
+	font-size: 30px;
+	color: rgb(84, 105, 212);
+}

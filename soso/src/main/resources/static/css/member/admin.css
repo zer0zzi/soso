@@ -18,7 +18,7 @@
 
 form#search_form{
 	border: none;
-    padding: 2em 3em 3em 3em;
+    padding: 1em 3em 1em 3em;
     margin: 0 auto;
 }
 ul.search{
@@ -78,13 +78,17 @@ ul.search li input[type="search"]{
 	text-align:center;
 	padding: 0.75em;	
 }
+.modi-li{
+	text-align: center;
+}
 .form-modi {
     margin: 0px auto;
     width: 100%;
-    max-width: 560px;
+    max-width: 400px;
     background: white;
     border-radius: 4px;
     box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
+    min-height: 400px;
 }
 .form-modi ul{
 	padding: 1em;	
@@ -96,8 +100,17 @@ ul.search li input[type="search"]{
 .form-modi ul li label{
     width: 105px;
     float: left;
-    color: #592e6a;
+    color: #000;
     font-weight: bold;
+}
+.form-modi ul li p{
+    width: 250px;
+    float: left;
+    margin: 0 auto;
+}
+.modi-detail{
+    position: relative;
+    margin: 0 auto;
 }
 
 .modi-btn {

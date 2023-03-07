@@ -6,7 +6,7 @@
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
 	<div class="align-center admin-title">
-	<h2>회원목록</h2>
+	<h2>회원목록(관리자전용)</h2>
 	</div>
 	<table class="rwd-table">
 		<tr>
@@ -42,7 +42,7 @@
 		
 	</table>
 	<div class="align-center">
-		<input class="admin-btn" type="button" value="회원관리"
+		<input class="admin-btn" type="button" value="더보기"
 			onclick="location.href='${pageContext.request.contextPath}/member/admin_list.do'">
 	</div>
 </div>

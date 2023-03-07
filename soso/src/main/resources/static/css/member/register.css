@@ -56,6 +56,7 @@ form ul li label{
     font-weight: bold;
     position: relative;
     font-size: 15px;
+    margin-top: 8px;
 }
 ul{
 	list-style:none;
@@ -64,7 +65,7 @@ input{
 	margin-top:4px;
 }
 input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
-	width:250px;
+	width:247px;
 }
 #register_form input[id="mem_id"]{
 	width:132px;
@@ -173,8 +174,4 @@ ul.search li input[type="search"]{
 	width:700px;
 	margin:10px auto;
 }
-
-#title_res{
-	padding: 7px 0 15px 0;
-}
-
+/*배경*/

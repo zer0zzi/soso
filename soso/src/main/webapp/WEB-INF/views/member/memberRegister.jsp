@@ -7,8 +7,8 @@
 <div class="page-main">
 	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">
 		<form:errors element="div" cssClass="error-color"/>
-		<h2 id="title_res">Registration Form</h2>
-		<hr>
+		<h2 id="title_res">Sign Up</h2>
+		<div><hr size="1"></div>
 		<ul>
 			<li>
 				<label for="mem_id" style="margin-bottom:0em;">아이디</label>

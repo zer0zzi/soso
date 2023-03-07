@@ -61,10 +61,12 @@
 			<div class="formbg-outer">
 				<div class="formbg">
 					<div class="formbg-inner padding-horizontal--logo">
-						<div class="align-center padding-bottom--24">
-					<a href="${pageContext.request.contextPath}/main/main.do"
-						rel="dofollow"><img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width:150px; height:150px;"></a>
-					</div>
+						<div class="align-center padding-top--24 padding-bottom--24">
+							<a href="${pageContext.request.contextPath}/main/main.do" rel="dofollow">
+								<%-- <img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width: 150px; height: 150px;"> --%>
+							<span class="sign-title"><b>SOSO</b></span>
+							</a>
+						</div>
 						<form id="createForm" action="${path}/member/search_result_id.do" method="post">
 							<div class="form-group field padding-bottom--24">
 								<div class="grid--50-50">

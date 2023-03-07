@@ -67,15 +67,22 @@
 			<div class="formbg-outer">
 				<div class="formbg">
 					<div class="formbg-inner padding-horizontal--logo">
-						<div class="align-center padding-bottom--24">
-					<a href="${pageContext.request.contextPath}/main/main.do"
-						rel="dofollow"><img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width:150px; height:150px;"></a>
-					</div>
+						<div class="align-center padding-top--24 padding-bottom--24">
+							<a href="${pageContext.request.contextPath}/main/main.do" rel="dofollow">
+								<%-- <img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width: 150px; height: 150px;"> --%>
+							<span class="sign-title"><b>SOSO</b></span>
+							</a>
+						</div>
 						<div class="form-group field padding-bottom--24">
 							<div class="align-center">
 							<c:choose>
 								<c:when test="${empty memberVO}">
-									<p class="mb-4">조회결과가 없습니다.</p>
+									<p class="mb-4">조회결과가 없습니다.<br>
+									다시 찾아 보시겠습니까?
+									</p>
+									<a class="ssolink padding-top--24"
+									href="${pageContext.request.contextPath}/member/search_id.do">아이디찾기
+									</a>
 								</c:when>
 								<c:otherwise>
 									<div class="mb-4">회원님의 아이디는 [ ${memberVO.mem_id} ] 입니다.</div>

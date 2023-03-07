@@ -25,11 +25,12 @@
 			</c:if>
 			<input class="modi-btn" type="button" value="회원목록" onclick="location.href='admin_list.do'">
 		</div>
-		<ul>
+		<ul class="modi-detail">
 			<li>
 				<label>이름</label>
 				${memberVO.mem_name}
 			</li>
+			
 			<li>
 				<label>전화번호</label>
 				${memberVO.mem_phone}
@@ -44,7 +45,9 @@
 			</li>
 			<li>
 				<label>주소</label>
+				<p>
 				${memberVO.mem_address1} ${memberVO.mem_address2}
+				</p>
 			</li>
 		</ul>
 	</form:form>
