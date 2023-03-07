@@ -135,11 +135,11 @@ public class GroupNoticeVO {
 	@Override
 	public String toString() {
 		return "GroupNoticeVO [grp_num=" + grp_num + ", grp_title=" + grp_title + ", grp_content=" + grp_content
-				+ ", grp_date=" + grp_date + ", grp_mdate=" + grp_mdate + ", grp_hit="
-				+ grp_hit + ", stc_num=" + stc_num + ", grp_uploadfile=" + Arrays.toString(grp_uploadfile)
-				+ ", grp_filename=" + grp_filename + ", mem_num=" + mem_num + "]";
+				+ ", grp_date=" + grp_date + ", grp_mdate=" + grp_mdate + ", grp_hit=" + grp_hit + ", stc_num="
+				+ stc_num + ", grp_filename=" + grp_filename + ", mem_num=" + mem_num + "]";
 	}
-	
+
+
 	
 	
 }

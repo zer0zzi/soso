@@ -18,18 +18,18 @@
 		<div class="header-right">
 		<!-- 회원 -->
 			<c:if test="${!empty user && user.mem_auth == 2}">
-				<a class="p-l-10" href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=182">STUDY DETAIL</a>  <!-- 마이페이지 이동 생기면 없앨것 -->
-				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">COMMUNITY</a>
-				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">TALK</a>
+				<a class="p-l-10" href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=182">그룹상세</a>  <!-- 마이페이지 이동 생기면 없앨것 -->
+				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">커뮤니티</a>
+				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">채팅방</a>
 			</c:if>
 			<c:if test="${!empty user}">
 				<a><img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo"></a>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth == 2}">
-				<a href="${pageContext.request.contextPath}/mymember/myPage.do">MYPAGE</a>
+				<a href="${pageContext.request.contextPath}/mymember/myPage.do">마이페이지</a>
 			</c:if>
 			<c:if test="${!empty user}">
-				<a class="p-l-10" href="${pageContext.request.contextPath}/member/logout.do">LOGOUT</a>
+				<a class="p-l-10" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 			</c:if>
 			
 			
