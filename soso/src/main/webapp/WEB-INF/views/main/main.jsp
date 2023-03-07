@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<html	xmlns:th="http:// www.thymeleaf.org">
 <!-- 메인 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main/main.css">
 <script src="${pageContext.request.contextPath}/js/main/main.js"></script>
@@ -170,7 +169,8 @@
 						<b>${study.stc_title}</b>
 					</li>
 					<li class="std-wdate">
-						[${study.stc_way}] <span class="std-date">- <fmt:formatDate value="${study.stc_date}" pattern="MM.dd / yyyy"/></span>
+						[${study.stc_way}] <span class="std-date">
+						- <fmt:formatDate value="${study.stc_date}" pattern="MM.dd / yyyy"/></span>
 					</li>
 					<li class="std-mem">
 						<img src="/member/viewProfile.do?mem_num=${study.mem_num}" class="std-memimage">

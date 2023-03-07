@@ -59,12 +59,12 @@
 			</li>
 			<li class="form3">
 				<label class="stcradio">
-					<input id="stc_period1" name="stc_period" checked="checked" type="radio" value="상시"/><span>상시</span>
+					<input id="stc_period1" name="stc_period" type="radio" value="상시"/><span>상시</span>
 				</label>
 				<label class="stcradio">
-					<input id="stc_period2" name="stc_period" type="radio" value="기간"/><span>기간</span>
+					<input id="stc_period2" name="stc_period" checked="checked" type="radio" value="기간"/><span>기간</span>
 				</label>
-				<input id="stc_pedate" name="stc_pedate" placeholder="모집기간" type="text" value="" disabled="disabled"/>
+				<input id="stc_pedate" name="stc_pedate" placeholder="모집기간" type="text" value=""/>
 			</li>
 			<li>
 				<input id="stc_title" name="stc_title" placeholder="제목" type="text" value=""/> 
