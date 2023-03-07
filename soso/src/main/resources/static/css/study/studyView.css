@@ -36,7 +36,6 @@
 	background-color:white;
 	border:none;
 	border-radius:3px;
-	box-shadow:2px 2px 2px gray;
 	margin-bottom:10px;
 	
 	position: relative;
@@ -53,15 +52,15 @@
 }
 
 .btn span{position: absolute; background: #969CE4;}
-.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 5px;}
-.btn span:nth-child(2) {right: 0; top: 0; width: 4px; height: 0;}
-.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 5px;}
-.btn span:nth-child(4) {left: 0; bottom: 0; width: 4px; height: 0;}
+.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 3px;}
+.btn span:nth-child(2) {right: 0; top: 0; width: 3px; height: 0;}
+.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 3px;}
+.btn span:nth-child(4) {left: 0; bottom: 0; width: 3px; height: 0;}
 
-.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 5px; transition: width 0.3s;}
-.btn span:nth-child(2) {right: 0; top: 0; width: 4px; height: 0; transition: height 0.3s;}
-.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 5px; transition: width 0.3s;}
-.btn span:nth-child(4) {left: 0; bottom: 0; width: 4px; height: 0; transition: height 0.3s;}
+.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 3px; transition: width 0.3s;}
+.btn span:nth-child(2) {right: 0; top: 0; width: 3px; height: 0; transition: height 0.3s;}
+.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 3px; transition: width 0.3s;}
+.btn span:nth-child(4) {left: 0; bottom: 0; width: 3px; height: 0; transition: height 0.3s;}
 
 
 .btn:hover span:nth-child(1) {width: 100%;}
@@ -133,9 +132,20 @@ a:hover{
 	color:black;
 	text-decoration:none;
 }
-ul.detail-info{
+ul.study-info{
 	padding-top: 10px;
 	padding-bottom: 10px;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul.study-info li{
+	margin:0;
+	padding-top:5px;
+	float:left;
+}
+ul.study-info li:last-child{
+	vertical-align:top;
 }
 
 li.text-right{
@@ -146,7 +156,7 @@ li.text-right{
 	clear:both;
 }
 li.text-br{
-	padding-top: 10px;
+	padding-top:10px;
 }
 
 ul.detail-information{

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/study/studyView.css">
 <div class="page-main">
 	<h1 class="modal-header"><b>&nbsp;${study.stc_title}</b></h1>
-	<ul class="detail-info">
+	<ul class="study-info">
 		<li>
 			<c:if test="${!empty study.mem_photo_name}">
 			<img src="imageView.do?stc_num=${study.stc_num}&stc_type=1" width="40" height="40" class="my-photo">
@@ -20,7 +20,18 @@
 			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
 			</c:if>
 		</li>
+	</ul>
+	<ul class="study-info" style="float:left;">
 		<li>
+			&nbsp;
+			<c:if test="${study.mem_score==0 || study.mem_score>100}">☆☆☆☆☆</c:if>
+			<c:if test="${study.mem_score>0 && study.mem_score<=20}">⭐☆☆☆☆</c:if>
+			<c:if test="${study.mem_score>20 && study.mem_score<=40}">⭐⭐☆☆☆</c:if>
+			<c:if test="${study.mem_score>40 && study.mem_score<=60}">⭐⭐⭐☆☆</c:if>
+			<c:if test="${study.mem_score>60 && study.mem_score<=80}">⭐⭐⭐⭐☆</c:if>
+			<c:if test="${study.mem_score>80 && study.mem_score<=100}">⭐⭐⭐⭐⭐</c:if>
+		</li>
+		<li class="text-clear">
 			&nbsp;
 			<c:if test="${empty study.mem_nick}">${study.mem_id}</c:if>
 			<c:if test="${!empty study.mem_nick}">${study.mem_nick}</c:if>
@@ -34,7 +45,9 @@
 			${study.stc_date}
 			</c:if>
 		</li>
-		<li class="text-right">
+	</ul>
+	<ul>
+		<li class="text-right" style="padding-top: 30px;">
 			${study.hit} views
 		</li>
 		<li class="text-clear">
@@ -124,12 +137,7 @@
 	<img class="jb-title" id="output_fav" data-num="${study.stc_num}"
 	 src="${pageContext.request.contextPath}/images/like01.png" width="30">
 	<div class="jb-text">
-		<c:if test="${studyFav.mem_num == user.mem_num}">
-			이미 관심등록한 스터디입니다.
-		</c:if>
-		<c:if test="${studyFav.mem_num != user.mem_num}">
-			이 스터디를 관심 등록/해제 하시겠습니까?
-		</c:if>
+		이 스터디를 관심 등록/해제 하시겠습니까?
 	</div>
 	<span id="output_fcount"></span>
 	<!-- 모달창 -->

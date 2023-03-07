@@ -25,7 +25,7 @@ $(function(){
 			dataType:'json',
 			success:function(param){
 				if(param.result == 'logout'){
-					alert('로그인 후 좋아요를 눌러주세요!');
+					alert('로그인 후 관심등록해주세요!');
 				}else if(param.result == 'success'){
 					displayFav(param);
 				}else{
