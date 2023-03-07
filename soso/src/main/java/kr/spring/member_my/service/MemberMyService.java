@@ -24,4 +24,5 @@ public interface MemberMyService {
 	
 	//내 스터디 그룹
 	public List<StudyVO> selectStudy(Map<String, Object> map);
+	public List<StudyVO> selectMadeStudy(Map<String, Object> map);
 }

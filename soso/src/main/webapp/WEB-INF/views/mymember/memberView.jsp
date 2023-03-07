@@ -42,7 +42,7 @@
 						</button>
 					</li>
 					<li>
-						<button type="button" value="내가 좋아요한 스터디 그룹" onclick="location.href='logout.do'">
+						<button type="button" value="내가 좋아요한 스터디 그룹" onclick="location.href='${pageContext.request.contextPath}/mymember/myStudyMade.do'">
 							<img src="${pageContext.request.contextPath}/images/zero/heart.png" width="24" height="24"><b>&nbsp;내가 좋아요한 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></b>
 						</button>
 					</li>
@@ -50,10 +50,12 @@
 						<button type="button" value="내가 신청한 스터디 그룹" onclick="location.href='logout.do'">
 							<img src="${pageContext.request.contextPath}/images/zero/pencil.png" width="23" height="23"><b>&nbsp;내가 신청한 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></b>
 						</button>
+					</li>
 					<li>
-						<button type="button" value="내가 만든 스터디 그룹" onclick="location.href='logout.do'">
+						<button type="button" value="내가 만든 스터디 그룹" onclick="location.href='${pageContext.request.contextPath}/mymember/myStudyMade.do'">
 							<img src="${pageContext.request.contextPath}/images/zero/setting.png" width="24" height="24"><b>&nbsp;내가 만든 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></b>
 						</button>
+					</li>
 				</ul>
 	</div>
 </div>

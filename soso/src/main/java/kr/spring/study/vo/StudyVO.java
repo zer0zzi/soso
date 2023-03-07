@@ -32,6 +32,8 @@ public class StudyVO {
 	private String mem_name;
 	private int mem_score;
 	private int rownum;
+	private int signup_status;
+	private String signup_detail;
 	
 	
 	//파일 업로드 처리
@@ -173,17 +175,6 @@ public class StudyVO {
 		this.stc_pedate = stc_pedate;
 	}
 
-	
-//	@Override
-//	public String toString() {
-//		return "StudyVO [stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_content=" + stc_content
-//				+ ", stc_state=" + stc_state + ", stc_period=" + stc_period + ", stc_per=" + stc_per + ", stc_way="
-//				+ stc_way + ", stc_filter=" + stc_filter + ", stc_filename=" + stc_filename + ", stc_date=" + stc_date
-//				+ ", stc_modify_date=" + stc_modify_date + ", hit=" + hit + ", mem_num=" + mem_num + ", stc_pedate="
-//				+ stc_pedate + ", mem_id=" + mem_id + ", mem_email=" + mem_email + ", mem_nick=" + mem_nick
-//				+ ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth + "]";
-//	}
-
 	public String getMem_name() {
 		return mem_name;
 	}
@@ -208,6 +199,22 @@ public class StudyVO {
 		this.rownum = rownum;
 	}
 	
+	public int getSignup_status() {
+		return signup_status;
+	}
+
+	public void setSignup_status(int signup_status) {
+		this.signup_status = signup_status;
+	}
+
+	public String getSignup_detail() {
+		return signup_detail;
+	}
+
+	public void setSignup_detail(String signup_detail) {
+		this.signup_detail = signup_detail;
+	}
+	
 	@Override
 	public String toString() {
 		return "StudyVO [stc_num=" + stc_num + ", stc_title=" + stc_title + ", stc_content=" + stc_content
@@ -216,7 +223,9 @@ public class StudyVO {
 				+ ", stc_modify_date=" + stc_modify_date + ", hit=" + hit + ", mem_num=" + mem_num + ", stc_pedate="
 				+ stc_pedate + ", mem_id=" + mem_id + ", mem_email=" + mem_email + ", mem_nick=" + mem_nick
 				+ ", mem_photo_name=" + mem_photo_name + ", mem_auth=" + mem_auth + ", mem_name=" + mem_name + ", mem_score=" + mem_score 
-				+", rownum=" + rownum + "]";
+				+", rownum=" + rownum + ", signup_status=" + signup_status + ", signup_detail=" + signup_status + "]";
 	}
+
+	
 
 }

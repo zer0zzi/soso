@@ -268,6 +268,22 @@ public class MemberMyController {
 		logger.debug("<<myStudyList>> : " + myStudyList);
 		
 		return "myStudy";
-
+	}
+	
+	@RequestMapping("/mymember/myStudyMade.do")
+	public String viewmystudymade(HttpSession session, Model model){
+		Map<String,Object> map = new HashMap<String, Object>();
+		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		map.put("mem_num", user.getMem_num());
+		
+		List<StudyVO> myStudyList = memberMyService.selectMadeStudy(map);
+		
+		model.addAttribute("myStudyList", myStudyList);
+	
+		logger.debug("<<mem_num>> : " + user.getMem_num());
+		logger.debug("<<myStudyList>> : " + myStudyList);
+		
+		return "myStudyMade";
 	}
 }

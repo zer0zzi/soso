@@ -261,7 +261,7 @@ td > input[id="mem_id"]{
 }
 .study_div{
 	display:flex;
-	margin-bottom:120px;
+	/* margin-bottom:120px; */
 	margin-top:28px;
 }
 .mypage-study-ul-l{
@@ -278,7 +278,6 @@ td[id='tdtd']{
     width:150px;
     font-weight:bold;
     font-size:15px;
-    text-align:center;
     font-size:16px;
     padding: 40px 20px 40px 20px;
 }
@@ -311,5 +310,16 @@ input[value='격려']{
 }
 .mypage-study-ul-r > li[id='click']{
 	cursor:pointer;
-	margin-top:5px;
+}
+.align-center > input[id='click']{
+	padding:5px 18px 4px 18px;
+	background-color:white;
+	border-radius:3px;
+	border:1px solid rgb(210, 210, 210);
+	cursor:pointer;
+	font-size:12px;
+	color:#7f7f7f;
+	margin-top:15px;
+	margin-bottom:100px;
+	font-family:'NEXON Lv1 Gothic OTF';
 }

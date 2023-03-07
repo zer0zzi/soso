@@ -73,4 +73,8 @@ public class MemberMyServiceImpl implements MemberMyService{
 		return memberMyMapper.selectStudy(map);
 	}
 	
+	@Override
+	public List<StudyVO> selectMadeStudy(Map<String, Object> map) {
+		return memberMyMapper.selectMadeStudy(map);
+	}
 }

@@ -50,5 +50,7 @@ public interface MemberMyMapper {
 	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score FROM study_create c, study_signup s, member_detail m "
 			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_signup WHERE mem_num=#{mem_num} AND signup_status=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num AND signup_status=1")
 	public List<StudyVO> selectStudy(Map<String, Object> map);
-	//public StudyVO selectStudy(Integer mem_num);
+	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score, s.signup_detail, s.signup_status FROM study_create c, study_signup s, member_detail m "
+			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_create WHERE mem_num=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num")
+	public List<StudyVO> selectMadeStudy(Map<String, Object> map);
 }
