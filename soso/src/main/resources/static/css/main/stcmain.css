@@ -17,6 +17,8 @@ input, textarea, select, button, #upload{
 input[type=file]::file-selector-button{
 	font-family:'NEXON Lv1 Gothic OTF';
 	margin-bottom:7px;
+	background-color:black;
+	color:white;
 }
 
 /* 타이틀

@@ -187,9 +187,9 @@ select {
 .search1{
 	width:77px;
     margin: 0;
-    padding:7px;
     height:31px;
     border:1px solid #CCCCCC;
+    text-align:center;
 }
 
 .search1:focus, .search2:focus{
@@ -329,7 +329,7 @@ select {
 
 .std-perlabel{
 	float:right;
-	background-color:#ced4de;
+	background-color:#b0b7c2;
 	color:white;
 	border-radius:5px;
     height: 18px;
