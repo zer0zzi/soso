@@ -5,7 +5,6 @@
     font-style: normal;
 }
 body{
-    width: 100vw;
     height: auto; 
     font-family: 'NEXON Lv1 Gothic OTF';
     margin: 0;
@@ -14,6 +13,7 @@ body{
 	overflow-x: hidden;
 	overflow-y: hidden;
    	height: 100px;
+   	width: 100%;
 }
 .header-left{/*넓이는 left, right의 width와 각 paddingleft, paddingright 합쳐서100%되도록*/
     float: left;
@@ -39,6 +39,7 @@ body{
 }
 .header-right img{
 	border-radius: 50%;
+	vertical-align: middle;
 }
 .header-right .p-l-10{
     padding-left: 10px;

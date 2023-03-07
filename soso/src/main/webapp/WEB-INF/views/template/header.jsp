@@ -23,7 +23,7 @@
 				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">TALK</a>
 			</c:if>
 			<c:if test="${!empty user}">
-				<img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo">
+				<a><img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo"></a>
 			</c:if>
 			<c:if test="${!empty user && user.mem_auth == 2}">
 				<a href="${pageContext.request.contextPath}/mymember/myPage.do">MYPAGE</a>
