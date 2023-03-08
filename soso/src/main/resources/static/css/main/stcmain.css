@@ -17,8 +17,6 @@ input, textarea, select, button, #upload{
 input[type=file]::file-selector-button{
 	font-family:'NEXON Lv1 Gothic OTF';
 	margin-bottom:7px;
-	background-color:black;
-	color:white;
 }
 
 /* 타이틀
@@ -34,7 +32,7 @@ h1.sixth:after {
   top: 1px;
   height: 100%;
   font-size: 1.25em;
-  color: #969ce4;
+  color: #a5a6e9;
   
   transition: all 0.5s ease;
 }
@@ -61,7 +59,7 @@ h1.sixth:hover:after {
 form{
 	width:800px;
 	margin:17px auto;
-	border:5px solid #969ce4;
+	border:5px solid #a5a6e9;
 	padding:10px 10px 10px 30px;
 }
 .form1{
@@ -94,7 +92,7 @@ select{
 	border:1px solid #cacbcc;
 }
 select:focus{
-	background-color:#969ce4;
+	background-color:#a5a6e9;
 	color:white;
 }
 textarea{
@@ -109,7 +107,7 @@ ul li{
 	padding:5px;
 }
 button{
-	background-color:#969ce4;
+	background-color:#a5a6e9;
 	color:white;
 	width:50px;
 	height:30px;
@@ -152,8 +150,8 @@ label.stcradio{
 }
 
 .stcradio input[type="radio"]:checked + span{
-  border:1px solid #969ce4;
-  background:#969ce4;
+  border:1px solid #a5a6e9;
+  background:#a5a6e9;
   color:#fff;
 }
 

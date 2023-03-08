@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- 메인 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main/main.css">
-<script src="${pageContext.request.contextPath}/js/main/main.js"></script>
 <script type="text/javascript">
 	let result = "${result}";
 	if(result == 'success'){
@@ -27,7 +26,6 @@
 		</a>
 	</div>
 	</c:if>
-	
 	<!-- 스터디 모집 글작성 버튼(예비-수정 예정) 끝 -->
 	
 	<!-- 스터디 필터 목록 시작 -->
@@ -35,73 +33,68 @@
 		<ul>
 			<li>
 				<a href="main.do?filter=all">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/yh/filterall.png" class="filter-icon">
 				<br>
-				필터다
+				<span>전체</span>
 				</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
 				<a href="main.do?filter=programming">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/yh/filter1.png" class="filter-icon">
 				<br>
-				프래밍
+				<span id="text1">프로그래밍</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="datascience">
+			<li>
+				<a href="main.do?filter=datascience">
+				<img src="${pageContext.request.contextPath}/images/yh/filter2.png" class="filter-icon">
+				<br>
+				<span id="text2">데이터사이언스</span>
 				</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
-				<a href="main.do?filter=datascience">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
-				<br>
-				데언스</a>
-			</li>
-		</ul>
-		<ul>
-			<li>
 				<a href="main.do?filter=design">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
-				<br>디자인</a>
+				<img src="${pageContext.request.contextPath}/images/yh/filter3.png" class="filter-icon">
+				<br>
+				<span id="text3">디자인</span>
+				</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
 				<a href="main.do?filter=video">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/yh/filter4.png" class="filter-icon">
 				<br>
-				비디오
+				<span id="text4">영상</span>
 				</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
 				<a href="main.do?filter=language">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/yh/filter5.png" class="filter-icon">
 				<br>
-				어언어
+				<span id="text5">어학</span>
 				</a>
 			</li>
 		</ul>
 		<ul>
 			<li>
 				<a href="main.do?filter=marketing">
-				<img src="${pageContext.request.contextPath}/images/exampleicon.png" class="filter-icon">
+				<img src="${pageContext.request.contextPath}/images/yh/filter6.png" class="filter-icon">
 				<br>
-				마케팅
+				<span id="text6">마케팅</span>
 				</a>
 			</li>
 		</ul>
 	</div>
 	<!-- 스터디 필터 목록(+선택 정렬) 끝 -->
-	
-	<!-- 스터디 switch 시작 -->
-	<!-- 
-	<div>
-		<input type="checkbox" id="stc-state" th:field="{*stc-state}" checked="checked">
-	</div>
-	 -->
-	<!-- 스터디 switch 끝 -->
 	
 	<!-- 스터디 목록 시작 -->
 	<script type="text/javascript">
@@ -147,7 +140,7 @@
 					</li>
 					<li>
 						<c:if test="${study.stc_state=='모집중'}">
-							<label class="std-state1"><span class="std-label">🔥${study.stc_state}</span></label>
+							<label class="std-state1"><span class="std-label">🍀${study.stc_state}</span></label>
 						</c:if>
 						<c:if test="${study.stc_state=='모집완료'}">
 							<label class="std-state2"><span class="std-label">🤍${study.stc_state}</span></label>
