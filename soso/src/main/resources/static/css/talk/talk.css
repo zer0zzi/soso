@@ -49,19 +49,25 @@ a.main-menu-text{
 .main_content{
 	margin-top: 30px;	
 }
+.titletitle{
+	margin: auto;
+}
 /*----------------------------
 talkList
 ----------------------------  */
 .talklist-head {
     width: 100%;
-    height: 24px;
-    border-bottom: 2px solid lightsteelblue;
-    background-color: aliceblue;
+    height: 54px;
+    border-bottom: 2px solid white;
+    background-color: #d5cff5;
     color: darkslateblue;
     overflow: hidden;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: bolder;
-    text-align: center;
+    /* text-align: center; */
+    /* display: flex; */
+    display: flex;
+    align-items: center;
 }
 .page-top-line{
 	width: 100%;
@@ -78,7 +84,7 @@ talkList
 	/* border: 1px solid black; 임시	 */
 }
 .talk {
-    border: 3px solid lightsteelblue;
+    border: 2px so;
     width: auto;
     height: 600px;
     background-color: white;
@@ -126,11 +132,11 @@ form#search_form {
 }
 .talklist-list {
     /* border: 1px solid black; */
-    height: 455px;
+    height: 425px;
     margin-top: 15px;
     overflow: auto;
     padding-right: 5px;
-    border-bottom: 5px solid lightsteelblue;
+    border-bottom: 5px solid white;
 }
 .talklist-box {
     /* border: 1px solid black; */
@@ -184,7 +190,7 @@ form#search_form {
 .talklist-mypage-btn {
     text-align: center;
     height: 69px;
-    background-color: aliceblue;
+    background-color: #d5cff5;
 }
 input.search-btn {
     width: 30px;
@@ -202,7 +208,7 @@ input.search-btn {
 .bottom-btn {
     width: 120px;
     height: 50px;
-    background-color: aliceblue;
+    background-color: #d5cff5;
     border: none;
     border-radius: 7px;
     color: darkblue;
@@ -305,6 +311,8 @@ talkDetail
     margin-top: 8px;
     margin-left: 70px;
     /* margin: 0 auto; */
+    padding-left: 10px;
+    padding-top: 7px;
 }
 .chatting_message_bottom:focus{
 	outline: none;
@@ -313,9 +321,9 @@ talkDetail
     padding: 0px;
     margin: 0px;
     height: 69px;
-    width: 661px;
+    width: 666px;
     text-align: center;
-    background-color: aliceblue;
+    background-color: #d5cff5;
 }
 .chatform-bottom li{
 	display: inline-block;
@@ -323,7 +331,7 @@ talkDetail
 .chat-submit-btn {
     width: 50px;
     height: 24px;
-    background-color: aliceblue;
+    background-color: #d5cff5;
     border: none;
     border-radius: 7px;
     color: darkblue;
@@ -395,12 +403,12 @@ talkDetail
     background-color: #c4c4c4;
 }
 /*////////////////////////////////////////////////////*/
-#chatting_message{
-	border-bottom: 5px solid lightsteelblue;
-	height:450px;
-	margin:0 auto;
-	padding:10px;
-	overflow:auto;
+#chatting_message {
+    border-bottom: 5px solid white;
+    height: 420px;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: auto;
 }
 .date-position{
 	text-align:center;
@@ -410,9 +418,10 @@ talkDetail
     width: 300px;
     height: 20px;
     border-radius: 10px;
-    background-color: #595a63;
-    color: white;
+    /* background-color: #595a63; */
+    color: darkslategray;
     font-size: 13px;
+    font-weight: bold;
 }
 .from-position{
 	width:280px;
@@ -475,7 +484,7 @@ talkRoomWrite
 .talk-make-body {
     /* border: 1px solid black; */
     width: 100%;
-    height: 488px;
+    height: 458px;
     margin: 0 auto;
     border-bottom: 5px solid lightsteelblue;
 }
@@ -488,7 +497,7 @@ talkRoomWrite
     width: 660px;
     text-align: center;
     background-color: aliceblue;
-    margin-top: 93px;
+    margin-top: 63px;
 }
 .inputform{
 	width: 325px;
