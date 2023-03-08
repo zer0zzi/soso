@@ -322,17 +322,17 @@ div.sub-menu-right input[type=search]:focus{
 	border-radius:3px;
 }
 .full-insert form .insert-id, .full-insert form .insert-title{
-	height:20px; width:570px;
+	height:20px; width:570px; padding:0 5px;
 }
 .full-insert form select{
-	height:23px; width:200px;
+	height:23px; width:200px; padding:0 5px;
 }
 .full-insert form .insert-content{
-	margin-top:15px;
+	margin-top:15px; padding:3px 5px 3px 5px;
 	height:200px; width:570px;
 }
 .full-insert form .insert-studyName{
-	height:20px; width:500px; margin-left:130px;
+	height:20px; width:500px; margin-left:130px; padding:0 5px;
 }
 .full-insert form ul li{
 	width:720px;
@@ -554,6 +554,7 @@ div.promo-fixed-2 .full-list{
 	text-decoration:underline; text-underline-position:under;
 	color:#9481a1;
 	font-weight:700;
+	background-color: transparent;
 }
 .promo-confirm{
 	font-size:12px;
@@ -590,6 +591,27 @@ div.promo-fixed-2 .full-list{
 	padding-right:10px;
 	font-size:13px;
 	height:20px;
+}
+
+.promoStatus input[type="radio"]{
+  display:none;
+}
+.promoStatus input[type="radio"] + span{
+  display:inline-block;
+  background:none;
+  border:1px solid #dfdfdf;  
+  padding:0px 10px;
+  text-align:center;
+  width:60px;
+  height:28px;
+  line-height:30px;
+  font-size:9pt;
+  cursor:pointer;
+}
+.promoStatus input[type="radio"]:checked + span{
+  border:1px solid #969ce4;
+  background:#969ce4;
+  color:#fff;
 }
 
 

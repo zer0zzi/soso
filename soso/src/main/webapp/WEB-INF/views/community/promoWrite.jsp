@@ -79,9 +79,12 @@
 				<form:hidden path="promo_status" value="0"/>
 				</c:if>
 				<c:if test="${!empty user && user.mem_auth<9}">
-				<label>모집 여부</label>
-				<form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
-				<form:radiobutton path="promo_status" value="2" id="status2" onclick="return(false);"/>모집완료
+				<label class="promoStatus">모집 여부</label>
+					<input id="status1" name="promo_status" checked="checked" type="radio" value="1"/><span>모집중</span>
+					<input id="status2" name="promo_status" type="radio" value="2" onclick="return(false);"/><span>모집완료</span>
+				
+				<%-- <form:radiobutton path="promo_status" value="1" id="status1" checked="checked"/>모집중
+				<form:radiobutton path="promo_status" value="2" id="status2" onclick="return(false);"/>모집완료 --%>
 				</c:if>
 			</li>
 			<li>
