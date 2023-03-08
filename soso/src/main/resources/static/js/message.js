@@ -167,7 +167,7 @@ $(function(){
                   //날짜 추출
                   if(chat_date != item.chat_date.split(' ')[0]){
                      chat_date = item.chat_date.split(' ')[0];
-                     output += '<div class="date-position"><span>'+chat_date+'</span></div>';
+                     output += '<div class="date-position"><span>-'+chat_date+'-</span></div>';
                   }
                   
                   if(item.message.indexOf('@{exit}@')>=0){

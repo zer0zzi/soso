@@ -6,7 +6,7 @@
 <!-- 채팅목록 시작 -->
 <div class="page-main-talk">
 <div class="talk">
-<div class="talklist-head"><div class="titletitle">Sosotalk</div></div>
+<div class="talklist-head"><div class="titletitle">채팅방</div></div>
 	<form action="talkList.do" id="search_form" method="get">
       <div class="search">
         <input type="search" name="keyword" id="keyword" value="${param.keyword}" class="search-bar" placeholder="search">
