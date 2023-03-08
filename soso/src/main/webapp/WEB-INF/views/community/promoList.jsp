@@ -52,7 +52,7 @@
 			<table class="full-class">
 				<tr class="full-item">
 					<td>
-						<a href="fullList.do"><span style="color:gray">Community&nbsp;/</span></a>
+						<a href="fullList.do"><span style="color:gray">커뮤니티&nbsp;/</span></a>
 						<c:if test="${promo.tblName=='홍보'}">
 						<a href="promoList.do">${promo.tblName}</a>
 						</c:if>

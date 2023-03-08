@@ -100,7 +100,7 @@
 	
 	<!-- 댓글 UI 시작 -->
 	<div id="f_reply_div">
-		<span class="fre-title"><span style="color:#969CE4"><b>C</b></span>omments</span>
+		<span class="fre-title"><span style="color:#a5a6e9"><b>C</b></span>omments</span>
 		<div class="reply-div">
 		<form id="fre_form" action="listFreeReply.do">
 			<input type="hidden" name="free_num" value="${free.free_num}" id="free_num">

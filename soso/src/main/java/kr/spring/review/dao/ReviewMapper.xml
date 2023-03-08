@@ -11,7 +11,7 @@
 					v.review_content LIKE '%' || #{keyword} || '%' OR
 					m.mem_id LIKE '%' || #{keyword} || '%' OR
 					m.mem_nick LIKE '%' || #{keyword} || '%' OR
-					v.review_stc_name LIKE '%' || #{keyword} || '%'
+					v.studyName LIKE '%' || #{keyword} || '%'
 				</if>
 				<if test="keyfield==2">
 					v.review_title LIKE '%' || #{keyword} || '%'
@@ -24,7 +24,7 @@
 					m.mem_nick LIKE '%' || #{keyword} || '%'
 				</if>
 				<if test="keyfield==5">
-					v.review_stc_name LIKE '%' || #{keyword} || '%'
+					v.studyName LIKE '%' || #{keyword} || '%'
 				</if>
 			</if>
 		</where>

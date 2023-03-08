@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&family=Noto+Sans+KR:wght@300&display=swap');
 @font-face {
-    font-family: 'NEXON Lv1 Gothic OTF';
+	font-family: 'NEXON Lv1 Gothic OTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -25,6 +25,7 @@
 } */
 body{
 	margin:0;
+	overflow-y:scroll;
 }
 .align-left{
 	text-align:left;
@@ -43,6 +44,7 @@ body{
 }
 .hr-reply{
 	margin:5px 0;
+	width:100%;
 }
 .list-margin{
 	margin-top:3px;
@@ -64,7 +66,7 @@ a:hover {
 /* 메인 메뉴 / 메인 텍스트 */
 div.main-menu{
 	width:100%; height:40px;
-	background-color:#969CE4;
+	background-color:#a5a6e9;
 	position:absolute;
 	margin:0; padding:0;
 }
@@ -145,9 +147,9 @@ div.full-sub-menu-right ul{
 div.full-sub-menu-right ul li{
 	display:inline-block;
 }
-div.full-sub-menu-right ul li input.list-btn{
+/*div.full-sub-menu-right ul li input.list-btn{
 	border:none;
-}
+}*/
 
 div.sub-menu-right{
 	padding:76px 0 0 0;
@@ -164,21 +166,45 @@ div.sub-menu-right ul li{
 	display:inline-block;
 	
 }
+/*
 div.sub-menu-right ul li input.list-btn{
 	border:none;
 }
+*/
 
 /* 옵션 - 정렬 필터  */
+select::-ms-expand { 
+	display: none;
+}
+select{
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 .sort-option{
 	height:25px;
 }
+.sort-option .search-select{
+	background:transparent; border:1px solid #cccccc;
+	outline:0 none;
+ 	padding:0 5px; margin-right:-5px;
+ 	position:relative; z-index:3;
+ 	width:60px; height:28px;
+ 	text-align:center;
+ 	cursor:pointer;
+ 	border-right:none;
+ 	margin-left:5px;
+}
 .sort-option .sort-select{
-	width:inherit; height:inherit;
-	background:transparent; border:1px solid black;
-	border-radius:5px;
+	background:transparent; border:1px solid #cccccc;
 	outline:0 none;
  	padding:0 5px;
  	position:relative; z-index:3;
+ 	width:60px; height:28px;
+ 	text-align:center;
+ 	cursor:pointer;
+ 	border-right:none;
 }
 .sort-option .sort-select option{
 	background:white;
@@ -186,6 +212,38 @@ div.sub-menu-right ul li input.list-btn{
 	padding:3px 0;
   	font-size:13px;
 }
+input.list-btn{
+	background:transparent; border:1px solid #CCCCCC;
+	outline:0 none;
+ 	padding:0 5px; margin:0;
+ 	position:relative; z-index:3;
+ 	width:60px; height:28px;
+ 	text-align:center;
+ 	cursor:pointer;
+ 	border-collapse:collapse;
+ 	color:black;
+}
+div.sub-menu-right input[type=search]{ /*#F8B739*/
+	background:transparent; border:0 solid #CCCCCC;
+	outline:0 none;
+ 	padding:0 5px; margin-right:-12px; margin-bottom:10px;
+ 	position:relative; z-index:3;
+ 	width:200px; height:28px;
+ 	cursor:pointer;
+ 	border-collapse:collapse;
+ 	color:black;
+ 	text-align:right;
+}
+div.sub-menu-right input[type=search]:focus{
+	border-color:#f8b739;
+    
+}
+/*.list-btn{
+	background-color:white;
+	color:black;
+	border-radius:5px;
+}*/
+
 
 /* 버튼 - 글 작성 / 공지 작성 */
 .insert-btn{
@@ -195,17 +253,7 @@ div.sub-menu-right ul li input.list-btn{
 }
 
 /* 검색 */
-div.sub-menu-right input[type=search]{ /*#F8B739*/
-	border:0 solid gray;
-	border-radius:4px;
-	height:23px;
-	text-align:right;
-	padding-right:3px;
-}
-div.sub-menu-right input[type=search]:focus{
-	border-color:#f8b739;
-    
-}
+/*
 .search-option .search-select{
 	width:inherit; height:inherit;
 	background:transparent; border:1px solid black;
@@ -222,11 +270,7 @@ div.sub-menu-right input[type=search]:focus{
 	padding:3px 0;
   	font-size:13px;
 }
-.list-btn{
-	background-color:white;
-	color:black;
-	border-radius:5px;
-}
+*/
 
 /* ============================================= */
 /* ==================== 전체 ==================== */
@@ -254,14 +298,14 @@ div.sub-menu-right input[type=search]:focus{
 	padding-right:50px;
 	width:800px;
  	height:780px;
- 	background:#969CE4;
+ 	background:#a5a6e9;
   	border-radius:3px;
 }
 .full-insert:after{ /* transparent */
 	position:absolute;
-	border-top:13px solid #969CE4;
- 	border-left:120px solid #969CE4;
- 	border-bottom:13px solid #969CE4;
+	border-top:13px solid #a5a6e9;
+ 	border-left:120px solid #a5a6e9;
+ 	border-bottom:13px solid #a5a6e9;
  	border-radius:3px;
  	
  	content:"";
@@ -277,21 +321,21 @@ div.sub-menu-right input[type=search]:focus{
 	width:802px; height:750px;
 	border-radius:3px;
 }
-.full-insert form .insert-id{
-	height:15px; width:500px;
+.full-insert form .insert-id, .full-insert form .insert-title{
+	height:20px; width:570px;
 }
-.full-insert form .insert-title{
-	height:15px; width:500px;
+.full-insert form select{
+	height:23px; width:200px;
 }
 .full-insert form .insert-content{
 	margin-top:15px;
-	height:200px; width:500px;
+	height:200px; width:570px;
 }
 .full-insert form .insert-studyName{
-	height:15px; width:500px; margin-left:130px;
+	height:20px; width:500px; margin-left:130px;
 }
 .full-insert form ul li{
-	width:690px;
+	width:720px;
 	line-height:50px;
 	border-bottom:1px solid #D3D3D3;
 	padding-left:35px;
@@ -321,7 +365,7 @@ div.sub-menu-right input[type=search]:focus{
 }
 .full-insert form .insert-btn:hover, .full-insert form .delete-btn:hover,
 .full-insert form .detail-btn:hover, .full-insert form .list-btn:hover{
-	background-color:#969CE4;
+	background-color:#a5a6e9;
 	color:black;
 }
 
@@ -338,6 +382,7 @@ div.community-page-main-write{
 div.community-paging{
 	text-align:center;
 	margin-top:10px; margin-bottom:10px;
+	color:black;
 }
 
 /* 세부 페이지 */
@@ -377,6 +422,17 @@ div.community-page-main-detail-content{
 	border:2px solid black;
 	border-bottom:1px; border-left:3px; border-right:3px;
 }
+div.community-result-display{
+	margin:0 auto;
+	width:980px;
+	padding:20px 0 20px 30px;
+	font-size:14px;
+	margin-top:35px;
+	position:relative;
+	border:2px solid black;
+	border-bottom:1px; border-left:3px; border-right:3px;
+	text-align:center;
+}
 table.full-class{
 	margin-left:66px;
 	border:1px solid gray;
@@ -401,7 +457,7 @@ table.full-class tr td a.title-hover{
 	display:block;
 }
 table.full-class tr td a.title-hover:hover{
-	color:#969CE4;
+	color:#a5a6e9;
 	font-weight:700;
 }
 table.full-class tr td span.left{
@@ -475,18 +531,14 @@ div.promo-fixed-2 .full-list{
 	border-bottom:1px; border-left:3px; border-right:3px; border-top:1px;
 }
 .promo-ing-btn{
-	background-color:#F8B739;
-	border:none; border-radius:3px;
-	box-shadow:2px 2px 2px gray;
-	margin-bottom:10px;
-	width:60px; height:20px;
+	border:0; outline:0;
+	color:#ff9889;
+	font-weight:700;
 }
 .promo-comp-btn{
-	background-color:#D3D3D3;
-	border:none; border-radius:3px;
-	box-shadow:2px 2px 2px gray;
-	margin-bottom:10px;
-	width:60px; height:20px;
+	border:0; outline:0;
+	color:#b4bbc2;
+	font-weight:700;
 }
 #promo_faq{
 	margin:2px 0 2px 5px;
@@ -497,19 +549,16 @@ div.promo-fixed-2 .full-list{
 	margin-top:10px;
 }
 .promo-chat{
-	font-size:12px;
-	border:none; border-radius:3px;
-	background-color:#F8B739;
-	color:black;
-	margin-bottom:5px;
-	width:80px; height:20px;
-	border-radius:3px;
-	box-shadow:2px 2px 2px gray;
+	border:0; outline:0;
+	cursor:pointer;
+	text-decoration:underline; text-underline-position:under;
+	color:#9481a1;
+	font-weight:700;
 }
 .promo-confirm{
 	font-size:12px;
 	border:none; border-radius:3px;
-	background-color:#F8B739;
+	background-color:#ff9889;
 	color:black;
 	margin-bottom:5px;
 	width:100px; height:20px;
@@ -541,18 +590,6 @@ div.promo-fixed-2 .full-list{
 	padding-right:10px;
 	font-size:13px;
 	height:20px;
-}
-.qna-text{
-	padding: 15px 20px;
-	background-color: #444444;
-	border-radius: 5px;
-	color: #ffffff;
-	position: absolute;
-	opacity: 0;
-	transition: all ease 0.5s;
-}
-#faqBot:hover + .qna-text {
-	opacity: 1;
 }
 
 
@@ -621,7 +658,7 @@ table.full-class-2 tr td a.title-hover{
 	display:block;
 }
 table.full-class-2 tr td a.title-hover:hover{
-	color:#F8B739; /*#F8B739 969CE4*/
+	color:#ff9889;
 	font-weight:700;
 }
 
@@ -640,7 +677,7 @@ div.detail-bottom-right{
 input.detail-delete-btn, input.detail-update-btn, input.detail-list-btn{
 	font-size:12px;
 	border:none; border-radius:3px;
-	background-color:#969CE4;
+	background-color:#a5a6e9;
 	color:white;
 	margin-bottom:5px;
 	width:30px; height:20px;
@@ -654,8 +691,8 @@ input.detail-delete-btn, input.detail-update-btn, input.detail-list-btn{
 div#f_reply_div, div#f_mreply_div,
 div#p_reply_div, div#p_mreply_div,
 div#v_reply_div, div#v_mreply_div{
-	font-size:15px;
-	padding-top:10px; padding-bottom:25px;
+	font-size:15px; padding-bottom:25px;
+	padding-top:10px;
 	position:relative;
 }
 form#fre_form, form#fmre_form,
@@ -678,7 +715,8 @@ form#vre_form, form#vmre_form{
 #fre_second, #fmre_second,
 #pre_second, #pmre_second,
 #vre_second, #vmre_second{
-	padding-right:60px;
+	padding-right:10px;
+	margin:0; padding-top:0;
 }
 .reply-insert-btn{
 	background-color:white;
@@ -690,30 +728,25 @@ form#vre_form, form#vmre_form{
 	margin-left:5px; margin-top:5px;
 	box-shadow:none;
 }
-.rep-content{
-	border-radius:10px;
-	border:2px solid #F8B739;
-	outline-color:#969CE4;
+textarea.rep-content{
+	border-radius:3px;
+	border:none;
+	outline-color:rgba(180,187,194,0.7);
 	padding:5px;
+	width:705px;
+}
+textarea#mre_content.rep-content{
+	border:1px solid #b4bbc2; border-radius:3px;
+	outline-color:rgba(180,187,194,0.7);
 }
 .reply-div{
 	position:relative;
- 	margin-left:50px;
- 	width:750px;
+ 	width:800px;
  	height:130px;
-  	background:rgba(248, 183, 57,0.7); /*#F8B739 rgb(213, 194, 194)*/
-  	border-radius:10px;
+  	background:rgba(213,207,245,0.7);
+  	border-radius:3px;
 }
-.reply-div:after{
-	border-top:15px solid rgba(248, 183, 57,0.7);
- 	border-left: 15px solid transparent;
- 	border-right: 0px solid transparent;
- 	border-bottom: 0px solid transparent;
- 	content:"";
- 	position:absolute;
- 	top:10px;
- 	left:-15px;
-}
+
 .reply-content{
 	padding:10px 0;
 }
@@ -816,8 +849,8 @@ div.item{
     border-radius:20px;
 }
 .switch-button input:checked + .onoff-switch {
-    background-color:#F8B739;
-    box-shadow:inset 1px 5px 1px #F8B739;
+    background-color:#ff9889;
+    box-shadow:inset 1px 5px 1px #ff9889;
 }
 .switch-button input:checked + .onoff-switch:before {
     -webkit-transform: translateX(26px);

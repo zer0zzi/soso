@@ -50,7 +50,7 @@
 			<table class="full-class">
 				<tr class="full-item">
 					<td>
-						<a href="fullList.do"><span style="color:gray">Community&nbsp;/</span></a>
+						<a href="fullList.do"><span style="color:gray">커뮤니티&nbsp;/</span></a>
 						<c:if test="${free.tblName=='자유'}">
 						<a href="freeList.do">${free.tblName}</a>
 						</c:if>

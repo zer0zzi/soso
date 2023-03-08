@@ -6,7 +6,6 @@
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoFav.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.promoReply.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
 <!-- 홍보 글상세 시작 -->
 <div class="community-page-main-detail">
 	<c:if test="${promo.promo_fixed==1}">
@@ -22,29 +21,37 @@
 			</c:if>
 		</li>
 		<li>
-			<span style="color:#F8B739"><b>
+			<span style="color:#ff9889"><b>
 			<c:if test="${promo.promo_status==1}">모집중</c:if>
 			</b></span>
 			<span style="color:gray"><b>
 			<c:if test="${promo.promo_status==2}">모집완료</c:if>
 			</b></span>
-			&nbsp;
+			
+			<br>
+			<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
+			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick} (${promo.mem_id}) </c:if>
+			&nbsp;·&nbsp;
+			<c:if test="${!empty promo.promo_modifydate}">(수정)${promo.promo_modifydate}</c:if>
+			<c:if test="${empty promo.promo_modifydate}">${promo.promo_regdate}</c:if>
+			&nbsp;·&nbsp;
+			${promo.promo_hit} views
+		</li>
+	</ul>
+	
+	<div class="clear"></div>
+	
+	<div class="community-page-main-detail-content">
+	<h2>${promo.promo_title}</h2>
+	
+	<c:if test="${promo.promo_fixed==2}">
+	<div class="study-info">
+		(스터디 소개 페이지 : 
 			<div id="my_modal">
 				<a class="modal_close_btn" style="color:black; float:right;">닫기</a>
-			    <iframe src="${pageContext.request.contextPath}/talk/talkList.do" style="width:1100px; height:800px;" id="faq_iframe">대체 내용</iframe>  
+			    <iframe src="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" style="width:980px; height:750px;" id="faq_iframe">대체 내용</iframe>  
 			</div>
-			<c:if test="${!empty user.mem_num && promo.promo_status==1 && user.mem_num!=promo.mem_num}">
-			<button id="faqBot" class="promo-chat">1:1 채팅하기</button>
-			<span class="qna-text">
-				우측에서 작성자 아이디를 복사하셨습니까?
-			</span>
-			</c:if>
-			<c:if test="${!empty user.mem_num && user.mem_num==promo.mem_num && promo.promo_status==1}">
-			<button id="faqBot" class="promo-confirm">1:1채팅 확인하기</button>
-			</c:if>
-			<c:if test="${!empty user.mem_num && user.mem_num==promo.mem_num && promo.promo_status==2}">
-			<button id="faqBot" class="promo-confirm-comp">1:1채팅 확인하기</button>
-			</c:if>
+			<button id="faqBot" class="promo-chat">클릭</button>
 			<script type="text/javascript">
 				// div 숨기기
 				document.getElementById("my_modal").style.display = "none";
@@ -105,59 +112,9 @@
 				window.addEventListener('click', (e) => {
 					  e.target === modal_background ?  close() : false
 					})
-			</script>
-			
-			<c:if test="${!empty user.mem_num && promo.promo_status==1 && user.mem_num!=promo.mem_num}">
-			<button id="btn_div_copy">(작성자 아이디 복사하기)</button>
-			<div id="div">${promo.mem_id}</div>
-			</c:if>
-			<script>
-				document.getElementById("div").style.display = "none";
-				// 3. 다른 태그(div등)의 값 복사 기능 구현
-			    document.getElementById("btn_div_copy").onclick = function(){
-		        // div 내부 텍스트 취득
-		        const valOfDIV = document.getElementById("div").innerText;
-
-		        // textarea 생성
-		        const textArea = document.createElement('textarea');
-
-		        // textarea 추가
-		        document.body.appendChild(textArea);
-		        
-		        // textara의 value값으로 div내부 텍스트값 설정
-		        textArea.value = valOfDIV;
-
-		        // textarea 선택 및 복사
-		        textArea.select();
-		        document.execCommand('copy');
-
-		        // textarea 제거
-		        document.body.removeChild(textArea);
-		    }
-			</script>
-			
-			<br>
-			<c:if test="${empty promo.mem_nick}">${promo.mem_id}</c:if>
-			<c:if test="${!empty promo.mem_nick}">${promo.mem_nick} (${promo.mem_id}) </c:if>
-			&nbsp;·&nbsp;
-			<c:if test="${!empty promo.promo_modifydate}">(수정)${promo.promo_modifydate}</c:if>
-			<c:if test="${empty promo.promo_modifydate}">${promo.promo_regdate}</c:if>
-			&nbsp;·&nbsp;
-			${promo.promo_hit} views
-		</li>
-	</ul>
-	
-	<div class="clear"></div>
-	
-	<div class="community-page-main-detail-content">
-	<h2>${promo.promo_title}</h2>
-	
-	<c:if test="${promo.promo_fixed==2}">
-	<p class="study-info">
-		(스터디 소개 페이지 : 
-		<a href="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" target="_blank" style="color:#969CE4"><b>클릭 시 이동</b></a>
+			</script> 시 확인 가능
 		)
-	</p>
+	</div>
 	</c:if>
 	
 	<div class="hr">

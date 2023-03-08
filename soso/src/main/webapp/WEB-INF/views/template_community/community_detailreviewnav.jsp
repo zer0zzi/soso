@@ -4,7 +4,7 @@
 <div class="main-menu">
 	<div class="top-page-main">
 	<h2>
-		<a href='${pageContext.request.contextPath}/community/fullList.do' class="main-menu-text">Community</a>
+		<a href='${pageContext.request.contextPath}/community/fullList.do' class="main-menu-text">커뮤니티</a>
 	</h2>
 	</div>
 </div>
@@ -18,7 +18,7 @@
 			<li><a href='${pageContext.request.contextPath}/community/fullList.do'>전체게시판</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/freeList.do'>자유</a></li>
 			<li><a href='${pageContext.request.contextPath}/community/promoList.do'>홍보</a></li>
-			<li><a style="color:#969CE4" href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
+			<li><a style="color:#a5a6e9" href='${pageContext.request.contextPath}/community/reviewList.do'>후기</a></li>
 		</ul>
 	</div>
 </div>

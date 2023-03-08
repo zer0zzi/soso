@@ -4,7 +4,7 @@
 <div class="main-menu">
 	<div class="top-page-main">
 	<h2>
-		<a href='${pageContext.request.contextPath}/community/fullList.do' class="main-menu-text">Community</a>
+		<a href='${pageContext.request.contextPath}/community/fullList.do' class="main-menu-text">커뮤니티</a>
 	</h2>
 	</div>
 </div>

@@ -52,7 +52,7 @@
 				<tr class="full-item">
 					<tr class="full-item" height="20">
 						<td>
-							<a href="reviewList.do"><span style="color:gray">Community&nbsp;/</span></a>
+							<a href="reviewList.do"><span style="color:gray">커뮤니티&nbsp;/</span></a>
 							<c:if test="${review.tblName=='후기'}">
 							<a href="reviewList.do">${review.tblName}</a>
 							</c:if>
@@ -78,7 +78,7 @@
 						</td>
 					</tr>
 					<tr height="20">
-						<td><b style="color:#969CE4;">${review.studyName}</b></td>
+						<td><b style="color:#9481a1;">${review.studyName}</b></td>
 					</tr>
 					<tr height="50">
 						<td>
