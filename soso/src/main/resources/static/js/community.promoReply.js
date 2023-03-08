@@ -169,7 +169,7 @@ $(function(){
 		modifyUI += ' <input type="button" value="취소" class="re-reset re-reply-delete-btn">';
 		modifyUI += '</div>';
 		modifyUI += '<div id="pmre_first"><span class="letter-count">0/500</span></div>';
-		modifyUI += '<hr size="1" noshade width="96%">';
+		modifyUI += '<hr size="1" noshade class="hr-reply">';
 		modifyUI += '</form>';
 		
 		// 이전에 이미 수정하는 댓글이 있을 경우 수정버튼을 클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화한다.
@@ -238,10 +238,38 @@ $(function(){
 	}); // end of 댓글 수정 처리
 	
 	// 댓글 삭제
-	$(document).on('click','.delete-btn',function(){
+	$(document).on('click','.re-delete-btn',function(){
 		// 댓글 번호
 		let pre_num = $(this).attr('data-num');
 		
+		let choice = confirm('댓글을 삭제할까요?');
+		
+		if(choice){
+			// 서버와 통신
+			$.ajax({
+				url:'deletePromoReply.do',
+				type:'post',
+				data:{pre_num:pre_num},
+				dataType:'json',
+				success:function(param){
+					if(param.result=='logout'){
+						alert('로그인해야 삭제할 수 있습니다.');
+					}else if(param.result=='success'){
+						//alert('삭제 완료!');
+						selectPromoList(1);
+					}else if(param.result=='wrongAccess'){
+						alert('타인의 댓글을 삭제할 수 없습니다.');
+					}else{
+						alert('댓글 삭제시 오류 발생');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
+			});
+		}
+		
+		/*
 		// 서버와 통신
 		$.ajax({
 			url:'deletePromoReply.do',
@@ -264,6 +292,7 @@ $(function(){
 				alert('네트워크 오류 발생');
 			}
 		});
+		*/
 	}); // end of 댓글 삭제
 	
 }); // end of all function

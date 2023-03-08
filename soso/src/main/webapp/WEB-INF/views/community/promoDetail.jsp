@@ -70,7 +70,7 @@
 				        width: '100%',
 				        height: '100%',
 				        overflow: 'auto',
-				        backgroundColor: 'rgba(0,0,0,0.9)' // 레이어 색깔
+				        backgroundColor: 'rgba(0,0,0,0.7)' // 레이어 색깔
 				    });
 				    document.body.append(bg);
 				
@@ -108,10 +108,6 @@
 				    // 모달창 띄우기
 				    modal('my_modal');
 				});
-				
-				window.addEventListener('click', (e) => {
-					  e.target === modal_background ?  close() : false
-					})
 			</script> 시 확인 가능
 		)
 	</div>

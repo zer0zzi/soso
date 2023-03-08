@@ -105,11 +105,6 @@ div.sub-menu-left ul li a:hover{
 	font-weight:bold;
 	color:black;
 }
-div.sub-menu-left input[type=button]{
-	padding:0 5px; margin:auto; margin-top:1px;
-	height:20px;
-	font-size:12px;
-}
 
 /* 서브 디테일 메뉴 - left */
 div.sub-menu-left-detail{
@@ -247,30 +242,21 @@ div.sub-menu-right input[type=search]:focus{
 
 /* 버튼 - 글 작성 / 공지 작성 */
 .insert-btn{
-	background-color:black;
+	background-color:#a5a6e9;
 	color:white;
-	border-radius:5px;
+	border-radius:3px; border:none;
+	box-shadow:2px 2px 1px #CCC;
+	text-align: center;
+	vertical-align: middle;
+	cursor:pointer;
+	height:25px; width:60px;
+	margin:0; padding:0;
+}
+.insert-btn:hover{
+	background-color:#9481a1;
+	cursor:pointer;
 }
 
-/* 검색 */
-/*
-.search-option .search-select{
-	width:inherit; height:inherit;
-	background:transparent; border:1px solid black;
-	border-radius:5px;
-	outline:0 none;
- 	padding:0 5px;
- 	position:relative; z-index:3;
- 	width:82px; height:25px;
-}
-
-.search-option .search-select option{
-	background:white;
- 	color:black;
-	padding:3px 0;
-  	font-size:13px;
-}
-*/
 
 /* ============================================= */
 /* ==================== 전체 ==================== */
@@ -349,25 +335,35 @@ div.sub-menu-right input[type=search]:focus{
 }
 .full-insert form .insert-btn, .full-insert form .delete-btn, 
 .full-insert form .detail-btn, .full-insert form .list-btn{
-	display: inline-block;
-  	height:30px; width:75px;
-  	padding-bottom:3px;
-  	border-radius:3px;;
-	color:black;
-  	margin-top:2rem; 
-  	font-weight:bold;
-  	font-size:12px;
-  	letter-spacing: 2px;
-  	
-	background-color:rgba(0,0,0,0.7);
+	background-color:#a5a6e9;
+	border-radius:3px; border:none;
+	box-shadow:2px 2px 1px #CCC;
+	cursor:pointer;
+	height:50px; width:150px;
+	margin:0; padding:0;
+	font-weight:500; font-size:15px;
 	color:white;
-	border:none;
+	text-align:center;
+	vertical-align:middle;
+	
+	margin-top:2rem;
 }
 .full-insert form .insert-btn:hover, .full-insert form .delete-btn:hover,
 .full-insert form .detail-btn:hover, .full-insert form .list-btn:hover{
-	background-color:#a5a6e9;
-	color:black;
+	background-color:#9481a1;
+	cursor:pointer;
 }
+div.full-insert div.align-left{ /* 작성·수정 폼 버튼 위치 조정 */
+	margin-left:30px;
+}
+input[type=file]::file-selector-button{
+	background-color:#ccc; color:black;
+	border:none; border-radius:1px;
+	height:25px;
+	margin-right:7px;
+	cursor:pointer;
+}
+
 
 /* 전체 페이지 */
 div.community-page-main{
@@ -383,6 +379,10 @@ div.community-paging{
 	text-align:center;
 	margin-top:10px; margin-bottom:10px;
 	color:black;
+}
+div.community-paging b span{ /* 페이지 버튼 글씨 */
+	color: grey !important;
+	cursor: pointer !important;
 }
 
 /* 세부 페이지 */
@@ -457,7 +457,7 @@ table.full-class tr td a.title-hover{
 	display:block;
 }
 table.full-class tr td a.title-hover:hover{
-	color:#a5a6e9;
+	color:#9481a1;
 	font-weight:700;
 }
 table.full-class tr td span.left{
@@ -534,11 +534,13 @@ div.promo-fixed-2 .full-list{
 	border:0; outline:0;
 	color:#ff9889;
 	font-weight:700;
+	background-color:transparent;
 }
 .promo-comp-btn{
 	border:0; outline:0;
 	color:#b4bbc2;
 	font-weight:700;
+	background-color:transparent;
 }
 #promo_faq{
 	margin:2px 0 2px 5px;
@@ -697,12 +699,19 @@ div.detail-bottom-right{
 	float:right;
 }
 input.detail-delete-btn, input.detail-update-btn, input.detail-list-btn{
-	font-size:12px;
-	border:none; border-radius:3px;
 	background-color:#a5a6e9;
 	color:white;
-	margin-bottom:5px;
-	width:30px; height:20px;
+	border-radius:1px; border:none;
+	box-shadow:2px 2px 1px #CCC;
+	text-align: center;
+	vertical-align: middle;
+	cursor:pointer;
+	height:20px; width:40px;
+	font-size:12px; font-weight:500;
+}
+input.detail-delete-btn:hover, input.detail-update-btn:hover, input.detail-list-btn:hover{
+	background-color:#9481a1;
+	cursor:pointer;
 }
 
 
@@ -757,7 +766,7 @@ textarea.rep-content{
 	padding:5px;
 	width:705px;
 }
-textarea#mre_content.rep-content{
+textarea#mre_content.rep-content, textarea#pmre_content.rep-content, textarea#vmre_content.rep-content{
 	border:1px solid #b4bbc2; border-radius:3px;
 	outline-color:rgba(180,187,194,0.7);
 }
