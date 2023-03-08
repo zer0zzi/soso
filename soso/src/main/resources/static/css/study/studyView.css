@@ -12,54 +12,35 @@
 }
 
 /* 버튼 */
-
 .btn{
-	color:#555;
-	background-color:white;
-	border:none;
-	border-radius:3px;
-	margin-bottom:10px;
-	
-	position: relative;
+	background: #969ce4;
+	display: inline-block;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 15px;
+	font-weight: 500;
+	color: white;
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 5px;
+	border: none;
 }
-
 .btn:hover{
-	background-color:white;
-	color:black;
-	transition: all 0.5s;
+	background-color: rgb(66, 66, 134);
+	cursor: pointer;
+	color: white;
 }
-.btn:focus{
-	background-color:white;
-	color:gray;
+.btn-close {
+	background-color: red;
+	transition: 0.3s;
 }
-
-/*가로 방향 애니메이션*/
-.btn span{position: absolute; background:rgba(0,0,255,0.2);}
-.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 50px;}
-.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 50px; transition: width 0.5s;}
-.btn:hover span:nth-child(1) {width: 100%;}
-
-
-/*둘레 애니메이션*/
-/*
-.btn span{position: absolute; background: #969CE4;}
-.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 3px;}
-.btn span:nth-child(2) {right: 0; top: 0; width: 3px; height: 0;}
-.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 3px;}
-.btn span:nth-child(4) {left: 0; bottom: 0; width: 3px; height: 0;}
-
-.btn span:nth-child(1) {left: 0; top: 0; width: 0; height: 50px; transition: width 0.3s;}
-.btn span:nth-child(2) {right: 0; top: 0; width: 3px; height: 0; transition: height 0.3s;}
-.btn span:nth-child(3) {right: 0; bottom: 0; width: 0; height: 3px; transition: width 0.3s;}
-.btn span:nth-child(4) {left: 0; bottom: 0; width: 3px; height: 0; transition: height 0.3s;}
-
-
-.btn:hover span:nth-child(1) {width: 100%;}
-.btn:hover span:nth-child(2) {height: 100%;}
-.btn:hover span:nth-child(3) {width: 100%;}
-.btn:hover span:nth-child(4) {height: 100%;}
-*/
-
+.btn-light{
+	float: right;
+	width: 150px;
+	height: 50px;
+	font-size: 21px;
+}
 
 /* 필터 */
 .std-filter1{
@@ -200,6 +181,10 @@ ul.detail-information{
 
 
 /* 모달창 */
+.modal-container{
+	width:30%;
+}
+
 #exampleModal{
 	margin-top:100px;	
 }
@@ -207,18 +192,6 @@ ul.detail-information{
 	color:white;
 	background-color: #969CE4;
 	padding-top: 4px;
-}
-
-
-.btn-close {
-	background-color: red;
-	transition: 0.3s;
-}
-.btn-light{
-	float: right;
-	width: 150px;
-	height: 50px;
-	font-size: 21px;
 }
 
 div#modal_count{
