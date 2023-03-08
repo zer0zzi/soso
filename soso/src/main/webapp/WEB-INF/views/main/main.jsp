@@ -183,7 +183,7 @@
 			</div>
 			</c:forEach>	
 		</div>
-		<div class="align-center float-clear" style="padding-top: 20px;">${page}</div>
+		<div class="page-number">${page}</div>
 		</c:if>
 	</div>
 	<!-- 스터디 목록 끝 -->

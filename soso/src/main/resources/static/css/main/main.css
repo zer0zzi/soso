@@ -33,6 +33,21 @@ input, select, button{
 	text-align:right;
 }
 
+.page-number{
+	padding-top:20px;
+	clear:both;
+	text-align:center;
+}
+
+.page-number b span{ /* 페이지 버튼 글씨 */
+	color: grey !important;
+	cursor: pointer !important;
+}
+
+label{
+	cursor:pointer;
+}
+
 /* 메인 - 배너
 ---------------------------*/
 
