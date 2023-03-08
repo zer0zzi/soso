@@ -5,7 +5,7 @@
 <!-- 채팅방 생성 시작 -->
 <div class="page-main-talk">    
 <div class="talk">
-<div class="talklist-head">&nbsp;채팅방 만들기</div>
+<div class="talklist-head"><div class="titletitle">채팅방 만들기</div></div>
    <div class="talk-make-body">
 	<form action="talkRoomWrite.do" method="post" id="talk_form">
 		<input type="hidden" name="members" id="user"

@@ -8,7 +8,7 @@
 <!-- 채팅목록 시작 -->
 <div class="page-main-talk">
 <div id="talkDetail" class="talk">
-<div class="talklist-head">&nbsp;${fn:substring(talkRoomVO.talkroom_name,0,25)}</div>
+<div class="talklist-head"><div class="titletitle">${fn:substring(talkRoomVO.talkroom_name,0,25)}</div></div>
 			<%-- <div class="chat-name">
 				<div class="chat-name-right"><b>${talkRoomVO.talkroom_name}</b></div>				
 			</div> --%>
