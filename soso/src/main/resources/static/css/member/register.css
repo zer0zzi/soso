@@ -32,7 +32,7 @@
 
 /* 공통 등록, 수정 폼
 ---------------------------*/
-form{
+/* form{
 	margin: 2rem auto;
 	display: flex;
 	flex-direction: column;
@@ -42,7 +42,7 @@ form{
 	border-radius: 10px;
 	padding: .75rem;
 	box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
-}
+} */
 
 form ul{
 	padding: 0 20px 20px 20px;
@@ -51,7 +51,7 @@ form ul li{
 	padding: 0 0 7px 0;
 }
 form ul li label{
-    width: 134px;
+	width: 100px;
     float: left;
     font-weight: bold;
     position: relative;
@@ -64,8 +64,8 @@ ul{
 input{
 	margin-top:4px;
 }
-input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
-	width:247px;
+input[type="text"], input[type="password"],.page-main input[type="email"]{
+	width: 248px
 }
 #register_form input[id="mem_id"]{
 	width:132px;
@@ -118,38 +118,44 @@ li.paging-current{
 	padding:10px;
 }
 .action-button {
-	font: inherit;
-	font-size: 0.75rem;
-	padding: 1em;
-	width: 6em;
-	border-radius: 6px;
-	border: 0;
-	background-color: #887ce7;
-	color: #FFF;
-	font-weight: bold;
-	transition: all .15s linear;
-	top: -18px;
-    position: relative;
+    background: #969ce4;
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    width: 150px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: none;
 }
 .action-button:hover {
-	background-color: #6658d3;
-	color: #FFF;
+   background-color: rgb(66, 66, 134);
+   cursor: pointer;
+}
+.margin-4{
+	margin-bottom:4px;
 }
 .action-button2 {
-	position: relative;
-    font-size: 0.75rem;
-    width: 9em;
+    background: #969ce4;
+    display: inline-block;
+    line-height: 29px;
+    padding: 0 20px;
+    font-size: 15px;
     font-weight: 500;
-    background-color: #887ce7;
-    border-radius: 6px;
-    color: #FFF;
-    border: 0;
-    padding: 0.6em 0 0.4em 0;
-    left: 0.55em;
+    color: white;
+    width: 110px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: none;
+    margin-top: -2px;
 }
 .action-button2:hover {
-	background-color: #6658d3;
-	color: #FFF;
+   background-color: rgb(66, 66, 134);
+   cursor: pointer;
 }
 
 
@@ -178,3 +184,282 @@ ul.search li input[type="search"]{
 	margin:10px auto;
 }
 /*배경*/
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-family: 'NEXON Lv1 Gothic OTF';
+}
+/* body{
+	overflow-y:hidden;
+}  */
+h1 {
+    letter-spacing: -1px;
+}
+a {
+  color: #5469d4;
+  text-decoration: unset;
+}
+.login-root {
+    background: #fff;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.loginbackground {
+    min-height: 692px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.flex-flex {
+    display: flex;
+}
+.align-center {
+  align-items: center; 
+}
+.center-center {
+  align-items: center;
+  justify-content: center;
+}
+.box-root {
+    box-sizing: border-box;
+}
+.flex-direction--column {
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.loginbackground-gridContainer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
+    grid-template-columns: [start] 1fr [left-gutter] repeat(16,86.6px) [left-gutter] 1fr [end];
+    -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
+    grid-template-rows: [top] 1fr [top-gutter] repeat(8,64px) [bottom-gutter] 1fr [bottom];
+    justify-content: center;
+    margin: 0 -2%;
+    transform: rotate(-12deg) skew(-12deg);
+}
+.box-divider--light-all-2 {
+    box-shadow: inset 0 0 0 2px #e3e8ee;
+}
+.box-background--blue {
+    background-color: #969ce4;
+}
+.box-background--white {
+  background-color: #d5d8f9;
+}
+.box-background--blue800 {
+    background-color: rgb(128, 128, 255);
+}
+.box-background--gray100 {
+    background-color: #e3e8ee;
+}
+.box-background--cyan200 {
+    background-color: #7fd3ed;
+}
+.padding-top--64 {
+  padding-top: 64px;
+}
+.padding-top--24 {
+  padding-top: 24px;
+}
+.padding-top--48 {
+  padding-top: 48px;
+}
+.padding-bottom--24 {
+  padding-bottom: 24px;
+}
+.padding-horizontal--48 {
+  padding: 48px;
+}
+.padding-horizontal--logo {
+    padding: 5px 30px 48px 30px;
+}
+.padding-bottom--15 {
+  padding-bottom: 15px;
+}
+
+
+.flex-justifyContent--center {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.formbg {
+	z-index:2;
+	position:relative;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 448px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+
+/* span {
+    display: block;
+    font-size: 20px;
+    line-height: 28px;
+    color: #1a1f36;
+} */
+label {
+    margin-bottom: 10px;
+}
+.reset-pass a,label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+}
+.reset-pass > a {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.grid--50-50 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+.field input {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 8px 16px;
+    width: 100%;
+    min-height: 44px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+
+input[type="submit"] {
+    background-color: rgb(84, 105, 212);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                rgb(84, 105, 212) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-id-btn {
+    background-color: rgb(84, 105, 212);
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 22em;
+    border-radius: 5px;
+}
+
+.field-checkbox input {
+    width: 20px;
+    height: 15px;
+    margin-right: 5px; 
+    box-shadow: unset;
+    min-height: unset;
+}
+.field-checkbox label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+a.ssolink {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+}
+.footer-link span {
+    font-size: 14px;
+    text-align: center;
+}
+.listing a {
+    color: #697386;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.animationRightLeft {
+  animation: animationRightLeft 3s ease-in-out;
+  animation-iteration-count:2;
+}
+.animationLeftRight {
+  animation: animationLeftRight 3s ease-in-out;
+  animation-iteration-count:2;
+}
+.tans3s {
+  animation: animationLeftRight 5s ease-in-out;
+  animation-iteration-count:2;
+}
+.tans4s {
+  animation: animationLeftRight 6s ease-in-out;
+  animation-iteration-count:2;
+}
+
+@keyframes animationLeftRight {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(1000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+} 
+
+@keyframes animationRightLeft {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+} 
+
+.error-color{
+	color: #c64141;
+}
+.error-message{
+	position: relative;
+    left: 9em;
+    font-size: 0.75em;
+    margin-top: 2px;
+}
+.sign-title{
+	font-size: 30px;
+	color: #969ce4;
+}
+.sign-title:hover {
+	font-size: 30px;
+	color: rgb(84, 105, 212);
+}

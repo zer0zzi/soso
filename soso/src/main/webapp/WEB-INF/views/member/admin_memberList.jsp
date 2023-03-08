@@ -9,21 +9,17 @@
 	<h2>회원목록(관리자전용)</h2>
 	</div>
 	<form action="admin_list.do" id="search_form" method="get">
-		<ul class="search">
+		<ul class="admin-search">
 			<li>
-				<select name="keyfield">
+				<select name="keyfield" class="search1">
 					<option value="1" <c:if test="${param.keyfield == 1}">selected</c:if>>ID</option>
 					<option value="2" <c:if test="${param.keyfield == 2}">selected</c:if>>이름</option>
 					<option value="3" <c:if test="${param.keyfield == 3}">selected</c:if>>이메일</option>
 					<option value="4" <c:if test="${param.keyfield == 4}">selected</c:if>>전체</option>
 				</select>
-			</li>
-			<li>
-				<input type="search" name="keyword" id="keyword" value="${param.keyword}">
-			</li>
-			<li>
-				<input class="list-btn" type="submit" value="찾기">
-				<input class="list-btn" type="button" value="목록" onclick="location.href='admin_list.do'">
+				<input type="search" name="keyword" id="keyword" value="${param.keyword}" class="search2">
+				<input class="search3" type="submit" value="찾기">
+				<input class="search3" type="button" value="목록" onclick="location.href='admin_list.do'">
 			</li>
 		</ul>
 	</form>
@@ -61,7 +57,7 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<div class="align-center">${page}</div>
+	<div class="page">${page}</div>
 	</c:if>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

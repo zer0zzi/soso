@@ -69,22 +69,22 @@ a {
     transform: rotate(-12deg) skew(-12deg);
 }
 .box-divider--light-all-2 {
-    box-shadow: inset 0 0 0 2px #e3e8ee;
+    box-shadow: inset 0 0 0 2px #D5CFF5;
 }
 .box-background--blue {
-    background-color: #969ce4;
+    background-color: #FFDAA5;
 }
 .box-background--white {
-  background-color: #d5d8f9;
+  background-color: #D5CFF5;
 }
 .box-background--blue800 {
-    background-color: rgb(128, 128, 255);
+    background-color: #FF9889;
 }
 .box-background--gray100 {
-    background-color: #e3e8ee;
+    background-color: #D5CFF5;
 }
 .box-background--cyan200 {
-    background-color: #7fd3ed;
+    background-color: #F7E3EF;
 }
 .padding-top--64 {
   padding-top: 64px;
@@ -169,30 +169,40 @@ label {
 }
 
 input[type="submit"] {
-    background-color: rgb(84, 105, 212);
-    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-                rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
-                rgb(84, 105, 212) 0px 0px 0px 1px, 
-                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-                rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.search-id-btn {
-    background-color: rgb(84, 105, 212);
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
+    background: #969ce4;
     display: inline-block;
-    cursor: pointer;
-    width: 22em;
+    line-height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
     border-radius: 5px;
+    border: none;
 }
-
+input[type="submit"]:hover {
+   background-color: rgb(66, 66, 134);
+   cursor: pointer;
+}
+.search-id-btn {
+    background: #969ce4;
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: none;
+    width: 352px;
+}
+.search-id-btn:hover {
+   background-color: rgb(66, 66, 134);
+   cursor: pointer;
+}
 .field-checkbox input {
     width: 20px;
     height: 15px;

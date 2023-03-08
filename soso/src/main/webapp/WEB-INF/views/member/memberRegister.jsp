@@ -4,84 +4,135 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/register.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmPw.js"></script>
-<div class="page-main">
-	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">
-		<form:errors element="div" cssClass="error-color"/>
-		<h2 id="title_res">Sign Up</h2>
-		<div><hr size="1"></div>
-		<ul>
-			<li>
-				<label for="mem_id" style="margin-bottom:0em;">아이디</label>
-				<form:input class="input-field" path="mem_id" autocomplete="off"/>
-				<input class="action-button2" type="button" id="confirmId" value="중복확인">
-				<div class="error-message" id="message_id"></div>
-				<form:errors path="mem_id" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_name" style="margin-bottom:0em;">이름</label>
-				<form:input class="input-field" path="mem_name"/>
-				<div class="error-message">
-					<form:errors path="mem_name" cssClass="error-color"/>
+<div class="login-root">
+	<div class="box-root flex-flex flex-direction--column"
+		style="min-height: 100vh; flex-grow: 1;">
+		<div class="loginbackground box-background--white padding-top--64" style="z-index: 1">
+			<div class="loginbackground-gridContainer">
+				<div class="box-root flex-flex" style="grid-area: top/start/8/end;">
+					<div class="box-root"
+						style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+					</div>
 				</div>
-			</li>
-			<li>
-				<label for="mem_nick" style="margin-bottom:0em;">닉네임</label>
-				<form:input class="input-field" path="mem_nick"/>
-			</li>
-			<li>
-				<label for="mem_pw" style="margin-bottom:0em;">비밀번호</label>
-				<form:password class="input-field" path="mem_pw"/>
-				<div class="error-message">
-					<form:errors path="mem_pw" cssClass="error-color"/>
+				<div class="box-root flex-flex" style="grid-area: 4/2/auto/5;">
+					<div
+						class="box-root box-divider--light-all-2 animationLeftRight tans3s"
+						style="flex-grow: 1;"></div>
 				</div>
-			</li>
-			<li>
-				<label for="confirm_passwd" style="margin-bottom:0em;">비밀번호 확인</label>
-				<input class="input-field" type="password" id="confirm_passwd"/>
-				<div class="error-message" id="message_pw"></div>
-			</li>
-			<li>
-				<label for="mem_phone" style="margin-bottom:0em;">전화번호</label>
-				<form:input path="mem_phone" class="phoneNumber input-field"/>
-				<div class="error-message">
-					<form:errors path="mem_phone" cssClass="error-color"/>
+				<div class="box-root flex-flex" style="grid-area: 6/start/auto/2;">
+					<div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
 				</div>
-			</li>
-			<li>
-				<label for="mem_email" style="margin-bottom:0em;">이메일</label>
-				<form:input class="input-field" path="mem_email"/>
-				<div class="error-message">
-					<form:errors path="mem_email" cssClass="error-color"/>
+				<div class="box-root flex-flex" style="grid-area: 7/start/auto/4;">
+					<div class="box-root box-background--blue animationLeftRight"
+						style="flex-grow: 1;"></div>
 				</div>
-			</li>
-			<li>
-				<label for="mem_zipcode" style="margin-bottom:0em;">우편번호</label>
-				<form:input class="input-field" path="mem_zipcode"/>
-				<input class="action-button2" type="button" onclick="execDaumPostcode()" value="우편번호 검색">
-				<div class="error-message">
-					<form:errors path="mem_zipcode" cssClass="error-color"/>
+				<div class="box-root flex-flex" style="grid-area: 8/4/auto/6;">
+					<div
+						class="box-root box-background--gray100 animationLeftRight tans3s"
+						style="flex-grow: 1;"></div>
 				</div>
-			</li>
-			<li>
-				<label for="mem_address1" style="margin-bottom:0em;">주소</label>
-				<form:input class="input-field" path="mem_address1"/>
-				<div class="error-message">
-					<form:errors path="mem_address1" cssClass="error-color"/>
+				<div class="box-root flex-flex" style="grid-area: 2/15/auto/end;">
+					<div
+						class="box-root box-background--cyan200 animationRightLeft tans4s"
+						style="flex-grow: 1;"></div>
 				</div>
-			</li>
-			<li>
-				<label for="mem_address2" style="margin-bottom:0em;">상세 주소</label>
-				<form:input class="input-field" path="mem_address2"/>
-				<div class="error-message">
-					<form:errors path="mem_address2" cssClass="error-color"/>
+				<div class="box-root flex-flex" style="grid-area: 3/14/auto/end;">
+					<div class="box-root box-background--blue animationRightLeft"
+						style="flex-grow: 1;"></div>
 				</div>
-			</li>
-		</ul>	
-		<div class="align-center">
-			<form:button class="action-button">완료</form:button>
-			<input class="action-button" type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'"> 
-		</div>	
-	</form:form>
+				<div class="box-root flex-flex" style="grid-area: 4/17/auto/20;">
+					<div
+						class="box-root box-background--gray100 animationRightLeft tans4s"
+						style="flex-grow: 1;"></div>
+				</div>
+				<div class="box-root flex-flex" style="grid-area: 5/14/auto/17;">
+					<div
+						class="box-root box-divider--light-all-2 animationRightLeft tans3s"
+						style="flex-grow: 1;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box-root flex-flex flex-direction--column"
+			style="flex-grow: 1;">
+			<div
+				class="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
+				<h1 style="z-index: 2; background-color: transparent;">
+				</h1>
+			</div>
+			<div class="formbg-outer">
+				<div class="formbg">
+					<div class="formbg-inner padding-horizontal--logo">
+						<div class="align-center padding-top--24 padding-bottom--24">
+							<a href="${pageContext.request.contextPath}/main/main.do" rel="dofollow">
+								<%-- <img src="${pageContext.request.contextPath}/images/soon/logo2.png" style="width: 150px; height: 150px;"> --%>
+							<span class="sign-title"><b>SOSO</b></span>
+							</a>
+						</div>
+						<form:form action="registerUser.do" id="register_form"
+							modelAttribute="memberVO">
+							<form:errors element="div" cssClass="error-color" />
+							<ul>
+								<li><label for="mem_id" style="margin-bottom: 0em;">아이디</label>
+									<form:input class="input-field" path="mem_id"
+										autocomplete="off" /> <input class="action-button2"
+									type="button" id="confirmId" value="중복확인">
+									<div class="error-message" id="message_id"></div> <form:errors
+										path="mem_id" cssClass="error-color" /></li>
+								<li><label for="mem_name" style="margin-bottom: 0em;">이름</label>
+									<form:input class="input-field" path="mem_name" />
+									<div class="error-message">
+										<form:errors path="mem_name" cssClass="error-color" />
+									</div></li>
+								<li><label for="mem_nick" style="margin-bottom: 0em;">닉네임</label>
+									<form:input class="input-field" path="mem_nick" /></li>
+								<li><label for="mem_pw" style="margin-bottom: 0em;">비밀번호</label>
+									<form:password class="input-field" path="mem_pw" />
+									<div class="error-message">
+										<form:errors path="mem_pw" cssClass="error-color" />
+									</div></li>
+								<li><label for="confirm_passwd" style="margin-bottom: 0em;">비밀번호
+										확인</label> <input class="input-field" type="password"
+									id="confirm_passwd" />
+									<div class="error-message" id="message_pw"></div></li>
+								<li><label for="mem_phone" style="margin-bottom: 0em;">전화번호</label>
+									<form:input path="mem_phone" class="phoneNumber input-field" />
+									<div class="error-message">
+										<form:errors path="mem_phone" cssClass="error-color" />
+									</div></li>
+								<li><label for="mem_email" style="margin-bottom: 0em;">이메일</label>
+									<form:input class="input-field" path="mem_email" />
+									<div class="error-message">
+										<form:errors path="mem_email" cssClass="error-color" />
+									</div></li>
+								<li><label for="mem_zipcode" style="margin-bottom: 0em;">우편번호</label>
+									<form:input class="input-field" path="mem_zipcode" /> <input
+									class="action-button2" type="button"
+									onclick="execDaumPostcode()" value="검색">
+									<div class="error-message">
+										<form:errors path="mem_zipcode" cssClass="error-color" />
+									</div></li>
+								<li><label for="mem_address1" style="margin-bottom: 0em;">주소</label>
+									<form:input class="input-field" path="mem_address1" />
+									<div class="error-message">
+										<form:errors path="mem_address1" cssClass="error-color" />
+									</div></li>
+								<li><label for="mem_address2" style="margin-bottom: 0em;">상세
+										주소</label> <form:input class="input-field" path="mem_address2" />
+									<div class="error-message">
+										<form:errors path="mem_address2" cssClass="error-color" />
+									</div></li>
+							</ul>
+							<div class="align-center">
+								<form:button class="action-button">완료</form:button>
+								<input class="action-button margin-4" type="button" value="홈으로"
+									onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+							</div>
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- 우편번호 검색 시작 -->
 <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
