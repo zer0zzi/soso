@@ -153,7 +153,7 @@ li.text-br{
 ul.detail-information{
 	font-size: 17px;
 	padding-left: 0px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 }
 
 .study-content{
@@ -163,7 +163,7 @@ ul.detail-information{
 }
 
 .text-grey{
-	color:#888;
+	color:#887;
 	font-size:19px;
 	font-weight: bolder;
 }
@@ -211,7 +211,7 @@ ul.detail-information{
 	background-color: red;
 	transition: 0.3s;
 }
-.btn-primary{
+.btn-light{
 	float: right;
 	width: 150px;
 	height: 50px;

@@ -38,11 +38,11 @@ $(function(){
 	};
 		
 	//모달창 외부 버튼 클릭 이벤트
-	$('.btn-primary').click(function(){
+	$('.btn-light').click(function(){
 		$.ajax({
 			url:'signLogin.do',
 			type:'post',
-			data:{stc_num:$('.btn-primary').attr('data-num')},
+			data:{stc_num:$('.btn-light').attr('data-num')},
 			dataType:'json',
 			success:function(param){
 				if(param.result == 'logout'){
@@ -50,7 +50,7 @@ $(function(){
 					location.href='../member/login.do';
 				}else if(param.result == 'aleadySigned'){
 					alert('이미 신청한 스터디입니다.');
-					location.href='../member/myPage.do';
+					location.href='../mymember/myPage.do';
 				}else if(param.result == 'first'){
 					//폼 초기화
 					initForm();
@@ -99,15 +99,16 @@ $(function(){
 		$.ajax({
 			url:'signup.do',
 			type:'post',
-			data:{stc_num:$('.btn-primary').attr('data-num'),
+			data:{stc_num:$('.btn-light').attr('data-num'),
 				  signup_detail:$('#signup_detail').val()},
 			dataType:'json',
 			success:function(param){
 				if(param.result == 'success'){
 					alert('신청 성공');
+					location.href='../main/main.do';
 				}else if(param.result == 'aleadySigned'){
 					alert('이미 신청한 스터디입니다.');
-					location.href='../member/myPage.do';
+					location.href='../mymember/myPage.do';
 				}else{
 					alert('신청에 오류 발생');
 				}

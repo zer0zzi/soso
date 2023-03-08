@@ -153,25 +153,19 @@
 	<div class="modal-container" style="float:right;">
 		<!-- Modal창 호출 버튼 -->
 		<jsp:include page="../study/modal.jsp"/>
-		<button type="button" class="btn btn-primary" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+		<button type="button" class="btn btn-light" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
 			<c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}"> disabled="disabled"</c:if>>
 			<span></span>
 	        <span></span>
 	        <span></span>
 	        <span></span>
 	        <c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}">
-	        	<b>모집완료</b>
+	        	<b style="color:red;">모집완료</b>
 	        </c:if>
 			<c:if test="${study.stc_state=='모집중' && user.mem_num != study.mem_num && user.mem_auth != 9}">
 	        	<b>신청하기</b>
 	        </c:if>
 		</button>
-	</div>
-	<div class="align-center text-claer" id="main-button">
-		<br>
-		<a href="${pageContext.request.contextPath}/main/main.do">
-		<i class="bi bi-house-door-fill"></i>메인페이지로</a>
-	
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
