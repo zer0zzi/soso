@@ -13,24 +13,6 @@
 
 /* 버튼 */
 
-/*
-.btn{
-	border: 5px double white;
-	border-radius: 3px;
-	box-shadow: inset -5px -5px 10px 4px rgba(77, 71, 71, 0.4);
-	position: relative;
-}
-.btn:hover{
-	border: 5px double white;
-	box-shadow: inset 5px 5px 10px 6px rgba(77, 71, 71, 0.5);
-	color: #dde;
-}
-.btn:focus{
-	border: 5px double white;
-}
-*/
-
-
 .btn{
 	color:#555;
 	background-color:white;
@@ -150,6 +132,10 @@ ul.study-info li:last-child{
 .text-right{
 	float: right;
 }
+.text-left{
+	float: left;
+	width: 40%;
+}
 .text-clear{
 	float:none;
 	clear:both;
@@ -162,7 +148,6 @@ ul.detail-information{
 	font-size: 17px;
 	padding-left: 0px;
 	padding-bottom: 10px;
-	width: 50%;
 }
 
 .study-content{
@@ -173,19 +158,19 @@ ul.detail-information{
 
 .text-grey{
 	color:#888;
-	font-size:20px;
+	font-size:19px;
 	font-weight: bolder;
 }
 .text-black{
 	padding-left:20px;
-	font-size:20px;
+	font-size:19px;
 	font-weight: bolder;
 }
 
 
 #main-button{
 	padding-top:50px;
-	font-size: 20px;
+	font-size: 19px;
 }
 
 

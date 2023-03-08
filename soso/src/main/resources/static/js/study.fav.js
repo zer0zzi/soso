@@ -54,6 +54,32 @@ $(function(){
 	
 	//초기 데이터 표시
 	selectFav($('#output_fav').attr('data-num'));
+	
+	
+	//신청하기
+	function selectSignup(stc_num){
+		$.ajax({
+			url:'getSign.do',
+			type:'post',
+			data:{stc_num:stc_num},
+			dataType:'json',
+			success:function(param){
+				displaySignup(param);
+			},
+			error:function(){
+				alert('신청하기 읽기에서 네트워크 오류');
+			}
+		});
+	}
+	//신청 표시, 신청 개수 표시 공통 함수
+	function displaySignup(param){
+		//문서 객체에 추가
+		$('#output_scount').text(param.count+"명");
+	}
+	
+	//초기 데이터 표시
+	selectSignup($('#output_scount').attr('data-num'));
+
 });
 
 

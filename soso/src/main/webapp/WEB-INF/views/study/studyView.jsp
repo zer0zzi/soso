@@ -39,7 +39,7 @@
 		<li>&nbsp;·&nbsp;</li>
 		<li>
 			<c:if test="${!empty study.stc_modify_date}">
-			최근 수정일 : ${study.stc_modify_date}
+			(수정)${study.stc_modify_date}
 			</c:if>
 			<c:if test="${empty study.stc_modify_date}">
 			${study.stc_date}
@@ -53,83 +53,93 @@
 		<li class="text-clear">
 		</li>
 	</ul>
-	<hr size="1" width="100%">
-	<ul class="detail-information">
-		<c:if test="${!empty study.stc_period > SYSDATE || study.stc_state=='모집완료'}">
+	
+	<div style="width:90%; padding-left:40px;">
+		<hr size="1" width="100%">
+		<div class="text-left">
+			<ul class="detail-information">
+				<li class="text-br">
+					<span class="text-grey">주제 구분</span>
+					<c:if test="${study.stc_filter=='프로그래밍'}">
+						<label class="text-black"><span class="std-filter1">${study.stc_filter}</span></label>
+					</c:if>
+					<c:if test="${study.stc_filter=='데이터사이언스'}">
+						<label class="text-black"><span class="std-filter2">${study.stc_filter}</span></label>
+					</c:if>
+					<c:if test="${study.stc_filter=='디자인'}">
+						<label class="text-black"><span class="std-filter3">${study.stc_filter}</span></label>
+					</c:if>
+					<c:if test="${study.stc_filter=='영상'}">
+						<label class="text-black"><span class="std-filter4">${study.stc_filter}</span></label>
+					</c:if>
+					<c:if test="${study.stc_filter=='어학'}">
+						<label class="text-black"><span class="std-filter5">${study.stc_filter}</span></label>
+					</c:if>
+					<c:if test="${study.stc_filter=='마케팅'}">
+						<label class="text-black"><span class="std-filter6">${study.stc_filter}</span></label>
+					</c:if>
+				</li>
+				<li class="text-br">
+					<c:if test="${!empty study.stc_way}">
+					<span class="text-grey">모임 장소</span>
+					<span class="text-black">${study.stc_way}</span>
+					</c:if>
+				</li>
+				<li class="text-br">
+					<span class="text-grey">모집 기간</span>
+					<c:if test="${study.stc_period == '상시'}">
+						<span class="text-black">${study.stc_period}</span>
+					</c:if>
+					<c:if test="${study.stc_period == '기간'}">
+						<span class="text-black">${study.stc_pedate}</span>
+					</c:if>
+				</li>
+				</ul>
+			</div>
+			<div class="text-left">
+				<ul>
+					<li class="text-br">
+						<span class="text-grey">모집 인원</span>
+						<span class="text-black">${study.stc_per}명</span>
+					</li>
+					<li class="text-br">
+						<span class="text-grey">신청 현황</span>
+						<span class="text-black" id="output_scount" data-num="${study.stc_num}"></span>
+					</li>			
+					<li class="text-br">
+						<span class="text-grey">연락 주소</span>
+						<span class="text-black">${study.mem_email}</span>
+					</li>
+				</ul>
+			</div>
+			<h5 class="text-clear"><b>스터디 소개</b></h5>
+		<hr size="1" width="100%">
+		<div class="study-content">
+			<c:if test="${fn:endsWith(study.stc_filename,'.jpg') || 
+			              fn:endsWith(study.stc_filename,'.JPG') ||
+						  fn:endsWith(study.stc_filename,'.jpeg') ||
+						  fn:endsWith(study.stc_filename,'.JPEG') ||
+						  fn:endsWith(study.stc_filename,'.gif') ||
+						  fn:endsWith(study.stc_filename,'.GIF') ||
+						  fn:endsWith(study.stc_filename,'.png') ||
+						  fn:endsWith(study.stc_filename,'.PNG')}">
+			<div class="align-center">
+				<img src="imageView.do?stc_num=${study.stc_num}&stc_type=2" class="detail-img">
+			</div><br>			
+			</c:if>
+			<p>
+				${study.stc_content}
+			</p>
+		</div>
+		<c:if test="${!empty study.stc_filename}">
+		<ul>
+			<li>
+				첨부파일 : <a href="file.do?stc_num=${study.stc_num}">${study.stc_filename}</a>
+			</li>	
+		</ul>
 		</c:if>
-		<li class="text-br">
-			<span class="text-grey"><b>주제 구분</b></span>
-			
-			<c:if test="${study.stc_filter=='프로그래밍'}">
-				<label class="text-black"><span class="std-filter1">${study.stc_filter}</span></label>
-			</c:if>
-			<c:if test="${study.stc_filter=='데이터사이언스'}">
-				<label class="text-black"><span class="std-filter2">${study.stc_filter}</span></label>
-			</c:if>
-			<c:if test="${study.stc_filter=='디자인'}">
-				<label class="text-black"><span class="std-filter3">${study.stc_filter}</span></label>
-			</c:if>
-			<c:if test="${study.stc_filter=='영상'}">
-				<label class="text-black"><span class="std-filter4">${study.stc_filter}</span></label>
-			</c:if>
-			<c:if test="${study.stc_filter=='어학'}">
-				<label class="text-black"><span class="std-filter5">${study.stc_filter}</span></label>
-			</c:if>
-			<c:if test="${study.stc_filter=='마케팅'}">
-				<label class="text-black"><span class="std-filter6">${study.stc_filter}</span></label>
-			</c:if>
-		</li>
-		<li class="text-br">
-			<c:if test="${!empty study.stc_way}">
-			<span class="text-grey">모임 장소</span>
-			<span class="text-black">${study.stc_way}</span>
-			</c:if>
-		</li>
-		<li class="text-br">
-			<span class="text-grey">모집 인원</span>
-			<span class="text-black">${study.stc_per}명</span>
-		</li>
-		<li class="text-br">
-			<span class="text-grey">모집 기간</span>
-			<c:if test="${study.stc_period == '상시'}">
-				<span class="text-black">${study.stc_period}</span>
-			</c:if>
-			<c:if test="${study.stc_period == '기간'}">
-				<span class="text-black">${study.stc_pedate}</span>
-			</c:if>
-		</li>
-		<li class="text-br">
-			<span class="text-grey">연락 주소</span>
-			<span class="text-black">${study.mem_email}</span>
-		</li>
-	</ul>
-	<h5><b>스터디 소개</b></h5>
-	<hr size="1" width="100%">
-	<div class="study-content">
-		<c:if test="${fn:endsWith(study.stc_filename,'.jpg') || 
-		              fn:endsWith(study.stc_filename,'.JPG') ||
-					  fn:endsWith(study.stc_filename,'.jpeg') ||
-					  fn:endsWith(study.stc_filename,'.JPEG') ||
-					  fn:endsWith(study.stc_filename,'.gif') ||
-					  fn:endsWith(study.stc_filename,'.GIF') ||
-					  fn:endsWith(study.stc_filename,'.png') ||
-					  fn:endsWith(study.stc_filename,'.PNG')}">
-		<div class="align-center">
-			<img src="imageView.do?stc_num=${study.stc_num}&stc_type=2" class="detail-img">
-		</div><br>			
-		</c:if>
-		<p>
-			${study.stc_content}
-		</p>
+		<hr size="1" width="100%">
 	</div>
-	<c:if test="${!empty study.stc_filename}">
-	<ul>
-		<li>
-			첨부파일 : <a href="file.do?stc_num=${study.stc_num}">${study.stc_filename}</a>
-		</li>	
-	</ul>
-	</c:if>
-	<hr size="1" width="100%">
 	
 	<!-- 관심등록 -->
 	<br>
@@ -152,13 +162,16 @@
 	        <c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}">
 	        	<b>모집완료</b>
 	        </c:if>
-			<b>신청하기</b>
+			<c:if test="${study.stc_state=='모집중' && user.mem_num != study.mem_num && user.mem_auth != 9}">
+	        	<b>신청하기</b>
+	        </c:if>
 		</button>
 	</div>
 	<div class="align-center text-claer" id="main-button">
 		<br>
 		<a href="${pageContext.request.contextPath}/main/main.do">
 		<i class="bi bi-house-door-fill"></i>메인페이지로</a>
+	
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

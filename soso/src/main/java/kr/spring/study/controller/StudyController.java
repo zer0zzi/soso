@@ -129,7 +129,35 @@ public class StudyController {
 		}
 		return mapJson;
 	}
-	
+	//======게시글 신청등록=======//
+	//신청하기 읽기
+	@RequestMapping("/study/getSign.do")
+	@ResponseBody
+	public Map<String,Object> getSign(StudySignupVO signupVO,
+									  HttpSession session){
+		logger.debug("<<게시판 관심등록>> : " + signupVO);
+
+		Map<String,Object> mapJson = new HashMap<String,Object>();
+
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapJson.put("status", "noSign");
+		}else {
+			//로그인된 아이디 셋팅
+			signupVO.setMem_num(user.getMem_num());
+
+			StudySignupVO studySignup = studyService.selectSignup(signupVO);
+			if(studySignup!=null) {
+				mapJson.put("status", "yesSign");
+			}else {
+				mapJson.put("status", "noSign");
+			}
+		}
+		mapJson.put("count", studyService.selectSignupCount(signupVO.getStc_num()));
+
+		return mapJson;
+	}
+		
 	//신청하기 로그인 및 재신청 체크
 	@RequestMapping("/study/signLogin.do")
 	@ResponseBody
