@@ -105,7 +105,7 @@ $(function(){
 			success:function(param){
 				if(param.result == 'success'){
 					alert('신청 성공');
-					location.href='../main/main.do';
+					location.reload();
 				}else if(param.result == 'aleadySigned'){
 					alert('이미 신청한 스터디입니다.');
 					location.href='../mymember/myPage.do';
