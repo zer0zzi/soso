@@ -5,9 +5,10 @@
 <!-- 메인 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main/main.css">
 <script type="text/javascript">
-	let result = "${result}";
-	if(result == 'success'){
+	let result = '${result}';
+	if(!location.hash && result == 'success'){
 		alert('글 작성이 완료되었습니다.');
+		history.replaceState('','','#rs');
 	}
 </script>
 <div class="main-page">
