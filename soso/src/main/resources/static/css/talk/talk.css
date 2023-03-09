@@ -60,7 +60,7 @@ talkList
     height: 54px;
     border-bottom: 2px solid white;
     background-color: #a5a6e9;
-    color: darkslateblue;
+    color: darkblue;
     overflow: hidden;
     font-size: 18px;
     font-weight: bolder;
@@ -308,12 +308,13 @@ talkDetail
     border-right: 3px solid lightgray;
     border: 1px solid black;
     border-radius: 5px;
-    margin-top: 8px;
+    margin-top: 5px;
     margin-left: 70px;
     /* margin: 0 auto; */
     padding-left: 10px;
     padding-top: 7px;
 }
+
 .chatting_message_bottom:focus{
 	outline: none;
 }
@@ -324,18 +325,22 @@ talkDetail
     width: 666px;
     text-align: center;
     background-color: #a5a6e9;
+    display: flex;
+    align-items: center;
 }
+
 .chatform-bottom li{
 	display: inline-block;
 }
 .chat-submit-btn {
     width: 50px;
-    height: 24px;
+    height: 50px;
     background-color: #a5a6e9;
     border: none;
     border-radius: 7px;
     color: darkblue;
     cursor: pointer;
+    margin-left: 15px;
 }
 .chat-submit-btn:hover{
 	transform:scale(1.1);
