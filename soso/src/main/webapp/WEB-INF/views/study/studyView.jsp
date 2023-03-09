@@ -151,7 +151,10 @@
 		<jsp:include page="../study/modal.jsp"/>
 		<button type="button" class="btn btn-light" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
 			<c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}"> disabled="disabled"</c:if>>
-	        <c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}">
+	        <c:if test="${user.mem_num == study.mem_num || user.mem_auth == 9}">
+	        	<b style="color:red;">신청불가id</b>
+	        </c:if>
+	        <c:if test="${study.stc_state=='모집완료'}">
 	        	<b style="color:red;">모집완료</b>
 	        </c:if>
 			<c:if test="${study.stc_state=='모집중' && user.mem_num != study.mem_num && user.mem_auth != 9}">
