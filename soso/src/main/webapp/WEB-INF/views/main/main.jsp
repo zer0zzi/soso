@@ -14,9 +14,36 @@
 <div class="main-page">
 	<!-- 배너 시작 -->
 	<div class="main-banner">
-		<img src="${pageContext.request.contextPath}/images/examplebanner.png">
+		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+				<button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+			</div><!-- end of indicators -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="${pageContext.request.contextPath}/images/examplebanner.png" class="d-block w-100">
+					<div class="carousel-caption d-none d-md-block">
+						<p>공지사항</p>
+					</div>
+				</div><!-- end of .carousel-item -->
+				
+				<div class="carousel-item">
+					<img src="${pageContext.request.contextPath}/images/examplebanner.png" class="d-block w-100">
+					<div class="carousel-caption d-none d-md-block">
+						<p>이벤트</p>
+					</div>
+				</div><!-- end of .carousel-item -->
+			</div><!-- end of .carousel-inner -->
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
 	</div>
-	<br>
 	<!-- 배너 끝 -->
 	
 	<!-- 스터디 모집 글작성 버튼(예비-수정 예정) 시작 -->
@@ -189,4 +216,5 @@
 	</div>
 	<!-- 스터디 목록 끝 -->
 </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- 메인 끝 -->
