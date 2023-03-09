@@ -14,7 +14,7 @@ public class ReviewVO {
 	private int review_num;
 	private int review_fixed;
 	@NotEmpty
-	@Pattern(regexp="^[가-힣\sA-Za-z0-9!@#$%^&*/<>(){}]{1,100}$")
+	@Pattern(regexp="^[a-zA-Zㄱ-ㅎ\\\\d`~!@#.$%^&*()-_=+]{1,100}$")
 	private String review_title;
 	private int review_rating;
 	@NotEmpty

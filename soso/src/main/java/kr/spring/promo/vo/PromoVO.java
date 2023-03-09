@@ -14,7 +14,7 @@ public class PromoVO {
 	private int promo_num;
 	private int promo_fixed;
 	@NotEmpty
-	@Pattern(regexp="^[가-힣\sA-Za-z0-9!@#$%^&*/<>(){}]{1,100}$")
+	@Pattern(regexp="^[a-zA-Zㄱ-ㅎ\\\\d`~!@#.$%^&*()-_=+]{1,100}$")
 	private String promo_title;
 	@NotEmpty
 	private String promo_content;
