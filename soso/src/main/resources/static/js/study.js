@@ -71,7 +71,7 @@ $(function(){
 	//댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
-		$('#modal_count .letter-count').text('300/300');
+		$('#modal_count .letter-count').text('0/300');
 	}
 	
 	//textarea에 내용 입력시 글자수 체크
@@ -83,7 +83,7 @@ $(function(){
 			$(this).val($(this).val().substring(0,300));
 		}else{//300자 이하인 경우
 			//남은 글자수 구하기
-			let remain = 300 - inputLength;
+			let remain = inputLength;
 			remain += '/300';
 			if($(this).attr('id') == 'signup_detail'){
 				//등록 폼 글자수
