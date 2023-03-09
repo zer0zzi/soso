@@ -8,24 +8,21 @@
 		SELECT * FROM
 			(SELECT a.*, rownum rnum FROM
 			(SELECT * FROM
-			(SELECT '자유' as tblName,f.free_num,f.free_title,f.free_regdate,f.free_hit,d.mem_photo_name,m.mem_nick,
+			(SELECT '자유' as tblName,f.free_num,f.free_title,f.free_content,f.free_regdate,f.free_hit,d.mem_photo_name,m.mem_nick,
 				(SELECT COUNT(*) FROM free_reply r WHERE r.free_num=f.free_num) f_replyCnt,
-				(SELECT COUNT(*) FROM free_fav w WHERE w.free_num=f.free_num) f_favCnt,m.mem_id,m.mem_num 
+				(SELECT COUNT(*) FROM free_fav w WHERE w.free_num=f.free_num) f_favCnt,m.mem_id,m.mem_num,f.free_fixed 
 				FROM free_board f JOIN member m ON m.mem_num=f.mem_num JOIN member_detail d ON d.mem_num=f.mem_num 
-				WHERE f.free_fixed=2
 			UNION ALL
-			SELECT '홍보' as tblName,p.promo_num,p.promo_title,p.promo_regdate,p.promo_hit,d.mem_photo_name,m.mem_nick,
+			SELECT '홍보' as tblName,p.promo_num,p.promo_title,p.promo_content,p.promo_regdate,p.promo_hit,d.mem_photo_name,m.mem_nick,
 				(SELECT COUNT(*) FROM promo_reply r WHERE r.promo_num=p.promo_num) p_replyCnt,
-				(SELECT COUNT(*) FROM promo_fav w WHERE w.promo_num=p.promo_num) p_favCnt,m.mem_id,m.mem_num 
+				(SELECT COUNT(*) FROM promo_fav w WHERE w.promo_num=p.promo_num) p_favCnt,m.mem_id,m.mem_num,p.promo_fixed 
 				FROM promo_board p JOIN member m ON m.mem_num=p.mem_num JOIN member_detail d ON d.mem_num=p.mem_num 
-				WHERE p.promo_fixed=2
 			UNION ALL
-			SELECT '후기' as tblName,v.review_num,v.review_title,v.review_regdate,v.review_hit,d.mem_photo_name,m.mem_nick,
+			SELECT '후기' as tblName,v.review_num,v.review_title,v.review_content,v.review_regdate,v.review_hit,d.mem_photo_name,m.mem_nick,
 				(SELECT COUNT(*) FROM review_reply r WHERE r.review_num=v.review_num) v_replyCnt,
-				(SELECT COUNT(*) FROM review_fav w WHERE w.review_num=v.review_num) v_favCnt,m.mem_id,m.mem_num 
-				FROM review_board v JOIN member m ON m.mem_num=v.mem_num JOIN member_detail d ON d.mem_num=v.mem_num 
-				WHERE v.review_fixed=2)
-			<include refid="fullSearch"></include>
+				(SELECT COUNT(*) FROM review_fav w WHERE w.review_num=v.review_num) v_favCnt,m.mem_id,m.mem_num,v.review_fixed 
+				FROM review_board v JOIN member m ON m.mem_num=v.mem_num JOIN member_detail d ON d.mem_num=v.mem_num) 
+			WHERE free_fixed=2 <include refid="fullSearch"></include>
 			<if test="sort=='last' || sort==null">
 			ORDER BY free_regdate DESC
 			</if>
@@ -46,8 +43,8 @@
 	<!-- 전체 목록 끝 -->
 	<!-- 전체 검색 시작 -->
 	<sql id="fullSearch">
-		<where> <!-- 1)전체 2)제목 3)내용 4)작성자 -->
 			<if test="keyword!=null and keyword!=''">
+				AND
 				<if test="keyfield==1">
 					free_title LIKE '%' || #{keyword} || '%' OR
 					free_content LIKE '%' || #{keyword} || '%' OR
@@ -65,7 +62,6 @@
 					mem_nick LIKE '%' || #{keyword} || '%'
 				</if>
 			</if>
-		</where>
 	</sql>
 	<!-- 전체 검색 끝 -->
 	<!-- 전체 목록 개수 시작 -->
