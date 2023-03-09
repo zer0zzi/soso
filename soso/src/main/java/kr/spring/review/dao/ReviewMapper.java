@@ -21,8 +21,10 @@ public interface ReviewMapper {
 	@Insert("INSERT INTO review_board (review_num,studyName,review_title,review_rating,review_fixed,review_content,review_uploadfile,review_filename,review_ip,mem_num) "
 			+ "VALUES (review_board_seq.nextval,#{studyName},#{review_title},#{review_rating},#{review_fixed},#{review_content},#{review_uploadfile},#{review_filename},#{review_ip},#{mem_num})")
 	public void insertReview(ReviewVO review);
-	@Select("SELECT c.stc_title,a.* "
-			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a "
+	@Select("SELECT c.mem_num,c.stc_num,c.stc_title,c.stc_state FROM study_create c WHERE mem_num=#{mem_num} "
+			+ "UNION ALL "
+			+ "SELECT a.mem_num,c.stc_num,c.stc_title,c.stc_state "
+			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE s.signup_status=1)a "
 			+ "JOIN study_create c ON a.stc_num=c.stc_num "
 			+ "WHERE a.mem_num=#{a.mem_num}")
 	public List<StudyVO> selectReviewMemberStudyList(int mem_num);

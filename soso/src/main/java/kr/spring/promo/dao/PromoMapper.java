@@ -34,19 +34,22 @@ public interface PromoMapper {
 	public void deletePromo(Integer promo_num);
 	
 	
-	@Select("SELECT c.stc_num,c.stc_title,c.stc_state "
-			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status=1)a "
+	@Select("SELECT c.mem_num,c.stc_num,c.stc_title,c.stc_state FROM study_create c WHERE mem_num=#{mem_num} "
+			+ "UNION ALL "
+			+ "SELECT a.mem_num,c.stc_num,c.stc_title,c.stc_state "
+			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE s.signup_status=1)a "
 			+ "JOIN study_create c ON a.stc_num=c.stc_num "
 			+ "WHERE a.mem_num=#{a.mem_num}")
 	public List<StudyVO> selectPromoMemberStudyList(int mem_num);
 	
 	/*
-	@Select("SELECT c.stc_num,c.stc_title,c.stc_state,c.mem_num "
-			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num)a "
-			+ "JOIN study_create c ON a.stc_num=c.stc_num WHERE a.signup_status=1 OR c.mem_num IS NOT NULL"
-			+ "WHERE a.mem_num=#{a.mem_num} AND ")
-	public List<StudyVO> selectPromoMemberStudyList(int mem_num);*/
-
+	@Select("SELECT c.stc_num,c.stc_title,c.stc_state "
+			+ "FROM (SELECT s.* FROM study_signup s JOIN member m ON s.mem_num=m.mem_num WHERE signup_status!=2)a "
+			+ "JOIN study_create c ON a.stc_num=c.stc_num "
+			+ "WHERE a.mem_num=#{a.mem_num}")
+	public List<StudyVO> selectPromoMemberStudyList(int mem_num);
+	*/
+	
 	// 좋아요
 	@Select("SELECT * FROM promo_fav WHERE promo_num=#{promo_num} AND mem_num=#{mem_num}")
 	public PromoFavVO selectPromoFav(PromoFavVO fav);

@@ -40,9 +40,12 @@
 		<form>
 		<ul class="sort-option">
 			<li>
-				<input type="search" name="keyword" id="keyword" value="${param.keyword}" placeholder="" readonly/>
+				<input type="search" name="keyword" id="keyword" value="${param.keyword}" placeholder="검색">
 				<select class="search-select" name="keyfield" id="keyfield">
 					<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>전체</option>
+					<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>제목</option>
+					<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
+					<option value="4" <c:if test="${param.keyfield==4}">selected</c:if>>작성자</option>
 				</select>
 				<select class="sort-select" onchange="if(this.value) location.href=(this.value)">
 					<option value="fullList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
