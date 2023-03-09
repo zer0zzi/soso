@@ -96,7 +96,7 @@
 				</li>
 				</ul>
 			</div>
-			<div class="text-left">
+			<div class="text-left" style="width:60%;">
 				<ul>
 					<li class="text-br">
 						<span class="text-grey">모집 인원</span>
@@ -132,11 +132,7 @@
 			</p>
 		</div>
 		<c:if test="${!empty study.stc_filename}">
-		<ul>
-			<li>
-				첨부파일 : <a href="file.do?stc_num=${study.stc_num}">${study.stc_filename}</a>
-			</li>	
-		</ul>
+		첨부파일 : <a href="file.do?stc_num=${study.stc_num}">${study.stc_filename}</a>
 		</c:if>
 		<hr size="1" width="100%">
 	</div>
