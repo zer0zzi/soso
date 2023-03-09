@@ -69,7 +69,7 @@
 						<!-- 로고? <span ></span> -->
 						<form:form action="login.do" id="stripe-login"
 							modelAttribute="memberVO">
-							<form:errors element="div" cssClass="error-color" />
+							
 							<div class="field padding-bottom--24">
 								<div class="grid--50-50">
 									<label for="mem_id">아이디</label>
@@ -82,6 +82,7 @@
 								<form:password path="mem_pw" name="password" placeholder="비밀번호를 입력하세요."/>
 								<form:errors path="mem_pw" cssClass="error-color"/>
 							</div>
+							<form:errors element="div" cssClass="error-color align-center padding-bottom--24" />
 							<div
 								class="field field-checkbox padding-bottom--24 flex-flex align-center">
 								<label for="checkbox"> <input type="checkbox"

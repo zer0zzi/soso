@@ -172,7 +172,7 @@ label {
 }
 
 input[type="submit"] {
-    background: #969ce4;
+    background: #a5a6e9;
     display: inline-block;
     line-height: 50px;
     padding: 0 20px;
@@ -189,7 +189,7 @@ input[type="submit"]:hover {
    cursor: pointer;
 }
 .search-id-btn {
-    background: #969ce4;
+    background: #a5a6e9;
     display: inline-block;
     line-height: 50px;
     padding: 0 20px;
@@ -284,9 +284,9 @@ a.ssolink {
 }
 .sign-title{
 	font-size: 30px;
-	color: #969ce4;
+	color: #a5a6e9;
 }
 .sign-title:hover {
 	font-size: 30px;
-	color: rgb(84, 105, 212);
+	color: rgb(66, 66, 134);
 }

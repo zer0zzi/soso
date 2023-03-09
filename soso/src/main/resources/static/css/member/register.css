@@ -12,13 +12,19 @@
   font-family: 'NEXON Lv1 Gothic OTF';
 }
 .result-display{
-	width:400px;
+/* 	width:400px;
 	height:200px;
 	margin:50px auto;
 	border:1px solid;
 	display:flex;
 	align-items:center;
-	justify-content:center;
+	justify-content:center; */
+  
+    height: 100px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .error-color{
 	color: #c64141;
@@ -118,7 +124,7 @@ li.paging-current{
 	padding:10px;
 }
 .action-button {
-    background: #969ce4;
+    background: #a5a6e9;
     display: inline-block;
     line-height: 50px;
     padding: 0 20px;
@@ -134,12 +140,13 @@ li.paging-current{
 .action-button:hover {
    background-color: rgb(66, 66, 134);
    cursor: pointer;
+   color: white;
 }
 .margin-4{
 	margin-bottom:4px;
 }
 .action-button2 {
-    background: #969ce4;
+    background: #a5a6e9;
     display: inline-block;
     line-height: 29px;
     padding: 0 20px;
@@ -156,6 +163,7 @@ li.paging-current{
 .action-button2:hover {
    background-color: rgb(66, 66, 134);
    cursor: pointer;
+   color: white;
 }
 
 
@@ -233,6 +241,10 @@ a {
 .align-center {
   align-items: center; 
 }
+.text-center{
+	text-align: center;
+}
+
 .center-center {
   align-items: center;
   justify-content: center;
@@ -458,9 +470,9 @@ a.ssolink {
 }
 .sign-title{
 	font-size: 30px;
-	color: #969ce4;
+	color: #a5a6e9;
 }
 .sign-title:hover {
 	font-size: 30px;
-	color: rgb(84, 105, 212);
+	color: rgb(66, 66, 134);
 }

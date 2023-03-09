@@ -89,7 +89,7 @@ public class MemberController {
 
 		model.addAttribute("accessMsg","회원가입이 완료되었습니다.");
 
-		return "common/notice";
+		return "member/register";
 	}
 
 	//========회원로그인
