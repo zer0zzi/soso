@@ -23,6 +23,7 @@
 				$('#stc_content').val('').focus();
 				return false;
 			}
+			$('#stc_pedate').removeAttr("disabled");
 		});
 	})
 </script>
