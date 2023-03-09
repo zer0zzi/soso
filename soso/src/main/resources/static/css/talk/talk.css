@@ -59,7 +59,7 @@ talkList
     width: 100%;
     height: 54px;
     border-bottom: 2px solid white;
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
     color: darkslateblue;
     overflow: hidden;
     font-size: 18px;
@@ -147,7 +147,7 @@ form#search_form {
     padding: 15px;
 }
 .talklist-box:hover{
-	background-color: #ebf7ff;
+	background-color: #e9e6fc;
 }
 .box-left{
 	width: 340px;
@@ -190,7 +190,7 @@ form#search_form {
 .talklist-mypage-btn {
     text-align: center;
     height: 69px;
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
 }
 input.search-btn {
     width: 30px;
@@ -208,7 +208,7 @@ input.search-btn {
 .bottom-btn {
     width: 120px;
     height: 50px;
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
     border: none;
     border-radius: 7px;
     color: darkblue;
@@ -323,7 +323,7 @@ talkDetail
     height: 69px;
     width: 666px;
     text-align: center;
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
 }
 .chatform-bottom li{
 	display: inline-block;
@@ -331,7 +331,7 @@ talkDetail
 .chat-submit-btn {
     width: 50px;
     height: 24px;
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
     border: none;
     border-radius: 7px;
     color: darkblue;
@@ -428,7 +428,7 @@ talkDetail
 	margin:10px 0 10px 350px;
 }
 .from-position .item {
-    background-color: #acb1e8;
+    background-color: #d5cff5;
     padding: 10px;
     min-height: 32px;
     border-radius: 20px;
@@ -441,7 +441,7 @@ talkDetail
 	margin:10px 0 10px 0;
 }
 .to-position .item{
-	background-color:#e5eaef;
+	background-color:#f7e3ef;
 	padding:10px;
 	min-height:32px;
 	border-radius:20px;
@@ -496,7 +496,7 @@ talkRoomWrite
     height: 67px;
     width: 666px;
     text-align: center;
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
     margin-top: 63px;
 }
 .inputform{
@@ -578,7 +578,7 @@ talkRoomWrite
     margin-top: 8px;
     /* margin: 0 auto; */
     /* text-align: center; */
-    background-color: #d5cff5;
+    background-color: #a5a6e9;
     border: none;
     border-radius: 7px;
     color: darkblue;

@@ -497,18 +497,18 @@
               </java.beans.PropertyChangeSupport>
             </listeners>
             <constraint>
-              <height>67</height>
+              <height>39</height>
               <width>115</width>
-              <x>28</x>
-              <y>104</y>
+              <x>27</x>
+              <y>139</y>
             </constraint>
             <sourceConnections/>
             <targetConnections/>
             <children/>
             <filterProperty/>
-            <content>ID, Password&#xd;
-입력</content>
-            <old>로그이</old>
+            <content>ID, Password</content>
+            <old>ID, Password&#xd;
+입력</old>
           </net.java.amateras.uml.model.NoteModel>
           <net.java.amateras.uml.model.NoteModel>
             <backgroundColor reference="../../../../backgroundColor"/>
