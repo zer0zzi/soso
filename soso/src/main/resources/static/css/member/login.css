@@ -113,7 +113,9 @@ a {
   -ms-flex-pack: center;
   justify-content: center;
 }
-
+/* .formbg-outer{
+	
+} */
 .formbg {
 	z-index:2;
 	position:relative;

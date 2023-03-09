@@ -11,7 +11,7 @@
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
 			<li class="modi-li">
-				<label>회원권한</label>
+				<label >회원권한</label>
 				<c:if test="${memberVO.mem_auth < 3}">
 				<form:radiobutton path="mem_auth" value="1"/>정지
 				<form:radiobutton path="mem_auth" value="2"/>일반

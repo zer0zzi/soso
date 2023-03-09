@@ -21,6 +21,13 @@
 			<tiles:insertAttribute name="body"/>
 		</div>
 	</div> --%>
+	<div class="main-menu">
+		<div class="top-page-main">
+		<h2>
+			<a class="main-menu-text">Admin</a>
+		</h2>
+		</div>
+	</div>
 	<div id="main_body">
 		<tiles:insertAttribute name="body" />
 	</div>
