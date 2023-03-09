@@ -175,7 +175,7 @@
 		<div class="reply-div">
 		<form id="pre_form" action="listPromoReply.do">
 			<input type="hidden" name="promo_num" value="${promo.promo_num}" id="promo_num">
-			<textarea rows="3" cols="50" name="pre_content" id="pre_content" class="rep-content"
+			<textarea rows="3" cols="50" name="pre_content" id="pre_content" class="rep-content" style="resize:none;"
 			<c:if test="${empty user}">disabled="disabled"</c:if>
 			><c:if test="${empty user}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			

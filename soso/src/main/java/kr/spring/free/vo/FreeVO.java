@@ -14,7 +14,7 @@ public class FreeVO {
 	private int free_num;
 	private int free_fixed; // default(2)
 	@NotEmpty
-	@Pattern(regexp="^[a-zA-Zㄱ-ㅎ\\\\d`~!@#.$%^&*()-_=+]{1,100}$")
+	@Pattern(regexp="^[a-zA-Zㄱ-ㅎ가-힣\\\\d`~!@#.$%^&*()-_=+]{1,100}$")
 	private String free_title;
 	@NotEmpty
 	private String free_content;
