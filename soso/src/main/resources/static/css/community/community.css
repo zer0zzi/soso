@@ -253,8 +253,9 @@ div.sub-menu-right input[type=search]:focus{
 	margin:0; padding:0;
 }
 .insert-btn:hover{
-	background-color:#9481a1;
-	cursor:pointer;
+	background-color: rgb(66, 66, 134);
+   	cursor: pointer;
+   	color: white;
 }
 
 
@@ -350,11 +351,13 @@ div.sub-menu-right input[type=search]:focus{
 }
 .full-insert form .insert-btn:hover, .full-insert form .delete-btn:hover,
 .full-insert form .detail-btn:hover, .full-insert form .list-btn:hover{
-	background-color:#9481a1;
-	cursor:pointer;
+	background-color: rgb(66, 66, 134);
+   	cursor: pointer;
+   	color: white;
 }
 div.full-insert div.align-left{ /* 작성·수정 폼 버튼 위치 조정 */
-	margin-left:30px;
+	text-align: center;
+	margin-top:20px;
 }
 input[type=file]::file-selector-button{
 	background-color:#ccc; color:black;
@@ -710,8 +713,9 @@ input.detail-delete-btn, input.detail-update-btn, input.detail-list-btn{
 	font-size:12px; font-weight:500;
 }
 input.detail-delete-btn:hover, input.detail-update-btn:hover, input.detail-list-btn:hover{
-	background-color:#9481a1;
-	cursor:pointer;
+	background-color: rgb(66, 66, 134);
+   	cursor: pointer;
+   	color: white;
 }
 
 
@@ -741,7 +745,7 @@ form#vre_form, form#vmre_form{
 #fre_first, #fmre_first,
 #pre_first, #pmre_first,
 #vre_first, #vmre_first{
-	padding-top:5px; padding-right:10px;
+	padding-right:10px;
 }
 #fre_second, #fmre_second,
 #pre_second, #pmre_second,
@@ -750,10 +754,15 @@ form#vre_form, form#vmre_form{
 	margin:0; padding-top:0;
 }
 .reply-insert-btn{
-	background-color:white;
-	border:none; border-radius:3px;
-	box-shadow:2px 2px 2px gray;
+	background-color:rgba(165,166,233,0.9);
+	color:white;
+	border-radius:3px; border:none;
+	box-shadow:2px 2px 1px #CCC;
+	text-align: center;
+	vertical-align: middle;
+	cursor:pointer;
 	height:22px; width:65px;
+	margin:0; padding:0;
 }
 .reply-insert-btn:active{
 	margin-left:5px; margin-top:5px;
@@ -764,11 +773,13 @@ textarea.rep-content{
 	border:none;
 	outline-color:rgba(180,187,194,0.7);
 	padding:5px;
-	width:705px;
+	width:707px;
+	resize:none;
 }
 textarea#mre_content.rep-content, textarea#pmre_content.rep-content, textarea#vmre_content.rep-content{
 	border:1px solid #b4bbc2; border-radius:3px;
 	outline-color:rgba(180,187,194,0.7);
+	resize:none;
 }
 .reply-div{
 	position:relative;
@@ -791,11 +802,15 @@ ul.detail-info{
 	list-style:none;
 }
 input.re-btn, input.re-modify-btn, input.re-delete-btn, input.re-reply-delete-btn{
-	background-color:white;
-	border:none; border-radius:3px;
-	box-shadow:2px 2px 2px gray;
+	background-color:rgba(165,166,233,0.9);
+	color:white;
+	border-radius:3px; border:none;
+	box-shadow:2px 2px 1px #CCC;
+	text-align: center;
+	vertical-align: middle;
+	cursor:pointer;
+	height:20px; width:33px;
 	margin-right:2px; margin-bottom:5px; margin-top:0;
-	width:30px; height:20px;
 }
 input.re-btn:active, input.re-modify-btn:active, input.re-delete-btn:active{
 	margin-left:5px; margin-top:5px;

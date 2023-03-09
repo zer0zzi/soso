@@ -48,8 +48,8 @@
 	<div class="study-info">
 		(스터디 소개 페이지 : 
 			<div id="my_modal">
-				<a class="modal_close_btn" style="color:black; float:right;">닫기</a>
-			    <iframe src="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" style="width:980px; height:750px;" id="faq_iframe">대체 내용</iframe>  
+				<a class="modal_close_btn" style="color:#ff9889; cursor:pointer; font-weight:700; font-size:14px; height:25px; padding:3px 4px 0 0; float:right;">닫기 &nbsp; ✖</a>
+			    <iframe src="${pageContext.request.contextPath}/study/studyView.do?stc_num=${promo.studyNum}" style="width:980px; height:750px; border:none; border-top:1px solid #CCC;" id="faq_iframe">대체 내용</iframe>  
 			</div>
 			<button id="faqBot" class="promo-chat">클릭</button>
 			<script type="text/javascript">
@@ -108,6 +108,18 @@
 				    // 모달창 띄우기
 				    modal('my_modal');
 				});
+				
+				// Modal 영역 밖을 클릭하면 Modal을 닫는다.
+				window.onclick = function(event) {
+					if(event.target.className == "study-info"){
+						event.target.style.display = "none";	
+					}
+				};
+				
+				modal.querySelector('.study-info').addEventListener('click', function() {
+			        bg.remove();
+			        modal.style.display = 'none';
+			    });
 			</script> 시 확인 가능
 		)
 	</div>
@@ -175,7 +187,7 @@
 		<div class="reply-div">
 		<form id="pre_form" action="listPromoReply.do">
 			<input type="hidden" name="promo_num" value="${promo.promo_num}" id="promo_num">
-			<textarea rows="3" cols="50" name="pre_content" id="pre_content" class="rep-content" style="resize:none;"
+			<textarea rows="3" cols="50" name="pre_content" id="pre_content" class="rep-content" placeholder="댓글을 작성해 주세요."
 			<c:if test="${empty user}">disabled="disabled"</c:if>
 			><c:if test="${empty user}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			

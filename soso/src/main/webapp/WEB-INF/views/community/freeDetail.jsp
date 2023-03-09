@@ -104,7 +104,7 @@
 		<div class="reply-div">
 		<form id="fre_form" action="listFreeReply.do">
 			<input type="hidden" name="free_num" value="${free.free_num}" id="free_num">
-			<textarea rows="3" cols="50" name="fre_content" id="fre_content" class="rep-content" style="resize:none;"
+			<textarea rows="3" cols="50" name="fre_content" id="fre_content" class="rep-content" placeholder="댓글을 작성해 주세요."
 			<c:if test="${empty user}">disabled="disabled"</c:if>
 			><c:if test="${empty user}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			

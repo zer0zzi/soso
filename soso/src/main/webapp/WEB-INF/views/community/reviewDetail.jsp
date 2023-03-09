@@ -114,7 +114,7 @@
 		<div class="reply-div">
 		<form id="vre_form" action="listReviewReply.do">
 			<input type="hidden" name="review_num" value="${review.review_num}" id="review_num">
-			<textarea rows="3" cols="50" name="vre_content" id="vre_content" class="rep-content" style="resize:none;"
+			<textarea rows="3" cols="50" name="vre_content" id="vre_content" class="rep-content" placeholder="댓글을 작성해 주세요."
 			<c:if test="${empty user}">disabled="disabled"</c:if>
 			><c:if test="${empty user}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			
