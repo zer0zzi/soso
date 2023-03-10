@@ -50,13 +50,20 @@
 						<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
 						<option value="4" <c:if test="${param.keyfield==4}">selected</c:if>>작성자</option>
 					</select>
-					<select class="sort-select" onchange="if(this.value) location.href=(this.value)">
-						<option value="promoList.do?sort=last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
-						<option value="promoList.do?sort=promo-ing" <c:if test="${param.sort=='promo-ing'}">selected</c:if>>모집중</option>
-						<option value="promoList.do?sort=hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
-						<option value="promoList.do?sort=reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
-						<option value="promoList.do?sort=fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
+					<select name="sort" class="sort-select">
+						<option value="last" selected <c:if test="${param.sort=='last'}">selected</c:if>>최신순</option>
+						<option value="promo-ing" <c:if test="${param.sort=='promo-ing'}">selected</c:if>>모집중</option>
+						<option value="hit" <c:if test="${param.sort=='hit'}">selected</c:if>>조회순</option>
+						<option value="reply" <c:if test="${param.sort=='reply'}">selected</c:if>>댓글순</option>
+						<option value="fav" <c:if test="${param.sort=='fav'}">selected</c:if>>추천순</option>
 					</select><input class="list-btn" type="button" value="목록" onclick="location.href='promoList.do'">
+					<script>
+					$(function(){
+						$('.sort-select').change(function(){
+							location.href='promoList.do?keyword='+$('#keyword').val()+'&keyfield='+$('#keyfield').val()+'&sort='+$(this).val();
+						});
+					});
+					</script>
 				</li>
 				<li style="display:none;">
 					<input type="submit" value="검색">
