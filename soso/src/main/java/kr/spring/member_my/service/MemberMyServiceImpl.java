@@ -28,7 +28,6 @@ public class MemberMyServiceImpl implements MemberMyService{
 		return memberMyMapper.selectMember(mem_num);
 	}
 
-	
 	@Override
 	public void updateMember(MemberVO member) {
 		memberMyMapper.updateMember(member);
@@ -76,5 +75,20 @@ public class MemberMyServiceImpl implements MemberMyService{
 	@Override
 	public List<StudyVO> selectMadeStudy(Map<String, Object> map) {
 		return memberMyMapper.selectMadeStudy(map);
+	}
+	
+	@Override
+	public void updateStudy(StudyVO studyVO) {
+		memberMyMapper.updateStudy(studyVO);
+	}
+	
+	@Override
+	public List<StudyVO> selectLikeStudy(Map<String, Object> map) {
+		return memberMyMapper.selectLikeStudy(map);
+	}
+	
+	@Override
+	public List<StudyVO> selectSignStudy(Map<String, Object> map) {
+		return memberMyMapper.selectSignStudy(map);
 	}
 }

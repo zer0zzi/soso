@@ -40,6 +40,10 @@ public class MemberVO {
 	private Date mem_modify;
 	private int mem_score;
 	
+	private String cal_date;
+	private String cal_content;
+	private int stc_num;
+	
 	//비밀번호 변경시 현재 비밀번호를 저장하는 용도로 사용
 	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
 	private String now_passwd;
@@ -174,6 +178,25 @@ public class MemberVO {
 	public void setMem_score(int mem_score) {
 		this.mem_score = mem_score;
 	}
+	public String getCal_date() {
+		return cal_date;
+	}
+
+	public void setCal_date(String cal_date) {
+		this.cal_date = cal_date;
+	}
+	public String getCal_content() {
+		return cal_content;
+	}
+	public void setCal_content(String cal_content) {
+		this.cal_content = cal_content;
+	}
+	public int getStc_num() {
+		return stc_num;
+	}
+	public void setStc_num(int stc_num) {
+		this.stc_num = stc_num;
+	}
 	
 	@Override
 	public String toString() {
@@ -182,11 +205,8 @@ public class MemberVO {
 				+ ", mem_pw=" + mem_pw + ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + ", mem_zipcode="
 				+ mem_zipcode + ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2
 				+ ", mem_photo_name=" + mem_photo_name + ", mem_reg=" + mem_reg + ", mem_modify=" + mem_modify
-				+ ", now_passwd=" + now_passwd + ", mem_score=" + mem_score + "]";
+				+ ", now_passwd=" + now_passwd + ", mem_score=" + mem_score + ", cal_date=" + cal_date+ ", cal_content=" + cal_content 
+				+ ", stc_num=" + stc_num + "]";
 	}
 
-	
-	
-	
-	
 }
