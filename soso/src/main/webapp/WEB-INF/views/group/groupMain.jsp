@@ -47,7 +47,7 @@
         <table class="member-table h-70">
             <tr class="member-table-header cursor-dd">
                 <th class="no1">프로필</th>
-                <th class="no2">이름</th>
+                <th class="no2">아이디</th>
                 <th class="no3">이메일</th>
                 <th class="no4"></th>
             </tr>
@@ -59,7 +59,7 @@
             	<td class="no2">
             	<!-- 왕관아이콘 <a href="https://www.flaticon.com/kr/free-icons/" title="왕관 아이콘">왕관 아이콘  제작자: Freepik - Flaticon</a> -->
             		<img src="${pageContext.request.contextPath}/image_bundle/crown.png" class="master-crown" width="20px" height="20px">
-            		${masterList.mem_name}
+            		${masterList.mem_id}
             	</td>
 	            <td class="no3">${masterList.mem_email}</td>
 	            <td class="no4"></td>
@@ -72,7 +72,7 @@
 	         		<td class="no1">
 	         			<img src="/member/viewProfile.do?mem_num=${member.mem_num}" class="std-memimage" width="70px" height="70px">
 	         		</td>
-	                <td class="no2">${member.mem_name}</td>
+	                <td class="no2">${member.mem_id}</td>
 	                <td class="no3">${member.mem_email}</td>
 	                <td class="no4"></td>
             	</tr>
