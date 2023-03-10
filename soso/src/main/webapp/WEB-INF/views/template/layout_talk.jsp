@@ -15,7 +15,7 @@
    <div class="main-menu">
 		<div class="top-page-main">
 		<h2>
-			<a class="main-menu-text">Talk</a>
+			<a class="main-menu-text">채팅방</a>
 		</h2>
 		</div>
 	</div>
