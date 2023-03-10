@@ -42,10 +42,10 @@ div#main_footer{
 	width: 100%;
 	overflow-y: hidden;
 }
-div#main_footer .footer-site-logo{
+.group-footer .footer-site-logo{
 	padding: 0 !important;
 }
-div#main_footer .mb-5{
+.group-footer .mb-5{
 	margin: 0 !important;
 }
 /* 헤더부분 css */
@@ -76,4 +76,11 @@ div#main_menu ul li{
 /* 푸터에 li태그에 스크롤없애기 */
 div#main_footer li{
 	overflow-y: hidden;
+}
+/* 푸터 너무 넓어서 마진 없애기 */
+.group-footer .social{
+	margin-bottom: 0 !important;
+}
+.group-footer .footer-16371{
+	padding: 1rem !important;
 }

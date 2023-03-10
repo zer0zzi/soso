@@ -31,7 +31,7 @@
 	            </ul>
 	
 	            <div class="social mb-4">
-	            <ul class="list-unstyled">
+	            <ul class="list-unstyled footer-icon">
 	                <li class="in"><a href="https://www.instagram.com/"><span class="icon-instagram"></span></a></li>
 	                <li class="fb"><a href="https://www.facebook.com/"><span class="icon-facebook"></span></a></li>
 	                <li class="tw"><a href="https://twitter.com/"><span class="icon-twitter"></span></a></li>

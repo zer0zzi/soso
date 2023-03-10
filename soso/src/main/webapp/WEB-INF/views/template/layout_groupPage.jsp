@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	
-	<div id="main_footer">
+	<div id="main_footer" class="group-footer">
 		<tiles:insertAttribute name="footer"/>
 	</div>
 </div>

@@ -21,6 +21,10 @@ body{
 	text-align: center;
 	margin: 0 auto;
 }
+.footer-icon{
+	padding-right: 40px;
+}
+
 /* 부트스트랩 css */
 a {
   -webkit-transition: .3s all ease;
