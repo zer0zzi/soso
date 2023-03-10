@@ -96,6 +96,25 @@
 				        webkitTransform: 'translate(-50%, -50%)',
 				        backgroundColor: 'white'
 				    });
+				    
+					// 외부영역 클릭시 팝업 닫기
+					$(document).mouseup(function(e){
+						if($("#my_modal").has(e.target).length === 0){
+							$("#my_modal").hide();
+							bg.remove();
+						}
+					});
+					
+					// ESC 키 누를시 팝업 닫기
+					$(document).keydown(function(e){
+						//keyCode 구 브라우저, which 현재 브라우저
+					    var code = e.keyCode || e.which;
+					 
+					    if (code == 27) { // 27은 ESC 키번호
+					        $('#my_modal').hide();
+					        bg.remove();
+					    }
+					});
 				}
 				
 				// Element 에 style 한번에 오브젝트로 설정하는 함수 추가
@@ -108,18 +127,6 @@
 				    // 모달창 띄우기
 				    modal('my_modal');
 				});
-				
-				// Modal 영역 밖을 클릭하면 Modal을 닫는다.
-				window.onclick = function(event) {
-					if(event.target.className == "study-info"){
-						event.target.style.display = "none";	
-					}
-				};
-				
-				modal.querySelector('.study-info').addEventListener('click', function() {
-			        bg.remove();
-			        modal.style.display = 'none';
-			    });
 			</script> 시 확인 가능
 		)
 	</div>
