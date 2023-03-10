@@ -48,6 +48,9 @@
 					<c:if test="${!empty free.mem_photo_name}">
 					<img src="${pageContext.request.contextPath}/member/viewProfile.do?mem_num=${free.mem_num}" width="25" height="25" class="my-photo">
 					</c:if>
+					<c:if test="${empty free.mem_photo_name}">
+					<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
+					</c:if>
 					</span>
 					
 					<span class="left-id list-margin">
