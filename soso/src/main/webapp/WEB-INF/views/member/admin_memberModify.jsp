@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member/admin.css">
 <div class="page-main">
 <div class="form-modi">
-	<h2>회원권환수정</h2>
+	<h2>회원권한수정</h2>
 	<form:form action="admin_update.do" id="modify_form" modelAttribute="memberVO">
 		<form:hidden path="mem_num"/>
 		<form:errors element="div" cssClass="error-color"/>
