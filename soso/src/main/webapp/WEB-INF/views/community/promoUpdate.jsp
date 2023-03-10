@@ -54,7 +54,7 @@
 					<option value="" disabled selected>참여 스터디</option>
 						<c:forEach var="study" items="${studyList}">
 						<option value="${study.stc_num}" <c:if test="${study.stc_num==promoVO.studyNum}">selected</c:if>>
-							${study.stc_num} &nbsp;｜&nbsp; ${study.stc_title}
+							${study.stc_title}
 						</option>
 						</c:forEach>
 				</select>

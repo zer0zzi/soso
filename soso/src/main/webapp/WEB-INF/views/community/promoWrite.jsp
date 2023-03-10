@@ -61,8 +61,11 @@
 					<option value="" disabled selected>참여 스터디</option>
 						<c:forEach var="study" items="${studyList}">
 						<option value="${study.stc_num}">
-							${study.stc_num} &nbsp;｜&nbsp; ${study.stc_title}
+							${study.stc_title}
 						</option>
+						<%-- <option value="${study.stc_num}">
+							${study.stc_num} &nbsp;｜&nbsp; ${study.stc_title}
+						</option> --%>
 						</c:forEach>
 				</select>
 				<span style="color:gray">&nbsp;첨여 스터디가 모집중이 아니라면 홍보글을 작성할 수 없습니다.</span><br>
