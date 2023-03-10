@@ -24,7 +24,7 @@
 	<div class="main-menu">
 		<div class="top-page-main">
 		<h2>
-			<a class="main-menu-text">Admin</a>
+			<a class="main-menu-text">관리자</a>
 		</h2>
 		</div>
 	</div>
