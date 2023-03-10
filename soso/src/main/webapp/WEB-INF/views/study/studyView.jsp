@@ -9,8 +9,17 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/study/studyView.css">
+<div class="main-menu">
+	<div class="top-page-main">
+	<h2>
+		<a class="main-menu-text"><b>스터디</b></a>
+	</h2>
+	</div>
+</div>
+
 <div class="page-main">
-	<h1 class="modal-header"><b>&nbsp;${study.stc_title}</b></h1>
+	<h3><b>&nbsp;${study.stc_title}</b></h3>
+	<br>
 	<ul class="study-info">
 		<li>
 			<c:if test="${!empty study.mem_photo_name}">
@@ -151,10 +160,7 @@
 		<jsp:include page="../study/modal.jsp"/>
 		<button type="button" class="btn btn-light" data-num="${study.stc_num}" data-bs-toggle="modal" data-bs-target="#exampleModal" 
 			<c:if test="${study.stc_state=='모집완료' || user.mem_num == study.mem_num || user.mem_auth == 9}"> disabled="disabled"</c:if>>
-	        <c:if test="${user.mem_num == study.mem_num || user.mem_auth == 9}">
-	        	<b style="color:red;">신청불가id</b>
-	        </c:if>
-	        <c:if test="${study.stc_state=='모집완료'}">
+	        <c:if test="${user.mem_num != study.mem_num && user.mem_auth != 9 && study.stc_state=='모집완료'}">
 	        	<b style="color:red;">모집완료</b>
 	        </c:if>
 			<c:if test="${study.stc_state=='모집중' && user.mem_num != study.mem_num && user.mem_auth != 9}">
