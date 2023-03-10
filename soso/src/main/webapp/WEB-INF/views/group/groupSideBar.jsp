@@ -18,11 +18,10 @@
 				<img src="${pageContext.request.contextPath}/member/photoView.do"
 				class="img logo rounded-circle mb-5">
 				<ul class="list-unstyled components mb-5">
-					<li><a href="/group/groupMain.do?stc_num=${stc_num}">GROUP MAIN</a></li>
-					<li><a href="/group/notice_list.do?stc_num=${stc_num}">NOTICE</a></li>
-					<li><a href="/group/calendar_list.do?stc_num=${stc_num}">CALENDAR</a></li>
-					<li><a href="#">EVALUATE MEMBERS</a></li>
-					<li><a href="#">MANAGE MEMBERS</a></li>
+					<li><a href="/group/groupMain.do?stc_num=${stc_num}">그룹 메인페이지</a></li>
+					<li><a href="/group/notice_list.do?stc_num=${stc_num}">그룹 공지사항</a></li>
+					<li><a href="/group/calendar_list.do?stc_num=${stc_num}">그룹 일정</a></li>
+					<li><a href="/mymember/myStudy.do">팀원 평가</a></li>
 				</ul>
 
 				<div class="footer">
