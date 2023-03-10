@@ -52,6 +52,20 @@
                 <th class="no4"></th>
             </tr>
             
+            <tr class="cursor-ddd">
+            	<td class="no1">
+            		<img src="/member/viewProfile.do?mem_num=${masterList.mem_num}" class="std-memimage" width="70px" height="70px">
+            	</td>
+            	<td class="no2">
+            	<!-- 왕관아이콘 <a href="https://www.flaticon.com/kr/free-icons/" title="왕관 아이콘">왕관 아이콘  제작자: Freepik - Flaticon</a> -->
+            		<img src="${pageContext.request.contextPath}/image_bundle/crown.png" class="master-crown" width="20px" height="20px">
+            		${masterList.mem_name}
+            	</td>
+	            <td class="no3">${masterList.mem_email}</td>
+	            <td class="no4"></td>
+	        </tr>
+	        
+	        
             <c:if test="${count > 0}">
             	<c:forEach var="member" items="${memberList}">
             	<tr class="cursor-ddd">

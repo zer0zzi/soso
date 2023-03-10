@@ -26,7 +26,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.spring.group.service.GroupService;
 import kr.spring.group.vo.GroupCalendarVO;
 import kr.spring.group.vo.GroupNoticeVO;
+import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
+import kr.spring.member_my.service.MemberMyService;
 import kr.spring.stc.service.StcService;
 import kr.spring.study.vo.StudyVO;
 import kr.spring.util.PagingUtil;
@@ -37,8 +39,10 @@ public class GroupController {
 	private static final Logger logger =
 	           LoggerFactory.getLogger(GroupController.class);
 	
+	 
 	@Autowired private GroupService groupService;
 	@Autowired private StcService stcService;
+	@Autowired private MemberMyService memberMyService;
 	
 	//자바빈 (vo) 초기화 --> 유효성검사 필요한 테이블만 초기화
 	@ModelAttribute
@@ -94,7 +98,12 @@ public class GroupController {
 			mav.addObject("master",true);
 		}
 		mav.addObject("master",false);
-			
+		
+		//방장에 대한 정보 출력을 위해 방장 정보 가져오기
+		MemberVO masterList = memberMyService.selectMember(stcDetail.getMem_num());
+		mav.addObject("masterList",masterList);
+		
+		logger.debug("<<방장정보 - masterList>> "+masterList);
 		logger.debug("<<그룹멤버 수 - count>> : " + count);
 		logger.debug("<<그룹멤버 정보 - memberList>> : " + memberList);
 		
