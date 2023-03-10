@@ -62,6 +62,16 @@ public interface StudyMapper {
 	//관심 등록 카운트
 	@Select("SELECT COUNT(*) FROM study_signup WHERE stc_num=#{stc_num}")
 	public int selectSignupCount(Integer stc_num);
+	//글 삭제와 동시에 신청 삭제
+	@Delete("DELETE FROM study_signup WHERE stc_num=#{stc_num}")
+	public void deleteSignupByStc(Integer stc_num);
+	
+	
+	//그룹삭제
+	@Delete("DELETE FROM group_calendar WHERE stc_num=#{stc_num}")
+	public void deleteGroupCByStc(Integer stc_num);
+	@Delete("DELETE FROM group_notice WHERE stc_num=#{stc_num}")
+	public void deleteGroupNByStc(Integer stc_num);
 }
 
 

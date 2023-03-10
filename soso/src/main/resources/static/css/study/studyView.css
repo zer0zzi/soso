@@ -51,8 +51,12 @@ a:visited {
 a:hover {
 	text-decoration:none;
 	color:#999999;
-}
 
+}
+input[type=button]{
+	font-family:'NEXON Lv1 Gothic OTF';
+	margin-bottom:7px;
+}
 /* 필터 */
 .std-filter1{
 	background-color:#969ce4;

@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -281,6 +282,21 @@ public class StudyController {
 		mav.addObject("filename", study.getStc_filename());
 
 		return mav;
+	}
+	
+	//=====게시판 글삭제=======//
+	@RequestMapping("/study/delete.do")
+	public String submitDelete(
+								@RequestParam int stc_num,
+								Model model,
+								HttpServletRequest request) {
+		
+		logger.debug("<<게시판 글삭제>> : " + stc_num);
+		
+		//글삭제
+		studyService.deleteStudy(stc_num);
+		
+		return "redirect:/main/main.do";
 	}
 		
 }

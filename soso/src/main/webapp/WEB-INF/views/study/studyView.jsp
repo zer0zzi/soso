@@ -143,9 +143,8 @@
 		<c:if test="${!empty study.stc_filename}">
 		첨부파일 : <a href="file.do?stc_num=${study.stc_num}">${study.stc_filename}</a>
 		</c:if>
-		<hr size="1" width="100%">
 	</div>
-	
+	<hr size="1" width="100%">
 	<!-- 관심등록 -->
 	<br>
 	<img class="jb-title" id="output_fav" data-num="${study.stc_num}"
@@ -154,7 +153,25 @@
 		이 스터디를 관심 등록/해제 하시겠습니까?
 	</div>
 	<span id="output_fcount"></span>
+		
+	<div class="text-right">
+	<c:if test="${!empty user && user.mem_num == study.mem_num}">
+	<input type="button" value="삭제" id="delete_btn"> 
+	<script type="text/javascript">
+		let delete_btn = document.getElementById('delete_btn');
+		delete_btn.onclick=function(){
+			let choice = confirm('삭제하시겠습니까?');
+			if(choice){
+				location.replace('delete.do?stc_num=${study.stc_num}');
+				alert('삭제 완료');
+			}
+			
+		};
+	</script> 
+	</c:if>
+	</div>	
 	<!-- 모달창 -->
+	<c:if test="${study.stc_state=='모집중' && user.mem_num != study.mem_num && user.mem_auth != 9}">
 	<div class="modal-container" style="float:right;">
 		<!-- Modal창 호출 버튼 -->
 		<jsp:include page="../study/modal.jsp"/>
@@ -168,6 +185,7 @@
 	        </c:if>
 		</button>
 	</div>
+    </c:if>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
 

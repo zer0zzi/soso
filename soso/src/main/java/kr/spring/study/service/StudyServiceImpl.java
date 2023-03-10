@@ -49,6 +49,11 @@ public class StudyServiceImpl implements StudyService{
 	}
 	@Override
 	public void deleteStudy(Integer stc_num) {
+		//그룹 삭제
+		studyMapper.deleteGroupCByStc(stc_num);
+		studyMapper.deleteGroupNByStc(stc_num);
+		//신청 삭제
+		studyMapper.deleteSignupByStc(stc_num);		
 		//관심등록 삭제
 		studyMapper.deleteFavByStcNum(stc_num);
 		//부모글 삭제

@@ -80,7 +80,8 @@ public class AppConfig implements WebMvcConfigurer{
 				.addPathPatterns("/group/groupNoticeDetail.do")
 				.addPathPatterns("/group/groupNoticeModify.do")
 				.addPathPatterns("/group/groupNoticeDelete.do")
-				.addPathPatterns("/group/groupCalendarWrite.do");
+				.addPathPatterns("/group/groupCalendarWrite.do")
+				.addPathPatterns("/study/delete.do");
 				//.addPathPatterns("/board/write.do")
 				//.addPathPatterns("/board/update.do")
 				//.addPathPatterns("/board/delete.do")
