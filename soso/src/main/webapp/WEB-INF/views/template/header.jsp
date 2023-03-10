@@ -41,9 +41,12 @@
 				<a class="p-l-10" href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/member/login.do">로그인</a>
 			</c:if>
+			<!-- 관리자 -->
 			<c:if test="${!empty user && user.mem_auth == 9}">
-			<a class="p-l-10" href="${pageContext.request.contextPath}/main/main.do">홈</a>
+				<a class="p-l-10" href="${pageContext.request.contextPath}/group/groupMain.do?stc_num=224">그룹상세</a>  <!-- 마이페이지 이동 생기면 없앨것 -->
+				<a class="p-l-10" href="${pageContext.request.contextPath}/main/main.do">홈</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">커뮤니티</a>
+				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">채팅방</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/main/admin.do">관리자페이지</a>
 			</c:if>
 		</div>
