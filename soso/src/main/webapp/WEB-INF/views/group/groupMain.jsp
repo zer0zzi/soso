@@ -30,12 +30,12 @@
 	<div class="member-main">
         <table class="member-table h-40">
         	<tr class="member-table-header cursor-dd">
-                <th style="width: 99%" style="border-bottom: 3px solid rgb(242,240,240);">일정</th>
+                <th style="width: 99%" style="border-bottom: 1px solid #ddd;">일정</th>
                 <th class="no4"></th>
             </tr>
             <c:forEach var="today" items="${todayList}">
             <tr class="cursor-ddd">
-                <td style="width: 99%; border-bottom: 3px solid rgb(242, 240, 240);">${today.cal_content}</td>
+                <td style="width: 99%; border-bottom: 1px solid #ddd;">${today.cal_content}</td>
                 <td class="no4"></td>
             </tr>
             </c:forEach>

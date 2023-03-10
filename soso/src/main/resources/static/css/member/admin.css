@@ -186,20 +186,23 @@ ul.search li input[type="search"]{
 }
 
 .modi-btn {
-    font: inherit;
-    font-size: 0.75rem;
-    padding: 1em;
-    width: 6em;
-    border-radius: 6px;
-    border: 0;
-    background-color: #969ce4;
-    color: #FFF;
-    font-weight: bold;
-    transition: all .15s linear;
+    background: #a5a6e9;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: none;
 }
 .modi-btn:hover {
-	background-color: #6658d3;
-	color: #FFF;
+   background-color: rgb(66, 66, 134);
+   cursor: pointer;
+   color: white;
 }
 
 

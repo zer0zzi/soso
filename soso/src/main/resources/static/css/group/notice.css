@@ -53,7 +53,7 @@
     height: 40px;
 }
 .notice-table tr{
-	 border-bottom: 3px solid rgb(242, 240, 240);
+	 border-bottom: 1px solid #ddd;
 }
 .notice-table tr th{ /* 테이블 헤더 글씨들 */
 	color: white;
