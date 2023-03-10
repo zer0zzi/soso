@@ -2,7 +2,7 @@
 
 
 .side-bar{
-	height: 100vh !important;
+	height: 100% !important;
 	/* 나중에 height-footer 크기 해주기 */
 }
 
@@ -151,7 +151,7 @@ a {
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #0056b3;
+    color: #ff9889;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -8153,7 +8153,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f8b739; }
+  color: #ff9889; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
@@ -8227,7 +8227,9 @@ h1, h2, h3, h4, h5,
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
-  transition: all 0.3s; }
+  transition: all 0.3s; 
+  margin-top: 30px; /*사이드바랑 오른쪽 테이블이랑 높이 비슷하게주기 위해*/
+  }
   #sidebar.active {
     margin-left: -300px; }
   #sidebar .logo {
@@ -8251,7 +8253,7 @@ h1, h2, h3, h4, h5,
       color: rgba(255, 255, 255, 0.8);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
       #sidebar ul li a:hover {
-        color: #f8b739; }
+        color: #ff9889; }
 
   @media (max-width: 991.98px) {
     #sidebar {

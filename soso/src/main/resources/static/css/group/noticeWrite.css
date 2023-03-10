@@ -14,7 +14,7 @@
 }
 
 input[type=radio] {
-    accent-color: #969ce4;
+    accent-color: #A5A6E9;
 }
 .non-cursor{
 	cursor:default;
@@ -37,7 +37,7 @@ input[type=radio] {
 	float: right;
 }
 .btn-main{
-	background: #969ce4;
+	background: #A5A6E9;
 	display: inline-block;
 	line-height: 50px;
 	padding: 0 20px;

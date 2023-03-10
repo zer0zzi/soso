@@ -61,7 +61,7 @@ body{
     border-radius: 100px;
 }
 .member-main::-webkit-scrollbar-thumb {
-    background-color:#969ce4;
+    background-color:#A5A6E9;
     border-radius: 100px;
 }
 
@@ -73,7 +73,7 @@ body{
 }
 .member-table .member-table-header{
     color: white;
-    background-color: #969ce4;
+    background-color: #A5A6E9;
 }
 .member-table .member-table-header .no4{
 	background-color: white;
@@ -126,4 +126,7 @@ body{
 }
 .member-table:last-child img{
 	border-radius: 50%;
+}
+.member-table .master-crown{ /* 크라운이미지탓에 오른쪽으로 쏠린걸 크라운 넓이(20px)만큼 다시 왼쪽으로 이동 */
+	margin-left: -20px;
 }
