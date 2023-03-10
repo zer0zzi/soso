@@ -82,6 +82,7 @@ public class GroupController {
 		mav.addObject("todayList",todayList);
 		mav.addObject("count",count); 
 		mav.addObject("memberList",memberList); //데이터 저장
+		mav.addObject("stc_num",stc_num);
 			
 			
 		// 지금 들어온 사람이 이 그룹의 방장인지 체크
@@ -264,6 +265,7 @@ public class GroupController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("noticeDetail");
 		mav.addObject("detail",detail);
+		mav.addObject("stc_num",stc_num);
 		
 		// 지금 들어온 사람이 이 그룹의 방장인지 체크
 		// 1. 현재 그룹 페이지 정보 다 가져오기
