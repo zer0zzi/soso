@@ -355,6 +355,14 @@ select {
     font-size:10pt;
 }
 
+.std-title b{
+	display:inline-block;
+	width:182px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .std-wdate{
 	font-size:8pt;
 	padding-bottom:7px;
@@ -392,7 +400,7 @@ select {
 .std-image{
 	width:182px;
 	height:110px;
-	padding:5px 0;
+	padding:8px 0;
 }
 
 .std-memimage{
