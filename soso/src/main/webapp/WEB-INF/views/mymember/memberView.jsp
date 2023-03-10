@@ -13,7 +13,7 @@
 					<img src="${pageContext.request.contextPath}/mymember/photoView.do" width="90" height="90" class="my-photo">
 				</li>
 				<li id="click" onclick="location.href='update.do'"><b>${member.mem_name}</b>님&nbsp;></li>
-				<li><input type="button" value="로그아웃" onclick="location.href='logout.do'"></li>
+				<li><input type="button" value="로그아웃" onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"></li>
 			</ul>
 			<ul class="mypage-ul-r">
 				<li>나의 학구열 🔥</li>
@@ -22,14 +22,16 @@
 		</div>
 	</div>
 	<div class="mypage-right">
-		<h3>내 할 일 <input type="button" value="+" onclick="location.href='update.do'"></h3>
-			<div class="mypage-box">
+		<h3>내 일정 <input type="button" value="+" onclick="location.href='${pageContext.request.contextPath}/group/groupMain.do?stc_num=${member.stc_num}'"></h3>
+			<div class="mypage-box2">
 				<ul class="mypage-ul">
-					<li>그룹 캘린더에 개인 일정 등록하기</li>
-					<li>기획서 제출</li>
-					<li>ppt 템플릿 찾기</li>
-					<li>발표 대본 작성하기</li>
-					<li>자소서 쓰기</li>
+				<c:if test="${!empty member.cal_date}">
+					<li>${member.cal_date}</li>
+					<li>${member.cal_content}</li>
+				</c:if>
+				<c:if test="${empty member.cal_date}">
+					<li style="list-style:none;">등록된 일정이 없습니다.</li>
+				</c:if>
 				</ul>
 			</div>
 	</div>
@@ -42,12 +44,12 @@
 						</button>
 					</li>
 					<li>
-						<button type="button" value="내가 좋아요한 스터디 그룹" onclick="location.href='${pageContext.request.contextPath}/mymember/myStudyMade.do'">
+						<button type="button" value="내가 좋아요한 스터디 그룹" onclick="location.href='${pageContext.request.contextPath}/mymember/myStudyLike.do'">
 							<img src="${pageContext.request.contextPath}/images/zero/heart.png" width="24" height="24"><b>&nbsp;내가 좋아요한 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></b>
 						</button>
 					</li>
 					<li>
-						<button type="button" value="내가 신청한 스터디 그룹" onclick="location.href='logout.do'">
+						<button type="button" value="내가 신청한 스터디 그룹" onclick="location.href='${pageContext.request.contextPath}/mymember/myStudySign.do'">
 							<img src="${pageContext.request.contextPath}/images/zero/pencil.png" width="23" height="23"><b>&nbsp;내가 신청한 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></b>
 						</button>
 					</li>

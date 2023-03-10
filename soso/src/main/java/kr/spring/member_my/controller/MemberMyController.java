@@ -39,7 +39,7 @@ public class MemberMyController {
 			
 	@Autowired
 	private MemberMyService memberMyService;
-	private MemberService memberService;
+	private StudyService studyService;
 	
 	@ModelAttribute
 	public MemberVO initCommand() {
@@ -270,6 +270,7 @@ public class MemberMyController {
 		return "myStudy";
 	}
 	
+	//내가 만든 스터디 그룹
 	@RequestMapping("/mymember/myStudyMade.do")
 	public String viewmystudymade(HttpSession session, Model model){
 		Map<String,Object> map = new HashMap<String, Object>();
@@ -286,4 +287,59 @@ public class MemberMyController {
 		
 		return "myStudyMade";
 	}
+	
+	//스터디 그룹 수정
+	@PostMapping("/mymember/studyupdate.do")
+	public String studyUpdate(@Valid StudyVO studyVO, BindingResult result, HttpSession session) {
+				
+		//유효성 체크 결과 오류가 있으면 폼 호출
+		if(result.hasErrors()) {
+			return "myStudyMade";
+		}
+		
+		logger.debug("<<스터디 그룹 수정 전>> : " + studyVO);
+		
+		//회원정보수정
+		memberMyService.updateStudy(studyVO);
+		
+		logger.debug("<<스터디 그룹 수정 후>> : " + studyVO);
+		
+		return "redirect:/mymember/myStudyMade.do";
+	}
+	
+	//좋아하는 스터디 그룹
+	@RequestMapping("/mymember/myStudyLike.do")
+	public String viewLikestudy(HttpSession session, Model model){
+		Map<String,Object> map = new HashMap<String, Object>();
+		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		map.put("mem_num", user.getMem_num());
+		
+		List<StudyVO> likeStudyList = memberMyService.selectLikeStudy(map);
+		
+		model.addAttribute("likeStudyList", likeStudyList);
+	
+		logger.debug("<<mem_num>> : " + user.getMem_num());
+		logger.debug("<<likeStudyList>> : " + likeStudyList);
+		
+		return "myStudyLike";
+	}
+	
+	//내가 신청한 스터디 그룹
+		@RequestMapping("/mymember/myStudySign.do")
+		public String viewSignstudy(HttpSession session, Model model){
+			Map<String,Object> map = new HashMap<String, Object>();
+			
+			MemberVO user = (MemberVO)session.getAttribute("user");
+			map.put("mem_num", user.getMem_num());
+			
+			List<StudyVO> signStudyList = memberMyService.selectSignStudy(map);
+			
+			model.addAttribute("signStudyList", signStudyList);
+		
+			logger.debug("<<mem_num>> : " + user.getMem_num());
+			logger.debug("<<signStudyList>> : " + signStudyList);
+			
+			return "myStudySign";
+		}
 }

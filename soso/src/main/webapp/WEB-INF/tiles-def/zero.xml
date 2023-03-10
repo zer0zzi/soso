@@ -45,6 +45,16 @@
     	<put-attribute name="title" value="내가 만든 스터디 그룹"/>
     	<put-attribute name="body" value="/WEB-INF/views/mymember/mystudy_made.jsp"/>        
     </definition>
+    
+    <definition name="myStudyLike" extends="myStudy">
+    	<put-attribute name="title" value="내가 좋아요한 스터디 그룹"/>
+    	<put-attribute name="body" value="/WEB-INF/views/mymember/mystudy_like.jsp"/>        
+    </definition>
+    
+    <definition name="myStudySign" extends="myStudy">
+    	<put-attribute name="title" value="내가 신청한 스터디 그룹"/>
+    	<put-attribute name="body" value="/WEB-INF/views/mymember/mystudy_sign.jsp"/>        
+    </definition>
 </tiles-definitions>
 
 

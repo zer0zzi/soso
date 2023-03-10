@@ -47,10 +47,16 @@ public interface MemberMyMapper {
 	public void updateProfile(MemberVO member);
 	
 	//내 스터디 그룹
-	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score FROM study_create c, study_signup s, member_detail m "
-			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_signup WHERE mem_num=#{mem_num} AND signup_status=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num AND signup_status=1")
+	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score, cal_date, cal_content FROM study_create c, study_signup s, member_detail m, group_calendar g "
+			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_signup WHERE mem_num=#{mem_num} AND signup_status=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num AND c.stc_num=g.stc_num AND signup_status=1")
 	public List<StudyVO> selectStudy(Map<String, Object> map);
 	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score, s.signup_detail, s.signup_status FROM study_create c, study_signup s, member_detail m "
-			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_create WHERE mem_num=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num")
+			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_create WHERE mem_num=#{mem_num}) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num")
 	public List<StudyVO> selectMadeStudy(Map<String, Object> map);
+	@Update("UPDATE study_create SET stc_title=#{stc_title}, stc_content=#{stc_content} WHERE stc_num=#{stc_num}")
+	public void updateStudy(StudyVO studyVO);
+	@Select("SELECT stc_num, stc_title, stc_content, stc_filename, stc_uploadfile FROM study_create WHERE stc_num IN (SELECT stc_num FROM study_fav WHERE mem_num=${mem_num})")
+	public List<StudyVO> selectLikeStudy(Map<String, Object> map);
+	@Select("SELECT stc_num, stc_title, stc_content, stc_uploadfile FROM study_create WHERE stc_num IN (SELECT stc_num FROM study_signup WHERE mem_num=${mem_num} AND signup_status=0)")
+	public List<StudyVO> selectSignStudy(Map<String, Object> map);
 }
