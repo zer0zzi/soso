@@ -72,7 +72,15 @@ public class AppConfig implements WebMvcConfigurer{
 				.addPathPatterns("/community/reviewWrite.do")
 				.addPathPatterns("/community/reviewUpdate.do")
 				.addPathPatterns("/community/reviewDelete.do")
-				.addPathPatterns("/main/studyCreate.do");
+				.addPathPatterns("/main/studyCreate.do")
+				.addPathPatterns("/group/groupMain.do")
+				.addPathPatterns("/group/calendar_list.do")
+				.addPathPatterns("/group/notice_list.do")
+				.addPathPatterns("/group/groupNoticeWrite.do")
+				.addPathPatterns("/group/groupNoticeDetail.do")
+				.addPathPatterns("/group/groupNoticeModify.do")
+				.addPathPatterns("/group/groupNoticeDelete.do")
+				.addPathPatterns("/group/groupCalendarWrite.do");
 				//.addPathPatterns("/board/write.do")
 				//.addPathPatterns("/board/update.do")
 				//.addPathPatterns("/board/delete.do")
