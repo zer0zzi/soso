@@ -12,20 +12,23 @@
 	src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+ 
 <div id="main">
-<!-- 사이드바 -->
-	<div id="main_sidebar">
-		<tiles:insertAttribute name="sideBar" />
+	<div id="main_header">
+		<tiles:insertAttribute name="header" />
 	</div>
-	
-<!-- 헤더영역 + 메인본문영역 -->
+
 	<div class="header-body">
-		<div id="main_header">
-			<tiles:insertAttribute name="header" />
+		<div id="main_sidebar">
+			<tiles:insertAttribute name="sideBar" />
 		</div>
 		<div id="main_content">
 			<tiles:insertAttribute name="body" />
 		</div>
+	</div>
+	
+	<div id="main_footer">
+		<tiles:insertAttribute name="footer"/>
 	</div>
 </div>
 </body>

@@ -13,7 +13,9 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/group/groupMain.jsp" />
 		<put-attribute name="sideBar"
-			value="/WEB-INF/views/group/groupSideBar.jsp" />        
+			value="/WEB-INF/views/group/groupSideBar.jsp" />  
+		<put-attribute name="footer"
+    	  value="/WEB-INF/views/template/footer.jsp"/>             
     </definition>
     
     
