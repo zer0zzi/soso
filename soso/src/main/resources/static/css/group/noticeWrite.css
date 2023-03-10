@@ -53,7 +53,10 @@ input[type=radio] {
 	background-color: rgb(66, 66, 134);
 	cursor: pointer;
 }
-
+input[type=file]::file-selector-button{
+	font-family:'NEXON Lv1 Gothic OTF';
+	margin-bottom:7px;
+}
 
 
 

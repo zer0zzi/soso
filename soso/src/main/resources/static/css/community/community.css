@@ -360,11 +360,8 @@ div.full-insert div.align-left{ /* 작성·수정 폼 버튼 위치 조정 */
 	margin-top:20px;
 }
 input[type=file]::file-selector-button{
-	background-color:#ccc; color:black;
-	border:none; border-radius:1px;
-	height:25px;
-	margin-right:7px;
-	cursor:pointer;
+	font-family:'NEXON Lv1 Gothic OTF';
+	margin-bottom:7px;
 }
 
 
