@@ -21,16 +21,14 @@
 			</div><!-- end of indicators -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="${pageContext.request.contextPath}/images/examplebanner.png" class="d-block w-100">
+					<img src="${pageContext.request.contextPath}/images/yh/noticebanner.jpg" class="d-block w-100">
 					<div class="carousel-caption d-none d-md-block">
-						<p>공지사항</p>
 					</div>
 				</div><!-- end of .carousel-item -->
 				
 				<div class="carousel-item">
-					<img src="${pageContext.request.contextPath}/images/examplebanner.png" class="d-block w-100">
+					<img src="${pageContext.request.contextPath}/images/yh/soso-이벤트.png" class="d-block w-100">
 					<div class="carousel-caption d-none d-md-block">
-						<p>이벤트</p>
 					</div>
 				</div><!-- end of .carousel-item -->
 			</div><!-- end of .carousel-inner -->
