@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- 중앙 컨텐츠 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mymember/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/member.js"></script>
@@ -15,13 +16,19 @@ $(function(){
 		$('.study_div').hide();
 		$(this).hide();  //수정 버튼 감추기
 	});
+	$(document).ready(function(){
+		if(document.getElementById('tdtd') == null){
+			document.getElementById('nomember').style.display = 'block'
+		}
+	});
 });
 </script>
 <div class="mypage-main">
 	<h2 id="0">[&nbsp;&nbsp;&nbsp;&nbsp;내가 만든 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;]</h2>
 	<div class="mypage-box-study">
 		<c:if test="${!empty myStudyList}">
-			<h3>스터디 그룹 소개</h3><hr class="hr">
+			<h3 style="display:flex;">스터디 그룹 소개<input type="button" id="study_modify" value="수정"></h3>
+			<hr class="hr">
 			<div class="study_div">
 				<ul class="mypage-study-ul-l">
 					<li>
@@ -61,9 +68,6 @@ $(function(){
 					<input type="button" id="cancel" style="display:none;" onClick="window.location.reload()" value="취소">
 				</div>
 			</form>
-			<div class="align-center">
-				<input type="button" id="study_modify" value="수정" ><!-- onclick="location.href='update.do'" -->
-			</div>
 			<h3 id="1">스터디 신청 현황</h3>
 			<div>
 				<table class="study_table">
@@ -72,6 +76,7 @@ $(function(){
 						<th id="s">학구열 점수 🔥</th>
 						<th id="s">신청사유</th>
 						<th id="s"></th>
+						<th id="hidden"></th>
 					</tr>
 					<c:forEach var="study" items="${myStudyList}">
 						<c:if test="${study.signup_status eq '0'}">
@@ -80,48 +85,29 @@ $(function(){
 								<td id="score">${study.mem_score}점</td>
 								<td id="sr">${study.signup_detail}</td>
 								<td id="b">
-									<input type="button" value="수락">
-									<input type="button" value="거절" id="refuse_btn">
-									<script type="text/javascript">
-										let refuse_btn = document.getElementById('refuse_btn');
-										refuse_btn.onclick=function(){
-											let choice = confirm('거절하시겠습니까?');
-											if(choice){
-												location.replace('refuse.do?mem_num=${mem_num}');
-											}
-										};
-									</script> 
+									<input type="button" value="수락" onclick="location.href='accept.do?stc_num=${study.stc_num}&mem_num=${study.mem_num}'">
+									<input type="button" value="거절" onclick="location.href='refuse.do?stc_num=${study.stc_num}&mem_num=${study.mem_num}'">
 								</td>
+								<td id="hidden">${study.mem_num}</td>
 							</tr>
 						</c:if>
 					</c:forEach>
 				</table>
 			</div>
 			<h3 id="1">스터디원 목록</h3>
-			<div>
-				<table>
-					<tr>
-						<c:if test="${!empty myStudyList[0].signup_status eq '1'}">
-							<c:forEach var="study" items="${myStudyList}">
-								<c:if test="${study.signup_status eq '1'}">
-									<td id="tdtd">
-										<b>${study.mem_name}</b>&nbsp;팀원<br>
-										<p id="score">${study.mem_score}점</p>
-										<input type="button" value="칭찬">
-										<input type="button" value="격려">
-									</td>
-									<%-- <c:if test="${study.rownum%3==0}">
-										</tr><tr>
-									</c:if> --%>
-								</c:if>
-							</c:forEach>
-						</c:if>
-						<c:if test="${empty myStudyList[0].signup_status eq '1'}">
-								<p>스터디원이 없습니다.</p>
-						</c:if>
-					</tr>
-				</table>
-			</div>
+			<div class="member">
+				<c:forEach var="study" items="${myStudyList}">
+					<c:if test="${study.signup_status eq '1'}">
+						<div id="tdtd">
+							<b>${study.mem_name}</b>&nbsp;팀원<br>
+							<p id="score">${study.mem_score}점</p>
+							<input type="button" id="scoreplus" value="칭찬" onclick="location.href='scoreplus.do?mem_num=${study.mem_num}'">
+							<input type="button" id="scoreminus" value="격려" onclick="location.href='scoreminus.do?mem_num=${study.mem_num}'">
+						</div>
+					</c:if>
+				</c:forEach>
+				</div>
+				<p id="nomember">스터디원이 없습니다.</p>
 		</c:if>
 		<c:if test="${empty myStudyList}">
 			<div class="none">

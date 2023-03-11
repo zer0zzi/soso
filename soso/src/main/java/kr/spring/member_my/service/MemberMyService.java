@@ -28,4 +28,8 @@ public interface MemberMyService {
 	public void updateStudy(StudyVO studyVO);
 	public List<StudyVO> selectLikeStudy(Map<String, Object> map);
 	public List<StudyVO> selectSignStudy(Map<String, Object> map);
+	public void refuse(Integer stc_num, Integer mem_num);
+	public void accept(Integer stc_num, Integer mem_num);
+	public void scoreplus(Integer mem_num);
+	public void scoreminus(Integer mem_num);
 }

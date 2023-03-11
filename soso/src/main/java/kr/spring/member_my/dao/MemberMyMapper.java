@@ -47,8 +47,8 @@ public interface MemberMyMapper {
 	public void updateProfile(MemberVO member);
 	
 	//내 스터디 그룹
-	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score, cal_date, cal_content FROM study_create c, study_signup s, member_detail m, group_calendar g "
-			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_signup WHERE mem_num=#{mem_num} AND signup_status=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num AND c.stc_num=g.stc_num AND signup_status=1")
+	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score FROM study_create c, study_signup s, member_detail m "
+			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_signup WHERE mem_num=#{mem_num} AND signup_status=1) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num AND signup_status=1")
 	public List<StudyVO> selectStudy(Map<String, Object> map);
 	@Select("SELECT rownum, c.stc_num, stc_title, stc_uploadfile, stc_content, s.mem_num, m.mem_name, m.mem_score, s.signup_detail, s.signup_status FROM study_create c, study_signup s, member_detail m "
 			+ "WHERE c.stc_num=(SELECT distinct stc_num FROM study_create WHERE mem_num=#{mem_num}) AND c.stc_num=s.stc_num AND s.mem_num=m.mem_num")
@@ -57,6 +57,14 @@ public interface MemberMyMapper {
 	public void updateStudy(StudyVO studyVO);
 	@Select("SELECT stc_num, stc_title, stc_content, stc_filename, stc_uploadfile FROM study_create WHERE stc_num IN (SELECT stc_num FROM study_fav WHERE mem_num=${mem_num})")
 	public List<StudyVO> selectLikeStudy(Map<String, Object> map);
-	@Select("SELECT stc_num, stc_title, stc_content, stc_uploadfile FROM study_create WHERE stc_num IN (SELECT stc_num FROM study_signup WHERE mem_num=${mem_num} AND signup_status=0)")
+	@Select("SELECT c.stc_num, c.stc_title, c.stc_content, c.stc_uploadfile, s.signup_status, s.mem_num FROM study_create c, study_signup s WHERE c.stc_num IN (SELECT stc_num FROM study_signup WHERE mem_num=#{mem_num}) AND s.stc_num=c.stc_num AND s.mem_num=#{mem_num}")
 	public List<StudyVO> selectSignStudy(Map<String, Object> map);
+	@Update("UPDATE study_signup SET signup_status=3 WHERE stc_num=#{stc_num} AND mem_num=#{mem_num}")
+	public void refuse(Integer stc_num, Integer mem_num);
+	@Update("UPDATE study_signup SET signup_status=1 WHERE stc_num=#{stc_num} AND mem_num=#{mem_num}")
+	public void accept(Integer stc_num, Integer mem_num);
+	@Update("UPDATE member_detail SET mem_score=mem_score+2 WHERE mem_num=#{mem_num}")
+	public void scoreplus(Integer mem_num);
+	@Update("UPDATE member_detail SET mem_score=mem_score-2 WHERE mem_num=#{mem_num}")
+	public void scoreminus(Integer mem_num);
 }

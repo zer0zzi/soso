@@ -6,6 +6,15 @@
 <!-- 중앙 컨텐츠 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mymember/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/member.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(document).ready(function(){
+		if(document.getElementById('tdtd') == null){
+			document.getElementById('nomember').style.display = 'block'
+		}
+	});
+});
+</script>
 <div class="mypage-main">
 	<h2 id="0">[&nbsp;&nbsp;&nbsp;&nbsp;내가 가입한 스터디 그룹&nbsp;&nbsp;&nbsp;&nbsp;]</h2>
 	<div class="mypage-box-study">
@@ -18,7 +27,7 @@
 							<img src="${pageContext.request.contextPath}/images/zero/white.png" width="90" height="90">
 						</c:if>
 						<c:if test = "${myStudyList[0].stc_uploadfile ne null}">
-							<<img src="${pageContext.request.contextPath}/study/imageView.do?stc_num=${myStudyList[0].stc_num}&stc_type=2" width="90" height="90">e">
+							<img src="${pageContext.request.contextPath}/study/imageView.do?stc_num=${myStudyList[0].stc_num}&stc_type=2" width="90" height="90">
 						</c:if>
 					</li>
 					</ul>
@@ -29,15 +38,26 @@
 				</ul>
 			</div>
 			<h3 id="1">스터디원 평가</h3>
-			<div>
+			<div class="member">
+				<c:forEach var="study" items="${myStudyList}">
+					<div id="tdtd">
+						<b>${study.mem_name}</b>&nbsp;팀원<br>
+						<p id="score">${study.mem_score}점</p>
+						<input type="button" id="scoreplus" value="칭찬" onclick="location.href='scoreplus.do?mem_num=${study.mem_num}'">
+						<input type="button" id="scoreminus" value="격려" onclick="location.href='scoreminus.do?mem_num=${study.mem_num}'">
+					</div>
+				</c:forEach>
+				</div>
+				<p id="nomember">스터디원이 없습니다.</p>
+			<%-- <div>
 				<table>
 					<tr>
 						<c:forEach var="study" items="${myStudyList}">
 							<td id="tdtd">
 								<b>${study.mem_name}</b>&nbsp;팀원<br>
 								<p id="score">${study.mem_score}점</p>
-								<input type="button" value="칭찬">
-								<input type="button" value="격려">
+								<input type="button" id="scoreplus" value="칭찬" onclick="location.href='scoreplus.do?mem_num=${study.mem_num}'">
+								<input type="button" id="scoreminus" value="격려" onclick="location.href='scoreminus.do?mem_num=${study.mem_num}'">
 							</td>
 							<c:if test="${study.rownum%3==0}">
 								</tr><tr>
@@ -45,7 +65,7 @@
 						</c:forEach>
 					</tr>
 				</table>
-			</div>
+			</div> --%>
 		</c:if>
 		<c:if test="${empty myStudyList}">
 			<div class="none">

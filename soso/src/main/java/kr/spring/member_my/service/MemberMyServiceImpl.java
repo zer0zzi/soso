@@ -91,4 +91,20 @@ public class MemberMyServiceImpl implements MemberMyService{
 	public List<StudyVO> selectSignStudy(Map<String, Object> map) {
 		return memberMyMapper.selectSignStudy(map);
 	}
+	@Override
+	public void refuse(Integer stc_num, Integer mem_num) {
+		memberMyMapper.refuse(stc_num, mem_num);
+	}
+	@Override
+	public void accept(Integer stc_num, Integer mem_num) {
+		memberMyMapper.accept(stc_num, mem_num);
+	}
+	@Override
+	public void scoreplus(Integer mem_num) {
+		memberMyMapper.scoreplus(mem_num);
+	}
+	@Override
+	public void scoreminus(Integer mem_num) {
+		memberMyMapper.scoreminus(mem_num);
+	}
 }

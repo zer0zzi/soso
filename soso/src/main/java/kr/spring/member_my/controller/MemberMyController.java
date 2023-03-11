@@ -270,6 +270,30 @@ public class MemberMyController {
 		return "myStudy";
 	}
 	
+	//칭찬 점수
+	@RequestMapping("/mymember/scoreplus.do")
+	public String submitplus(@RequestParam int mem_num, Model model, HttpServletRequest request, HttpSession session) {
+		
+		//mem_score 수정
+		memberMyService.scoreplus(mem_num);
+		
+		logger.debug("<<점수 반영 완료 >> : " + mem_num);
+		
+		return "redirect:/mymember/myPage.do";
+	}
+	
+	//격려 점수
+	@RequestMapping("/mymember/scoreminus.do")
+	public String submitminus(@RequestParam int mem_num, Model model, HttpServletRequest request, HttpSession session) {
+		
+		//mem_score 수정
+		memberMyService.scoreminus(mem_num);
+		
+		logger.debug("<<점수 반영 완료 >> : " + mem_num);
+		
+		return "redirect:/mymember/myPage.do";
+	}
+	
 	//내가 만든 스터디 그룹
 	@RequestMapping("/mymember/myStudyMade.do")
 	public String viewmystudymade(HttpSession session, Model model){
@@ -303,6 +327,30 @@ public class MemberMyController {
 		memberMyService.updateStudy(studyVO);
 		
 		logger.debug("<<스터디 그룹 수정 후>> : " + studyVO);
+		
+		return "redirect:/mymember/myStudyMade.do";
+	}
+	
+	//스터디 그룹 가입 수락//
+	@RequestMapping("/mymember/accept.do")
+	public String submitAccept(@RequestParam int stc_num, int mem_num, Model model, HttpServletRequest request, HttpSession session) {
+		
+		//signup_status 수정
+		memberMyService.accept(stc_num, mem_num);
+		
+		logger.debug("<<가입 수락 완료 >>");
+		
+		return "redirect:/mymember/myStudyMade.do";
+	}
+	
+	//스터디 그룹 가입 거절//
+	@RequestMapping("/mymember/refuse.do")
+	public String submitRefuse(@RequestParam int stc_num, int mem_num, Model model, HttpServletRequest request, HttpSession session) {
+		
+		//signup_status 수정
+		memberMyService.refuse(stc_num, mem_num);
+		
+		logger.debug("<<가입 거절 완료 >>");
 		
 		return "redirect:/mymember/myStudyMade.do";
 	}

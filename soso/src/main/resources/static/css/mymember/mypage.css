@@ -13,8 +13,164 @@ body{
 	width:1024px;
 	margin:0 auto;
 }
+input, textarea, select, button, #upload{
+	font-family:'NEXON Lv1 Gothic OTF';
+	outline:none;
+}
 input[type="button"]{
 	font-family:'NEXON Lv1 Gothic OTF';
+	cursor:pointer;
+}
+input[type="button"]:hover{
+   background-color:#9481a1;
+}
+input[id="photo_btn"]{
+	background-color:#8e959e;
+    color:white;
+    width:43px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    margin-left:24px;
+    margin-top:5px;
+}
+input[type="file"]{
+	font-family:'NEXON Lv1 Gothic OTF';
+	width:200px;
+	margin-left:10px;
+}
+input[type=file]::file-selector-button{
+   font-family:'NEXON Lv1 Gothic OTF';
+   background-color:#8e959e;
+   color:white;
+   height:25px;
+   border:none;
+   border-radius:3px;
+}
+input[id="photo_submit"]{
+	background-color:#a5a6e9;
+    color:white;
+    width:43px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+}
+input[id="photo_reset"]{
+	background-color:#8e959e;
+    color:white;
+    width:43px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+}
+button[value="Submit"]{
+	background-color:#a5a6e9;
+    color:white;
+    width:74px;
+    height:30px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+    padding:0px;
+}
+input[value="우편번호찾기"]{
+	background-color:#8e959e;
+    color:white;
+    width:85px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+    padding:0px;
+}
+input[value="My페이지"]{
+	background-color:#8e959e;
+    color:white;
+    width:74px;
+    height:30px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+    padding:0px;
+}
+input[value="회원탈퇴"]{
+	background-color:#8e959e;
+    color:white;
+    width:74px;
+    height:30px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+    padding:0px;
+}
+input[id="바로가기"]{
+	background-color:#8e959e;
+    color:white;
+    width:120px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    padding-top:2px;
+	margin-bottom:2px;
+	margin-left:7px;
+	margin-top:0px;
+}
+input[id="study_modify"]{
+    background-color:#8e959e;
+    color:white;
+    width:40px;
+    height:23px;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+    margin-left:7px;
+    margin-top:-1px;
+}
+button[id="submit_study"]{
+	margin-top:14px;
+	background-color:#a5a6e9;
+    color:white;
+    width:45px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+}
+input[id="cancel"]{
+	margin-top:14px;
+	background-color:#8e959e;
+    color:white;
+    width:45px;
+    height:25px;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+}
+input[value="MY페이지"]{
+	background-color:#8e959e;
+    color:white;
+    width:74px;
+    height:30px;
+    border:none;
+    border-radius:3px;
+    margin-top:5px;
+    padding:0px;
+}
+button {
+    background-color:#a5a6e9;
+    color:white;
+    width:50px;
+    height:30px;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+}
+button:hover{
+   background-color:#9481a1;
+   cursor:pointer;
+   color:white;
 }
 /* 마이페이지 메인 - memberView */
 
@@ -209,6 +365,9 @@ button[value='내가 만든 스터디 그룹']{
 	padding:40px 0px 80px 0px;
 	border:none;
 }
+#modify_form{
+	width:800px;
+}
 table {
     width: 100%;
     border-top: 1px solid rgb(200,200,200);
@@ -217,19 +376,27 @@ table {
 }
 td{
     border-bottom: 1px solid rgb(200,200,200);
-    border-left: 1px solid rgb(200,200,200);
+    border-right: 1px solid rgb(200,200,200);
     padding: 20px;
 }
 td:first-child {
-    border-left: none;
-    background-color:rgb(245,245,245);
-    width:150px;
+    border-left: 1px solid rgb(200,200,200);
+    /* background-color:rgb(245,245,245); */
+    width:230px;
+    font-weight:bold;
+    font-size:15px;
+}
+#modify_form > td:first-child{
+	border-left: 1px solid rgb(200,200,200);
+    border-right:none;
+    /* background-color:rgb(245,245,245); */
+    width:230px;
     font-weight:bold;
     font-size:15px;
 }
 td > input[type="text"]{
 	width:310px;
-	padding:5px;
+	padding:10px;
 	border:1px solid rgb(200,200,200);
 	font-family:'NEXON Lv1 Gothic OTF';
 }
@@ -292,6 +459,23 @@ td[id='tdtd']{
     padding: 40px 20px 40px 20px;
     text-align:center;
 }
+.member{
+	display:flex;
+	flex-wrap:wrap;
+	border-collapse:collapse;
+}
+div[id='tdtd']{
+    background-color:rgb(245,245,245);
+    width:28%;
+    font-weight:bold;
+    font-size:16px;
+    padding: 40px 20px 40px 20px;
+    text-align:center;
+    border:1px solid rgb(210,210,210);
+    border-collapse:collapse;
+    margin-left:-1px;
+    margin-top:-1px;
+}
 p[id='score']{
 	font-size:28px;
 	margin-top:10px;
@@ -299,19 +483,22 @@ p[id='score']{
 }
 input[value='칭찬']{
 	padding:5px 10px 4px 10px;
-	border:2px solid rgb(100,170,230);
-	background-color:rgba(100, 170, 230, 0.67);
+	border:2px solid #8b8cc9;
+	background-color:#a5a6e9;
 	border-radius:3px;
 	cursor:pointer;
 	font-size:12px;
 	color:white;
 	margin-top:15px;
 	font-family:'NEXON Lv1 Gothic OTF';
+}
+input[value='칭찬']:hover{
+	background-color:#8b8cc9;
 }
 input[value='격려']{
 	padding:5px 10px 4px 10px;
-	border:2px solid rgb(235,150,130);
-	background-color:rgba(235, 150, 130, 0.67);
+	border:2px solid #db7e70;
+	background-color:#ff9889;
 	border-radius:3px;
 	cursor:pointer;
 	font-size:12px;
@@ -319,8 +506,10 @@ input[value='격려']{
 	margin-top:15px;
 	font-family:'NEXON Lv1 Gothic OTF';
 }
+input[value='격려']:hover{
+	background-color:#db7e70;
+}
 .mypage-study-ul-r > li[id='click']{
-	cursor:pointer;
 	font-size:18px;
 	padding-bottom:5px;
 	display:flex;
@@ -344,6 +533,7 @@ th[id="s"]{
 	border-bottom:1px solid rgb(200,200,200);
 	border-left:1px solid rgb(200,200,200);
 	padding:10px;
+	background-color:rgb(245,245,245);
 }
 th[id="s"]:first-child {
     border-left:none;
@@ -358,10 +548,10 @@ td[id="s"]{
 }
 td[id="s"]:first-child {
     border-left: none;
-    background-color:rgb(245,245,245);
     width:60px;
     font-size:15px;
     text-align:center;
+    background-color:rgba(245,245,245,0);
 }
 td[id="score"]{
     text-align:center;
@@ -385,8 +575,8 @@ td[id="b"]{
 }
 input[value='수락']{
 	padding:5px 7px 4px 7px;
-	border:2px solid rgb(100,170,230);
-	background-color:rgba(100, 170, 230, 0.67);
+	border:2px solid #8b8cc9;
+	background-color:#a5a6e9;
 	border-radius:3px;
 	cursor:pointer;
 	font-size:12px;
@@ -394,16 +584,22 @@ input[value='수락']{
 	margin-top:0px;
 	font-family:'NEXON Lv1 Gothic OTF';
 }
+input[value='수락']:hover{
+	background-color:#8b8cc9;
+}
 input[value='거절']{
 	padding:5px 7px 4px 7px;
-	border:2px solid rgb(235,150,130);
-	background-color:rgba(235, 150, 130, 0.67);
+	border:2px solid #db7e70;
+	background-color:#ff9889;
 	border-radius:3px;
 	cursor:pointer;
 	font-size:12px;
 	color:white;
 	margin-top:0px;
 	font-family:'NEXON Lv1 Gothic OTF';
+}
+input[value='거절']:hover{
+	background-color:#db7e70;
 }
 .mypage-box-study > h3[id="1"]{
 	margin-top:110px;
@@ -430,7 +626,7 @@ form > ul[class="mypage-study-ul-r"]{
 }
 .mypage-study-ul-r > li > textarea{
 	width:652px;
-	height:40px;
+	height:52px;
 	font-size:17px;
 	padding:3px 2px 3px 2px;
 	margin-top:0px;
@@ -439,9 +635,6 @@ form > ul[class="mypage-study-ul-r"]{
 }
 .align-center{
 	margin-top:10px;
-}
-.align-center > button[id="submit_study"]{
-	margin-top:14px;
 }
 .none{
 	text-align:center;
@@ -456,9 +649,57 @@ form > ul[class="mypage-study-ul-r"]{
 .mypage-study-ul-b{
 	padding:0px;
 }
-input[id="바로가기"]{
-	padding:2px 4px 1px 3px;
-	margin-top:0.5px;
-	margin-bottom:2px;
-	margin-left:7px;
+td[id="hidden"]{
+	display:none;
+}
+th[id="hidden"]{
+	display:none;
+}
+p[id="nomember"]{
+	display:none;
+}
+label[id="status"]{
+	width:50px;
+	height:20px;
+	font-size:12px;
+	background-color:#9481a1;
+	border-radius:7px;
+	text-align:center;
+	margin-top:1px;
+	margin-left:5px;
+	padding:0px 2px 1px 2px;
+}
+label[id="status"] > span{
+	display:inline-block;
+	color:white;
+}
+label[id="status2"]{
+	width:50px;
+	height:20px;
+	font-size:12px;
+	background-color:#a5a6e9;
+	border-radius:7px;
+	text-align:center;
+	margin-top:1px;
+	margin-left:5px;
+	padding:0px 2px 1px 2px;
+}
+label[id="status2"] > span{
+	display:inline-block;
+	color:white;
+}
+label[id="status3"]{
+	width:50px;
+	height:20px;
+	font-size:12px;
+	background-color:#ff9889;
+	border-radius:7px;
+	text-align:center;
+	margin-top:1px;
+	margin-left:5px;
+	padding:0px 2px 1px 2px;
+}
+label[id="status3"] > span{
+	display:inline-block;
+	color:white;
 }

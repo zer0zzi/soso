@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<div class="mypage-right">
-		<h3>내 일정 <input type="button" value="+" onclick="location.href='${pageContext.request.contextPath}/group/groupMain.do?stc_num=${member.stc_num}'"></h3>
+		<h3>내 일정</h3>
 			<div class="mypage-box2">
 				<ul class="mypage-ul">
 				<c:if test="${!empty member.cal_date}">

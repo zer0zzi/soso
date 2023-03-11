@@ -25,6 +25,21 @@
 						</ul>
 					<ul class="mypage-study-ul-r">
 						<li id="click"><b>${studysign.stc_title}</b>
+						<c:if test="${studysign.signup_status eq '0'}">
+							<label id="status">
+								<span>신청완료</span>
+							</label>
+						</c:if>
+						<c:if test="${studysign.signup_status eq '1'}">
+							<label id="status2">
+								<span>신청수락</span>
+							</label>
+						</c:if>
+						<c:if test="${studysign.signup_status eq '2'}">
+							<label id="status3">
+								<span>신청거절</span>
+							</label>
+						</c:if>
 						<input type="button" id="바로가기" value="모집글 바로가기" onclick="location.href='${pageContext.request.contextPath}/study/studyView.do?stc_num=${studysign.stc_num}'"></li>
 						<li>${studysign.stc_content}</li>
 					</ul>
