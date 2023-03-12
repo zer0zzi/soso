@@ -56,6 +56,15 @@ input[type=radio] {
 input[type=file]::file-selector-button{
 	font-family:'NEXON Lv1 Gothic OTF';
 	margin-bottom:7px;
+	height:30px;
+	border:none;
+	border-radius:3px;
+}
+input[type=file]::file-selector-button:hover{
+	background-color: #aaa;
+   	cursor: pointer;
+   	color: white;
+   	transition: 0.2s;
 }
 
 

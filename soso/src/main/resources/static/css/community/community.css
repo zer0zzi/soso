@@ -362,6 +362,15 @@ div.full-insert div.align-left{ /* 작성·수정 폼 버튼 위치 조정 */
 input[type=file]::file-selector-button{
 	font-family:'NEXON Lv1 Gothic OTF';
 	margin-bottom:7px;
+	height:30px;
+	border:none;
+	border-radius:3px;
+}
+input[type=file]::file-selector-button:hover{
+	background-color: #aaa;
+   	cursor: pointer;
+   	color: white;
+   	transition: 0.2s;
 }
 
 

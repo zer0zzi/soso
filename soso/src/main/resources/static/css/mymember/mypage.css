@@ -40,12 +40,17 @@ input[type="file"]{
 	margin-left:10px;
 }
 input[type=file]::file-selector-button{
-   font-family:'NEXON Lv1 Gothic OTF';
-   background-color:#8e959e;
-   color:white;
-   height:25px;
-   border:none;
-   border-radius:3px;
+	font-family:'NEXON Lv1 Gothic OTF';
+	background-color:#8e959e;
+	margin-bottom:7px;
+	height:30px;
+	border:none;
+	color: white;
+	border-radius:3px;
+}
+input[type=file]::file-selector-button:hover{
+   	background-color:#9481a1;
+   	transition: 0.2s;
 }
 input[id="photo_submit"]{
 	background-color:#a5a6e9;
