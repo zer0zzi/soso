@@ -12,7 +12,7 @@
 	<div class="header-div">
 		<div class="header-left">
 			<a href="${pageContext.request.contextPath}/main/main.do">
-				<img src="${pageContext.request.contextPath}/image_bundle/소소-로고.png" width="135px" height="95px">
+				<img src="${pageContext.request.contextPath}/image_bundle/쏘.png" width="135px" height="95px">
 			</a>
 		</div>
 		<div class="header-right">
