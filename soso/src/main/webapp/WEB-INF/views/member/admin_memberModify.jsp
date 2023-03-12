@@ -21,7 +21,7 @@
 		</ul>
 		<div class="align-center">
 			<c:if test="${memberVO.mem_auth!=9}">
-			<form:button class="modi-btn">전송</form:button>
+			<form:button class="modi-btn">수정</form:button>
 			</c:if>
 			<input class="modi-btn" type="button" value="회원목록" onclick="location.href='admin_list.do'">
 		</div>
