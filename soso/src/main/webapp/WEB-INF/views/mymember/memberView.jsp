@@ -25,13 +25,16 @@
 		<h3>내 일정</h3>
 			<div class="mypage-box2">
 				<ul class="mypage-ul">
-				<c:if test="${!empty member.cal_date}">
+				<%-- <c:if test="${!empty member.cal_date}">
 					<li>${member.cal_date}</li>
 					<li>${member.cal_content}</li>
 				</c:if>
 				<c:if test="${empty member.cal_date}">
 					<li style="list-style:none;">등록된 일정이 없습니다.</li>
-				</c:if>
+				</c:if> --%>
+					<li><b id="b">2023.03.11</b> 정기모임 (중앙동 투썸플레이스 2층)</li>
+					<li><b id="b">2023.03.18</b> 정기모임 (3시 홍대입구역 스타벅스 2층)</li>
+					<li><b id="b">2023.03.25</b> 정기모임 쉬는 날</li>
 				</ul>
 			</div>
 	</div>

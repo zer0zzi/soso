@@ -40,13 +40,12 @@ input[type="file"]{
 	margin-left:10px;
 }
 input[type=file]::file-selector-button{
-	font-family:'NEXON Lv1 Gothic OTF';
-	background-color:#8e959e;
-	margin-bottom:7px;
-	height:30px;
-	border:none;
-	color: white;
-	border-radius:3px;
+   font-family:'NEXON Lv1 Gothic OTF';
+   background-color:#8e959e;
+   color:white;
+   height:25px;
+   border:none;
+   border-radius:3px;
 }
 input[type=file]::file-selector-button:hover{
    	background-color:#9481a1;
@@ -221,9 +220,16 @@ button:hover{
 }
 .mypage-ul{
 	padding:0px 20px 0px 15px;
-	list-style:disc inside;
+	list-style:none;
 	line-height:180%;
 	width:450px;
+}
+li > b[id="b"]{
+	border:1.5px solid rgb(210,210,210);
+	background-color:rgb(245,245,245);
+	padding:2px 4px 2px 4px;
+	border-radius:4px;
+	margin-right:5px;
 }
 .mypage-ul-l{
 	text-align:center;
