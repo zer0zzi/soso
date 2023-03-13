@@ -21,16 +21,18 @@
 				<a class="p-l-10" href="${pageContext.request.contextPath}/main/main.do">홈</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">커뮤니티</a>
 				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">채팅방</a>
-			</c:if>
-			<c:if test="${!empty user}">
 				<a><img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo"></a>
 			</c:if>
+			<%-- <c:if test="${!empty user}">
+				<a><img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo"></a>
+			</c:if> --%>
 			<c:if test="${!empty user && user.mem_auth == 2}">
 				<a href="${pageContext.request.contextPath}/mymember/myPage.do">마이페이지</a>
-			</c:if>
-			<c:if test="${!empty user}">
 				<a class="p-l-10" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 			</c:if>
+			<%-- <c:if test="${!empty user}">
+				<a class="p-l-10" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+			</c:if> --%>
 			
 			
 			<!-- 비회원 -->
@@ -45,7 +47,9 @@
 				<a class="p-l-10" href="${pageContext.request.contextPath}/main/main.do">홈</a>
 				<a class="p-l-10" href="${pageContext.request.contextPath}/community/fullList.do">커뮤니티</a>
 				<a class="p-l-10 p-r-10" href="${pageContext.request.contextPath}/talk/talkList.do">채팅방</a>
-				<a class="p-l-10" href="${pageContext.request.contextPath}/main/admin.do">관리자페이지</a>
+				<a><img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo"></a>
+				<a class="p-l-11" href="${pageContext.request.contextPath}/main/admin.do">관리자페이지</a>
+				<a class="p-l-10" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 			</c:if>
 		</div>
 		

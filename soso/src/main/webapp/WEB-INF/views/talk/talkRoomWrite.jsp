@@ -12,7 +12,7 @@
 		 data-id="${user.mem_id}" value="${user.mem_num}">
 		<div class="make-nameNmem">
 			<div class="inputform-a">
-				<span class="chatname-create">채팅방 이름</span><input type="text" name="talkroom_name" id="talkroom_name" class="inputform" autocomplete="off" placeholder="Room Name">
+				<span class="chatname-create">채팅방 이름</span><input type="text" name="talkroom_name" id="talkroom_name" class="inputform" autocomplete="off" placeholder="방 이름">
 			</div>
 			<div class="autocreate">	
 				<input type="checkbox" id="name_checked" class="chatauto"><span class="auto-word">자동생성</span>	
@@ -22,7 +22,7 @@
 				<div class="bothclear"></div>
 			</div>				
 			<div class="inputform-b">
-				<span class="membersearch-create">멤버 검색</span><input type="text" id="member_search" class="inputform" autocomplete="off" placeholder="Member search">			   
+				<span class="membersearch-create">멤버 검색</span><input type="text" id="member_search" class="inputform" autocomplete="off" placeholder="멤버 검색">			   
 			</div>
 			<div id="search_area"></div>
 			<!-- <div class="member-word">Member</div>
@@ -32,7 +32,7 @@
 		</div>
 	
 	<div class="make-btn-box">
-			<input type="submit" value="Create!" class="bottom-btn-2">
+			<input type="submit" value="생성하기" class="bottom-btn-2">
  	</div> 
  	</form>
 	</div>

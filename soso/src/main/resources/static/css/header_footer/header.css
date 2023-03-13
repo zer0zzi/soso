@@ -45,6 +45,9 @@ body{
 .header-right .p-l-10{
     padding-left: 10px;
 }
+.header-right .p-l-11{
+    padding-left: 0px;
+}
 .header-right .p-r-10{
 	padding-right: 10px;
 }

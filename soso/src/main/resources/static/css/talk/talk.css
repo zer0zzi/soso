@@ -121,6 +121,7 @@ form#search_form {
     border-radius: 10px;
     padding-left: 12px;
 	border: 2px solid #d5cff5;
+	height:25px;
 }
 .search {
     text-align: center;
@@ -132,7 +133,7 @@ form#search_form {
 }
 .talklist-list {
     /* border: 1px solid black; */
-    height: 430px;
+    height: 426px;
     margin-top: 15px;
     overflow: auto;
     padding-right: 5px;
@@ -588,7 +589,7 @@ talkRoomWrite
     border-radius: 7px;
     color: darkblue;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 20px;
     /* margin-left: 81px; */
 }
 .bottom-btn-2:hover{

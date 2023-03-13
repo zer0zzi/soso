@@ -9,7 +9,7 @@
 <div class="talklist-head"><div class="titletitle">채팅방</div></div>
 	<form action="talkList.do" id="search_form" method="get">
       <div class="search">
-        <input type="search" name="keyword" id="keyword" value="${param.keyword}" class="search-bar" placeholder="search">
+        <input type="search" name="keyword" id="keyword" value="${param.keyword}" class="search-bar" placeholder="검색">
 <!--       	<input type="submit" value="go" class="search-btn"> -->
 		<img src="">
       </div>                                
@@ -47,7 +47,7 @@
    </div>
    </c:if>
 <div class="talklist-mypage-btn">
-   	<input type="button" value="New Talk" class="bottom-btn" onclick="location.href='talkList.do'">
+   	<input type="button" value="대화방 생성" class="bottom-btn" onclick="location.href='talkList.do'">
 <!--    	<input type="button" value="My Page" class="bottom-btn" onclick="location.href='talkList.do'">   	
  --> </div> 
 
