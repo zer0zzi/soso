@@ -6,13 +6,13 @@
 + 직접 소모임을 만들고 모임을 관리하며, 사람들과 소통할 수 있는 소모임 관리 웹사이트 개발 프로젝트입니다.
 
 ## 개발인원
-+ 신서영(팀장) https://github.com/ssy2253
-+ 김동혁 https://github.com/ddongk
-+ 김영지 https://github.com/zer0zzi
-+ 박채정 https://github.com/Chaejung97
-+ 안용혁 https://github.com/ahnyh123
-+ 임승순 https://github.com/Im-Soon
-+ 조연희 https://github.com/2ehnoey
++ [신서영(팀장)](https://github.com/ssy2253)
++ 김동혁 
++ 김영지
++ 박채정
++ 안용혁
++ 임승순
++ 조연희
 
 ## 기술 스택
 + DB : Oracle 11g
