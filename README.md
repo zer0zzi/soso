@@ -1,5 +1,5 @@
 # soso
-+ :clipboard: [포트폴리오](https://naver.com)
++ :clipboard: [soso 프로젝트 포트폴리오](https://drive.google.com/file/d/1NxBLgQ6gKxLWliWhCaOlxdixh80BNVCn/view?usp=sharing)
 
 ## 프로젝트 소개
 + 소소(soso)하게 취미가 비슷한 사람들과 모여 모임을 꾸리고 싶은 사람 :wave:
