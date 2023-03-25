@@ -18,6 +18,7 @@
 + DB : Oracle 11g
 + SERVER : Apache Tomcat v9.0
 + IDE : SQL Developer, eGov Spring Framework
++ LIBRARY : bootstrap (colorlib)
 
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ssy2253)](https://github.com/ssy2253/soso/github-readme-stats)
