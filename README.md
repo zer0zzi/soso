@@ -23,6 +23,18 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ssy2253)](https://github.com/ssy2253/soso/github-readme-stats)
 
+## 모듈명 정리
++ main : 메인페이지 관련
++ member : 회원 관련
++ member_my : 마이페이지 관련
++ stc : 스터디그룹 생성 관련
++ study : 스터디그룹 상세페이지 관련
++ group : 스터디그룹 전용페이지 관련
++ promo : 홍보게시판 관련
++ review : 후기게시판 관련
++ free : 자유게시판 관련
++ talk : 채팅 관련
+
 ## 구현 기능
 ### 기능 1
 
